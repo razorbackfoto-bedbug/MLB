@@ -1,0 +1,42 @@
+---
+// Generated placeholder cover used until a real cover image is supplied via
+// the book's `coverImage` field. Deterministic per-title color + initials so
+// the shelf still looks varied and intentional.
+import type { Book } from '../lib/books';
+import { coverPaletteFor } from '../lib/cover';
+
+interface Props {
+  book: Book;
+  class?: string;
+}
+const { book, class: className = '' } = Astro.props;
+
+const palette = coverPaletteFor(book.slug);
+---
+
+{
+  book.coverImage ? (
+    <img
+      src={book.coverImage}
+      alt={`Cover of ${book.title}`}
+      class:list={['aspect-[3/4] w-full rounded-2xl object-cover shadow-card', className]}
+      loading="lazy"
+    />
+  ) : (
+    <div
+      class:list={[
+        'relative flex aspect-[3/4] w-full flex-col justify-between overflow-hidden rounded-2xl p-4 shadow-card',
+        className,
+      ]}
+      style={{ backgroundColor: palette.bg, color: palette.fg }}
+      role="img"
+      aria-label={`Cover placeholder for ${book.title}`}
+    >
+      <div class="absolute inset-y-0 right-0 w-2 bg-black/10" aria-hidden="true"></div>
+      <svg class="h-5 w-5 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+        <path d="M12 21s-7.5-4.6-10-9.3C0.5 8 2.3 4 6.2 4c2.1 0 3.7 1.2 4.5 2.6C11.5 5.2 13.1 4 15.2 4c3.9 0 5.7 4 4.2 7.7C19.5 16.4 12 21 12 21Z" />
+      </svg>
+      <p class="font-display text-lg font-semibold leading-snug">{book.title}</p>
+    </div>
+  )
+}

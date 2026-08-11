@@ -1,0 +1,73 @@
+[
+  {
+    "slug": "nicu-prematurity",
+    "label": "NICU & Prematurity",
+    "icon": "crib",
+    "description": "Books for babies in the NICU, premature birth, and the journey of growing stronger.",
+    "matchTopics": ["NICU", "Prematurity"]
+  },
+  {
+    "slug": "siblings",
+    "label": "Siblings",
+    "icon": "siblings",
+    "description": "Stories to help brothers and sisters feel included, understood, and important.",
+    "matchTopics": ["Sibling Education"]
+  },
+  {
+    "slug": "hospital-stays",
+    "label": "Hospital Stays",
+    "icon": "hospital",
+    "description": "Preparing for surgery, tests, and hospital visits with courage and calm.",
+    "matchTopics": ["Surgery", "Medical Equipment", "NICU Staff", "Care Team", "Hospitalization"]
+  },
+  {
+    "slug": "cardiac",
+    "label": "Cardiac",
+    "icon": "heart",
+    "description": "Books about heart conditions, procedures, and loving, strong hearts.",
+    "matchTopics": ["Cardiac"]
+  },
+  {
+    "slug": "respiratory",
+    "label": "Respiratory",
+    "icon": "lungs",
+    "description": "Support for breathing tubes, oxygen, ventilators, and respiratory challenges.",
+    "matchTopics": ["Respiratory", "Ventilation", "Oxygen/CPAP", "Tracheostomy"]
+  },
+  {
+    "slug": "feeding-tubes",
+    "label": "Feeding Tubes",
+    "icon": "feeding",
+    "description": "Stories about NG tubes, G-tubes, and mealtime in a new way.",
+    "matchTopics": ["Feeding/G-tube"]
+  },
+  {
+    "slug": "oncology",
+    "label": "Oncology",
+    "icon": "ribbon",
+    "description": "Books for kids facing cancer, treatments, and the people who care for them.",
+    "matchTopics": ["Oncology"]
+  },
+  {
+    "slug": "genetics-rare-disease",
+    "label": "Genetics & Rare Disease",
+    "icon": "dna",
+    "description": "Celebrating unique kids and explaining rare diagnoses.",
+    "matchTopics": ["Genetics", "Rare Disease"]
+  },
+  {
+    "slug": "grief-loss",
+    "label": "Grief & Loss",
+    "icon": "grief",
+    "description": "Gentle books to help kids process sadness and remember love.",
+    "matchTopics": ["Grief/Loss"]
+  },
+  {
+    "slug": "parent-resources",
+    "label": "Parent Resources",
+    "icon": "family",
+    "description": "Books for parents and caregivers to learn, heal, and feel supported.",
+    "matchTopics": ["Parent Resources"],
+    "matchBookTypes": ["Guides & Resources"]
+  }
+]

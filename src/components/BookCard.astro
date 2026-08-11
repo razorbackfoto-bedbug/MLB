@@ -1,0 +1,35 @@
+---
+import type { Book } from '../lib/books';
+import { formatAgeRange } from '../lib/books';
+import BookCover from './BookCover.astro';
+import Badge from './Badge.astro';
+
+interface Props {
+  book: Book;
+  class?: string;
+}
+const { book, class: className = '' } = Astro.props;
+
+const topBadges = book.medicalTopics.slice(0, 2);
+---
+
+<article class:list={['card flex h-full flex-col overflow-hidden p-3', className]}>
+  <a href={`/books/${book.slug}/`} class="block">
+    <BookCover book={book} />
+  </a>
+  <div class="flex flex-1 flex-col gap-2 pt-3">
+    <a href={`/books/${book.slug}/`} class="font-display text-lg font-semibold leading-snug text-teal-700 hover:text-coral-500">
+      {book.title}
+    </a>
+    <p class="text-sm text-ink-light">{formatAgeRange(book)}</p>
+    <div class="flex flex-wrap gap-1.5">
+      {topBadges.map((topic) => <Badge label={topic} />)}
+    </div>
+    <a
+      href={`/books/${book.slug}/`}
+      class="mt-auto inline-flex items-center justify-center rounded-full bg-teal-700 px-4 py-2 text-sm font-bold text-cream-50 hover:bg-teal-600"
+    >
+      View Book
+    </a>
+  </div>
+</article>

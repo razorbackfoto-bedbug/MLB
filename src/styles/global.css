@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Nunito+Sans:wght@400;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream-100 text-ink font-body antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display text-teal-700;
+  }
+
+  a {
+    @apply transition-colors;
+  }
+
+  :focus-visible {
+    @apply outline outline-2 outline-offset-2 outline-coral-400;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-teal-700 px-6 py-3 font-body font-bold text-cream-50 shadow-soft transition hover:bg-teal-600 active:bg-teal-800;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-teal-700 px-6 py-3 font-body font-bold text-teal-700 transition hover:bg-teal-50;
+  }
+
+  .card {
+    @apply rounded-2xl border border-teal-100 bg-white shadow-card;
+  }
+
+  .pill {
+    @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-bold;
+  }
+
+  .section-label {
+    @apply font-body text-sm font-bold uppercase tracking-wide text-coral-400;
+  }
+}

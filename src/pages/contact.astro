@@ -1,0 +1,83 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../config/site';
+---
+
+<BaseLayout title="Contact" description="Get in touch with Mighty Little Bookshelf — questions, book suggestions, or corrections.">
+  <section class="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
+    <p class="section-label">Contact</p>
+    <h1 class="mt-2 font-display text-3xl font-semibold sm:text-4xl">We'd love to hear from you</h1>
+    <p class="mt-3 max-w-xl text-ink-light">
+      Have a question, a book suggestion, or a correction to a listing? Send us a note and we'll get back to you.
+    </p>
+
+    <form id="contact-form" class="card mt-8 space-y-4 p-6 sm:p-8" novalidate>
+      <div class="grid gap-4 sm:grid-cols-2">
+        <div>
+          <label for="name" class="block text-sm font-semibold text-ink">Name</label>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            required
+            class="mt-1 w-full rounded-xl border border-teal-200 bg-white px-4 py-2.5 text-ink focus:border-teal-500"
+          />
+        </div>
+        <div>
+          <label for="email" class="block text-sm font-semibold text-ink">Email</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            required
+            class="mt-1 w-full rounded-xl border border-teal-200 bg-white px-4 py-2.5 text-ink focus:border-teal-500"
+          />
+        </div>
+      </div>
+      <div>
+        <label for="topic" class="block text-sm font-semibold text-ink">What's this about?</label>
+        <select
+          id="topic"
+          name="topic"
+          class="mt-1 w-full rounded-xl border border-teal-200 bg-white px-4 py-2.5 text-ink focus:border-teal-500"
+        >
+          <option>General question</option>
+          <option>Suggest a book</option>
+          <option>Correction to a listing</option>
+          <option>Partnership / press</option>
+          <option>Something else</option>
+        </select>
+      </div>
+      <div>
+        <label for="message" class="block text-sm font-semibold text-ink">Message</label>
+        <textarea
+          id="message"
+          name="message"
+          rows="5"
+          required
+          class="mt-1 w-full rounded-xl border border-teal-200 bg-white px-4 py-2.5 text-ink focus:border-teal-500"
+        ></textarea>
+      </div>
+      <button type="submit" class="btn-primary">Send Message</button>
+      <p class="text-xs text-ink-light">
+        This opens your email app with your message pre-filled and addressed to {SITE.email}.
+      </p>
+    </form>
+  </section>
+</BaseLayout>
+
+<script define:vars={{ email: SITE.email }}>
+  const form = document.getElementById('contact-form');
+  form?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const data = new FormData(form);
+    const name = data.get('name') ?? '';
+    const topic = data.get('topic') ?? 'General question';
+    const message = data.get('message') ?? '';
+    const senderEmail = data.get('email') ?? '';
+
+    const subject = `[Mighty Little Bookshelf] ${topic}`;
+    const body = `${message}\n\n— ${name} (${senderEmail})`;
+    window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+</script>

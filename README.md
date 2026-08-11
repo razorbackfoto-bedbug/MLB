@@ -1,0 +1,162 @@
+# Mighty Little Bookshelf
+
+A searchable, filterable library of children's books for families navigating the NICU, hospital
+stays, and pediatric medical experiences — with Amazon affiliate links. Built with
+[Astro](https://astro.build) + [Tailwind CSS](https://tailwindcss.com) + a [Preact](https://preactjs.com)
+island for the interactive library filters, and designed to deploy for free on Cloudflare Pages.
+
+> **Note on this build:** this project was scaffolded and coded without a local Node.js
+> environment available, so the `npm install` / `npm run dev` / `npm run build` steps below have
+> **not yet been run**. Please run them locally before deploying — see "First run" below.
+
+## Stack
+
+- **Astro** (static output) — pages are pre-rendered at build time, no server required.
+- **Tailwind CSS** — utility styling, theme colors match the brand mockups (teal / sage / coral /
+  cream / warm yellow).
+- **Preact** — a single interactive island (`src/components/LibraryExplorer.tsx`) powers the
+  Book Library search/filter/sort experience. Everything else is static HTML.
+- **Data-driven pages** — every book and topic page is generated from
+  `src/data/books.json` / `src/data/topics.json` via Astro's `getStaticPaths`. Adding a book to
+  the JSON file is enough to get a live `/books/<slug>/` page; no page needs to be hand-built.
+
+## Project structure
+
+```
+src/
+  components/       Reusable UI: Header, Footer, BookCard, TopicCard, BookCover, LibraryExplorer, ...
+  config/
+    site.ts         Site name, nav links, social links, footer links
+    affiliate.ts     Amazon affiliate tag + link-building logic (see below)
+  data/
+    books.json       The book catalog (seed data from the Master Catalog spreadsheet)
+    topics.json       The "Browse by Topic" taxonomy
+  layouts/
+    BaseLayout.astro  <head>, header, footer, SEO tags
+  lib/
+    books.ts          Types + accessors/filters over books.json/topics.json
+    cover.ts           Deterministic placeholder-cover color logic
+    badges.ts           Deterministic tag-pill color logic
+  pages/
+    index.astro                Homepage
+    library/index.astro         Book Library (search/filter)
+    topics/index.astro          Browse by Topic
+    topics/[slug].astro          Topic detail
+    books/[slug].astro           Book detail
+    about.astro, contact.astro, affiliate-disclosure.astro, privacy-policy.astro
+scripts/
+  import-catalog.mjs  Re-import/refresh books.json from a spreadsheet CSV export
+```
+
+## First run
+
+Node.js was not available in the environment this project was built in. On a machine with
+[Node.js 18+](https://nodejs.org) installed:
+
+```bash
+npm install
+npm run dev
+```
+
+Then open the printed local URL (usually `http://localhost:4321`) and click through every page —
+homepage, Book Library (try the search box and each filter group), Topics, a few book detail
+pages, and the four content pages — before treating this as done. This has not been visually
+verified yet since it was built without a local dev server.
+
+To produce a production build:
+
+```bash
+npm run build     # runs astro check (type-check) + astro build -> outputs to dist/
+npm run preview   # serve the production build locally
+```
+
+## Updating the book catalog
+
+The catalog lives in `src/data/books.json`, one object per book. Two ways to update it:
+
+1. **Manual edit** — open `src/data/books.json` and edit/add an entry directly. Required shape is
+   documented by the `Book` type in `src/lib/books.ts`.
+2. **Re-import from the spreadsheet** — export the "Master Catalog" sheet as CSV, then run:
+
+   ```bash
+   node scripts/import-catalog.mjs path/to/Master_Catalog_export.csv
+   ```
+
+   This matches rows to existing books by title (via a generated slug), refreshes their factual
+   fields from the spreadsheet, and appends any new titles — without touching hand-curated fields
+   you've already set (`coverImage`, `featured`, a written `mlbSummary`, etc.). New books
+   automatically get a `/books/<slug>/` page and show up in the Library and any matching Topic
+   pages; nothing else needs to change.
+
+Per the original catalog notes: **do not copy book descriptions from Preemie Adventures or any
+other source.** `mlbSummary` is left `null` in the seed data on purpose — the book detail page
+shows a "description coming soon" placeholder until you write original copy for that field.
+
+### Adding cover images
+
+Set a book's `coverImage` field to an image URL (or a path under `public/`, e.g.
+`/covers/goodnight-nicu.jpg`) and it will replace the generated placeholder automatically.
+
+### Topics
+
+`src/data/topics.json` defines the "Browse by Topic" tiles. Each topic has a `matchTopics` array —
+any book whose `medicalTopics` includes one of those strings will appear on that topic's page.
+Add a topic by adding an entry here; no page needs to be created.
+
+## Setting up the Amazon affiliate tag
+
+All Amazon links are generated by `getAmazonLink()` in `src/config/affiliate.ts`. To go live:
+
+1. Get your Amazon Associates tracking ID (e.g. `mightylittle-20`).
+2. Set `AMAZON_AFFILIATE_TAG` in `src/config/affiliate.ts` to that ID.
+3. Rebuild and redeploy.
+
+Every "View on Amazon" / "Search on Amazon" link across the whole site updates from that one
+change. If a specific book already has a hand-picked `affiliateUrl` set in `books.json`, that URL
+is used as-is (takes priority over the global tag).
+
+## Deploying to Cloudflare Pages (free)
+
+1. Push this repository to GitHub (see below).
+2. In the Cloudflare dashboard: **Workers & Pages → Create → Pages → Connect to Git**, select the
+   repo.
+3. Build settings:
+   - **Framework preset:** Astro
+   - **Build command:** `npm run build`
+   - **Build output directory:** `dist`
+4. Deploy. Cloudflare Pages' free tier covers this project's needs (static output, no server
+   functions used).
+5. Add a custom domain (e.g. `mightylittlebookshelf.com`) under the Pages project's **Custom
+   domains** tab once DNS is ready.
+
+No environment variables are required for the base site.
+
+## Push to GitHub
+
+```bash
+git init   # already done if you're reading this after setup
+git add .
+git commit -m "Initial site build"
+git branch -M main
+git remote add origin https://github.com/<your-username>/mighty-little-bookshelf.git
+git push -u origin main
+```
+
+## Things to review before launch
+
+- **Newsletter form** (`src/components/Newsletter.astro`) is presentational only — it doesn't send
+  anywhere yet. Swap in your email provider's embed code (Buttondown, ConvertKit, Mailchimp, etc.)
+  when you pick one.
+- **Contact form** (`src/pages/contact.astro`) opens the visitor's email client via a `mailto:`
+  link — no backend required, but you may want a real form service (e.g. Cloudflare Pages Forms,
+  Formspree) later for a smoother experience.
+- **Privacy Policy / Affiliate Disclosure** pages are solid starting drafts, not legal advice —
+  have them reviewed before relying on them, especially once analytics or a real newsletter
+  provider is wired up.
+- **Book metadata** — most seed books only have title/audience/format/topics filled in (author,
+  ISBN, age range, publication year, and Amazon product URLs are intentionally blank pending
+  verification, per the source spreadsheet's own notes). The book detail page shows a
+  "Metadata verification in progress" badge in that case.
+- **Cover images** — no real cover art was provided, so every book currently shows a generated
+  color-block placeholder. Add real cover images via the `coverImage` field once you have
+  permission/assets to use them.

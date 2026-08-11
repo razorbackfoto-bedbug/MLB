@@ -1,0 +1,93 @@
+---
+import { SITE } from '../config/site';
+import Logo from './Logo.astro';
+
+const currentPath = Astro.url.pathname;
+
+function isActive(href: string) {
+  if (href === '/') return currentPath === '/';
+  return currentPath.startsWith(href);
+}
+---
+
+<header class="sticky top-0 z-40 border-b border-teal-100/70 bg-cream-100/95 backdrop-blur">
+  <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
+    <a href="/" class="flex items-center gap-3">
+      <Logo />
+      <span class="font-display text-xl font-semibold leading-tight text-teal-700 sm:text-2xl">
+        Mighty Little<br class="hidden sm:block" /> Bookshelf
+      </span>
+    </a>
+
+    <nav class="hidden items-center gap-8 md:flex" aria-label="Primary">
+      {
+        SITE.nav.map((item) => (
+          <a
+            href={item.href}
+            class:list={[
+              'font-body font-semibold text-ink transition hover:text-teal-700',
+              isActive(item.href) && 'text-teal-700 underline decoration-coral-400 decoration-2 underline-offset-8',
+            ]}
+            aria-current={isActive(item.href) ? 'page' : undefined}
+          >
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <a href="/library/" class="btn-secondary hidden sm:inline-flex">
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M4 19.5V5a2 2 0 0 1 2-2h12v16.5" stroke-linecap="round" stroke-linejoin="round"></path>
+          <path d="M6 21a2 2 0 0 1 0-4h12v4Z" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+        Browse Books
+      </a>
+      <button
+        id="menu-toggle"
+        type="button"
+        class="inline-flex items-center justify-center rounded-full border-2 border-teal-700 p-2 text-teal-700 md:hidden"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        aria-label="Toggle navigation menu"
+      >
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <nav id="mobile-menu" class="hidden border-t border-teal-100 bg-cream-100 md:hidden" aria-label="Mobile">
+    <ul class="flex flex-col gap-1 px-4 py-3">
+      {
+        SITE.nav.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class="block rounded-xl px-3 py-2 font-body font-semibold text-ink hover:bg-teal-50 hover:text-teal-700"
+              aria-current={isActive(item.href) ? 'page' : undefined}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))
+      }
+      <li>
+        <a href="/library/" class="mt-2 block rounded-xl bg-teal-700 px-3 py-2 text-center font-body font-bold text-cream-50">
+          Browse Books
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  toggle?.addEventListener('click', () => {
+    const isOpen = menu?.classList.toggle('hidden') === false;
+    toggle.setAttribute('aria-expanded', String(isOpen));
+  });
+</script>

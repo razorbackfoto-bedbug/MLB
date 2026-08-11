@@ -1,0 +1,11 @@
+---
+import { badgeClassesFor } from '../lib/badges';
+
+interface Props {
+  label: string;
+  class?: string;
+}
+const { label, class: className = '' } = Astro.props;
+---
+
+<span class:list={['pill', badgeClassesFor(label), className]}>{label}</span>

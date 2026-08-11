@@ -1,0 +1,69 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BookshelfIllustration from '../components/BookshelfIllustration.astro';
+---
+
+<BaseLayout
+  title="About"
+  description="Why Mighty Little Bookshelf exists and how we choose the books in our library."
+>
+  <section class="mx-auto max-w-5xl px-4 pb-8 pt-10 sm:px-6 lg:px-8">
+    <div class="grid items-center gap-8 lg:grid-cols-[1.2fr,0.8fr]">
+      <div>
+        <p class="section-label">About Us</p>
+        <h1 class="mt-2 font-display text-3xl font-semibold sm:text-4xl">
+          Books that meet families right where they are.
+        </h1>
+        <p class="mt-4 max-w-xl text-ink-light">
+          Mighty Little Bookshelf is a curated, searchable library of children's books for families navigating the
+          NICU, hospital stays, medical conditions, and the big feelings that come with them.
+        </p>
+      </div>
+      <div class="hidden lg:block">
+        <BookshelfIllustration class="h-40 w-full" />
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-4 pb-16 sm:px-6 lg:px-8">
+    <div class="card space-y-6 p-6 sm:p-10">
+      <div>
+        <h2 class="font-display text-xl font-semibold text-teal-700">Our mission</h2>
+        <p class="mt-2 leading-relaxed text-ink">
+          A medical diagnosis, a NICU stay, or a hospital admission can turn a family's world upside down overnight —
+          and it's often hardest to explain to the youngest members of the family. We believe the right book at the
+          right moment can help a child feel less afraid, help a sibling feel included, and help a parent find words
+          they didn't know how to say. Our mission is to make those books easy to find.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-xl font-semibold text-teal-700">How we choose books</h2>
+        <p class="mt-2 leading-relaxed text-ink">
+          Every title in our library is reviewed for relevance to a specific medical experience — NICU and
+          prematurity, sibling support, hospital stays, respiratory and cardiac conditions, feeding tubes, oncology,
+          genetics and rare disease, grief and loss, and parent resources. We're steadily verifying and expanding the
+          details on every listing (age range, format, and a full description) as we go, so you may see a
+          "verification in progress" note on newer additions.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-xl font-semibold text-teal-700">How this site supports itself</h2>
+        <p class="mt-2 leading-relaxed text-ink">
+          Mighty Little Bookshelf participates in the Amazon Associates program. When you buy a book through a link
+          on our site, we may earn a small commission at no extra cost to you. Read our full
+          <a href="/affiliate-disclosure/" class="font-semibold text-teal-700 underline">affiliate disclosure</a>.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-xl font-semibold text-teal-700">Have a book to recommend?</h2>
+        <p class="mt-2 leading-relaxed text-ink">
+          We'd love to hear from you. <a href="/contact/" class="font-semibold text-teal-700 underline">Get in touch</a>
+          with a title, and we'll add it to our review list.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

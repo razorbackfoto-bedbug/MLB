@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BookshelfIllustration from '../../components/BookshelfIllustration.astro';
+import LibraryExplorer from '../../components/LibraryExplorer';
+import {
+  getAllBooks,
+  getAllTopics,
+  bookMatchesTopic,
+  AGE_BUCKETS,
+  getUniqueAudienceTags,
+  getUniqueBookTypes,
+} from '../../lib/books';
+
+const topics = getAllTopics();
+const books = getAllBooks().map((book) => ({
+  ...book,
+  topicSlugs: topics.filter((topic) => bookMatchesTopic(book, topic)).map((topic) => topic.slug),
+}));
+
+const audienceOptions = getUniqueAudienceTags();
+const bookTypeOptions = getUniqueBookTypes();
+---
+
+<BaseLayout
+  title="Book Library"
+  description="Search and filter our full library of children's books for NICU, hospital, and medical-experience families."
+>
+  <section class="mx-auto max-w-7xl px-4 pb-6 pt-10 sm:px-6 lg:px-8">
+    <div class="grid items-center gap-8 lg:grid-cols-[1.2fr,0.8fr]">
+      <div>
+        <h1 class="font-display text-3xl font-semibold sm:text-4xl">
+          Find the right book for your <span class="text-coral-400">family</span>
+          <span aria-hidden="true" class="text-coral-400">♥</span>
+        </h1>
+        <p class="mt-3 max-w-xl text-ink-light">
+          Explore our thoughtfully gathered children's books to help families navigate NICU stays, hospital
+          experiences, medical conditions, and more.
+        </p>
+      </div>
+      <div class="hidden lg:block">
+        <BookshelfIllustration class="h-40 w-full" />
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
+    <LibraryExplorer
+      client:load
+      books={books}
+      topics={topics}
+      ageBuckets={AGE_BUCKETS}
+      audienceOptions={audienceOptions}
+      bookTypeOptions={bookTypeOptions}
+    />
+  </section>
+</BaseLayout>

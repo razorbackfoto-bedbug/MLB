@@ -1,0 +1,60 @@
+---
+interface Props {
+  class?: string;
+}
+const { class: className = 'w-full h-auto' } = Astro.props;
+---
+
+<svg class={className} viewBox="0 0 480 360" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration of a cozy bookshelf with a heart, plant, and stars">
+  <circle cx="380" cy="60" r="26" fill="#F6E9D3" opacity="0.7"></circle>
+  <circle cx="60" cy="280" r="34" fill="#D9E9E7" opacity="0.6"></circle>
+
+  <path d="M50 60 60 40 70 60 60 80Z" fill="#F5C451"></path>
+  <path d="M420 220 428 205 436 220 428 235Z" fill="#F5C451"></path>
+  <path d="M410 40 415 30 420 40 415 50Z" fill="#E56F42" opacity="0.8"></path>
+
+  <!-- shelf unit -->
+  <rect x="70" y="60" width="340" height="230" rx="14" fill="#B98354"></rect>
+  <rect x="82" y="72" width="316" height="90" rx="6" fill="#DDB48A"></rect>
+  <rect x="82" y="176" width="316" height="90" rx="6" fill="#DDB48A"></rect>
+
+  <!-- top shelf items -->
+  <rect x="95" y="90" width="38" height="60" rx="4" fill="#215750"></rect>
+  <rect x="137" y="90" width="38" height="60" rx="4" fill="#E56F42"></rect>
+  <rect x="179" y="90" width="38" height="60" rx="4" fill="#7A9C4F"></rect>
+  <rect x="365" y="88" width="24" height="62" rx="4" fill="#F5C451"></rect>
+
+  <!-- teddy bear on top shelf -->
+  <g transform="translate(230,92)">
+    <circle cx="30" cy="14" r="12" fill="#4B8F86"></circle>
+    <circle cx="16" cy="4" r="6" fill="#4B8F86"></circle>
+    <circle cx="44" cy="4" r="6" fill="#4B8F86"></circle>
+    <rect x="10" y="22" width="40" height="34" rx="16" fill="#5FA79D"></rect>
+    <path d="M30 30c-3-5-11-5-11 1 0 6 11 12 11 12s11-6 11-12c0-6-8-6-11-1Z" fill="#FBF3E7"></path>
+  </g>
+
+  <!-- bottom shelf spines -->
+  <rect x="95" y="196" width="26" height="60" rx="3" fill="#E56F42"></rect>
+  <rect x="123" y="196" width="26" height="60" rx="3" fill="#215750"></rect>
+  <rect x="151" y="196" width="26" height="60" rx="3" fill="#F5C451"></rect>
+  <rect x="179" y="196" width="26" height="60" rx="3" fill="#7A9C4F"></rect>
+  <rect x="207" y="196" width="26" height="60" rx="3" fill="#4B8F86"></rect>
+  <rect x="235" y="196" width="26" height="60" rx="3" fill="#D6592D"></rect>
+
+  <!-- framed heart card -->
+  <g transform="translate(300,200)">
+    <rect width="80" height="52" rx="8" fill="#FBF3E7" stroke="#B98354" stroke-width="3"></rect>
+    <path d="M40 38s-14-8-14-18c0-6 5-9 9-9 3.6 0 5.9 2 5 4 -0.9-2 1.4-4 5-4 4 0 9 3 9 9 0 10-14 18-14 18Z" fill="#E56F42"></path>
+  </g>
+
+  <!-- plant -->
+  <g transform="translate(360,150)">
+    <rect x="0" y="20" width="22" height="18" rx="3" fill="#D6592D"></rect>
+    <path d="M11 20c0-14-14-16-14-16s0 16 14 16Z" fill="#7A9C4F"></path>
+    <path d="M11 20c0-16 16-18 16-18s0 18-16 18Z" fill="#93B268"></path>
+  </g>
+
+  <!-- ground plants -->
+  <path d="M20 340c10-30 30-30 30-30s-4 26-30 30Z" fill="#AFC78C"></path>
+  <path d="M60 350c8-24 26-24 26-24s-3 22-26 24Z" fill="#93B268"></path>
+</svg>

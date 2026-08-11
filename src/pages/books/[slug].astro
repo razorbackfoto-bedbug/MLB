@@ -1,0 +1,203 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BookCover from '../../components/BookCover.astro';
+import BookCard from '../../components/BookCard.astro';
+import Badge from '../../components/Badge.astro';
+import { getAllBooks, getBookBySlug, formatAgeRange } from '../../lib/books';
+import { getAmazonLink } from '../../config/affiliate';
+
+export function getStaticPaths() {
+  return getAllBooks().map((book) => ({
+    params: { slug: book.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+const book = getBookBySlug(slug!);
+
+if (!book) {
+  return Astro.redirect('/library/');
+}
+
+const amazon = getAmazonLink(book);
+
+const related = getAllBooks()
+  .filter((b) => b.slug !== book.slug && b.medicalTopics.some((t) => book.medicalTopics.includes(t)))
+  .slice(0, 4);
+
+const infoRows: { label: string; value: string }[] = [
+  { label: 'Best For', value: book.audience },
+  { label: 'Topics', value: book.medicalTopics.join(', ') },
+  { label: 'Format', value: book.format },
+];
+if (book.publisherUrl) infoRows.push({ label: 'Publisher', value: book.publisherUrl });
+if (book.isbn) infoRows.push({ label: 'ISBN', value: book.isbn });
+if (book.publicationYear) infoRows.push({ label: 'Published', value: String(book.publicationYear) });
+
+const needsVerification = book.verificationStatus !== 'Ready for website';
+---
+
+<BaseLayout
+  title={book.title}
+  description={book.mlbSummary ?? `${book.title} — a children's book about ${book.medicalTopics.join(', ')}.`}
+>
+  <section class="mx-auto max-w-6xl px-4 pb-4 pt-8 sm:px-6 lg:px-8">
+    <nav class="text-sm text-ink-light" aria-label="Breadcrumb">
+      <a href="/" class="hover:text-teal-700">Home</a> /
+      <a href="/library/" class="hover:text-teal-700">Book Library</a> /
+      <span class="text-ink">{book.title}</span>
+    </nav>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 pb-14 sm:px-6 lg:px-8">
+    <div class="grid gap-10 lg:grid-cols-[320px,1fr]">
+      <div class="mx-auto w-full max-w-xs lg:mx-0">
+        <BookCover book={book} />
+      </div>
+
+      <div>
+        {
+          needsVerification && (
+            <p class="mb-3 inline-flex items-center gap-2 rounded-full bg-sunny-100 px-3 py-1 text-xs font-bold text-sunny-500">
+              Metadata verification in progress
+            </p>
+          )
+        }
+        <h1 class="font-display text-3xl font-semibold sm:text-4xl">{book.title}</h1>
+        <p class="mt-2 text-ink-light">
+          {book.author && <span>By {book.author}</span>}
+          {book.author && book.illustrator && <span> &nbsp;|&nbsp; </span>}
+          {book.illustrator && <span>Illustrated by {book.illustrator}</span>}
+          {!book.author && !book.illustrator && <span>Author &amp; illustrator not yet verified</span>}
+        </p>
+
+        <div class="mt-4 flex flex-wrap items-center gap-3 text-sm text-ink-light">
+          <span class="inline-flex items-center gap-1.5">
+            <svg class="h-4 w-4 text-teal-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <rect x="3" y="4" width="18" height="18" rx="3"></rect>
+              <path d="M3 9h18M8 3v4M16 3v4" stroke-linecap="round"></path>
+            </svg>
+            {formatAgeRange(book)}
+          </span>
+          <span class="inline-flex items-center gap-1.5">
+            <svg class="h-4 w-4 text-coral-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <circle cx="9" cy="8" r="3.2"></circle>
+              <path d="M2.5 20c0-3.3 2.9-6 6.5-6s6.5 2.7 6.5 6" stroke-linecap="round"></path>
+              <circle cx="17" cy="9.5" r="2.4"></circle>
+              <path d="M14.8 20c.3-2.4 1.7-4.2 3.5-4.8" stroke-linecap="round"></path>
+            </svg>
+            {book.audience}
+          </span>
+        </div>
+
+        <div class="mt-4 flex flex-wrap gap-2">
+          {book.medicalTopics.map((topic) => <Badge label={topic} />)}
+          {book.siblingFocus && <Badge label="Sibling Focus" />}
+          {book.faithBased === true && <Badge label="Faith-Based" />}
+        </div>
+
+        <p class="mt-6 max-w-2xl leading-relaxed text-ink">
+          {book.mlbSummary ?? 'Our team is writing an original description for this title — check back soon for the full Mighty Little Bookshelf summary.'}
+        </p>
+
+        <div class="mt-6 flex flex-wrap items-center gap-3">
+          <a
+            href={amazon.url}
+            target="_blank"
+            rel={amazon.isAffiliate ? 'noopener sponsored' : 'noopener'}
+            class="btn-primary"
+          >
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M4 4h16v16H4z" opacity="0"></path>
+              <path d="M6 16c4 3 8 3 12 0" stroke-linecap="round"></path>
+              <path d="M15 15.5c1.5 0 2.7-.4 2.7-.4s-.2 1.7-1.5 2.2" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M8 12V8a4 4 0 0 1 8 0v4" stroke-linecap="round"></path>
+              <circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"></circle>
+            </svg>
+            {amazon.label}
+          </a>
+          <button
+            type="button"
+            class="save-btn btn-secondary"
+            data-slug={book.slug}
+            aria-pressed="false"
+          >
+            <svg class="save-icon h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M12 21s-7.5-4.6-10-9.3C0.5 8 2.3 4 6.2 4c2.1 0 3.7 1.2 4.5 2.6C11.5 5.2 13.1 4 15.2 4c3.9 0 5.7 4 4.2 7.7C19.5 16.4 12 21 12 21Z"></path>
+            </svg>
+            <span class="save-label">Save for Later</span>
+          </button>
+        </div>
+        <p class="mt-3 text-xs text-ink-light">As an Amazon Associate, we earn from qualifying purchases.</p>
+      </div>
+    </div>
+
+    <div class="mt-10 card p-6 sm:p-8">
+      <h2 class="font-display text-lg font-semibold text-teal-700">Book Details</h2>
+      <dl class="mt-4 grid grid-cols-1 gap-x-8 gap-y-3 sm:grid-cols-2">
+        {
+          infoRows.map((row) => (
+            <div class="flex flex-col border-b border-teal-50 pb-2 sm:flex-row sm:justify-between">
+              <dt class="text-sm font-semibold text-ink-light">{row.label}</dt>
+              <dd class="text-sm text-ink sm:text-right">{row.value}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+  </section>
+
+  {
+    related.length > 0 && (
+      <section class="border-t border-teal-100 bg-white/60 py-14">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <h2 class="mb-6 text-2xl font-semibold">You may also like</h2>
+          <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {related.map((b) => (
+              <BookCard book={b} />
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+  }
+</BaseLayout>
+
+<script>
+  const STORAGE_KEY = 'mlb-saved-books';
+
+  function getSaved(): string[] {
+    try {
+      return JSON.parse(localStorage.getItem(STORAGE_KEY) ?? '[]');
+    } catch {
+      return [];
+    }
+  }
+
+  function setSaved(list: string[]) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
+  }
+
+  const btn = document.querySelector<HTMLButtonElement>('.save-btn');
+  if (btn) {
+    const slug = btn.dataset.slug!;
+    const label = btn.querySelector('.save-label')!;
+    const icon = btn.querySelector('.save-icon')!;
+
+    function render(isSaved: boolean) {
+      btn!.setAttribute('aria-pressed', String(isSaved));
+      label.textContent = isSaved ? 'Saved' : 'Save for Later';
+      icon.setAttribute('fill', isSaved ? 'currentColor' : 'none');
+    }
+
+    render(getSaved().includes(slug));
+
+    btn.addEventListener('click', () => {
+      const saved = getSaved();
+      const isSaved = saved.includes(slug);
+      const next = isSaved ? saved.filter((s) => s !== slug) : [...saved, slug];
+      setSaved(next);
+      render(!isSaved);
+    });
+  }
+</script>

@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../config/site';
+---
+
+<BaseLayout title="Affiliate Disclosure" description="How Mighty Little Bookshelf uses Amazon affiliate links.">
+  <section class="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
+    <p class="section-label">Legal</p>
+    <h1 class="mt-2 font-display text-3xl font-semibold sm:text-4xl">Affiliate Disclosure</h1>
+    <p class="mt-2 text-sm text-ink-light">Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long' })}</p>
+
+    <div class="card mt-8 space-y-5 p-6 sm:p-10">
+      <p class="leading-relaxed text-ink">
+        {SITE.name} is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program
+        designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.com.
+      </p>
+      <p class="leading-relaxed text-ink">
+        When you click a "View on Amazon" or "Search on Amazon" link on this site and make a qualifying purchase, we
+        may earn a small commission — at no additional cost to you. The price you pay is exactly the same whether
+        you use our link or navigate to Amazon directly.
+      </p>
+      <p class="leading-relaxed text-ink">
+        We recommend books based on relevance to the medical topics, ages, and family situations described on each
+        listing. Commission potential never determines whether a book is included in our library.
+      </p>
+      <p class="leading-relaxed text-ink">
+        Some listings are still being verified for complete metadata (author, age range, ISBN, and similar details).
+        Where a listing links to an Amazon search results page instead of a specific product page, that means we
+        have not yet confirmed the exact edition — please verify details on Amazon before purchasing.
+      </p>
+      <p class="leading-relaxed text-ink">
+        As an Amazon Associate, {SITE.name} earns from qualifying purchases. Amazon and the Amazon logo are
+        trademarks of Amazon.com, Inc. or its affiliates.
+      </p>
+      <p class="leading-relaxed text-ink">
+        Questions about this disclosure? <a href="/contact/" class="font-semibold text-teal-700 underline">Contact us</a>.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
