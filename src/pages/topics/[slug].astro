@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BookCard from '../../components/BookCard.astro';
 import TopicIcon from '../../components/TopicIcon.astro';
-import { getAllTopics, getBooksForTopic } from '../../lib/books';
+import { getAllTopics, getBooksForTopic, type Topic } from '../../lib/books';
 
 export function getStaticPaths() {
   return getAllTopics().map((topic) => ({
@@ -11,7 +11,11 @@ export function getStaticPaths() {
   }));
 }
 
-const { topic } = Astro.props;
+interface Props {
+  topic: Topic;
+}
+
+const { topic } = Astro.props as Props;
 const books = getBooksForTopic(topic.slug);
 ---
 
