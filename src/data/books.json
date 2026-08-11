@@ -1,4 +1,4 @@
-﻿[
+[
   {
     "slug": "our-preemie-adventure",
     "title": "Our Preemie Adventure",
@@ -7,10 +7,16 @@
     "author": null,
     "illustrator": null,
     "audience": "Children & Families",
-    "audienceTags": ["Children", "Families"],
+    "audienceTags": [
+      "Children",
+      "Families"
+    ],
     "format": "Storybook",
     "bookType": "Storybooks",
-    "medicalTopics": ["NICU", "Prematurity"],
+    "medicalTopics": [
+      "NICU",
+      "Prematurity"
+    ],
     "siblingFocus": false,
     "faithBased": false,
     "ageMin": null,
@@ -33,10 +39,19 @@
     "author": null,
     "illustrator": null,
     "audience": "Children & Families",
-    "audienceTags": ["Children", "Families"],
+    "audienceTags": [
+      "Children",
+      "Families"
+    ],
     "format": "Storybook",
     "bookType": "Storybooks",
-    "medicalTopics": ["NICU", "Prematurity", "Respiratory", "Ventilation", "Oxygen/CPAP"],
+    "medicalTopics": [
+      "NICU",
+      "Prematurity",
+      "Respiratory",
+      "Ventilation",
+      "Oxygen/CPAP"
+    ],
     "siblingFocus": false,
     "faithBased": false,
     "ageMin": null,
@@ -59,10 +74,16 @@
     "author": null,
     "illustrator": null,
     "audience": "Children & Families",
-    "audienceTags": ["Children", "Families"],
+    "audienceTags": [
+      "Children",
+      "Families"
+    ],
     "format": "Storybook",
     "bookType": "Storybooks",
-    "medicalTopics": ["NICU", "Prematurity"],
+    "medicalTopics": [
+      "NICU",
+      "Prematurity"
+    ],
     "siblingFocus": false,
     "faithBased": false,
     "ageMin": null,
@@ -85,10 +106,16 @@
     "author": null,
     "illustrator": null,
     "audience": "Children & Families",
-    "audienceTags": ["Children", "Families"],
+    "audienceTags": [
+      "Children",
+      "Families"
+    ],
     "format": "Storybook",
     "bookType": "Storybooks",
-    "medicalTopics": ["NICU", "Prematurity"],
+    "medicalTopics": [
+      "NICU",
+      "Prematurity"
+    ],
     "siblingFocus": false,
     "faithBased": false,
     "ageMin": null,
@@ -111,10 +138,18 @@
     "author": null,
     "illustrator": null,
     "audience": "Children & Families",
-    "audienceTags": ["Children", "Families"],
+    "audienceTags": [
+      "Children",
+      "Families"
+    ],
     "format": "Storybook",
     "bookType": "Storybooks",
-    "medicalTopics": ["NICU", "Prematurity", "Holidays", "Sibling Education"],
+    "medicalTopics": [
+      "NICU",
+      "Prematurity",
+      "Holidays",
+      "Sibling Education"
+    ],
     "siblingFocus": true,
     "faithBased": false,
     "ageMin": null,
@@ -137,10 +172,19 @@
     "author": null,
     "illustrator": null,
     "audience": "Children & Families",
-    "audienceTags": ["Children", "Families"],
+    "audienceTags": [
+      "Children",
+      "Families"
+    ],
     "format": "Storybook",
     "bookType": "Storybooks",
-    "medicalTopics": ["NICU", "Prematurity", "Tracheostomy", "Surgery", "Medical Equipment"],
+    "medicalTopics": [
+      "NICU",
+      "Prematurity",
+      "Tracheostomy",
+      "Surgery",
+      "Medical Equipment"
+    ],
     "siblingFocus": false,
     "faithBased": false,
     "ageMin": null,
@@ -163,10 +207,16 @@
     "author": null,
     "illustrator": null,
     "audience": "Children & Families",
-    "audienceTags": ["Children", "Families"],
+    "audienceTags": [
+      "Children",
+      "Families"
+    ],
     "format": "Storybook",
     "bookType": "Storybooks",
-    "medicalTopics": ["NICU", "Prematurity"],
+    "medicalTopics": [
+      "NICU",
+      "Prematurity"
+    ],
     "siblingFocus": false,
     "faithBased": false,
     "ageMin": null,
@@ -189,10 +239,17 @@
     "author": null,
     "illustrator": null,
     "audience": "Children & Families",
-    "audienceTags": ["Children", "Families"],
+    "audienceTags": [
+      "Children",
+      "Families"
+    ],
     "format": "Storybook",
     "bookType": "Storybooks",
-    "medicalTopics": ["NICU", "Prematurity", "Courage & Resilience"],
+    "medicalTopics": [
+      "NICU",
+      "Prematurity",
+      "Courage & Resilience"
+    ],
     "siblingFocus": false,
     "faithBased": false,
     "ageMin": null,
@@ -215,10 +272,15 @@
     "author": null,
     "illustrator": null,
     "audience": "Family",
-    "audienceTags": ["Families"],
+    "audienceTags": [
+      "Families"
+    ],
     "format": "Keepsake Book",
     "bookType": "Keepsakes",
-    "medicalTopics": ["NICU", "Prematurity"],
+    "medicalTopics": [
+      "NICU",
+      "Prematurity"
+    ],
     "siblingFocus": false,
     "faithBased": false,
     "ageMin": null,
@@ -241,10 +303,17 @@
     "author": null,
     "illustrator": null,
     "audience": "Children & Families",
-    "audienceTags": ["Children", "Families"],
+    "audienceTags": [
+      "Children",
+      "Families"
+    ],
     "format": "Storybook",
     "bookType": "Storybooks",
-    "medicalTopics": ["NICU", "Prematurity", "Sibling Education"],
+    "medicalTopics": [
+      "NICU",
+      "Prematurity",
+      "Sibling Education"
+    ],
     "siblingFocus": true,
     "faithBased": false,
     "ageMin": null,
@@ -267,10 +336,16 @@
     "author": null,
     "illustrator": null,
     "audience": "Children & Families",
-    "audienceTags": ["Children", "Families"],
+    "audienceTags": [
+      "Children",
+      "Families"
+    ],
     "format": "Storybook",
     "bookType": "Storybooks",
-    "medicalTopics": ["NICU", "Prematurity"],
+    "medicalTopics": [
+      "NICU",
+      "Prematurity"
+    ],
     "siblingFocus": false,
     "faithBased": false,
     "ageMin": null,
@@ -293,10 +368,16 @@
     "author": null,
     "illustrator": null,
     "audience": "Children & Families",
-    "audienceTags": ["Children", "Families"],
+    "audienceTags": [
+      "Children",
+      "Families"
+    ],
     "format": "Storybook",
     "bookType": "Storybooks",
-    "medicalTopics": ["NICU", "Prematurity"],
+    "medicalTopics": [
+      "NICU",
+      "Prematurity"
+    ],
     "siblingFocus": false,
     "faithBased": false,
     "ageMin": null,
@@ -319,10 +400,15 @@
     "author": null,
     "illustrator": null,
     "audience": "Parents & Adults",
-    "audienceTags": ["Parents"],
+    "audienceTags": [
+      "Parents"
+    ],
     "format": "Guide / Memoir",
     "bookType": "Guides & Resources",
-    "medicalTopics": ["NICU", "Prematurity"],
+    "medicalTopics": [
+      "NICU",
+      "Prematurity"
+    ],
     "siblingFocus": false,
     "faithBased": false,
     "ageMin": null,
@@ -345,10 +431,17 @@
     "author": null,
     "illustrator": null,
     "audience": "Children & Families",
-    "audienceTags": ["Children", "Families"],
+    "audienceTags": [
+      "Children",
+      "Families"
+    ],
     "format": "Storybook",
     "bookType": "Storybooks",
-    "medicalTopics": ["NICU", "Prematurity", "Sibling Education"],
+    "medicalTopics": [
+      "NICU",
+      "Prematurity",
+      "Sibling Education"
+    ],
     "siblingFocus": true,
     "faithBased": false,
     "ageMin": null,
@@ -371,10 +464,16 @@
     "author": null,
     "illustrator": null,
     "audience": "Children & Families",
-    "audienceTags": ["Children", "Families"],
+    "audienceTags": [
+      "Children",
+      "Families"
+    ],
     "format": "Storybook",
     "bookType": "Storybooks",
-    "medicalTopics": ["NICU", "Prematurity"],
+    "medicalTopics": [
+      "NICU",
+      "Prematurity"
+    ],
     "siblingFocus": false,
     "faithBased": false,
     "ageMin": null,
@@ -397,10 +496,16 @@
     "author": null,
     "illustrator": null,
     "audience": "Children & Families",
-    "audienceTags": ["Children", "Families"],
+    "audienceTags": [
+      "Children",
+      "Families"
+    ],
     "format": "Storybook",
     "bookType": "Storybooks",
-    "medicalTopics": ["NICU", "Prematurity"],
+    "medicalTopics": [
+      "NICU",
+      "Prematurity"
+    ],
     "siblingFocus": false,
     "faithBased": false,
     "ageMin": null,
@@ -423,10 +528,15 @@
     "author": null,
     "illustrator": null,
     "audience": "Parents & Adults",
-    "audienceTags": ["Parents"],
+    "audienceTags": [
+      "Parents"
+    ],
     "format": "Guide / Memoir",
     "bookType": "Guides & Resources",
-    "medicalTopics": ["NICU", "Prematurity"],
+    "medicalTopics": [
+      "NICU",
+      "Prematurity"
+    ],
     "siblingFocus": false,
     "faithBased": false,
     "ageMin": null,
@@ -449,10 +559,15 @@
     "author": null,
     "illustrator": null,
     "audience": "Parents & Adults",
-    "audienceTags": ["Parents"],
+    "audienceTags": [
+      "Parents"
+    ],
     "format": "Guide / Memoir",
     "bookType": "Guides & Resources",
-    "medicalTopics": ["NICU", "Prematurity"],
+    "medicalTopics": [
+      "NICU",
+      "Prematurity"
+    ],
     "siblingFocus": false,
     "faithBased": false,
     "ageMin": null,
@@ -475,10 +590,16 @@
     "author": null,
     "illustrator": null,
     "audience": "Children & Families",
-    "audienceTags": ["Children", "Families"],
+    "audienceTags": [
+      "Children",
+      "Families"
+    ],
     "format": "Storybook",
     "bookType": "Storybooks",
-    "medicalTopics": ["NICU", "Prematurity"],
+    "medicalTopics": [
+      "NICU",
+      "Prematurity"
+    ],
     "siblingFocus": false,
     "faithBased": false,
     "ageMin": null,
@@ -501,10 +622,16 @@
     "author": null,
     "illustrator": null,
     "audience": "Children & Families",
-    "audienceTags": ["Children", "Families"],
+    "audienceTags": [
+      "Children",
+      "Families"
+    ],
     "format": "Storybook",
     "bookType": "Storybooks",
-    "medicalTopics": ["NICU", "Prematurity"],
+    "medicalTopics": [
+      "NICU",
+      "Prematurity"
+    ],
     "siblingFocus": false,
     "faithBased": false,
     "ageMin": null,
@@ -527,10 +654,16 @@
     "author": null,
     "illustrator": null,
     "audience": "Children & Families",
-    "audienceTags": ["Children", "Families"],
+    "audienceTags": [
+      "Children",
+      "Families"
+    ],
     "format": "Storybook",
     "bookType": "Storybooks",
-    "medicalTopics": ["NICU", "Prematurity"],
+    "medicalTopics": [
+      "NICU",
+      "Prematurity"
+    ],
     "siblingFocus": false,
     "faithBased": null,
     "ageMin": null,
@@ -553,10 +686,18 @@
     "author": null,
     "illustrator": null,
     "audience": "Children & Families",
-    "audienceTags": ["Children", "Families"],
+    "audienceTags": [
+      "Children",
+      "Families"
+    ],
     "format": "Storybook",
     "bookType": "Storybooks",
-    "medicalTopics": ["NICU", "Prematurity", "NICU Staff", "Care Team"],
+    "medicalTopics": [
+      "NICU",
+      "Prematurity",
+      "NICU Staff",
+      "Care Team"
+    ],
     "siblingFocus": false,
     "faithBased": false,
     "ageMin": null,
@@ -579,10 +720,15 @@
     "author": null,
     "illustrator": null,
     "audience": "Parents & Adults",
-    "audienceTags": ["Parents"],
+    "audienceTags": [
+      "Parents"
+    ],
     "format": "Guide / Memoir",
     "bookType": "Guides & Resources",
-    "medicalTopics": ["NICU", "Prematurity"],
+    "medicalTopics": [
+      "NICU",
+      "Prematurity"
+    ],
     "siblingFocus": false,
     "faithBased": false,
     "ageMin": null,
@@ -605,10 +751,16 @@
     "author": null,
     "illustrator": null,
     "audience": "Children & Families",
-    "audienceTags": ["Children", "Families"],
+    "audienceTags": [
+      "Children",
+      "Families"
+    ],
     "format": "Storybook",
     "bookType": "Storybooks",
-    "medicalTopics": ["NICU", "Prematurity"],
+    "medicalTopics": [
+      "NICU",
+      "Prematurity"
+    ],
     "siblingFocus": false,
     "faithBased": false,
     "ageMin": null,
@@ -631,10 +783,17 @@
     "author": null,
     "illustrator": null,
     "audience": "Children & Families",
-    "audienceTags": ["Children", "Families"],
+    "audienceTags": [
+      "Children",
+      "Families"
+    ],
     "format": "Storybook",
     "bookType": "Storybooks",
-    "medicalTopics": ["NICU", "Prematurity", "Courage & Resilience"],
+    "medicalTopics": [
+      "NICU",
+      "Prematurity",
+      "Courage & Resilience"
+    ],
     "siblingFocus": false,
     "faithBased": false,
     "ageMin": null,
@@ -657,10 +816,16 @@
     "author": null,
     "illustrator": null,
     "audience": "Children & Families",
-    "audienceTags": ["Children", "Families"],
+    "audienceTags": [
+      "Children",
+      "Families"
+    ],
     "format": "Storybook",
     "bookType": "Storybooks",
-    "medicalTopics": ["NICU", "Prematurity"],
+    "medicalTopics": [
+      "NICU",
+      "Prematurity"
+    ],
     "siblingFocus": false,
     "faithBased": null,
     "ageMin": null,
@@ -683,10 +848,16 @@
     "author": null,
     "illustrator": null,
     "audience": "Children & Families",
-    "audienceTags": ["Children", "Families"],
+    "audienceTags": [
+      "Children",
+      "Families"
+    ],
     "format": "Storybook",
     "bookType": "Storybooks",
-    "medicalTopics": ["NICU", "Prematurity"],
+    "medicalTopics": [
+      "NICU",
+      "Prematurity"
+    ],
     "siblingFocus": false,
     "faithBased": false,
     "ageMin": null,
@@ -709,10 +880,16 @@
     "author": null,
     "illustrator": null,
     "audience": "Children & Families",
-    "audienceTags": ["Children", "Families"],
+    "audienceTags": [
+      "Children",
+      "Families"
+    ],
     "format": "Storybook",
     "bookType": "Storybooks",
-    "medicalTopics": ["NICU", "Prematurity"],
+    "medicalTopics": [
+      "NICU",
+      "Prematurity"
+    ],
     "siblingFocus": false,
     "faithBased": false,
     "ageMin": null,
@@ -735,10 +912,17 @@
     "author": null,
     "illustrator": null,
     "audience": "Children & Families",
-    "audienceTags": ["Children", "Families"],
+    "audienceTags": [
+      "Children",
+      "Families"
+    ],
     "format": "Storybook",
     "bookType": "Storybooks",
-    "medicalTopics": ["NICU", "Prematurity", "Bedtime & Bonding"],
+    "medicalTopics": [
+      "NICU",
+      "Prematurity",
+      "Bedtime & Bonding"
+    ],
     "siblingFocus": false,
     "faithBased": false,
     "ageMin": null,
@@ -761,10 +945,17 @@
     "author": null,
     "illustrator": null,
     "audience": "Children & Families",
-    "audienceTags": ["Children", "Families"],
+    "audienceTags": [
+      "Children",
+      "Families"
+    ],
     "format": "Storybook",
     "bookType": "Storybooks",
-    "medicalTopics": ["NICU", "Prematurity", "Early Learning"],
+    "medicalTopics": [
+      "NICU",
+      "Prematurity",
+      "Early Learning"
+    ],
     "siblingFocus": false,
     "faithBased": false,
     "ageMin": null,
@@ -787,10 +978,15 @@
     "author": null,
     "illustrator": null,
     "audience": "Parents & Adults",
-    "audienceTags": ["Parents"],
+    "audienceTags": [
+      "Parents"
+    ],
     "format": "Guide / Memoir",
     "bookType": "Guides & Resources",
-    "medicalTopics": ["NICU", "Prematurity"],
+    "medicalTopics": [
+      "NICU",
+      "Prematurity"
+    ],
     "siblingFocus": false,
     "faithBased": false,
     "ageMin": null,
@@ -813,10 +1009,17 @@
     "author": null,
     "illustrator": null,
     "audience": "Children & Families",
-    "audienceTags": ["Children", "Families"],
+    "audienceTags": [
+      "Children",
+      "Families"
+    ],
     "format": "Storybook",
     "bookType": "Storybooks",
-    "medicalTopics": ["NICU", "Prematurity", "Early Learning"],
+    "medicalTopics": [
+      "NICU",
+      "Prematurity",
+      "Early Learning"
+    ],
     "siblingFocus": false,
     "faithBased": false,
     "ageMin": null,
@@ -839,10 +1042,17 @@
     "author": null,
     "illustrator": null,
     "audience": "Children & Families",
-    "audienceTags": ["Children", "Families"],
+    "audienceTags": [
+      "Children",
+      "Families"
+    ],
     "format": "Storybook",
     "bookType": "Storybooks",
-    "medicalTopics": ["NICU", "Prematurity", "Bedtime & Bonding"],
+    "medicalTopics": [
+      "NICU",
+      "Prematurity",
+      "Bedtime & Bonding"
+    ],
     "siblingFocus": false,
     "faithBased": false,
     "ageMin": null,
@@ -865,10 +1075,16 @@
     "author": null,
     "illustrator": null,
     "audience": "Children & Families",
-    "audienceTags": ["Children", "Families"],
+    "audienceTags": [
+      "Children",
+      "Families"
+    ],
     "format": "Storybook",
     "bookType": "Storybooks",
-    "medicalTopics": ["NICU", "Prematurity"],
+    "medicalTopics": [
+      "NICU",
+      "Prematurity"
+    ],
     "siblingFocus": false,
     "faithBased": false,
     "ageMin": null,
@@ -891,10 +1107,15 @@
     "author": null,
     "illustrator": null,
     "audience": "Parents & Adults",
-    "audienceTags": ["Parents"],
+    "audienceTags": [
+      "Parents"
+    ],
     "format": "Guide / Memoir",
     "bookType": "Guides & Resources",
-    "medicalTopics": ["NICU", "Prematurity"],
+    "medicalTopics": [
+      "NICU",
+      "Prematurity"
+    ],
     "siblingFocus": false,
     "faithBased": null,
     "ageMin": null,
@@ -917,10 +1138,15 @@
     "author": null,
     "illustrator": null,
     "audience": "Parents & Adults",
-    "audienceTags": ["Parents"],
+    "audienceTags": [
+      "Parents"
+    ],
     "format": "Guide / Memoir",
     "bookType": "Guides & Resources",
-    "medicalTopics": ["NICU", "Prematurity"],
+    "medicalTopics": [
+      "NICU",
+      "Prematurity"
+    ],
     "siblingFocus": false,
     "faithBased": false,
     "ageMin": null,
@@ -943,10 +1169,15 @@
     "author": null,
     "illustrator": null,
     "audience": "Parents & Adults",
-    "audienceTags": ["Parents"],
+    "audienceTags": [
+      "Parents"
+    ],
     "format": "Guide / Memoir",
     "bookType": "Guides & Resources",
-    "medicalTopics": ["NICU", "Prematurity"],
+    "medicalTopics": [
+      "NICU",
+      "Prematurity"
+    ],
     "siblingFocus": false,
     "faithBased": null,
     "ageMin": null,
@@ -969,10 +1200,16 @@
     "author": null,
     "illustrator": null,
     "audience": "Children & Families",
-    "audienceTags": ["Children", "Families"],
+    "audienceTags": [
+      "Children",
+      "Families"
+    ],
     "format": "Storybook",
     "bookType": "Storybooks",
-    "medicalTopics": ["NICU", "Prematurity"],
+    "medicalTopics": [
+      "NICU",
+      "Prematurity"
+    ],
     "siblingFocus": false,
     "faithBased": false,
     "ageMin": null,
@@ -995,10 +1232,15 @@
     "author": null,
     "illustrator": null,
     "audience": "Parents & Adults",
-    "audienceTags": ["Parents"],
+    "audienceTags": [
+      "Parents"
+    ],
     "format": "Guide / Memoir",
     "bookType": "Guides & Resources",
-    "medicalTopics": ["NICU", "Prematurity"],
+    "medicalTopics": [
+      "NICU",
+      "Prematurity"
+    ],
     "siblingFocus": false,
     "faithBased": false,
     "ageMin": null,
@@ -1021,10 +1263,16 @@
     "author": null,
     "illustrator": null,
     "audience": "Family",
-    "audienceTags": ["Families"],
+    "audienceTags": [
+      "Families"
+    ],
     "format": "Keepsake Book",
     "bookType": "Keepsakes",
-    "medicalTopics": ["NICU", "Prematurity", "Going Home"],
+    "medicalTopics": [
+      "NICU",
+      "Prematurity",
+      "Going Home"
+    ],
     "siblingFocus": false,
     "faithBased": false,
     "ageMin": null,
@@ -1047,10 +1295,16 @@
     "author": null,
     "illustrator": null,
     "audience": "Children & Families",
-    "audienceTags": ["Children", "Families"],
+    "audienceTags": [
+      "Children",
+      "Families"
+    ],
     "format": "Storybook",
     "bookType": "Storybooks",
-    "medicalTopics": ["NICU", "Prematurity"],
+    "medicalTopics": [
+      "NICU",
+      "Prematurity"
+    ],
     "siblingFocus": false,
     "faithBased": false,
     "ageMin": null,
@@ -1073,10 +1327,16 @@
     "author": null,
     "illustrator": null,
     "audience": "Children & Families",
-    "audienceTags": ["Children", "Families"],
+    "audienceTags": [
+      "Children",
+      "Families"
+    ],
     "format": "Storybook",
     "bookType": "Storybooks",
-    "medicalTopics": ["NICU", "Prematurity"],
+    "medicalTopics": [
+      "NICU",
+      "Prematurity"
+    ],
     "siblingFocus": false,
     "faithBased": false,
     "ageMin": null,
@@ -1099,10 +1359,15 @@
     "author": null,
     "illustrator": null,
     "audience": "Parents & Adults",
-    "audienceTags": ["Parents"],
+    "audienceTags": [
+      "Parents"
+    ],
     "format": "Guide / Memoir",
     "bookType": "Guides & Resources",
-    "medicalTopics": ["NICU", "Prematurity"],
+    "medicalTopics": [
+      "NICU",
+      "Prematurity"
+    ],
     "siblingFocus": false,
     "faithBased": false,
     "ageMin": null,
@@ -1125,10 +1390,15 @@
     "author": null,
     "illustrator": null,
     "audience": "Family",
-    "audienceTags": ["Families"],
+    "audienceTags": [
+      "Families"
+    ],
     "format": "Keepsake Book",
     "bookType": "Keepsakes",
-    "medicalTopics": ["NICU", "Prematurity"],
+    "medicalTopics": [
+      "NICU",
+      "Prematurity"
+    ],
     "siblingFocus": false,
     "faithBased": null,
     "ageMin": null,
@@ -1151,10 +1421,15 @@
     "author": null,
     "illustrator": null,
     "audience": "Parents & Adults",
-    "audienceTags": ["Parents"],
+    "audienceTags": [
+      "Parents"
+    ],
     "format": "Guide / Memoir",
     "bookType": "Guides & Resources",
-    "medicalTopics": ["NICU", "Prematurity"],
+    "medicalTopics": [
+      "NICU",
+      "Prematurity"
+    ],
     "siblingFocus": false,
     "faithBased": false,
     "ageMin": null,
@@ -1177,10 +1452,17 @@
     "author": null,
     "illustrator": null,
     "audience": "Children & Families",
-    "audienceTags": ["Children", "Families"],
+    "audienceTags": [
+      "Children",
+      "Families"
+    ],
     "format": "Storybook",
     "bookType": "Storybooks",
-    "medicalTopics": ["NICU", "Prematurity", "Sibling Education"],
+    "medicalTopics": [
+      "NICU",
+      "Prematurity",
+      "Sibling Education"
+    ],
     "siblingFocus": true,
     "faithBased": false,
     "ageMin": null,

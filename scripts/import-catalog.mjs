@@ -164,7 +164,9 @@ if (idx.title === -1) {
   process.exit(1);
 }
 
-const existing = existsSync(BOOKS_JSON_PATH) ? JSON.parse(readFileSync(BOOKS_JSON_PATH, 'utf-8')) : [];
+const existing = existsSync(BOOKS_JSON_PATH)
+  ? JSON.parse(readFileSync(BOOKS_JSON_PATH, 'utf-8').replace(/^﻿/, ''))
+  : [];
 const existingBySlug = new Map(existing.map((b) => [b.slug, b]));
 
 const imported = [];
