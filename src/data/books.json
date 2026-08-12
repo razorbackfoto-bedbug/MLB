@@ -361,38 +361,6 @@
     "notes": "Seeded from Preemie Adventures catalog; do not copy source description verbatim."
   },
   {
-    "slug": "super-hd-my-little-rocket",
-    "title": "Super HD, My Little Rocket",
-    "coverImage": null,
-    "featured": false,
-    "author": null,
-    "illustrator": null,
-    "audience": "Children & Families",
-    "audienceTags": [
-      "Children",
-      "Families"
-    ],
-    "format": "Storybook",
-    "bookType": "Storybooks",
-    "medicalTopics": [
-      "NICU",
-      "Prematurity"
-    ],
-    "siblingFocus": false,
-    "faithBased": false,
-    "ageMin": null,
-    "ageMax": null,
-    "isbn": null,
-    "publicationYear": null,
-    "amazonProductUrl": null,
-    "affiliateUrl": null,
-    "publisherUrl": null,
-    "mlbSummary": null,
-    "verificationStatus": "Needs metadata verification",
-    "sourceUrl": "https://www.preemieadventures.com/nicu-books",
-    "notes": "Seeded from Preemie Adventures catalog; do not copy source description verbatim."
-  },
-  {
     "slug": "the-preemie-parents-survival-guide-to-the-nicu",
     "title": "The Preemie Parent's Survival Guide to the NICU",
     "coverImage": "https://m.media-amazon.com/images/I/61XDv1izhcL.jpg",
