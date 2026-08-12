@@ -53,3 +53,33 @@ export function getAmazonLink(book: {
 
   return { url: baseUrl, isAffiliate: false, label };
 }
+
+export interface PurchaseLink extends AmazonLink {
+  /** True when this resolves to an Amazon URL (drives the Associates disclaimer). */
+  isAmazon: boolean;
+}
+
+/**
+ * Resolves the primary "buy this book" CTA. Some titles (e.g. sold exclusively
+ * through a foundation's own site) have no real Amazon listing at all — for
+ * those, publisherUrl/retailerName take priority so we never point a "Buy"
+ * button at an Amazon search result for a book Amazon doesn't actually sell.
+ */
+export function getPurchaseLink(book: {
+  title: string;
+  amazonProductUrl?: string | null;
+  affiliateUrl?: string | null;
+  publisherUrl?: string | null;
+  retailerName?: string | null;
+}): PurchaseLink {
+  if (!book.amazonProductUrl && book.publisherUrl) {
+    return {
+      url: book.publisherUrl,
+      isAffiliate: false,
+      isAmazon: false,
+      label: `View at ${book.retailerName ?? 'Retailer'}`,
+    };
+  }
+
+  return { ...getAmazonLink(book), isAmazon: true };
+}

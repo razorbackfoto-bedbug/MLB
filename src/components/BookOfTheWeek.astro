@@ -4,7 +4,7 @@
 // inline script reveals just the current week's pick on load.
 import type { Book } from '../lib/books';
 import { getAllBooks, formatAgeRange } from '../lib/books';
-import { getAmazonLink } from '../config/affiliate';
+import { getPurchaseLink } from '../config/affiliate';
 import BookCover from './BookCover.astro';
 import Badge from './Badge.astro';
 
@@ -27,7 +27,7 @@ const eligible: Book[] = getAllBooks()
 
       <div id="book-of-week" data-count={eligible.length}>
         {eligible.map((book, index) => {
-          const amazon = getAmazonLink(book);
+          const amazon = getPurchaseLink(book);
           return (
             <div class="botw-item" data-index={index} hidden={index !== 0}>
               <div class="card grid gap-6 p-6 sm:grid-cols-[200px,1fr] sm:p-8">
@@ -54,7 +54,7 @@ const eligible: Book[] = getAllBooks()
                     </a>
                     <a
                       href={amazon.url}
-                      rel="nofollow sponsored noopener"
+                      rel={amazon.isAffiliate ? 'nofollow sponsored noopener' : 'noopener'}
                       target="_blank"
                       class="inline-flex items-center justify-center rounded-full border-2 border-teal-700 px-5 py-2.5 text-sm font-bold text-teal-700 hover:bg-teal-50"
                     >

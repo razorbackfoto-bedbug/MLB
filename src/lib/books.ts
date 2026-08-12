@@ -22,6 +22,8 @@ export interface Book {
   amazonProductUrl: string | null;
   affiliateUrl: string | null;
   publisherUrl: string | null;
+  /** Display name for publisherUrl when it's the primary purchase link (e.g. "Kids With Heart"). */
+  retailerName?: string | null;
   mlbSummary: string | null;
   verificationStatus: string;
   sourceUrl: string | null;
