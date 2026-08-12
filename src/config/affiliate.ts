@@ -6,7 +6,7 @@
  * site is generated through getAmazonLink(), so changing this one constant
  * updates every book page and card at once. No other files need to change.
  */
-export const AMAZON_AFFILIATE_TAG = '';
+export const AMAZON_AFFILIATE_TAG = 'mightylittle-20';
 
 export interface AmazonLink {
   url: string;
