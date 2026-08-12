@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import BookshelfIllustration from '../components/BookshelfIllustration.astro';
 import BookCard from '../components/BookCard.astro';
+import BookOfTheWeek from '../components/BookOfTheWeek.astro';
 import TopicIcon from '../components/TopicIcon.astro';
 import { getFeaturedBooks, getAllBooks, getAllTopics } from '../lib/books';
 
@@ -61,6 +62,8 @@ const bookCount = getAllBooks().length;
       }
     </div>
   </section>
+
+  <BookOfTheWeek />
 
   <section class="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
     <div class="mb-6 flex items-center justify-between">
