@@ -1,18 +1,24 @@
 ---
 import type { Topic } from '../lib/books';
 import { getBooksForTopic } from '../lib/books';
+import { t, type Lang } from '../i18n/ui';
 import TopicIcon from './TopicIcon.astro';
 
 interface Props {
   topic: Topic;
   class?: string;
+  lang?: Lang;
+  /** Book count for this topic within the current locale's catalog (e.g. Spanish-only). */
+  count?: number;
 }
-const { topic, class: className = '' } = Astro.props;
-const count = getBooksForTopic(topic.slug).length;
+const { topic, class: className = '', lang = 'en', count } = Astro.props;
+const ui = t(lang);
+const topicsHref = lang === 'es' ? '/es/topics' : '/topics';
+const resolvedCount = count ?? getBooksForTopic(topic.slug).length;
 ---
 
 <a
-  href={`/topics/${topic.slug}/`}
+  href={`${topicsHref}/${topic.slug}/`}
   class:list={[
     'card group flex flex-col gap-3 p-5 transition hover:-translate-y-0.5 hover:shadow-soft',
     className,
@@ -23,13 +29,13 @@ const count = getBooksForTopic(topic.slug).length;
       <TopicIcon name={topic.icon} />
     </span>
     <span class="rounded-full bg-cream-200 px-2 py-1 text-xs font-bold text-ink-light">
-      {count} {count === 1 ? 'book' : 'books'}
+      {resolvedCount} {resolvedCount === 1 ? ui.book : ui.books}
     </span>
   </div>
   <h3 class="font-display text-lg font-semibold text-teal-700">{topic.label}</h3>
   <p class="text-sm text-ink-light">{topic.description}</p>
   <span class="mt-auto inline-flex items-center gap-1 text-sm font-bold text-coral-500 group-hover:gap-2">
-    Explore
+    {ui.explore}
     <svg class="h-4 w-4 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
       <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"></path>
     </svg>

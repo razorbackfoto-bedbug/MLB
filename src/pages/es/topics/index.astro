@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BookshelfIllustration from '../../../components/BookshelfIllustration.astro';
+import TopicCard from '../../../components/TopicCard.astro';
+import { SITE_ES } from '../../../config/site';
+import { getAllTopics, getSpanishBooks, bookMatchesTopic } from '../../../lib/books';
+import { localizeTopic } from '../../../lib/books';
+
+const spanishBooks = getSpanishBooks();
+const topics = getAllTopics()
+  .filter((topic) => spanishBooks.some((book) => bookMatchesTopic(book, topic)))
+  .map((topic) => ({
+    topic: localizeTopic(topic, 'es'),
+    count: spanishBooks.filter((book) => bookMatchesTopic(book, topic)).length,
+  }));
+---
+
+<BaseLayout
+  title="Explorar por Tema"
+  description="Explora libros infantiles en español por tema médico, condición o experiencia de cuidado."
+  site={SITE_ES}
+>
+  <section class="mx-auto max-w-7xl px-4 pb-8 pt-10 sm:px-6 lg:px-8">
+    <div class="grid items-center gap-8 lg:grid-cols-[1.2fr,0.8fr]">
+      <div>
+        <h1 class="font-display text-3xl font-semibold sm:text-4xl">
+          Explorar por tema médico <span aria-hidden="true" class="text-coral-400">♥</span>
+        </h1>
+        <p class="mt-3 max-w-xl text-ink-light">
+          Explora libros por condición, experiencia de cuidado o necesidad emocional. Ya seas padre, cuidador o
+          clínico, estas historias ayudan a los niños a sentirse vistos, apoyados y nunca solos.
+        </p>
+      </div>
+      <div class="hidden lg:block">
+        <BookshelfIllustration class="h-40 w-full" />
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
+    {
+      topics.length === 0 ? (
+        <div class="card p-10 text-center">
+          <p class="font-display text-lg text-teal-700">Aún estamos agregando libros en español.</p>
+        </div>
+      ) : (
+        <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+          {topics.map(({ topic, count }) => <TopicCard topic={topic} lang="es" count={count} />)}
+        </div>
+      )
+    }
+  </section>
+
+  <section class="border-t border-teal-100 bg-white/60 py-10">
+    <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 text-center sm:flex-row sm:text-left sm:px-6 lg:px-8">
+      <div>
+        <h2 class="font-display text-xl font-semibold text-teal-700">¿Buscas algo específico?</h2>
+        <p class="mt-1 text-ink-light">Busca en nuestra biblioteca completa por título, edad o tema.</p>
+      </div>
+      <a href="/es/library/" class="btn-primary">Abrir la Biblioteca de Libros</a>
+    </div>
+  </section>
+</BaseLayout>

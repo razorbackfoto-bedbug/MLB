@@ -1,0 +1,93 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE_ES } from '../../config/site';
+---
+
+<BaseLayout title="Política de Privacidad" description="Cómo Mighty Little Bookshelf maneja tu información." site={SITE_ES}>
+  <section class="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
+    <p class="section-label">Legal</p>
+    <h1 class="mt-2 font-display text-3xl font-semibold sm:text-4xl">Política de Privacidad</h1>
+    <p class="mt-2 text-sm text-ink-light">Última actualización: {new Date().toLocaleDateString('es-ES', { year: 'numeric', month: 'long' })}</p>
+
+    <div class="card mt-8 space-y-6 p-6 sm:p-10">
+      <div>
+        <h2 class="font-display text-lg font-semibold text-teal-700">Quiénes somos</h2>
+        <p class="mt-2 leading-relaxed text-ink">
+          {SITE_ES.name} ({SITE_ES.url}) es un recurso de descubrimiento de libros para familias. Esta política
+          explica qué información recopilamos cuando nos visitas y cómo se utiliza.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-lg font-semibold text-teal-700">Información que recopilamos</h2>
+        <ul class="mt-2 list-disc space-y-1 pl-5 text-ink">
+          <li><strong>Suscripción al boletín:</strong> si te suscribes, recopilamos la dirección de correo electrónico que proporcionas.</li>
+          <li><strong>Formulario de contacto:</strong> si nos contactas, recopilamos el nombre, correo electrónico y mensaje que proporcionas.</li>
+          <li>
+            <strong>Analítica de uso:</strong> podemos usar analítica agregada y respetuosa con la privacidad (como
+            vistas de página y fuente de referencia) para entender cómo se usa el sitio. No vendemos estos datos.
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="font-display text-lg font-semibold text-teal-700">Cookies</h2>
+        <p class="mt-2 leading-relaxed text-ink">
+          Este sitio en sí no establece cookies de seguimiento. Si haces clic hacia Amazon, Amazon puede establecer
+          sus propias cookies de acuerdo con su propia política de privacidad — no controlamos ni tenemos acceso a
+          esos datos.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-lg font-semibold text-teal-700">Enlaces de terceros</h2>
+        <p class="mt-2 leading-relaxed text-ink">
+          Los enlaces a libros en este sitio conducen a Amazon.com. No somos responsables de las prácticas de
+          privacidad de Amazon ni de ningún otro sitio de terceros al que enlacemos. Te recomendamos revisar sus
+          políticas de privacidad directamente.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-lg font-semibold text-teal-700">Cómo usamos tu información</h2>
+        <p class="mt-2 leading-relaxed text-ink">
+          Usamos la información que proporcionas únicamente para responder a tu mensaje, enviar el boletín al que
+          te suscribiste y mejorar el sitio. No vendemos ni alquilamos tu información personal a terceros.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-lg font-semibold text-teal-700">Tus opciones</h2>
+        <p class="mt-2 leading-relaxed text-ink">
+          Puedes cancelar tu suscripción al boletín en cualquier momento usando el enlace en cualquier correo que
+          te enviemos. Para solicitar que eliminemos información que has compartido con nosotros,
+          <a href="/es/contact/" class="font-semibold text-teal-700 underline">contáctanos</a>.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-lg font-semibold text-teal-700">Privacidad de menores</h2>
+        <p class="mt-2 leading-relaxed text-ink">
+          Este sitio está dirigido a padres, cuidadores y clínicos. No recopilamos conscientemente información
+          personal de menores.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-lg font-semibold text-teal-700">Cambios a esta política</h2>
+        <p class="mt-2 leading-relaxed text-ink">
+          Podemos actualizar esta política de vez en cuando. La fecha de "última actualización" en la parte
+          superior de esta página refleja la revisión más reciente.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-lg font-semibold text-teal-700">Contacto</h2>
+        <p class="mt-2 leading-relaxed text-ink">
+          Las preguntas sobre esta política pueden enviarse a <a href={`mailto:${SITE_ES.email}`} class="font-semibold text-teal-700 underline">{SITE_ES.email}</a>
+          o a través de nuestra <a href="/es/contact/" class="font-semibold text-teal-700 underline">página de contacto</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

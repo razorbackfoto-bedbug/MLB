@@ -1,0 +1,50 @@
+---
+// Trial component (2026-08-14): dismissible bottom banner offering the Spanish
+// site to visitors whose browser language is es-*. Only rendered on English
+// pages. To revert: remove the <LangPrompt /> line from BaseLayout.astro (or
+// delete this file) — no other files depend on it.
+---
+
+<div
+  id="lang-prompt"
+  hidden
+  class="fixed inset-x-0 bottom-0 z-50 border-t border-teal-100 bg-white/95 px-4 py-3 shadow-soft backdrop-blur"
+>
+  <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 sm:px-2">
+    <p class="text-sm text-ink">
+      ¿Prefieres leer esto en español? <span class="text-ink-light">Tenemos una versión en español del sitio.</span>
+    </p>
+    <div class="flex items-center gap-2">
+      <a href="/es/" class="rounded-full bg-teal-700 px-4 py-1.5 text-sm font-bold text-cream-50 hover:bg-teal-600">
+        Ver en Español
+      </a>
+      <button
+        type="button"
+        id="lang-prompt-dismiss"
+        class="rounded-full border border-teal-200 px-3 py-1.5 text-sm font-semibold text-ink-light hover:bg-teal-50"
+        aria-label="Dismiss"
+      >
+        ×
+      </button>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  (function () {
+    var KEY = 'mlb-lang-prompt-dismissed';
+    try {
+      if (localStorage.getItem(KEY)) return;
+      var lang = (navigator.language || '').toLowerCase();
+      if (lang.indexOf('es') !== 0) return;
+      var el = document.getElementById('lang-prompt');
+      if (!el) return;
+      el.hidden = false;
+      var dismiss = document.getElementById('lang-prompt-dismiss');
+      dismiss?.addEventListener('click', function () {
+        localStorage.setItem(KEY, '1');
+        el.hidden = true;
+      });
+    } catch (e) {}
+  })();
+</script>

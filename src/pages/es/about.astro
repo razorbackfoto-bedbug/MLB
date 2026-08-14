@@ -1,0 +1,111 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BookshelfIllustration from '../../components/BookshelfIllustration.astro';
+import { SITE_ES } from '../../config/site';
+---
+
+<BaseLayout
+  title="Acerca de"
+  description="Por qué existe Mighty Little Bookshelf y cómo elegimos los libros de nuestra biblioteca."
+  site={SITE_ES}
+>
+  <section class="mx-auto max-w-5xl px-4 pb-8 pt-10 sm:px-6 lg:px-8">
+    <div class="grid items-center gap-8 lg:grid-cols-[1.2fr,0.8fr]">
+      <div>
+        <p class="section-label">Acerca de Nosotros</p>
+        <h1 class="mt-2 font-display text-3xl font-semibold sm:text-4xl">
+          Libros que acompañan a las familias justo donde están.
+        </h1>
+        <p class="mt-4 max-w-xl text-ink-light">
+          Mighty Little Bookshelf es una biblioteca curada y con búsqueda de libros infantiles para familias que
+          atraviesan la UCIN, estancias hospitalarias, condiciones médicas y los grandes sentimientos que las
+          acompañan.
+        </p>
+      </div>
+      <div class="hidden lg:block">
+        <BookshelfIllustration class="h-40 w-full" />
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-4 pb-16 sm:px-6 lg:px-8">
+    <div class="card space-y-6 p-6 sm:p-10">
+      <div>
+        <h2 class="font-display text-xl font-semibold text-teal-700">Nuestra Misión</h2>
+        <p class="mt-2 leading-relaxed text-ink">
+          Un diagnóstico médico, una estancia en la UCIN o una hospitalización pueden cambiar el mundo de una
+          familia de la noche a la mañana, y muchas veces es más difícil explicarle lo que sucede a los miembros
+          más jóvenes de la familia. Creemos que el libro adecuado en el momento adecuado puede ayudar a un niño a
+          sentir menos miedo, ayudar a un hermano a sentirse incluido, y ayudar a un padre a encontrar palabras que
+          no sabía cómo decir.
+        </p>
+        <p class="mt-2 leading-relaxed text-ink">
+          Nuestra misión es simple: hacer que esos libros sean más fáciles de encontrar.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-xl font-semibold text-teal-700">Quiénes Estamos Detrás de Esto</h2>
+        <p class="mt-2 leading-relaxed text-ink">
+          Mighty Little Bookshelf fue creado por <strong>Scott McClenahan, RN</strong>, un enfermero de la UCIN que
+          ha cuidado a bebés en todos los niveles de cuidado intensivo neonatal en hospitales de todo el país, y su
+          esposa, <strong>Emily McClenahan</strong>, especialista en ciberseguridad y amante de los libros, la
+          lectura y las bibliotecas desde siempre.
+        </p>
+        <p class="mt-2 leading-relaxed text-ink">
+          La experiencia de Scott junto a la cama del paciente ayudó a identificar la necesidad. El amor de Emily
+          por los libros y las bibliotecas ayudó a dar forma a la idea de convertir esa necesidad en un recurso que
+          las familias pudieran realmente usar.
+        </p>
+        <p class="mt-2 leading-relaxed text-ink">
+          Mighty Little Bookshelf une dos cosas que siempre han sido una gran parte de nuestras vidas: cuidar a las
+          personas y el amor por los libros.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-xl font-semibold text-teal-700">Cómo Elegimos los Libros</h2>
+        <p class="mt-2 leading-relaxed text-ink">
+          Cada título de nuestra biblioteca se revisa por su relevancia para una experiencia médica específica,
+          incluyendo la UCIN y la prematuridad, apoyo para hermanos, estancias hospitalarias, condiciones
+          respiratorias y cardíacas, sondas de alimentación, oncología, genética y enfermedades raras, duelo y
+          pérdida, y recursos para padres y cuidadores.
+        </p>
+        <p class="mt-2 leading-relaxed text-ink">
+          Nuestro objetivo no es simplemente crear una lista larga de libros infantiles. Es hacer que esa lista sea
+          genuinamente útil cuando una familia la necesita.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-xl font-semibold text-teal-700">Sobre esta sección en español</h2>
+        <p class="mt-2 leading-relaxed text-ink">
+          Solo agregamos un libro a esta sección en español cuando confirmamos que existe una edición real,
+          publicada legalmente en español — nunca traducimos ni republicamos el texto de un libro nosotros mismos.
+          La mayoría de los libros de nuestro catálogo en inglés provienen de autores independientes o editoriales
+          pequeñas que aún no han publicado una traducción, así que esta biblioteca es más pequeña por ahora, pero
+          crecerá con el tiempo a medida que encontremos más ediciones auténticas.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-xl font-semibold text-teal-700">Cómo se sostiene este sitio</h2>
+        <p class="mt-2 leading-relaxed text-ink">
+          Mighty Little Bookshelf participa en el programa de Amazon Associates. Cuando compras un libro a través
+          de un enlace en nuestro sitio, podemos ganar una pequeña comisión sin costo adicional para ti. Lee
+          nuestra
+          <a href="/es/affiliate-disclosure/" class="font-semibold text-teal-700 underline">divulgación de afiliados</a>
+          completa.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-xl font-semibold text-teal-700">¿Tienes un libro para recomendar?</h2>
+        <p class="mt-2 leading-relaxed text-ink">
+          Nos encantaría saber de ti. <a href="/es/contact/" class="font-semibold text-teal-700 underline">Contáctanos</a>
+          con un título y lo agregaremos a nuestra lista de revisión.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

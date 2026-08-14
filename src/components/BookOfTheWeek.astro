@@ -3,13 +3,24 @@
 // redeploys needed. All eligible books render server-side (good for SEO/no-JS), and a tiny
 // inline script reveals just the current week's pick on load.
 import type { Book } from '../lib/books';
-import { getAllBooks, formatAgeRange } from '../lib/books';
+import { getAllBooks, getSpanishBooks, localizeBook, formatAgeRange } from '../lib/books';
 import { getPurchaseLink } from '../config/affiliate';
+import { translateLabel } from '../i18n/labels';
+import { t, type Lang } from '../i18n/ui';
 import BookCover from './BookCover.astro';
 import Badge from './Badge.astro';
 
-const eligible: Book[] = getAllBooks()
-  .filter((book) => book.coverImage)
+interface Props {
+  lang?: Lang;
+}
+const { lang = 'en' } = Astro.props;
+const ui = t(lang);
+const booksHref = lang === 'es' ? '/es/books' : '/books';
+
+const source = lang === 'es' ? getSpanishBooks() : getAllBooks();
+const eligible: Book[] = source
+  .filter((book) => (lang === 'es' ? book.coverImageEs || book.coverImage : book.coverImage))
+  .map((book) => localizeBook(book, lang))
   .sort((a, b) => a.slug.localeCompare(b.slug));
 ---
 
@@ -21,36 +32,36 @@ const eligible: Book[] = getAllBooks()
           <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8" stroke-linecap="round" />
           </svg>
-          Book of the Week
+          {ui.bookOfTheWeek}
         </span>
       </div>
 
       <div id="book-of-week" data-count={eligible.length}>
         {eligible.map((book, index) => {
-          const amazon = getPurchaseLink(book);
+          const amazon = getPurchaseLink(book, lang);
           return (
             <div class="botw-item" data-index={index} hidden={index !== 0}>
               <div class="card grid gap-6 p-6 sm:grid-cols-[200px,1fr] sm:p-8">
-                <a href={`/books/${book.slug}/`} class="mx-auto block w-40 sm:w-full">
-                  <BookCover book={book} />
+                <a href={`${booksHref}/${book.slug}/`} class="mx-auto block w-40 sm:w-full">
+                  <BookCover book={book} lang={lang} />
                 </a>
                 <div class="flex flex-col gap-3">
                   <h2 class="font-display text-2xl font-semibold text-teal-700 sm:text-3xl">
-                    <a href={`/books/${book.slug}/`} class="hover:text-coral-500">
+                    <a href={`${booksHref}/${book.slug}/`} class="hover:text-coral-500">
                       {book.title}
                     </a>
                   </h2>
-                  <p class="text-sm text-ink-light">{formatAgeRange(book)}</p>
+                  <p class="text-sm text-ink-light">{formatAgeRange(book, lang)}</p>
                   <div class="flex flex-wrap gap-1.5">
-                    {book.medicalTopics.slice(0, 3).map((topic) => <Badge label={topic} />)}
+                    {book.medicalTopics.slice(0, 3).map((topic) => <Badge label={translateLabel(topic, lang)} />)}
                   </div>
                   {book.mlbSummary && <p class="text-ink-light">{book.mlbSummary}</p>}
                   <div class="mt-2 flex flex-wrap gap-3">
                     <a
-                      href={`/books/${book.slug}/`}
+                      href={`${booksHref}/${book.slug}/`}
                       class="inline-flex items-center justify-center rounded-full bg-teal-700 px-5 py-2.5 text-sm font-bold text-cream-50 hover:bg-teal-600"
                     >
-                      View Book
+                      {ui.viewBook}
                     </a>
                     <a
                       href={amazon.url}

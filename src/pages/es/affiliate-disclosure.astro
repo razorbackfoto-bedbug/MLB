@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE_ES } from '../../config/site';
+---
+
+<BaseLayout title="Divulgación de Afiliados" description="Cómo Mighty Little Bookshelf usa los enlaces de afiliados de Amazon." site={SITE_ES}>
+  <section class="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
+    <p class="section-label">Legal</p>
+    <h1 class="mt-2 font-display text-3xl font-semibold sm:text-4xl">Divulgación de Afiliados</h1>
+    <p class="mt-2 text-sm text-ink-light">Última actualización: {new Date().toLocaleDateString('es-ES', { year: 'numeric', month: 'long' })}</p>
+
+    <div class="card mt-8 space-y-5 p-6 sm:p-10">
+      <p class="leading-relaxed text-ink">
+        {SITE_ES.name} participa en el Programa de Afiliados de Amazon Services LLC, un programa de publicidad de
+        afiliados diseñado para proporcionar un medio para que los sitios ganen tarifas de publicidad mediante la
+        publicidad y los enlaces a Amazon.com.
+      </p>
+      <p class="leading-relaxed text-ink">
+        Cuando haces clic en un enlace de "Ver en Amazon" o "Buscar en Amazon" en este sitio y realizas una compra
+        que califica, podemos ganar una pequeña comisión, sin costo adicional para ti. El precio que pagas es
+        exactamente el mismo, ya sea que uses nuestro enlace o navegues directamente a Amazon.
+      </p>
+      <p class="leading-relaxed text-ink">
+        Recomendamos libros según su relevancia para los temas médicos, edades y situaciones familiares descritas
+        en cada listado. El potencial de comisión nunca determina si un libro se incluye en nuestra biblioteca.
+      </p>
+      <p class="leading-relaxed text-ink">
+        Como Afiliados de Amazon, {SITE_ES.name} gana con las compras que califican. Amazon y el logotipo de Amazon
+        son marcas registradas de Amazon.com, Inc. o sus filiales.
+      </p>
+      <p class="leading-relaxed text-ink">
+        ¿Preguntas sobre esta divulgación? <a href="/es/contact/" class="font-semibold text-teal-700 underline">Contáctanos</a>.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

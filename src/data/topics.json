@@ -2,71 +2,91 @@
   {
     "slug": "nicu-prematurity",
     "label": "NICU & Prematurity",
+    "labelEs": "UCIN y Prematuridad",
     "icon": "crib",
     "description": "Books for babies in the NICU, premature birth, and the journey of growing stronger.",
+    "descriptionEs": "Libros para bebés en la UCIN, sobre el nacimiento prematuro y el camino hacia hacerse más fuertes.",
     "matchTopics": ["NICU", "Prematurity"]
   },
   {
     "slug": "siblings",
     "label": "Siblings",
+    "labelEs": "Hermanos",
     "icon": "siblings",
     "description": "Stories to help brothers and sisters feel included, understood, and important.",
+    "descriptionEs": "Historias para ayudar a hermanos y hermanas a sentirse incluidos, comprendidos e importantes.",
     "matchTopics": ["Sibling Education"]
   },
   {
     "slug": "hospital-stays",
     "label": "Hospital Stays",
+    "labelEs": "Estancias en el Hospital",
     "icon": "hospital",
     "description": "Preparing for surgery, tests, and hospital visits with courage and calm.",
+    "descriptionEs": "Preparación para cirugías, pruebas y visitas al hospital con valentía y calma.",
     "matchTopics": ["Surgery", "Medical Equipment", "NICU Staff", "Care Team", "Hospitalization"]
   },
   {
     "slug": "cardiac",
     "label": "Cardiac",
+    "labelEs": "Cardíaco",
     "icon": "heart",
     "description": "Books about heart conditions, procedures, and loving, strong hearts.",
+    "descriptionEs": "Libros sobre afecciones cardíacas, procedimientos y corazones fuertes y llenos de amor.",
     "matchTopics": ["Cardiac"]
   },
   {
     "slug": "respiratory",
     "label": "Respiratory",
+    "labelEs": "Respiratorio",
     "icon": "lungs",
     "description": "Support for breathing tubes, oxygen, ventilators, and respiratory challenges.",
+    "descriptionEs": "Apoyo para tubos de respiración, oxígeno, ventiladores y desafíos respiratorios.",
     "matchTopics": ["Respiratory", "Ventilation", "Oxygen/CPAP", "Tracheostomy"]
   },
   {
     "slug": "feeding-tubes",
     "label": "Feeding Tubes",
+    "labelEs": "Sondas de Alimentación",
     "icon": "feeding",
     "description": "Stories about NG tubes, G-tubes, and mealtime in a new way.",
+    "descriptionEs": "Historias sobre sondas nasogástricas, sondas gástricas y una nueva forma de vivir la hora de comer.",
     "matchTopics": ["Feeding/G-tube"]
   },
   {
     "slug": "oncology",
     "label": "Oncology",
+    "labelEs": "Oncología",
     "icon": "ribbon",
     "description": "Books for kids facing cancer, treatments, and the people who care for them.",
+    "descriptionEs": "Libros para niños que enfrentan el cáncer, sus tratamientos y las personas que los cuidan.",
     "matchTopics": ["Oncology"]
   },
   {
     "slug": "genetics-rare-disease",
     "label": "Genetics & Rare Disease",
+    "labelEs": "Genética y Enfermedades Raras",
     "icon": "dna",
     "description": "Celebrating unique kids and explaining rare diagnoses.",
+    "descriptionEs": "Celebrando a niños únicos y explicando diagnósticos poco frecuentes.",
     "matchTopics": ["Genetics", "Rare Disease"]
   },
   {
     "slug": "grief-loss",
     "label": "Grief & Loss",
+    "labelEs": "Duelo y Pérdida",
     "icon": "grief",
     "description": "Gentle books to help kids process sadness and remember love.",
+    "descriptionEs": "Libros cuidadosos para ayudar a los niños a procesar la tristeza y recordar el amor.",
     "matchTopics": ["Grief/Loss"]
   },
   {
     "slug": "parent-resources",
     "label": "Parent Resources",
+    "labelEs": "Recursos para Padres",
     "icon": "family",
     "description": "Books for parents and caregivers to learn, heal, and feel supported.",
+    "descriptionEs": "Libros para que padres y cuidadores aprendan, sanen y se sientan apoyados.",
     "matchTopics": ["Parent Resources"],
     "matchBookTypes": ["Guides & Resources"]
   }

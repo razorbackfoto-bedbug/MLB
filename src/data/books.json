@@ -1606,7 +1606,12 @@
     "isbn": "9798893180756",
     "amazonProductUrl": "https://www.amazon.com/Getting-Ready-Heart-Surgery-Preparation/dp/B0F2MXPPCW?th=1&psc=1&language=en_US&currency=USD",
     "mlbSummary": "An interactive, fill-in-the-blank story that walks a child through pre-op testing, anesthesia, and recovery for open-heart surgery, written by a clinical anesthesiologist.",
-    "notes": "Author is a board-certified clinical anesthesiologist. A companion coloring/activity book also exists under the same title (ASIN B0F4KNX6HL) if a supplemental resource is wanted later. Verified via Amazon product lookup, 2026-08-12."
+    "notes": "Author is a board-certified clinical anesthesiologist. A companion coloring/activity book also exists under the same title (ASIN B0F4KNX6HL) if a supplemental resource is wanted later. Verified via Amazon product lookup, 2026-08-12.",
+    "hasSpanishEdition": true,
+    "titleEs": "Preparándome para mi cirugía de corazón",
+    "amazonProductUrlEs": "https://www.amazon.com/dp/B0FBM8MCCT",
+    "isbnEs": null,
+    "mlbSummaryEs": "Escrito por un anestesiólogo, este libro interactivo explica paso a paso qué esperar antes, durante y después de una cirugía cardíaca, ayudando a los niños a sentirse más en control y menos ansiosos."
   },
   {
     "featured": false,
@@ -2852,7 +2857,12 @@
     "isbn": "978-1736034408",
     "amazonProductUrl": "https://www.amazon.com/Extraordinary-Book-Children-Rare-Diseases/dp/1736034405?th=1&psc=1&language=en_US&currency=USD",
     "mlbSummary": "Written collaboratively by a mother and son, this book isn't about any single rare condition — it explores the experience of rare disease broadly, with room for a child to personalize the story to their own diagnosis.",
-    "notes": "Amazon listing showed as currently unavailable/out of stock at verification time, 2026-08-12 (not delisted) — reconfirm stock before promoting heavily."
+    "notes": "Amazon listing showed as currently unavailable/out of stock at verification time, 2026-08-12 (not delisted) — reconfirm stock before promoting heavily.",
+    "hasSpanishEdition": true,
+    "titleEs": "¡Extraordinario!",
+    "amazonProductUrlEs": "https://www.amazon.com/dp/B0BF2Q4XDV",
+    "isbnEs": null,
+    "mlbSummaryEs": "Escrito por madre e hijo, este libro abre una conversación cercana sobre identidad e inclusión a partir de la experiencia real del coautor creciendo con una enfermedad ultra rara."
   },
   {
     "featured": false,
@@ -3297,7 +3307,13 @@
     "isbn": "978-0316486231",
     "amazonProductUrl": "https://www.amazon.com/Invisible-String-Patrice-Karst/dp/031648623X?th=1&psc=1&language=en_US&currency=USD",
     "mlbSummary": "Introduces the idea of an \"invisible string\" of love that connects people no matter the distance between them — including the distance of death — a widely used comfort for separation and loss of any kind.",
-    "notes": "One of the most widely recommended children's books for grief and separation anxiety; a full series has followed. Verified via Amazon product lookup, 2026-08-12."
+    "notes": "One of the most widely recommended children's books for grief and separation anxiety; a full series has followed. Verified via Amazon product lookup, 2026-08-12.",
+    "hasSpanishEdition": true,
+    "titleEs": "El Hilo Invisible",
+    "mlbSummaryEs": "Presenta la idea de un \"hilo invisible\" de amor que conecta a las personas sin importar la distancia entre ellas, incluso la distancia de la muerte, un consuelo muy utilizado para la ansiedad de separación y cualquier tipo de pérdida.",
+    "amazonProductUrlEs": "https://www.amazon.com/El-Hilo-Invisible-String/dp/0316600849",
+    "coverImageEs": "https://m.media-amazon.com/images/I/91sE5lQJddL.jpg",
+    "isbnEs": "978-0316600847"
   },
   {
     "featured": false,

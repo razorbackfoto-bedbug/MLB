@@ -1,7 +1,8 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { SITE } from '../config/site';
+import LangPrompt from '../components/LangPrompt.astro';
+import { SITE, type SiteConfig } from '../config/site';
 import '../styles/global.css';
 
 interface Props {
@@ -9,34 +10,36 @@ interface Props {
   description?: string;
   image?: string;
   noindex?: boolean;
+  site?: SiteConfig;
 }
 
-const { title, description = SITE.description, image, noindex = false } = Astro.props;
-const pageTitle = title === SITE.name ? title : `${title} | ${SITE.name}`;
-const canonicalURL = new URL(Astro.url.pathname, SITE.url);
-const ogImage = image ? new URL(image, SITE.url) : null;
+const { title, description, image, noindex = false, site = SITE } = Astro.props;
+const resolvedDescription = description ?? site.description;
+const pageTitle = title === site.name ? title : `${title} | ${site.name}`;
+const canonicalURL = new URL(Astro.url.pathname, site.url);
+const ogImage = image ? new URL(image, site.url) : null;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={site.lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={canonicalURL} />
     <title>{pageTitle}</title>
-    <meta name="description" content={description} />
+    <meta name="description" content={resolvedDescription} />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content={pageTitle} />
-    <meta property="og:description" content={description} />
+    <meta property="og:description" content={resolvedDescription} />
     <meta property="og:url" content={canonicalURL} />
     {ogImage && <meta property="og:image" content={ogImage} />}
-    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:site_name" content={site.name} />
     <meta name="twitter:card" content={ogImage ? 'summary_large_image' : 'summary'} />
     <meta name="twitter:title" content={pageTitle} />
-    <meta name="twitter:description" content={description} />
+    <meta name="twitter:description" content={resolvedDescription} />
     {ogImage && <meta name="twitter:image" content={ogImage} />}
 
     <meta name="generator" content={Astro.generator} />
@@ -46,12 +49,13 @@ const ogImage = image ? new URL(image, SITE.url) : null;
       href="#main-content"
       class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-teal-700 focus:px-4 focus:py-2 focus:text-cream-50"
     >
-      Skip to main content
+      {site.lang === 'es' ? 'Saltar al contenido principal' : 'Skip to main content'}
     </a>
-    <Header />
+    <Header site={site} />
     <main id="main-content" class="flex-1">
       <slot />
     </main>
-    <Footer />
+    <Footer site={site} />
+    {site.lang === 'en' && <LangPrompt />}
   </body>
 </html>

@@ -1,0 +1,77 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BookCard from '../../../components/BookCard.astro';
+import TopicIcon from '../../../components/TopicIcon.astro';
+import { SITE_ES } from '../../../config/site';
+import { getAllTopics, getSpanishBooks, bookMatchesTopic, localizeBook, localizeTopic, type Topic } from '../../../lib/books';
+
+export function getStaticPaths() {
+  const spanishBooks = getSpanishBooks();
+  return getAllTopics()
+    .filter((topic) => spanishBooks.some((book) => bookMatchesTopic(book, topic)))
+    .map((topic) => ({
+      params: { slug: topic.slug },
+      props: { topic },
+    }));
+}
+
+interface Props {
+  topic: Topic;
+}
+
+const { topic: rawTopic } = Astro.props as Props;
+const topic = localizeTopic(rawTopic, 'es');
+const books = getSpanishBooks()
+  .filter((book) => bookMatchesTopic(book, rawTopic))
+  .map((book) => localizeBook(book, 'es'));
+---
+
+<BaseLayout title={topic.label} description={topic.description} site={SITE_ES}>
+  <section class="mx-auto max-w-5xl px-4 pb-4 pt-8 sm:px-6 lg:px-8">
+    <nav class="text-sm text-ink-light" aria-label="Breadcrumb">
+      <a href="/es/" class="hover:text-teal-700">Inicio</a> /
+      <a href="/es/topics/" class="hover:text-teal-700">Temas</a> /
+      <span class="text-ink">{topic.label}</span>
+    </nav>
+  </section>
+
+  <section class="mx-auto max-w-5xl px-4 pb-10 sm:px-6 lg:px-8">
+    <div class="flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+      <span class="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-2xl bg-teal-100 text-teal-700">
+        <TopicIcon name={topic.icon} class="h-7 w-7" />
+      </span>
+      <div>
+        <h1 class="font-display text-3xl font-semibold sm:text-4xl">{topic.label}</h1>
+        <p class="mt-2 max-w-2xl text-ink-light">{topic.description}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
+    {
+      books.length === 0 ? (
+        <div class="card p-10 text-center">
+          <p class="font-display text-lg text-teal-700">Todavía estamos agregando libros para este tema.</p>
+          <p class="mt-2 text-sm text-ink-light">
+            Vuelve pronto, o explora la{' '}
+            <a href="/es/library/" class="font-semibold text-teal-700 underline">
+              biblioteca completa
+            </a>{' '}
+            mientras tanto.
+          </p>
+        </div>
+      ) : (
+        <>
+          <p class="mb-6 text-sm font-semibold text-ink-light">
+            {books.length} {books.length === 1 ? 'libro' : 'libros'} para {topic.label}
+          </p>
+          <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {books.map((book) => (
+              <BookCard book={book} lang="es" />
+            ))}
+          </div>
+        </>
+      )
+    }
+  </section>
+</BaseLayout>

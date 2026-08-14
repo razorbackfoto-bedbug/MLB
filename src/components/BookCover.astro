@@ -4,21 +4,25 @@
 // the shelf still looks varied and intentional.
 import type { Book } from '../lib/books';
 import { coverPaletteFor } from '../lib/cover';
+import type { Lang } from '../i18n/ui';
 
 interface Props {
   book: Book;
   class?: string;
+  lang?: Lang;
 }
-const { book, class: className = '' } = Astro.props;
+const { book, class: className = '', lang = 'en' } = Astro.props;
 
 const palette = coverPaletteFor(book.slug);
+const altText = lang === 'es' ? `Portada de ${book.title}` : `Cover of ${book.title}`;
+const placeholderLabel = lang === 'es' ? `Portada provisional de ${book.title}` : `Cover placeholder for ${book.title}`;
 ---
 
 {
   book.coverImage ? (
     <img
       src={book.coverImage}
-      alt={`Cover of ${book.title}`}
+      alt={altText}
       class:list={['aspect-[3/4] w-full rounded-2xl object-cover shadow-card', className]}
       loading="lazy"
     />
@@ -30,7 +34,7 @@ const palette = coverPaletteFor(book.slug);
       ]}
       style={{ backgroundColor: palette.bg, color: palette.fg }}
       role="img"
-      aria-label={`Cover placeholder for ${book.title}`}
+      aria-label={placeholderLabel}
     >
       <div class="absolute inset-y-0 right-0 w-2 bg-black/10" aria-hidden="true"></div>
       <svg class="h-5 w-5 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">

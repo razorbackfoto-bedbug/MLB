@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BookshelfIllustration from '../../../components/BookshelfIllustration.astro';
+import LibraryExplorer from '../../../components/LibraryExplorer';
+import { SITE_ES } from '../../../config/site';
+import {
+  getSpanishBooks,
+  getAllTopics,
+  localizeBook,
+  localizeTopic,
+  localizeAgeBucket,
+  bookMatchesTopic,
+  AGE_BUCKETS,
+} from '../../../lib/books';
+
+const spanishBooksRaw = getSpanishBooks();
+const topics = getAllTopics()
+  .filter((topic) => spanishBooksRaw.some((book) => bookMatchesTopic(book, topic)))
+  .map((topic) => localizeTopic(topic, 'es'));
+
+const books = spanishBooksRaw.map((book) => ({
+  ...localizeBook(book, 'es'),
+  topicSlugs: getAllTopics().filter((topic) => bookMatchesTopic(book, topic)).map((topic) => topic.slug),
+}));
+
+const audienceOptions = Array.from(new Set(spanishBooksRaw.flatMap((b) => b.audienceTags)));
+const bookTypeOptions = Array.from(new Set(spanishBooksRaw.map((b) => b.bookType)));
+---
+
+<BaseLayout
+  title="Biblioteca de Libros"
+  description="Busca y filtra nuestra biblioteca de libros infantiles en español para familias de la UCIN, el hospital y experiencias médicas."
+  site={SITE_ES}
+>
+  <section class="mx-auto max-w-7xl px-4 pb-6 pt-10 sm:px-6 lg:px-8">
+    <div class="grid items-center gap-8 lg:grid-cols-[1.2fr,0.8fr]">
+      <div>
+        <h1 class="font-display text-3xl font-semibold sm:text-4xl">
+          Encuentra el libro adecuado para tu <span class="text-coral-400">familia</span>
+          <span aria-hidden="true" class="text-coral-400">♥</span>
+        </h1>
+        <p class="mt-3 max-w-xl text-ink-light">
+          Explora nuestros libros infantiles en español, cuidadosamente reunidos para ayudar a las familias a
+          navegar estancias en la UCIN, experiencias hospitalarias, condiciones médicas y más.
+        </p>
+      </div>
+      <div class="hidden lg:block">
+        <BookshelfIllustration class="h-40 w-full" />
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
+    <LibraryExplorer
+      client:load
+      books={books}
+      topics={topics}
+      ageBuckets={AGE_BUCKETS.map((b) => localizeAgeBucket(b, 'es'))}
+      audienceOptions={audienceOptions}
+      bookTypeOptions={bookTypeOptions}
+      lang="es"
+    />
+  </section>
+</BaseLayout>

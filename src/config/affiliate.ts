@@ -34,14 +34,19 @@ function applyTag(rawUrl: string, tag: string): string {
  * Resolves the best available Amazon link for a book.
  * Priority: explicit affiliateUrl from the catalog > product URL + tag > search URL + tag.
  */
-export function getAmazonLink(book: {
-  title: string;
-  amazonProductUrl?: string | null;
-  affiliateUrl?: string | null;
-}): AmazonLink {
+export function getAmazonLink(
+  book: {
+    title: string;
+    amazonProductUrl?: string | null;
+    affiliateUrl?: string | null;
+  },
+  lang: 'en' | 'es' = 'en',
+): AmazonLink {
   const hasProductUrl = Boolean(book.amazonProductUrl);
   const baseUrl = book.amazonProductUrl || buildAmazonSearchUrl(book.title);
-  const label = hasProductUrl ? 'View on Amazon' : 'Search on Amazon';
+  const label = lang === 'es'
+    ? hasProductUrl ? 'Ver en Amazon' : 'Buscar en Amazon'
+    : hasProductUrl ? 'View on Amazon' : 'Search on Amazon';
 
   if (book.affiliateUrl) {
     return { url: book.affiliateUrl, isAffiliate: true, label };
@@ -65,21 +70,24 @@ export interface PurchaseLink extends AmazonLink {
  * those, publisherUrl/retailerName take priority so we never point a "Buy"
  * button at an Amazon search result for a book Amazon doesn't actually sell.
  */
-export function getPurchaseLink(book: {
-  title: string;
-  amazonProductUrl?: string | null;
-  affiliateUrl?: string | null;
-  publisherUrl?: string | null;
-  retailerName?: string | null;
-}): PurchaseLink {
+export function getPurchaseLink(
+  book: {
+    title: string;
+    amazonProductUrl?: string | null;
+    affiliateUrl?: string | null;
+    publisherUrl?: string | null;
+    retailerName?: string | null;
+  },
+  lang: 'en' | 'es' = 'en',
+): PurchaseLink {
   if (!book.amazonProductUrl && book.publisherUrl) {
     return {
       url: book.publisherUrl,
       isAffiliate: false,
       isAmazon: false,
-      label: `View at ${book.retailerName ?? 'Retailer'}`,
+      label: lang === 'es' ? `Ver en ${book.retailerName ?? 'la Tienda'}` : `View at ${book.retailerName ?? 'Retailer'}`,
     };
   }
 
-  return { ...getAmazonLink(book), isAmazon: true };
+  return { ...getAmazonLink(book, lang), isAmazon: true };
 }

@@ -1,18 +1,23 @@
 ---
-import { SITE } from '../config/site';
+import { SITE, type SiteConfig } from '../config/site';
 import Logo from './Logo.astro';
+
+interface Props {
+  site?: SiteConfig;
+}
+const { site = SITE } = Astro.props as Props;
 
 const currentPath = Astro.url.pathname;
 
 function isActive(href: string) {
-  if (href === '/') return currentPath === '/';
+  if (href === site.homeHref) return currentPath === href;
   return currentPath.startsWith(href);
 }
 ---
 
 <header class="sticky top-0 z-40 border-b border-teal-100/70 bg-cream-100/95 backdrop-blur">
   <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
-    <a href="/" class="flex items-center gap-3">
+    <a href={site.homeHref} class="flex items-center gap-3">
       <Logo />
       <span class="font-display text-xl font-semibold leading-tight text-teal-700 sm:text-2xl">
         Mighty Little<br class="hidden sm:block" /> Bookshelf
@@ -21,7 +26,7 @@ function isActive(href: string) {
 
     <nav class="hidden items-center gap-8 md:flex" aria-label="Primary">
       {
-        SITE.nav.map((item) => (
+        site.nav.map((item) => (
           <a
             href={item.href}
             class:list={[
@@ -37,12 +42,18 @@ function isActive(href: string) {
     </nav>
 
     <div class="flex items-center gap-3">
-      <a href="/library/" class="btn-secondary hidden sm:inline-flex">
+      <a href={site.libraryHref} class="btn-secondary hidden sm:inline-flex">
         <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
           <path d="M4 19.5V5a2 2 0 0 1 2-2h12v16.5" stroke-linecap="round" stroke-linejoin="round"></path>
           <path d="M6 21a2 2 0 0 1 0-4h12v4Z" stroke-linecap="round" stroke-linejoin="round"></path>
         </svg>
-        Browse Books
+        {site.browseBooksLabel}
+      </a>
+      <a
+        href={site.langSwitch.href}
+        class="hidden items-center justify-center rounded-full border-2 border-teal-700 px-3 py-1.5 text-sm font-bold text-teal-700 hover:bg-teal-50 sm:inline-flex"
+      >
+        {site.langSwitch.label}
       </a>
       <button
         id="menu-toggle"
@@ -62,7 +73,7 @@ function isActive(href: string) {
   <nav id="mobile-menu" class="hidden border-t border-teal-100 bg-cream-100 md:hidden" aria-label="Mobile">
     <ul class="flex flex-col gap-1 px-4 py-3">
       {
-        SITE.nav.map((item) => (
+        site.nav.map((item) => (
           <li>
             <a
               href={item.href}
@@ -75,8 +86,13 @@ function isActive(href: string) {
         ))
       }
       <li>
-        <a href="/library/" class="mt-2 block rounded-xl bg-teal-700 px-3 py-2 text-center font-body font-bold text-cream-50">
-          Browse Books
+        <a href={site.libraryHref} class="mt-2 block rounded-xl bg-teal-700 px-3 py-2 text-center font-body font-bold text-cream-50">
+          {site.browseBooksLabel}
+        </a>
+      </li>
+      <li>
+        <a href={site.langSwitch.href} class="mt-1 block rounded-xl border border-teal-200 px-3 py-2 text-center font-body font-bold text-teal-700">
+          {site.langSwitch.label}
         </a>
       </li>
     </ul>

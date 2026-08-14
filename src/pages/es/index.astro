@@ -1,0 +1,157 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BookshelfIllustration from '../../components/BookshelfIllustration.astro';
+import BookCard from '../../components/BookCard.astro';
+import BookOfTheWeek from '../../components/BookOfTheWeek.astro';
+import TopicIcon from '../../components/TopicIcon.astro';
+import { SITE_ES } from '../../config/site';
+import { getSpanishBooks, getAllTopics, localizeBook, localizeTopic, bookMatchesTopic } from '../../lib/books';
+
+const spanishBooks = getSpanishBooks().map((book) => localizeBook(book, 'es'));
+const topics = getAllTopics()
+  .filter((topic) => getSpanishBooks().some((book) => bookMatchesTopic(book, topic)))
+  .map((topic) => localizeTopic(topic, 'es'));
+const featuredBooks = spanishBooks.slice(0, 4);
+const bookCount = spanishBooks.length;
+---
+
+<BaseLayout title="Mighty Little Bookshelf" site={SITE_ES}>
+  <section class="mx-auto max-w-7xl px-4 pb-10 pt-10 sm:px-6 lg:px-8 lg:pt-16">
+    <div class="grid items-center gap-10 lg:grid-cols-2">
+      <div>
+        <h1 class="font-display text-4xl font-semibold leading-tight sm:text-5xl">
+          Ayudando a los pequeños lectores a entender <span class="text-coral-400">grandes experiencias médicas.</span>
+          <span aria-hidden="true" class="text-coral-400">♥</span>
+        </h1>
+        <p class="mt-5 max-w-xl text-lg text-ink-light">
+          Libros infantiles cuidadosamente seleccionados para ayudar a las familias a navegar estancias en la UCIN,
+          hospitalizaciones, condiciones médicas y más — juntos. Porque una buena historia puede traer consuelo,
+          valentía y conexión.
+        </p>
+        <div class="mt-7 flex flex-wrap gap-3">
+          <a href="/es/library/" class="btn-primary">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="7"></circle>
+              <path d="m21 21-4.3-4.3" stroke-linecap="round"></path>
+            </svg>
+            Buscar un Libro
+          </a>
+          <a href="/es/topics/" class="btn-secondary">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="7" height="7" rx="1.5"></rect>
+              <rect x="14" y="3" width="7" height="7" rx="1.5"></rect>
+              <rect x="3" y="14" width="7" height="7" rx="1.5"></rect>
+              <rect x="14" y="14" width="7" height="7" rx="1.5"></rect>
+            </svg>
+            Explorar Temas
+          </a>
+        </div>
+      </div>
+      <div class="relative">
+        <BookshelfIllustration />
+      </div>
+    </div>
+  </section>
+
+  <section class="border-y border-teal-100 bg-white/60 py-6">
+    <div class="mx-auto flex max-w-7xl gap-6 overflow-x-auto px-4 sm:px-6 lg:justify-center lg:px-8">
+      {
+        topics.slice(0, 8).map((topic) => (
+          <a href={`/es/topics/${topic.slug}/`} class="flex flex-shrink-0 flex-col items-center gap-2 text-center">
+            <span class="flex h-12 w-12 items-center justify-center rounded-full bg-teal-100 text-teal-700">
+              <TopicIcon name={topic.icon} />
+            </span>
+            <span class="w-20 text-xs font-semibold text-ink-light">{topic.label}</span>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <BookOfTheWeek lang="es" />
+
+  <section class="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+    <div class="mb-6 flex items-center justify-between">
+      <h2 class="text-2xl font-semibold sm:text-3xl">
+        Libros Destacados <span aria-hidden="true" class="text-coral-400">♥</span>
+      </h2>
+      <a href="/es/library/" class="text-sm font-bold text-teal-700 hover:text-coral-500">Ver todos los libros &rarr;</a>
+    </div>
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {featuredBooks.map((book) => <BookCard book={book} lang="es" />)}
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
+    <div class="card bg-sunny-50/60 p-6 sm:p-8">
+      <h2 class="font-display text-lg font-semibold text-teal-700">Nuestra biblioteca en español está creciendo</h2>
+      <p class="mt-2 max-w-2xl leading-relaxed text-ink">
+        La mayoría de los libros de nuestro catálogo en inglés son de autores independientes o editoriales
+        pequeñas que aún no han publicado una traducción al español. Solo agregamos un libro a esta sección
+        cuando confirmamos que existe una edición real en español, disponible a un precio razonable — así que
+        esta biblioteca es más pequeña, pero cada título aquí es auténtico. Iremos añadiendo más títulos con el
+        tiempo.
+      </p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
+    <div class="grid gap-10 lg:grid-cols-[1.1fr,0.9fr]">
+      <div>
+        <h2 class="text-2xl font-semibold sm:text-3xl">Cómo Funciona</h2>
+        <div class="mt-6 grid gap-6 sm:grid-cols-3">
+          <div>
+            <span class="flex h-12 w-12 items-center justify-center rounded-full bg-teal-100 text-teal-700">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle cx="11" cy="11" r="7"></circle>
+                <path d="m21 21-4.3-4.3" stroke-linecap="round"></path>
+              </svg>
+            </span>
+            <h3 class="mt-3 font-display text-lg font-semibold text-teal-700">1. Busca</h3>
+            <p class="mt-1 text-sm text-ink-light">Busca por palabra clave, título o experiencia médica.</p>
+          </div>
+          <div>
+            <span class="flex h-12 w-12 items-center justify-center rounded-full bg-sunny-100 text-sunny-500">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M4 6h16M8 12h12M4 18h16" stroke-linecap="round"></path>
+                <circle cx="5" cy="12" r="1.6" fill="currentColor" stroke="none"></circle>
+              </svg>
+            </span>
+            <h3 class="mt-3 font-display text-lg font-semibold text-teal-700">2. Filtra</h3>
+            <p class="mt-1 text-sm text-ink-light">Filtra por edad, tema o situación para encontrar el libro adecuado.</p>
+          </div>
+          <div>
+            <span class="flex h-12 w-12 items-center justify-center rounded-full bg-coral-100 text-coral-500">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M12 21s-7.5-4.6-10-9.3C0.5 8 2.3 4 6.2 4c2.1 0 3.7 1.2 4.5 2.6C11.5 5.2 13.1 4 15.2 4c3.9 0 5.7 4 4.2 7.7C19.5 16.4 12 21 12 21Z" stroke-linejoin="round"></path>
+              </svg>
+            </span>
+            <h3 class="mt-3 font-display text-lg font-semibold text-teal-700">3. Apoya</h3>
+            <p class="mt-1 text-sm text-ink-light">Encuentra libros que traigan consuelo, comprensión y conexión.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card flex flex-col justify-center gap-3 bg-coral-50/60 p-8">
+        <p class="text-4xl text-coral-300" aria-hidden="true">&ldquo;</p>
+        <p class="font-display text-lg leading-relaxed text-teal-800">
+          Nuestra misión es simple: ayudar a cada familia que atraviesa un camino médico inesperado a encontrar
+          una historia que haga que su hijo se sienta visto, valiente y menos solo.
+        </p>
+        <p class="text-sm font-semibold text-ink-light">— El equipo de Mighty Little Bookshelf</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-teal-100 bg-teal-700 py-10 text-cream-50">
+    <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 text-center sm:flex-row sm:text-left sm:px-6 lg:px-8">
+      <div>
+        <h2 class="font-display text-2xl font-semibold text-cream-50">¿Listo para encontrar el libro adecuado?</h2>
+        <p class="mt-1 text-cream-100/90">Busca en nuestra biblioteca de {bookCount} {bookCount === 1 ? 'libro elegido' : 'libros elegidos'} para familias como la tuya.</p>
+      </div>
+      <a href="/es/library/" class="inline-flex items-center justify-center gap-2 rounded-full bg-cream-100 px-6 py-3 font-bold text-teal-700 hover:bg-white">
+        Abrir la Biblioteca de Libros
+      </a>
+    </div>
+  </section>
+</BaseLayout>
