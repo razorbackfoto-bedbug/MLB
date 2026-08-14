@@ -229,7 +229,12 @@
     "mlbSummary": null,
     "verificationStatus": "Needs metadata verification",
     "sourceUrl": "https://www.preemieadventures.com/nicu-books",
-    "notes": "Seeded from Preemie Adventures catalog; do not copy source description verbatim."
+    "notes": "Seeded from Preemie Adventures catalog; do not copy source description verbatim.",
+    "hasSpanishEdition": true,
+    "titleEs": "Bienvenidos a la NICU",
+    "mlbSummaryEs": "Escrito por la misma autora que la edición en inglés, este libro ilustrado da la bienvenida a las familias a la UCIN y celebra el logro de cada bebé que llegó antes de tiempo.",
+    "amazonProductUrlEs": "https://www.amazon.com/dp/1736844938",
+    "isbnEs": null
   },
   {
     "slug": "my-baby-is-a-superhero",
