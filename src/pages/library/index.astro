@@ -44,13 +44,26 @@ const bookTypeOptions = getUniqueBookTypes();
   </section>
 
   <section class="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
-    <LibraryExplorer
-      client:load
-      books={books}
-      topics={topics}
-      ageBuckets={AGE_BUCKETS}
-      audienceOptions={audienceOptions}
-      bookTypeOptions={bookTypeOptions}
-    />
+    <div class="library-explorer-shell">
+      <LibraryExplorer
+        client:load
+        books={books}
+        topics={topics}
+        ageBuckets={AGE_BUCKETS}
+        audienceOptions={audienceOptions}
+        bookTypeOptions={bookTypeOptions}
+      />
+    </div>
   </section>
 </BaseLayout>
+
+<style is:global>
+  @media (min-width: 1024px) {
+    .library-explorer-shell aside.card {
+      max-height: calc(100vh - 7rem);
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      scrollbar-gutter: stable;
+    }
+  }
+</style>
