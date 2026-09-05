@@ -1,6 +1,7 @@
 import booksData from '../data/books.json';
 import booksEsData from '../data/booksEs.json';
 import topicsData from '../data/topics.json';
+import { coverOverrides } from '../data/coverOverrides';
 
 export interface Book {
   slug: string;
@@ -93,7 +94,11 @@ export function localizeAgeBucket(bucket: AgeBucket, lang: 'en' | 'es'): AgeBuck
   return { ...bucket, label: bucket.labelEs || bucket.label };
 }
 
-export const books: Book[] = booksData as Book[];
+const rawBooks = booksData as Book[];
+export const books: Book[] = rawBooks.map((book) => ({
+  ...book,
+  coverImage: coverOverrides[book.slug] ?? book.coverImage,
+}));
 export const booksEsOriginal: Book[] = booksEsData as Book[];
 export const topics: Topic[] = topicsData as Topic[];
 
