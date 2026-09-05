@@ -4,14 +4,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "node scripts/repair-medical-catalog.mjs && astro dev",
-    "start": "node scripts/repair-medical-catalog.mjs && astro dev",
-    "build": "node scripts/repair-medical-catalog.mjs && astro check && astro build",
-    "build:unchecked": "node scripts/repair-medical-catalog.mjs && astro build",
+    "dev": "node scripts/repair-medical-catalog.mjs && node scripts/expand-nicu-catalog.mjs && astro dev",
+    "start": "node scripts/repair-medical-catalog.mjs && node scripts/expand-nicu-catalog.mjs && astro dev",
+    "build": "node scripts/repair-medical-catalog.mjs && node scripts/expand-nicu-catalog.mjs && astro check && astro build",
+    "build:unchecked": "node scripts/repair-medical-catalog.mjs && node scripts/expand-nicu-catalog.mjs && astro build",
     "preview": "astro preview",
     "astro": "astro",
     "import-catalog": "node scripts/import-catalog.mjs",
-    "repair-catalog": "node scripts/repair-medical-catalog.mjs"
+    "repair-catalog": "node scripts/repair-medical-catalog.mjs && node scripts/expand-nicu-catalog.mjs"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
