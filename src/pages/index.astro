@@ -4,11 +4,39 @@ import BookshelfIllustration from '../components/BookshelfIllustration.astro';
 import BookCard from '../components/BookCard.astro';
 import BookOfTheWeek from '../components/BookOfTheWeek.astro';
 import TopicIcon from '../components/TopicIcon.astro';
-import { getFeaturedBooks, getAllBooks, getAllTopics } from '../lib/books';
+import { getAllBooks, getAllTopics, type Book } from '../lib/books';
 
-const featuredBooks = getFeaturedBooks(4);
+const publicBooks = getAllBooks().filter(
+  (book) => book.author && book.mlbSummary && book.audience && book.medicalTopics.length > 0,
+);
+
+function chooseDiverseBooks(pool: Book[], limit: number): Book[] {
+  const selected: Book[] = [];
+  const usedTopics = new Set<string>();
+  const remaining = [...pool];
+
+  while (selected.length < limit && remaining.length > 0) {
+    remaining.sort((a, b) => {
+      const score = (book: Book) => {
+        const newTopics = book.medicalTopics.filter((topic) => !usedTopics.has(topic)).length;
+        const repeatedTopics = book.medicalTopics.length - newTopics;
+        const repeatedType = selected.some((picked) => picked.bookType === book.bookType);
+        return (book.featured ? 8 : 0) + newTopics * 5 - repeatedTopics * 3 - (repeatedType ? 2 : 0);
+      };
+      return score(b) - score(a) || a.title.localeCompare(b.title);
+    });
+
+    const next = remaining.shift()!;
+    selected.push(next);
+    next.medicalTopics.forEach((topic) => usedTopics.add(topic));
+  }
+
+  return selected;
+}
+
+const featuredBooks = chooseDiverseBooks(publicBooks, 4);
 const topics = getAllTopics();
-const bookCount = getAllBooks().length;
+const bookCount = publicBooks.length;
 ---
 
 <BaseLayout title="Mighty Little Bookshelf">
@@ -20,8 +48,8 @@ const bookCount = getAllBooks().length;
           <span aria-hidden="true" class="text-coral-400">♥</span>
         </h1>
         <p class="mt-5 max-w-xl text-lg text-ink-light">
-          Thoughtfully gathered children's books to help families navigate NICU stays, hospitalization, medical
-          conditions, and more — together. Because a good story can bring comfort, courage, and connection.
+          Thoughtfully gathered children's books for hospital stays, heart conditions, cancer, procedures, feeding support,
+          NICU experiences, and more. Because a good story can bring comfort, courage, and connection.
         </p>
         <div class="mt-7 flex flex-wrap gap-3">
           <a href="/library/" class="btn-primary">
@@ -67,9 +95,12 @@ const bookCount = getAllBooks().length;
 
   <section class="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
     <div class="mb-6 flex items-center justify-between">
-      <h2 class="text-2xl font-semibold sm:text-3xl">
-        Featured Books <span aria-hidden="true" class="text-coral-400">♥</span>
-      </h2>
+      <div>
+        <h2 class="text-2xl font-semibold sm:text-3xl">
+          Across the Bookshelf <span aria-hidden="true" class="text-coral-400">♥</span>
+        </h2>
+        <p class="mt-1 text-sm text-ink-light">A mix of books from different pediatric medical experiences.</p>
+      </div>
       <a href="/library/" class="text-sm font-bold text-teal-700 hover:text-coral-500">View all books &rarr;</a>
     </div>
     <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -120,7 +151,7 @@ const bookCount = getAllBooks().length;
           Our mission is simple: help every family who lands in an unexpected medical journey find a story that
           makes their child feel seen, brave, and less alone.
         </p>
-        <p class="text-sm font-semibold text-ink-light">— The Mighty Little Bookshelf team</p>
+        <p class="text-sm font-semibold text-ink-light">The Mighty Little Bookshelf team</p>
       </div>
     </div>
   </section>
@@ -129,7 +160,7 @@ const bookCount = getAllBooks().length;
     <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 text-center sm:flex-row sm:text-left sm:px-6 lg:px-8">
       <div>
         <h2 class="font-display text-2xl font-semibold text-cream-50">Ready to find the right book?</h2>
-        <p class="mt-1 text-cream-100/90">Search our library of {bookCount} books chosen for families like yours.</p>
+        <p class="mt-1 text-cream-100/90">Search our library of {bookCount} complete book guides chosen for families like yours.</p>
       </div>
       <a href="/library/" class="inline-flex items-center justify-center gap-2 rounded-full bg-cream-100 px-6 py-3 font-bold text-teal-700 hover:bg-white">
         Open Book Library
