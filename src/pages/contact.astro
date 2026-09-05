@@ -11,7 +11,19 @@ import { SITE } from '../config/site';
       Have a question, a book suggestion, or a correction to a listing? Send us a note and we'll get back to you.
     </p>
 
-    <form id="contact-form" class="card mt-8 space-y-4 p-6 sm:p-8" novalidate>
+    <form
+      id="contact-form"
+      action="https://formsubmit.co/hello@mightylittlebookshelf.com"
+      method="POST"
+      class="card mt-8 space-y-4 p-6 sm:p-8"
+    >
+      <input type="hidden" name="_subject" value="New Mighty Little Bookshelf contact form message" />
+      <input type="hidden" name="_cc" value="razorbackfoto@gmail.com" />
+      <input type="hidden" name="_next" value="https://mightylittlebookshelf.com/contact/thanks/" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_url" value="https://mightylittlebookshelf.com/contact/" />
+      <input type="text" name="_honey" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
+
       <div class="grid gap-4 sm:grid-cols-2">
         <div>
           <label for="name" class="block text-sm font-semibold text-ink">Name</label>
@@ -20,6 +32,7 @@ import { SITE } from '../config/site';
             name="name"
             type="text"
             required
+            autocomplete="name"
             class="mt-1 w-full rounded-xl border border-teal-200 bg-white px-4 py-2.5 text-ink focus:border-teal-500"
           />
         </div>
@@ -30,6 +43,7 @@ import { SITE } from '../config/site';
             name="email"
             type="email"
             required
+            autocomplete="email"
             class="mt-1 w-full rounded-xl border border-teal-200 bg-white px-4 py-2.5 text-ink focus:border-teal-500"
           />
         </div>
@@ -60,24 +74,8 @@ import { SITE } from '../config/site';
       </div>
       <button type="submit" class="btn-primary">Send Message</button>
       <p class="text-xs text-ink-light">
-        This opens your email app with your message pre-filled and addressed to {SITE.email}.
+        Your message is sent through the website to {SITE.email}. A delivery copy is also sent to our monitored inbox.
       </p>
     </form>
   </section>
 </BaseLayout>
-
-<script define:vars={{ email: SITE.email }}>
-  const form = document.getElementById('contact-form');
-  form?.addEventListener('submit', (event) => {
-    event.preventDefault();
-    const data = new FormData(form);
-    const name = data.get('name') ?? '';
-    const topic = data.get('topic') ?? 'General question';
-    const message = data.get('message') ?? '';
-    const senderEmail = data.get('email') ?? '';
-
-    const subject = `[Mighty Little Bookshelf] ${topic}`;
-    const body = `${message}\n\n— ${name} (${senderEmail})`;
-    window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  });
-</script>
