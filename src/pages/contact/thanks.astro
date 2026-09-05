@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Message Sent" description="Thank you for contacting Mighty Little Bookshelf.">
+  <section class="mx-auto max-w-2xl px-4 py-16 text-center sm:px-6 lg:px-8">
+    <div class="card p-8 sm:p-10">
+      <p class="section-label">Thank you</p>
+      <h1 class="mt-2 font-display text-3xl font-semibold sm:text-4xl">Your message is on its way</h1>
+      <p class="mx-auto mt-4 max-w-lg text-ink-light">
+        Thanks for reaching out to Mighty Little Bookshelf. We received your note and will follow up as soon as we can.
+      </p>
+      <div class="mt-7 flex flex-wrap justify-center gap-3">
+        <a href="/library/" class="btn-primary">Browse the Library</a>
+        <a href="/" class="btn-secondary">Back Home</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
