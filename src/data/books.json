@@ -4293,37 +4293,6 @@
     "notes": "Seeded from CHOP Recommended Children's Books resource list; do not copy source description verbatim."
   },
   {
-    "slug": "we-were-going-to-have-a-baby-but-we-had-an-angel-instead",
-    "title": "We Were Going to Have a Baby but We Had an Angel Instead",
-    "coverImage": null,
-    "featured": false,
-    "author": null,
-    "illustrator": null,
-    "audience": "Children & Families",
-    "audienceTags": [
-      "Children",
-      "Families"
-    ],
-    "format": "Storybook",
-    "bookType": "Storybooks",
-    "medicalTopics": [
-      "Grief/Loss"
-    ],
-    "siblingFocus": true,
-    "faithBased": false,
-    "ageMin": 3,
-    "ageMax": 8,
-    "isbn": null,
-    "publicationYear": null,
-    "amazonProductUrl": "http://www.amazon.com/Were-Gonna-Have-Angel-Instead/dp/0972424113/",
-    "affiliateUrl": null,
-    "publisherUrl": null,
-    "mlbSummary": null,
-    "verificationStatus": "Needs metadata verification",
-    "sourceUrl": "https://www.chop.edu/health-resource/recommended-childrens-books",
-    "notes": "Seeded from CHOP Recommended Children's Books resource list; do not copy source description verbatim."
-  },
-  {
     "slug": "lifetimes-a-beautiful-way-to-explain-death-to-children",
     "title": "Lifetimes: A Beautiful Way to Explain Death to Children",
     "coverImage": null,
