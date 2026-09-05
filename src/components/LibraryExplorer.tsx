@@ -63,15 +63,24 @@ function LibraryBookCard({ book, lang }: { book: LibraryBook; lang: Lang }) {
   const booksHref = lang === 'es' ? '/es/books' : '/books';
   const altText = lang === 'es' ? `Portada de ${book.title}` : `Cover of ${book.title}`;
   const placeholderLabel = lang === 'es' ? `Portada provisional de ${book.title}` : `Cover placeholder for ${book.title}`;
+  const [coverFailed, setCoverFailed] = useState(false);
+  // Open Library returns a 200 with a near-blank "no cover" image by default instead of a
+  // 404, so request the real-404 mode and fall back to the color placeholder on error.
+  const coverSrc = book.coverImage
+    ? book.coverImage.includes('covers.openlibrary.org')
+      ? `${book.coverImage}${book.coverImage.includes('?') ? '&' : '?'}default=false`
+      : book.coverImage
+    : undefined;
   return (
     <article class="card flex h-full flex-col overflow-hidden p-3">
       <a href={`${booksHref}/${book.slug}/`} class="block">
-        {book.coverImage ? (
+        {book.coverImage && !coverFailed ? (
           <img
-            src={book.coverImage}
+            src={coverSrc}
             alt={altText}
             class="aspect-[3/4] w-full rounded-2xl object-cover shadow-card"
             loading="lazy"
+            onError={() => setCoverFailed(true)}
           />
         ) : (
           <div

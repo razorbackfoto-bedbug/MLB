@@ -16,31 +16,37 @@ const { book, class: className = '', lang = 'en' } = Astro.props;
 const palette = coverPaletteFor(book.slug);
 const altText = lang === 'es' ? `Portada de ${book.title}` : `Cover of ${book.title}`;
 const placeholderLabel = lang === 'es' ? `Portada provisional de ${book.title}` : `Cover placeholder for ${book.title}`;
+
+// Open Library returns a 200 with a near-blank "no cover" image by default instead of a
+// 404, so request the real-404 mode and fall back to the color placeholder on error.
+const coverSrc =
+  book.coverImage && book.coverImage.includes('covers.openlibrary.org')
+    ? `${book.coverImage}${book.coverImage.includes('?') ? '&' : '?'}default=false`
+    : book.coverImage;
 ---
 
-{
-  book.coverImage ? (
-    <img
-      src={book.coverImage}
-      alt={altText}
-      class:list={['aspect-[3/4] w-full rounded-2xl object-cover shadow-card', className]}
-      loading="lazy"
-    />
-  ) : (
-    <div
-      class:list={[
-        'relative flex aspect-[3/4] w-full flex-col justify-between overflow-hidden rounded-2xl p-4 shadow-card',
-        className,
-      ]}
-      style={{ backgroundColor: palette.bg, color: palette.fg }}
-      role="img"
-      aria-label={placeholderLabel}
-    >
-      <div class="absolute inset-y-0 right-0 w-2 bg-black/10" aria-hidden="true"></div>
-      <svg class="h-5 w-5 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-        <path d="M12 21s-7.5-4.6-10-9.3C0.5 8 2.3 4 6.2 4c2.1 0 3.7 1.2 4.5 2.6C11.5 5.2 13.1 4 15.2 4c3.9 0 5.7 4 4.2 7.7C19.5 16.4 12 21 12 21Z" />
-      </svg>
-      <p class="font-display text-lg font-semibold leading-snug">{book.title}</p>
-    </div>
-  )
-}
+{book.coverImage && (
+  <img
+    src={coverSrc}
+    alt={altText}
+    class:list={['aspect-[3/4] w-full rounded-2xl object-cover shadow-card', className]}
+    loading="lazy"
+    onerror="this.style.display='none'; this.nextElementSibling?.classList.remove('hidden');"
+  />
+)}
+<div
+  class:list={[
+    'relative flex aspect-[3/4] w-full flex-col justify-between overflow-hidden rounded-2xl p-4 shadow-card',
+    book.coverImage ? 'hidden' : '',
+    className,
+  ]}
+  style={{ backgroundColor: palette.bg, color: palette.fg }}
+  role="img"
+  aria-label={placeholderLabel}
+>
+  <div class="absolute inset-y-0 right-0 w-2 bg-black/10" aria-hidden="true"></div>
+  <svg class="h-5 w-5 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+    <path d="M12 21s-7.5-4.6-10-9.3C0.5 8 2.3 4 6.2 4c2.1 0 3.7 1.2 4.5 2.6C11.5 5.2 13.1 4 15.2 4c3.9 0 5.7 4 4.2 7.7C19.5 16.4 12 21 12 21Z" />
+  </svg>
+  <p class="font-display text-lg font-semibold leading-snug">{book.title}</p>
+</div>
