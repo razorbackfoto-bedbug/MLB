@@ -1,25 +1,40 @@
 ---
-// Presentational newsletter signup. Not wired to an email provider yet —
-// swap the <form> markup for your provider's embed (e.g. Buttondown,
-// ConvertKit, Mailchimp) when ready, or point action/method at their endpoint.
+interface Props {
+  lang?: 'en' | 'es';
+}
+
+const { lang = 'en' } = Astro.props as Props;
+const copy = lang === 'es'
+  ? {
+      label: 'Tu dirección de correo electrónico',
+      placeholder: 'Tu correo electrónico',
+      button: 'Suscribirse',
+      success: '¡Gracias por suscribirte! Pronto estaremos en contacto.',
+    }
+  : {
+      label: 'Your email address',
+      placeholder: 'Your email address',
+      button: 'Subscribe',
+      success: "Thanks for subscribing! We'll be in touch soon.",
+    };
 ---
 
 <form id="newsletter-form" class="flex flex-col gap-2 sm:flex-row" novalidate>
-  <label for="newsletter-email" class="sr-only">Your email address</label>
+  <label for="newsletter-email" class="sr-only">{copy.label}</label>
   <input
     id="newsletter-email"
     name="email"
     type="email"
     required
-    placeholder="Your email address"
+    placeholder={copy.placeholder}
     class="w-full rounded-full border border-teal-200 bg-white px-4 py-2 text-sm text-ink placeholder:text-ink-light/60 focus:border-teal-500"
   />
   <button type="submit" class="rounded-full bg-teal-700 px-5 py-2 text-sm font-bold text-cream-50 hover:bg-teal-600">
-    Subscribe
+    {copy.button}
   </button>
 </form>
 <p id="newsletter-message" class="mt-2 text-sm text-teal-700" role="status" hidden>
-  Thanks for subscribing! We'll be in touch soon.
+  {copy.success}
 </p>
 
 <script>
@@ -27,7 +42,6 @@
   const message = document.getElementById('newsletter-message');
   form?.addEventListener('submit', (event) => {
     event.preventDefault();
-    // TODO: connect to a newsletter provider. Until then, acknowledge locally.
     form.reset();
     message?.removeAttribute('hidden');
   });
