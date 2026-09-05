@@ -1,9 +1,6 @@
 import booksData from '../data/books.json';
 import booksEsData from '../data/booksEs.json';
-import curatedAdditionsData from '../data/curatedAdditions.json';
-import loeysDietzAdditionsData from '../data/loeysDietzAdditions.json';
 import topicsData from '../data/topics.json';
-import { coverOverrides } from '../data/coverOverrides';
 
 export interface Book {
   slug: string;
@@ -31,6 +28,7 @@ export interface Book {
   verificationStatus: string;
   sourceUrl: string | null;
   notes: string | null;
+  sourceCollections?: string[];
   hasSpanishEdition?: boolean;
   titleEs?: string | null;
   mlbSummaryEs?: string | null;
@@ -93,12 +91,6 @@ export function localizeAgeBucket(bucket: AgeBucket, lang: 'en' | 'es'): AgeBuck
   return { ...bucket, label: bucket.labelEs || bucket.label };
 }
 
-function amazonCoverFor(book: Book): string | null {
-  const match = book.amazonProductUrl?.match(/\/dp\/([^/?]+)/i);
-  if (!match) return null;
-  return `https://images-na.ssl-images-amazon.com/images/P/${match[1]}.01.LZZZZZZZ.jpg`;
-}
-
 function normalizeTitle(title: string): string {
   return title
     .normalize('NFKD')
@@ -151,7 +143,6 @@ function mergeDuplicateBooks(existing: Book, incoming: Book): Book {
   return {
     ...secondary,
     ...primary,
-    // Keep the first slug/title so existing internal URLs remain stable.
     slug: existing.slug,
     title: existing.title,
     coverImage: prefer(primary.coverImage, secondary.coverImage),
@@ -173,6 +164,7 @@ function mergeDuplicateBooks(existing: Book, incoming: Book): Book {
     mlbSummary: prefer(primary.mlbSummary, secondary.mlbSummary),
     sourceUrl: prefer(primary.sourceUrl, secondary.sourceUrl),
     notes: prefer(primary.notes, secondary.notes),
+    sourceCollections: Array.from(new Set([...(existing.sourceCollections ?? []), ...(incoming.sourceCollections ?? [])])),
     hasSpanishEdition: existing.hasSpanishEdition || incoming.hasSpanishEdition,
     titleEs: prefer(primary.titleEs, secondary.titleEs),
     mlbSummaryEs: prefer(primary.mlbSummaryEs, secondary.mlbSummaryEs),
@@ -210,7 +202,6 @@ function dedupeBooks(input: Book[], titleForBook: (book: Book) => string = (book
     const merged = mergeDuplicateBooks(output[existingIndex], book);
     output[existingIndex] = merged;
 
-    // Point every known identity for either record back to the surviving entry.
     slugIndex.set(slugKey, existingIndex);
     slugIndex.set(merged.slug.trim().toLowerCase(), existingIndex);
     if (titleKey) titleIndex.set(titleKey, existingIndex);
@@ -223,24 +214,9 @@ function dedupeBooks(input: Book[], titleForBook: (book: Book) => string = (book
   return output;
 }
 
-const loeysDietzSlugs = new Set((loeysDietzAdditionsData as Book[]).map((book) => book.slug));
-
-const rawBooks = [
-  ...(booksData as Book[]),
-  ...(curatedAdditionsData as Book[]),
-  ...(loeysDietzAdditionsData as Book[]),
-];
-
-const mergedBooks = dedupeBooks(rawBooks);
-
-export const books: Book[] = mergedBooks.map((book) => ({
-  ...book,
-  coverImage:
-    coverOverrides[book.slug] ??
-    (loeysDietzSlugs.has(book.slug) ? amazonCoverFor(book) : null) ??
-    book.coverImage,
-}));
-
+// books.json is the single source of truth for the English catalog.
+// Runtime deduplication remains as a safety net for future imports.
+export const books: Book[] = dedupeBooks(booksData as Book[]);
 export const booksEsOriginal: Book[] = dedupeBooks(booksEsData as Book[]);
 export const topics: Topic[] = topicsData as Topic[];
 
