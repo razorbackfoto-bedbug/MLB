@@ -19,12 +19,12 @@
   },
   {
     "slug": "hospital-stays",
-    "label": "Hospital Stays",
-    "labelEs": "Estancias en el Hospital",
+    "label": "Hospital & Surgery",
+    "labelEs": "Hospital y Cirugía",
     "icon": "hospital",
-    "description": "Preparing for surgery, tests, and hospital visits with courage and calm.",
-    "descriptionEs": "Preparación para cirugías, pruebas y visitas al hospital con valentía y calma.",
-    "matchTopics": ["Surgery", "Medical Equipment", "NICU Staff", "Care Team", "Hospitalization"]
+    "description": "Preparing for surgery, tests, procedures, and hospital visits with courage and calm.",
+    "descriptionEs": "Preparación para cirugías, pruebas, procedimientos y visitas al hospital con valentía y calma.",
+    "matchTopics": ["Surgery", "Medical Equipment", "NICU Staff", "Care Team", "Hospitalization", "Tonsillectomy"]
   },
   {
     "slug": "cardiac",
