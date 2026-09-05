@@ -50,15 +50,32 @@ export interface Topic {
 
 export type LocalizedBook = Book;
 
+function amazonProductId(url?: string | null): string | null {
+  if (!url) return null;
+  const pathMatch = url.match(/\/(?:dp|gp\/product|product)\/([A-Z0-9]{10})(?:[/?]|$)/i);
+  if (pathMatch) return pathMatch[1].toUpperCase();
+  const queryMatch = url.match(/[?&](?:asin|ASIN)=([A-Z0-9]{10})(?:&|$)/i);
+  return queryMatch ? queryMatch[1].toUpperCase() : null;
+}
+
+function spanishAmazonUrl(book: Book): string | null {
+  // Translated English records must use their explicit Spanish product. Spanish-original
+  // records in booksEs.json keep their Amazon URL in the normal field.
+  return book.titleEs ? book.amazonProductUrlEs ?? null : book.amazonProductUrl ?? null;
+}
+
 export function localizeBook(book: Book, lang: 'en' | 'es'): LocalizedBook {
   if (lang === 'en' || !book.hasSpanishEdition) return book;
+  const isTranslatedEnglishRecord = Boolean(book.titleEs);
   return {
     ...book,
     title: book.titleEs || book.title,
     mlbSummary: book.mlbSummaryEs ?? book.mlbSummary,
-    coverImage: book.coverImageEs || book.coverImage,
-    amazonProductUrl: book.amazonProductUrlEs || book.amazonProductUrl,
-    isbn: book.isbnEs || book.isbn,
+    // Spanish artwork is always resolved from the exact Spanish Amazon product ID.
+    // Do not trust English covers, stale Spanish URLs, or hand-mapped CDN images.
+    coverImage: null,
+    amazonProductUrl: spanishAmazonUrl(book),
+    isbn: isTranslatedEnglishRecord ? book.isbnEs || null : book.isbn,
   };
 }
 
@@ -243,7 +260,10 @@ export function getSpanishBooks(): Book[] {
   return dedupeBooks(
     [...books.filter((book) => book.hasSpanishEdition), ...booksEsOriginal],
     (book) => book.titleEs || book.title,
-  ).filter((book) => isPublicReady(book) && Boolean(book.titleEs || book.title));
+  ).filter((book) => {
+    if (!isPublicReady(book) || !Boolean(book.titleEs || book.title)) return false;
+    return Boolean(amazonProductId(spanishAmazonUrl(book)));
+  });
 }
 
 export function getFeaturedBooks(limit = 4): Book[] {
