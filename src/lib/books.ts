@@ -214,32 +214,90 @@ function dedupeBooks(input: Book[], titleForBook: (book: Book) => string = (book
   return output;
 }
 
-// books.json is the single source of truth for the English catalog.
-// Runtime deduplication remains as a safety net for future imports.
 export const books: Book[] = dedupeBooks(booksData as Book[]);
 export const booksEsOriginal: Book[] = dedupeBooks(booksEsData as Book[]);
 export const topics: Topic[] = topicsData as Topic[];
 
+export function isPublicReady(book: Book): boolean {
+  const status = book.verificationStatus.toLowerCase();
+  const verified = status.includes('ready') || status.includes('verified');
+  return Boolean(
+    verified &&
+      book.title?.trim() &&
+      book.author?.trim() &&
+      book.audience?.trim() &&
+      book.medicalTopics.length > 0 &&
+      book.mlbSummary?.trim(),
+  );
+}
+
 export function getAllBooks(): Book[] {
-  return books;
+  return books.filter(isPublicReady);
 }
 
 export function getBookBySlug(slug: string): Book | undefined {
-  return books.find((book) => book.slug === slug);
+  return getAllBooks().find((book) => book.slug === slug);
 }
 
 export function getSpanishBooks(): Book[] {
   return dedupeBooks(
     [...books.filter((book) => book.hasSpanishEdition), ...booksEsOriginal],
     (book) => book.titleEs || book.title,
-  );
+  ).filter((book) => isPublicReady(book) && Boolean(book.titleEs || book.title));
 }
 
 export function getFeaturedBooks(limit = 4): Book[] {
-  const featured = books.filter((book) => book.featured);
-  if (featured.length >= limit) return featured.slice(0, limit);
-  const rest = books.filter((book) => !book.featured);
-  return [...featured, ...rest].slice(0, limit);
+  const publicBooks = getAllBooks();
+  const candidates = [...publicBooks].sort((a, b) => Number(b.featured) - Number(a.featured));
+  const selected: Book[] = [];
+  const usedPrimaryTopics = new Set<string>();
+  const usedTypes = new Set<string>();
+
+  for (const book of candidates) {
+    if (selected.length >= limit) break;
+    const primaryTopic = book.medicalTopics[0] ?? '';
+    if (usedPrimaryTopics.has(primaryTopic) && usedTypes.has(book.bookType)) continue;
+    selected.push(book);
+    if (primaryTopic) usedPrimaryTopics.add(primaryTopic);
+    usedTypes.add(book.bookType);
+  }
+
+  if (selected.length < limit) {
+    for (const book of candidates) {
+      if (selected.length >= limit) break;
+      if (!selected.some((selectedBook) => selectedBook.slug === book.slug)) selected.push(book);
+    }
+  }
+
+  return selected;
+}
+
+export function getRelatedBooks(book: Book, limit = 4): Book[] {
+  const ageMin = book.ageMin ?? book.ageMax;
+  const ageMax = book.ageMax ?? book.ageMin;
+
+  return getAllBooks()
+    .filter((candidate) => candidate.slug !== book.slug)
+    .map((candidate) => {
+      const sharedTopics = candidate.medicalTopics.filter((topic) => book.medicalTopics.includes(topic));
+      let score = sharedTopics.length * 10;
+      if (book.medicalTopics[0] && candidate.medicalTopics[0] === book.medicalTopics[0]) score += 12;
+      if (candidate.bookType === book.bookType) score += 3;
+      score += candidate.audienceTags.filter((tag) => book.audienceTags.includes(tag)).length * 2;
+      if (candidate.siblingFocus === book.siblingFocus) score += 1;
+
+      const candidateMin = candidate.ageMin ?? candidate.ageMax;
+      const candidateMax = candidate.ageMax ?? candidate.ageMin;
+      if (ageMin != null && ageMax != null && candidateMin != null && candidateMax != null) {
+        if (ageMin <= candidateMax && ageMax >= candidateMin) score += 3;
+      }
+
+      return { candidate, score, sharedTopics: sharedTopics.length };
+    })
+    .filter(({ sharedTopics }) => sharedTopics > 0)
+    .sort((a, b) => b.score - a.score || a.candidate.title.localeCompare(b.candidate.title))
+    .slice(0, limit)
+    .map(({ candidate }) => candidate);
 }
 
 export function getAllTopics(): Topic[] {
@@ -259,7 +317,7 @@ export function bookMatchesTopic(book: Book, topic: Topic): boolean {
 export function getBooksForTopic(topicSlug: string): Book[] {
   const topic = getTopicBySlug(topicSlug);
   if (!topic) return [];
-  return books.filter((book) => bookMatchesTopic(book, topic));
+  return getAllBooks().filter((book) => bookMatchesTopic(book, topic));
 }
 
 export function getAgeBucketForBook(book: Book): AgeBucket | null {
@@ -270,15 +328,14 @@ export function getAgeBucketForBook(book: Book): AgeBucket | null {
 }
 
 export function formatAgeRange(book: Book, lang: 'en' | 'es' = 'en'): string {
+  if (book.ageMin == null && book.ageMax == null) return '';
   if (lang === 'es') {
-    if (book.ageMin == null && book.ageMax == null) return 'Edades aún no listadas';
     if (book.ageMin != null && book.ageMax != null) {
       return book.ageMin === book.ageMax ? `Edad ${book.ageMin}` : `Edades ${book.ageMin}–${book.ageMax}`;
     }
     const known = book.ageMin ?? book.ageMax;
     return `Edades ${known}+`;
   }
-  if (book.ageMin == null && book.ageMax == null) return 'Ages not yet listed';
   if (book.ageMin != null && book.ageMax != null) {
     return book.ageMin === book.ageMax ? `Age ${book.ageMin}` : `Ages ${book.ageMin}–${book.ageMax}`;
   }
@@ -288,19 +345,19 @@ export function formatAgeRange(book: Book, lang: 'en' | 'es' = 'en'): string {
 
 export function getUniqueMedicalTopics(): string[] {
   const set = new Set<string>();
-  for (const book of books) for (const t of book.medicalTopics) set.add(t);
+  for (const book of getAllBooks()) for (const t of book.medicalTopics) set.add(t);
   return Array.from(set).sort();
 }
 
 export function getUniqueAudienceTags(): string[] {
   const set = new Set<string>();
-  for (const book of books) for (const a of book.audienceTags) set.add(a);
+  for (const book of getAllBooks()) for (const a of book.audienceTags) set.add(a);
   return Array.from(set).sort();
 }
 
 export function getUniqueBookTypes(): string[] {
   const set = new Set<string>();
-  for (const book of books) set.add(book.bookType);
+  for (const book of getAllBooks()) set.add(book.bookType);
   return Array.from(set).sort();
 }
 
