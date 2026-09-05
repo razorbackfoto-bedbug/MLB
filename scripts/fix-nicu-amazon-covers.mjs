@@ -3,7 +3,10 @@ import fs from 'node:fs/promises';
 const booksPath = new URL('../src/data/books.json', import.meta.url);
 const books = JSON.parse(await fs.readFile(booksPath, 'utf8'));
 
-const fixes = {
+// Exact Amazon matches verified for NICU records added during the recent expansion.
+// Only set coverImage when we have a real direct Amazon CDN image. Do not replace
+// a working publisher/Open Library cover with a guessed Amazon image URL.
+const verifiedAmazon = {
   'waiting-for-max': { asin: '1685552803' },
   'waiting-for-baby-a-sibling-visits-the-nicu': { asin: '1452545499' },
   'my-brother-is-a-preemie': { asin: '1451513089' },
@@ -20,14 +23,62 @@ const fixes = {
   }
 };
 
-let updated = 0;
+function amazonProductId(url) {
+  if (!url) return null;
+  const path = url.match(/\/(?:dp|gp\/product|product)\/([A-Z0-9]{10})(?:[/?]|$)/i);
+  if (path) return path[1].toUpperCase();
+  const query = url.match(/[?&](?:asin|ASIN)=([A-Z0-9]{10})(?:&|$)/i);
+  return query ? query[1].toUpperCase() : null;
+}
+
+function isDirectAmazonCover(url) {
+  return typeof url === 'string' && /https:\/\/m\.media-amazon\.com\/images\/I\//i.test(url);
+}
+
+function isGeneratedAmazonCover(url) {
+  return typeof url === 'string' && /https:\/\/(?:images\.amazon\.com|images-na\.ssl-images-amazon\.com|m\.media-amazon\.com)\/images\/P\//i.test(url);
+}
+
+let nicuCount = 0;
+let canonicalized = 0;
+const unresolvedAmazon = [];
+const unresolvedCover = [];
+
 for (const book of books) {
-  const fix = fixes[book.slug];
-  if (!fix) continue;
-  book.amazonProductUrl = `https://www.amazon.com/dp/${fix.asin}?tag=mightylittle-20`;
-  book.coverImage = fix.coverImage ?? `https://images.amazon.com/images/P/${fix.asin}.01.LZZZZZZZ.jpg`;
-  updated += 1;
+  if (!Array.isArray(book.medicalTopics) || !book.medicalTopics.includes('NICU')) continue;
+  nicuCount += 1;
+
+  const verified = verifiedAmazon[book.slug];
+  const existingAsin = amazonProductId(book.amazonProductUrl);
+  const asin = verified?.asin ?? existingAsin;
+
+  if (asin) {
+    book.amazonProductUrl = `https://www.amazon.com/dp/${asin}?tag=mightylittle-20`;
+    canonicalized += 1;
+  } else {
+    unresolvedAmazon.push(`${book.title} (${book.slug})`);
+  }
+
+  // Preserve confirmed direct Amazon artwork already in the catalog.
+  // Remove only the guessed /images/P/ value created by the previous repair,
+  // allowing the render-time fallback chain to try Amazon and then the source cover.
+  if (verified?.coverImage) {
+    book.coverImage = verified.coverImage;
+  } else if (isGeneratedAmazonCover(book.coverImage) && !isDirectAmazonCover(book.coverImage)) {
+    book.coverImage = null;
+  }
+
+  if (!book.coverImage && !asin && !book.isbn) {
+    unresolvedCover.push(`${book.title} (${book.slug})`);
+  }
 }
 
 await fs.writeFile(booksPath, `${JSON.stringify(books, null, 2)}\n`, 'utf8');
-console.log(`Applied Amazon product links and Amazon-hosted covers to ${updated} NICU records.`);
+
+console.log(`NICU Amazon audit: ${nicuCount} records, ${canonicalized} canonical Amazon product links.`);
+if (unresolvedAmazon.length) {
+  console.warn(`NICU records still lacking an Amazon product match (${unresolvedAmazon.length}):\n- ${unresolvedAmazon.join('\n- ')}`);
+}
+if (unresolvedCover.length) {
+  console.warn(`NICU records lacking any usable cover source (${unresolvedCover.length}):\n- ${unresolvedCover.join('\n- ')}`);
+}
