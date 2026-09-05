@@ -39,10 +39,25 @@ function isGeneratedAmazonCover(url) {
   return typeof url === 'string' && /https:\/\/(?:images\.amazon\.com|images-na\.ssl-images-amazon\.com|m\.media-amazon\.com)\/images\/P\//i.test(url);
 }
 
+function isPublicReady(book) {
+  const status = String(book.verificationStatus ?? '').toLowerCase();
+  const readyStatus = status.includes('ready') || status.includes('verified');
+  return Boolean(
+    readyStatus &&
+    book.title &&
+    book.author &&
+    book.audience &&
+    Array.isArray(book.medicalTopics) &&
+    book.medicalTopics.length > 0 &&
+    book.mlbSummary
+  );
+}
+
 let nicuCount = 0;
 let canonicalized = 0;
 const unresolvedAmazon = [];
 const unresolvedCover = [];
+const publicFailures = [];
 
 for (const book of books) {
   if (!Array.isArray(book.medicalTopics) || !book.medicalTopics.includes('NICU')) continue;
@@ -60,16 +75,20 @@ for (const book of books) {
   }
 
   // Preserve confirmed direct Amazon artwork already in the catalog.
-  // Remove only the guessed /images/P/ value created by the previous repair,
-  // allowing the render-time fallback chain to try Amazon and then the source cover.
+  // Remove only guessed /images/P/ values created by earlier repairs so the
+  // render-time fallback chain can try Amazon and then a verified source cover.
   if (verified?.coverImage) {
     book.coverImage = verified.coverImage;
   } else if (isGeneratedAmazonCover(book.coverImage) && !isDirectAmazonCover(book.coverImage)) {
     book.coverImage = null;
   }
 
-  if (!book.coverImage && !asin && !book.isbn) {
-    unresolvedCover.push(`${book.title} (${book.slug})`);
+  const hasCoverSource = Boolean(book.coverImage || asin || book.isbn);
+  if (!hasCoverSource) unresolvedCover.push(`${book.title} (${book.slug})`);
+
+  if (isPublicReady(book)) {
+    if (!asin) publicFailures.push(`${book.title}: missing confirmed Amazon product link`);
+    if (!hasCoverSource) publicFailures.push(`${book.title}: missing usable cover source`);
   }
 }
 
@@ -77,8 +96,12 @@ await fs.writeFile(booksPath, `${JSON.stringify(books, null, 2)}\n`, 'utf8');
 
 console.log(`NICU Amazon audit: ${nicuCount} records, ${canonicalized} canonical Amazon product links.`);
 if (unresolvedAmazon.length) {
-  console.warn(`NICU records still lacking an Amazon product match (${unresolvedAmazon.length}):\n- ${unresolvedAmazon.join('\n- ')}`);
+  console.warn(`Hidden/research NICU records still lacking an Amazon product match (${unresolvedAmazon.length}):\n- ${unresolvedAmazon.join('\n- ')}`);
 }
 if (unresolvedCover.length) {
-  console.warn(`NICU records lacking any usable cover source (${unresolvedCover.length}):\n- ${unresolvedCover.join('\n- ')}`);
+  console.warn(`Hidden/research NICU records lacking any usable cover source (${unresolvedCover.length}):\n- ${unresolvedCover.join('\n- ')}`);
+}
+
+if (publicFailures.length) {
+  throw new Error(`Public NICU catalog audit failed:\n- ${publicFailures.join('\n- ')}`);
 }
