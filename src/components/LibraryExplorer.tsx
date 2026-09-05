@@ -64,13 +64,12 @@ function LibraryBookCard({ book, lang }: { book: LibraryBook; lang: Lang }) {
   const altText = lang === 'es' ? `Portada de ${book.title}` : `Cover of ${book.title}`;
   const placeholderLabel = lang === 'es' ? `Portada provisional de ${book.title}` : `Cover placeholder for ${book.title}`;
   const [coverFailed, setCoverFailed] = useState(false);
-  // Open Library returns a 200 with a near-blank "no cover" image by default instead of a
-  // 404, so request the real-404 mode and fall back to the color placeholder on error.
   const coverSrc = book.coverImage
     ? book.coverImage.includes('covers.openlibrary.org')
       ? `${book.coverImage}${book.coverImage.includes('?') ? '&' : '?'}default=false`
       : book.coverImage
     : undefined;
+
   return (
     <article class="card flex h-full flex-col overflow-hidden p-3">
       <a href={`${booksHref}/${book.slug}/`} class="block">
@@ -98,10 +97,7 @@ function LibraryBookCard({ book, lang }: { book: LibraryBook; lang: Lang }) {
         )}
       </a>
       <div class="flex flex-1 flex-col gap-2 pt-3">
-        <a
-          href={`${booksHref}/${book.slug}/`}
-          class="font-display text-lg font-semibold leading-snug text-teal-700 hover:text-coral-500"
-        >
+        <a href={`${booksHref}/${book.slug}/`} class="font-display text-lg font-semibold leading-snug text-teal-700 hover:text-coral-500">
           {book.title}
         </a>
         <p class="text-sm text-ink-light">{formatAgeRange(book, lang)}</p>
@@ -110,10 +106,7 @@ function LibraryBookCard({ book, lang }: { book: LibraryBook; lang: Lang }) {
             <span class={`pill ${badgeClassesFor(topic)}`}>{translateLabel(topic, lang)}</span>
           ))}
         </div>
-        <a
-          href={`${booksHref}/${book.slug}/`}
-          class="mt-auto inline-flex items-center justify-center rounded-full bg-teal-700 px-4 py-2 text-sm font-bold text-cream-50 hover:bg-teal-600"
-        >
+        <a href={`${booksHref}/${book.slug}/`} class="mt-auto inline-flex items-center justify-center rounded-full bg-teal-700 px-4 py-2 text-sm font-bold text-cream-50 hover:bg-teal-600">
           {ui.viewBook}
         </a>
       </div>
@@ -129,6 +122,7 @@ export default function LibraryExplorer({ books, topics, ageBuckets, audienceOpt
   const [selectedAudience, setSelectedAudience] = useState<Set<string>>(new Set());
   const [selectedTypes, setSelectedTypes] = useState<Set<string>>(new Set());
   const [sort, setSort] = useState<SortKey>('title-asc');
+  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 
   const results = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -147,9 +141,7 @@ export default function LibraryExplorer({ books, topics, ageBuckets, audienceOpt
       }
       if (selectedTypes.size && !selectedTypes.has(book.bookType)) return false;
       if (q) {
-        const haystack = [book.title, book.author ?? '', book.illustrator ?? '', ...book.medicalTopics]
-          .join(' ')
-          .toLowerCase();
+        const haystack = [book.title, book.author ?? '', book.illustrator ?? '', ...book.medicalTopics].join(' ').toLowerCase();
         if (!haystack.includes(q)) return false;
       }
       return true;
@@ -158,9 +150,10 @@ export default function LibraryExplorer({ books, topics, ageBuckets, audienceOpt
     filtered = [...filtered].sort((a, b) =>
       sort === 'title-asc' ? a.title.localeCompare(b.title) : b.title.localeCompare(a.title),
     );
-
     return filtered;
   }, [books, query, selectedAge, selectedTopics, selectedAudience, selectedTypes, sort]);
+
+  const activeFilterCount = selectedAge.size + selectedTopics.size + selectedAudience.size + selectedTypes.size;
 
   const activeChips = useMemo(() => {
     const chips: { key: string; label: string; onRemove: () => void }[] = [];
@@ -188,54 +181,51 @@ export default function LibraryExplorer({ books, topics, ageBuckets, audienceOpt
     setSelectedTypes(new Set());
   };
 
+  const filters = (
+    <>
+      <FilterGroup
+        title={ui.ageRangeLabel}
+        options={ageBuckets.map((b) => ({ value: b.slug, label: b.label }))}
+        selected={selectedAge}
+        onToggle={(v) => setSelectedAge(toggle(selectedAge, v))}
+      />
+      <FilterGroup
+        title={ui.topicLabel}
+        options={topics.map((topic) => ({ value: topic.slug, label: topic.label }))}
+        selected={selectedTopics}
+        onToggle={(v) => setSelectedTopics(toggle(selectedTopics, v))}
+      />
+      <FilterGroup
+        title={ui.audienceLabel}
+        options={audienceOptions.map((a) => ({ value: a, label: translateLabel(a, lang) }))}
+        selected={selectedAudience}
+        onToggle={(v) => setSelectedAudience(toggle(selectedAudience, v))}
+      />
+      <FilterGroup
+        title={ui.bookTypeLabel}
+        options={bookTypeOptions.map((bt) => ({ value: bt, label: translateLabel(bt, lang) }))}
+        selected={selectedTypes}
+        onToggle={(v) => setSelectedTypes(toggle(selectedTypes, v))}
+      />
+    </>
+  );
+
+  const mobileFilterLabel = lang === 'es' ? 'Filtros' : 'Filters';
+  const showBooksLabel = lang === 'es' ? `Mostrar ${results.length} libros` : `Show ${results.length} books`;
+
   return (
     <div class="grid grid-cols-1 gap-8 lg:grid-cols-[260px,1fr]">
-      <aside class="card h-fit space-y-4 p-5 lg:sticky lg:top-24">
-        <FilterGroup
-          title={ui.ageRangeLabel}
-          options={ageBuckets.map((b) => ({ value: b.slug, label: b.label }))}
-          selected={selectedAge}
-          onToggle={(v) => setSelectedAge(toggle(selectedAge, v))}
-        />
-        <FilterGroup
-          title={ui.topicLabel}
-          options={topics.map((topic) => ({ value: topic.slug, label: topic.label }))}
-          selected={selectedTopics}
-          onToggle={(v) => setSelectedTopics(toggle(selectedTopics, v))}
-        />
-        <FilterGroup
-          title={ui.audienceLabel}
-          options={audienceOptions.map((a) => ({ value: a, label: translateLabel(a, lang) }))}
-          selected={selectedAudience}
-          onToggle={(v) => setSelectedAudience(toggle(selectedAudience, v))}
-        />
-        <FilterGroup
-          title={ui.bookTypeLabel}
-          options={bookTypeOptions.map((bt) => ({ value: bt, label: translateLabel(bt, lang) }))}
-          selected={selectedTypes}
-          onToggle={(v) => setSelectedTypes(toggle(selectedTypes, v))}
-        />
-        <button
-          type="button"
-          onClick={clearAll}
-          class="w-full rounded-full border border-teal-200 px-4 py-2 text-sm font-semibold text-ink-light hover:bg-teal-50"
-        >
+      <aside class="card hidden h-fit space-y-4 p-5 lg:sticky lg:top-24 lg:block">
+        {filters}
+        <button type="button" onClick={clearAll} class="w-full rounded-full border border-teal-200 px-4 py-2 text-sm font-semibold text-ink-light hover:bg-teal-50">
           {ui.clearAllFilters}
         </button>
       </aside>
 
       <div>
-        <label for="library-search" class="sr-only">
-          {ui.searchSrLabel}
-        </label>
+        <label for="library-search" class="sr-only">{ui.searchSrLabel}</label>
         <div class="relative">
-          <svg
-            class="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-ink-light"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.8"
-          >
+          <svg class="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-ink-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
             <circle cx="11" cy="11" r="7"></circle>
             <path d="m21 21-4.3-4.3" stroke-linecap="round"></path>
           </svg>
@@ -249,35 +239,65 @@ export default function LibraryExplorer({ books, topics, ageBuckets, audienceOpt
           />
         </div>
 
+        <div class="mt-3 lg:hidden">
+          <button
+            type="button"
+            onClick={() => setMobileFiltersOpen(!mobileFiltersOpen)}
+            aria-expanded={mobileFiltersOpen}
+            aria-controls="mobile-library-filters"
+            class="flex w-full items-center justify-between rounded-2xl border border-teal-200 bg-white px-4 py-3 text-left font-semibold text-teal-700 shadow-sm"
+          >
+            <span class="flex items-center gap-2">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <path d="M4 6h16M7 12h10M10 18h4" stroke-linecap="round" />
+              </svg>
+              {mobileFilterLabel}
+              {activeFilterCount > 0 && (
+                <span class="inline-flex min-w-6 items-center justify-center rounded-full bg-coral-100 px-2 py-0.5 text-xs font-bold text-coral-700">
+                  {activeFilterCount}
+                </span>
+              )}
+            </span>
+            <span class={`text-lg transition-transform ${mobileFiltersOpen ? 'rotate-180' : ''}`} aria-hidden="true">⌄</span>
+          </button>
+
+          {mobileFiltersOpen && (
+            <div id="mobile-library-filters" class="card mt-3 space-y-4 p-5">
+              {filters}
+              <div class="sticky bottom-0 -mx-5 -mb-5 mt-5 border-t border-teal-100 bg-white/95 p-4 backdrop-blur">
+                <button
+                  type="button"
+                  onClick={() => setMobileFiltersOpen(false)}
+                  class="w-full rounded-full bg-teal-700 px-4 py-3 text-sm font-bold text-cream-50 hover:bg-teal-600"
+                >
+                  {showBooksLabel}
+                </button>
+                {activeFilterCount > 0 && (
+                  <button type="button" onClick={clearAll} class="mt-2 w-full rounded-full border border-teal-200 px-4 py-2 text-sm font-semibold text-ink-light hover:bg-teal-50">
+                    {ui.clearAllFilters}
+                  </button>
+                )}
+              </div>
+            </div>
+          )}
+        </div>
+
         <div class="mt-4 flex flex-wrap items-center justify-between gap-3">
           <div class="flex flex-wrap items-center gap-2">
             <span class="text-sm font-semibold text-ink-light">{ui.showingBooks(results.length)}</span>
             {activeChips.map((chip) => (
-              <button
-                type="button"
-                onClick={chip.onRemove}
-                class="pill bg-teal-100 text-teal-800 hover:bg-teal-200"
-              >
-                {chip.label}
-                <span class="ml-1" aria-hidden="true">
-                  ×
-                </span>
+              <button type="button" onClick={chip.onRemove} class="pill bg-teal-100 text-teal-800 hover:bg-teal-200">
+                {chip.label}<span class="ml-1" aria-hidden="true">×</span>
               </button>
             ))}
             {activeChips.length > 0 && (
-              <button type="button" onClick={clearAll} class="text-sm font-semibold text-coral-500 hover:text-coral-600">
-                {ui.clearAll}
-              </button>
+              <button type="button" onClick={clearAll} class="text-sm font-semibold text-coral-500 hover:text-coral-600">{ui.clearAll}</button>
             )}
           </div>
 
           <label class="flex items-center gap-2 text-sm text-ink-light">
             {ui.sortBy}
-            <select
-              class="rounded-full border border-teal-200 bg-white px-3 py-1.5 text-ink"
-              value={sort}
-              onChange={(e) => setSort((e.target as HTMLSelectElement).value as SortKey)}
-            >
+            <select class="rounded-full border border-teal-200 bg-white px-3 py-1.5 text-ink" value={sort} onChange={(e) => setSort((e.target as HTMLSelectElement).value as SortKey)}>
               <option value="title-asc">{ui.sortTitleAsc}</option>
               <option value="title-desc">{ui.sortTitleDesc}</option>
             </select>
@@ -287,15 +307,11 @@ export default function LibraryExplorer({ books, topics, ageBuckets, audienceOpt
         {results.length === 0 ? (
           <div class="card mt-8 p-10 text-center">
             <p class="font-display text-lg text-teal-700">{ui.noResultsTitle}</p>
-            <p class="mt-2 text-sm text-ink-light">
-              {ui.noResultsBody}
-            </p>
+            <p class="mt-2 text-sm text-ink-light">{ui.noResultsBody}</p>
           </div>
         ) : (
           <div class="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
-            {results.map((book) => (
-              <LibraryBookCard key={book.slug} book={book} lang={lang} />
-            ))}
+            {results.map((book) => <LibraryBookCard key={book.slug} book={book} lang={lang} />)}
           </div>
         )}
       </div>
