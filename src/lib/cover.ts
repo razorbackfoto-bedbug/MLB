@@ -25,6 +25,16 @@ type CoverBook = {
   amazonProductUrl?: string | null;
 };
 
+function amazonProductId(url?: string | null): string | null {
+  if (!url) return null;
+
+  const pathMatch = url.match(/\/(?:dp|gp\/product|product)\/([A-Z0-9]{10})(?:[/?]|$)/i);
+  if (pathMatch) return pathMatch[1].toUpperCase();
+
+  const queryMatch = url.match(/[?&](?:asin|ASIN)=([A-Z0-9]{10})(?:&|$)/i);
+  return queryMatch ? queryMatch[1].toUpperCase() : null;
+}
+
 export function coverCandidatesFor(book: CoverBook): string[] {
   const candidates: string[] = [];
   const add = (url?: string | null) => {
@@ -44,8 +54,10 @@ export function coverCandidatesFor(book: CoverBook): string[] {
     add(`https://covers.openlibrary.org/b/isbn/${isbn}-L.jpg?default=false`);
   }
 
-  const productId = book.amazonProductUrl?.match(/\/dp\/([^/?]+)/i)?.[1];
+  const productId = amazonProductId(book.amazonProductUrl);
   if (productId) {
+    // Try both Amazon image hosts. Availability differs across older and newer listings.
+    add(`https://m.media-amazon.com/images/P/${productId}.01.LZZZZZZZ.jpg`);
     add(`https://images-na.ssl-images-amazon.com/images/P/${productId}.01.LZZZZZZZ.jpg`);
   }
 
