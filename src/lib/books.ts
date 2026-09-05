@@ -93,6 +93,14 @@ export function localizeAgeBucket(bucket: AgeBucket, lang: 'en' | 'es'): AgeBuck
   return { ...bucket, label: bucket.labelEs || bucket.label };
 }
 
+function amazonCoverFor(book: Book): string | null {
+  const match = book.amazonProductUrl?.match(/\/dp\/([^/?]+)/i);
+  if (!match) return null;
+  return `https://images-na.ssl-images-amazon.com/images/P/${match[1]}.01.LZZZZZZZ.jpg`;
+}
+
+const loeysDietzSlugs = new Set((loeysDietzAdditionsData as Book[]).map((book) => book.slug));
+
 const rawBooks = [
   ...(booksData as Book[]),
   ...(curatedAdditionsData as Book[]),
@@ -100,7 +108,10 @@ const rawBooks = [
 ];
 export const books: Book[] = rawBooks.map((book) => ({
   ...book,
-  coverImage: coverOverrides[book.slug] ?? book.coverImage,
+  coverImage:
+    coverOverrides[book.slug] ??
+    (loeysDietzSlugs.has(book.slug) ? amazonCoverFor(book) : null) ??
+    book.coverImage,
 }));
 export const booksEsOriginal: Book[] = booksEsData as Book[];
 export const topics: Topic[] = topicsData as Topic[];
