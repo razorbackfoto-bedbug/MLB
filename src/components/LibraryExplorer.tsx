@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'preact/hooks';
 import type { Book, AgeBucket, Topic } from '../lib/books';
 import { getAgeBucketForBook, formatAgeRange } from '../lib/books';
-import { coverPaletteFor } from '../lib/cover';
+import { coverPaletteFor, coverCandidatesFor } from '../lib/cover';
 import { badgeClassesFor } from '../lib/badges';
 import { translateLabel } from '../i18n/labels';
 import { t, type Lang } from '../i18n/ui';
@@ -63,23 +63,20 @@ function LibraryBookCard({ book, lang }: { book: LibraryBook; lang: Lang }) {
   const booksHref = lang === 'es' ? '/es/books' : '/books';
   const altText = lang === 'es' ? `Portada de ${book.title}` : `Cover of ${book.title}`;
   const placeholderLabel = lang === 'es' ? `Portada provisional de ${book.title}` : `Cover placeholder for ${book.title}`;
-  const [coverFailed, setCoverFailed] = useState(false);
-  const coverSrc = book.coverImage
-    ? book.coverImage.includes('covers.openlibrary.org')
-      ? `${book.coverImage}${book.coverImage.includes('?') ? '&' : '?'}default=false`
-      : book.coverImage
-    : undefined;
+  const coverCandidates = coverCandidatesFor(book);
+  const [coverIndex, setCoverIndex] = useState(0);
+  const coverFailed = coverIndex >= coverCandidates.length;
 
   return (
     <article class="card flex h-full flex-col overflow-hidden p-3">
       <a href={`${booksHref}/${book.slug}/`} class="block">
-        {book.coverImage && !coverFailed ? (
+        {!coverFailed ? (
           <img
-            src={coverSrc}
+            src={coverCandidates[coverIndex]}
             alt={altText}
             class="aspect-[3/4] w-full rounded-2xl object-cover shadow-card"
             loading="lazy"
-            onError={() => setCoverFailed(true)}
+            onError={() => setCoverIndex((index) => index + 1)}
           />
         ) : (
           <div
