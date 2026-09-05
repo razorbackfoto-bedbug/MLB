@@ -1,5 +1,5 @@
 import type { APIRoute } from 'astro';
-import { getAllBooks, getAllTopics, getSpanishBooks } from '../lib/books';
+import { getAllBooks, getAllTopics, getSpanishBooks, bookMatchesTopic } from '../lib/books';
 
 export const prerender = true;
 
@@ -31,17 +31,26 @@ export const GET: APIRoute = () => {
     ['/topics/', 0.9],
     ['/about/', 0.6],
     ['/contact/', 0.4],
+    ['/privacy-policy/', 0.2],
+    ['/affiliate-disclosure/', 0.2],
     ['/es/', 0.8],
     ['/es/library/', 0.8],
     ['/es/topics/', 0.8],
     ['/es/about/', 0.5],
     ['/es/contact/', 0.4],
+    ['/es/privacy-policy/', 0.2],
+    ['/es/affiliate-disclosure/', 0.2],
   ] as const;
 
   const urls: string[] = staticPaths.map(([path, priority]) => urlEntry(path, priority));
+  const allTopics = getAllTopics();
+  const spanishBooks = getSpanishBooks();
 
-  for (const topic of getAllTopics()) {
+  for (const topic of allTopics) {
     urls.push(urlEntry(`/topics/${topic.slug}/`, 0.8));
+  }
+
+  for (const topic of allTopics.filter((candidate) => spanishBooks.some((book) => bookMatchesTopic(book, candidate)))) {
     urls.push(urlEntry(`/es/topics/${topic.slug}/`, 0.7));
   }
 
@@ -49,7 +58,7 @@ export const GET: APIRoute = () => {
     urls.push(urlEntry(`/books/${book.slug}/`, 0.8, 'monthly'));
   }
 
-  for (const book of getSpanishBooks()) {
+  for (const book of spanishBooks) {
     urls.push(urlEntry(`/es/books/${book.slug}/`, 0.7, 'monthly'));
   }
 

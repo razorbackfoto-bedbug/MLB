@@ -24,9 +24,65 @@ const topic = localizeTopic(rawTopic, 'es');
 const books = getSpanishBooks()
   .filter((book) => bookMatchesTopic(book, rawTopic))
   .map((book) => localizeBook(book, 'es'));
+
+const seoTitles: Record<string, string> = {
+  'nicu-prematurity': 'Libros Infantiles Sobre la UCIN y la Prematuridad',
+  siblings: 'Libros Infantiles para Hermanos Durante la Atención Médica',
+  'hospital-stays': 'Libros Infantiles Sobre Hospitalización y Cirugía',
+  cardiac: 'Libros Infantiles Sobre el Corazón y la Atención Cardíaca',
+  respiratory: 'Libros Infantiles Sobre Respiración, Oxígeno y Cuidado Respiratorio',
+  'feeding-tubes': 'Libros Infantiles Sobre Sondas de Alimentación y Gastrostomías',
+  oncology: 'Libros Infantiles Sobre Cáncer y Oncología',
+  'genetics-rare-disease': 'Libros Infantiles Sobre Genética y Enfermedades Raras',
+  'grief-loss': 'Libros Infantiles Sobre Duelo y Pérdida',
+  'feelings-coping': 'Libros Infantiles Sobre Ansiedad Médica y Afrontamiento',
+  'parent-resources': 'Libros y Recursos para Padres de Niños con Necesidades Médicas',
+};
+
+const seoTitle = seoTitles[rawTopic.slug] ?? `Libros Infantiles Sobre ${topic.label}`;
+const seoDescription = `${topic.description} Explora ${books.length} ${books.length === 1 ? 'libro seleccionado' : 'libros seleccionados'} para niños y familias.`;
+const pagePath = `/es/topics/${rawTopic.slug}/`;
+const pageUrl = new URL(pagePath, SITE_ES.url).toString();
+
+const collectionSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  '@id': `${pageUrl}#collection`,
+  name: seoTitle,
+  url: pageUrl,
+  description: seoDescription,
+  inLanguage: 'es-US',
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: books.length,
+    itemListElement: books.map((book, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      url: new URL(`/es/books/${book.slug}/`, SITE_ES.url).toString(),
+      name: book.title,
+    })),
+  },
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${SITE_ES.url}/es/` },
+    { '@type': 'ListItem', position: 2, name: 'Temas', item: `${SITE_ES.url}/es/topics/` },
+    { '@type': 'ListItem', position: 3, name: topic.label, item: pageUrl },
+  ],
+};
 ---
 
-<BaseLayout title={topic.label} description={topic.description} site={SITE_ES}>
+<BaseLayout
+  title={seoTitle}
+  description={seoDescription}
+  site={SITE_ES}
+  alternateEnglishPath={`/topics/${rawTopic.slug}/`}
+  alternateSpanishPath={pagePath}
+  jsonLd={[collectionSchema, breadcrumbSchema]}
+>
   <section class="mx-auto max-w-5xl px-4 pb-4 pt-8 sm:px-6 lg:px-8">
     <nav class="text-sm text-ink-light" aria-label="Breadcrumb">
       <a href="/es/" class="hover:text-teal-700">Inicio</a> /
@@ -41,7 +97,7 @@ const books = getSpanishBooks()
         <TopicIcon name={topic.icon} class="h-7 w-7" />
       </span>
       <div>
-        <h1 class="font-display text-3xl font-semibold sm:text-4xl">{topic.label}</h1>
+        <h1 class="font-display text-3xl font-semibold sm:text-4xl">{seoTitle}</h1>
         <p class="mt-2 max-w-2xl text-ink-light">{topic.description}</p>
       </div>
     </div>

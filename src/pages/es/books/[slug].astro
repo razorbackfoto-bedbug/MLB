@@ -4,7 +4,8 @@ import BookCover from '../../../components/BookCover.astro';
 import BookCard from '../../../components/BookCard.astro';
 import Badge from '../../../components/Badge.astro';
 import { SITE_ES } from '../../../config/site';
-import { getSpanishBooks, localizeBook, formatAgeRange } from '../../../lib/books';
+import { getAllBooks, getSpanishBooks, localizeBook, formatAgeRange } from '../../../lib/books';
+import { coverCandidatesFor } from '../../../lib/cover';
 import { getPurchaseLink } from '../../../config/affiliate';
 import { translateLabel, translateAudience } from '../../../i18n/labels';
 
@@ -23,6 +24,39 @@ if (!rawBook) {
 
 const book = localizeBook(rawBook, 'es');
 const amazon = getPurchaseLink(book, 'es');
+const pagePath = `/es/books/${book.slug}/`;
+const pageUrl = new URL(pagePath, SITE_ES.url).toString();
+const coverImage = coverCandidatesFor(book)[0] ?? undefined;
+const hasEnglishCounterpart = getAllBooks().some((candidate) => candidate.slug === rawBook.slug);
+const seoDescription = book.mlbSummary ?? `${book.title}, un libro infantil sobre ${book.medicalTopics.map((t) => translateLabel(t, 'es')).join(', ')}.`;
+
+const bookSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Book',
+  '@id': `${pageUrl}#book`,
+  name: book.title,
+  url: pageUrl,
+  description: seoDescription,
+  inLanguage: 'es-US',
+  author: book.author ? { '@type': 'Person', name: book.author } : undefined,
+  illustrator: book.illustrator ? { '@type': 'Person', name: book.illustrator } : undefined,
+  isbn: book.isbn || undefined,
+  datePublished: book.publicationYear ? String(book.publicationYear) : undefined,
+  image: coverImage,
+  about: book.medicalTopics.map((topic) => ({ '@type': 'Thing', name: translateLabel(topic, 'es') })),
+  audience: { '@type': 'PeopleAudience', audienceType: translateAudience(book.audience, 'es') },
+  sameAs: book.amazonProductUrl || undefined,
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${SITE_ES.url}/es/` },
+    { '@type': 'ListItem', position: 2, name: 'Biblioteca de Libros', item: `${SITE_ES.url}/es/library/` },
+    { '@type': 'ListItem', position: 3, name: book.title, item: pageUrl },
+  ],
+};
 
 const related = getSpanishBooks()
   .filter((b) => b.slug !== book.slug && b.medicalTopics.some((t) => book.medicalTopics.includes(t)))
@@ -40,8 +74,14 @@ if (book.publicationYear) infoRows.push({ label: 'Publicado', value: String(book
 
 <BaseLayout
   title={book.title}
-  description={book.mlbSummary ?? `${book.title} — un libro infantil sobre ${book.medicalTopics.map((t) => translateLabel(t, 'es')).join(', ')}.`}
+  description={seoDescription}
+  image={coverImage}
+  imageAlt={`Portada de ${book.title}`}
   site={SITE_ES}
+  ogType="book"
+  alternateEnglishPath={hasEnglishCounterpart ? `/books/${book.slug}/` : null}
+  alternateSpanishPath={pagePath}
+  jsonLd={[bookSchema, breadcrumbSchema]}
 >
   <section class="mx-auto max-w-6xl px-4 pb-4 pt-8 sm:px-6 lg:px-8">
     <nav class="text-sm text-ink-light" aria-label="Breadcrumb">
@@ -91,7 +131,7 @@ if (book.publicationYear) infoRows.push({ label: 'Publicado', value: String(book
         </div>
 
         <p class="mt-6 max-w-2xl leading-relaxed text-ink">
-          {book.mlbSummary ?? 'Nuestro equipo está escribiendo una descripción original para este título — vuelve pronto para ver el resumen completo de Mighty Little Bookshelf.'}
+          {book.mlbSummary ?? 'Nuestro equipo está escribiendo una descripción original para este título. Vuelve pronto para ver el resumen completo de Mighty Little Bookshelf.'}
         </p>
 
         <div class="mt-6 flex flex-wrap items-center gap-3">
