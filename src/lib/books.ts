@@ -1,6 +1,7 @@
 import booksData from '../data/books.json';
 import booksEsData from '../data/booksEs.json';
 import curatedAdditionsData from '../data/curatedAdditions.json';
+import loeysDietzAdditionsData from '../data/loeysDietzAdditions.json';
 import topicsData from '../data/topics.json';
 import { coverOverrides } from '../data/coverOverrides';
 
@@ -92,7 +93,11 @@ export function localizeAgeBucket(bucket: AgeBucket, lang: 'en' | 'es'): AgeBuck
   return { ...bucket, label: bucket.labelEs || bucket.label };
 }
 
-const rawBooks = [...(booksData as Book[]), ...(curatedAdditionsData as Book[])];
+const rawBooks = [
+  ...(booksData as Book[]),
+  ...(curatedAdditionsData as Book[]),
+  ...(loeysDietzAdditionsData as Book[]),
+];
 export const books: Book[] = rawBooks.map((book) => ({
   ...book,
   coverImage: coverOverrides[book.slug] ?? book.coverImage,
