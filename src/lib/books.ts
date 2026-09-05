@@ -1,5 +1,6 @@
 import booksData from '../data/books.json';
 import booksEsData from '../data/booksEs.json';
+import curatedAdditionsData from '../data/curatedAdditions.json';
 import topicsData from '../data/topics.json';
 import { coverOverrides } from '../data/coverOverrides';
 
@@ -24,13 +25,11 @@ export interface Book {
   amazonProductUrl: string | null;
   affiliateUrl: string | null;
   publisherUrl: string | null;
-  /** Display name for publisherUrl when it's the primary purchase link (e.g. "Kids With Heart"). */
   retailerName?: string | null;
   mlbSummary: string | null;
   verificationStatus: string;
   sourceUrl: string | null;
   notes: string | null;
-  /** True only once a real, verified Spanish-language edition has been confirmed purchasable. */
   hasSpanishEdition?: boolean;
   titleEs?: string | null;
   mlbSummaryEs?: string | null;
@@ -50,7 +49,6 @@ export interface Topic {
   descriptionEs?: string;
 }
 
-/** Locale-agnostic view of a Book: title/summary/cover/link swapped to Spanish where available. */
 export type LocalizedBook = Book;
 
 export function localizeBook(book: Book, lang: 'en' | 'es'): LocalizedBook {
@@ -94,7 +92,7 @@ export function localizeAgeBucket(bucket: AgeBucket, lang: 'en' | 'es'): AgeBuck
   return { ...bucket, label: bucket.labelEs || bucket.label };
 }
 
-const rawBooks = booksData as Book[];
+const rawBooks = [...(booksData as Book[]), ...(curatedAdditionsData as Book[])];
 export const books: Book[] = rawBooks.map((book) => ({
   ...book,
   coverImage: coverOverrides[book.slug] ?? book.coverImage,
@@ -145,9 +143,7 @@ export function getAgeBucketForBook(book: Book): AgeBucket | null {
   if (book.ageMin == null && book.ageMax == null) return null;
   const min = book.ageMin ?? book.ageMax!;
   const max = book.ageMax ?? book.ageMin!;
-  return (
-    AGE_BUCKETS.find((bucket) => min <= bucket.max && max >= bucket.min) ?? null
-  );
+  return AGE_BUCKETS.find((bucket) => min <= bucket.max && max >= bucket.min) ?? null;
 }
 
 export function formatAgeRange(book: Book, lang: 'en' | 'es' = 'en'): string {
@@ -169,17 +165,13 @@ export function formatAgeRange(book: Book, lang: 'en' | 'es' = 'en'): string {
 
 export function getUniqueMedicalTopics(): string[] {
   const set = new Set<string>();
-  for (const book of books) {
-    for (const t of book.medicalTopics) set.add(t);
-  }
+  for (const book of books) for (const t of book.medicalTopics) set.add(t);
   return Array.from(set).sort();
 }
 
 export function getUniqueAudienceTags(): string[] {
   const set = new Set<string>();
-  for (const book of books) {
-    for (const a of book.audienceTags) set.add(a);
-  }
+  for (const book of books) for (const a of book.audienceTags) set.add(a);
   return Array.from(set).sort();
 }
 
@@ -199,7 +191,6 @@ export interface LibraryFilters {
 
 export function filterBooks(all: Book[], filters: LibraryFilters): Book[] {
   const query = filters.query?.trim().toLowerCase();
-
   return all.filter((book) => {
     if (filters.ageBuckets?.length) {
       const bucket = getAgeBucketForBook(book);
@@ -213,18 +204,9 @@ export function filterBooks(all: Book[], filters: LibraryFilters): Book[] {
       const hasAudience = book.audienceTags.some((a) => filters.audience!.includes(a));
       if (!hasAudience) return false;
     }
-    if (filters.bookTypes?.length) {
-      if (!filters.bookTypes.includes(book.bookType)) return false;
-    }
+    if (filters.bookTypes?.length && !filters.bookTypes.includes(book.bookType)) return false;
     if (query) {
-      const haystack = [
-        book.title,
-        book.author ?? '',
-        book.illustrator ?? '',
-        ...book.medicalTopics,
-      ]
-        .join(' ')
-        .toLowerCase();
+      const haystack = [book.title, book.author ?? '', book.illustrator ?? '', ...book.medicalTopics].join(' ').toLowerCase();
       if (!haystack.includes(query)) return false;
     }
     return true;
