@@ -81,6 +81,15 @@
     "matchTopics": ["Grief/Loss"]
   },
   {
+    "slug": "feelings-coping",
+    "label": "Feelings & Coping",
+    "labelEs": "Sentimientos y Superación",
+    "icon": "feelings",
+    "description": "Books to help kids handle hospital fears, big feelings, and finding calm.",
+    "descriptionEs": "Libros para ayudar a los niños a manejar los miedos al hospital, los grandes sentimientos y encontrar calma.",
+    "matchTopics": ["Coping & Feelings"]
+  },
+  {
     "slug": "parent-resources",
     "label": "Parent Resources",
     "labelEs": "Recursos para Padres",
