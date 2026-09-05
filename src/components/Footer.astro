@@ -1,5 +1,6 @@
 ---
 import { SITE, type SiteConfig } from '../config/site';
+import { BUILD_INFO } from '../lib/buildInfo';
 import Logo from './Logo.astro';
 import Newsletter from './Newsletter.astro';
 
@@ -7,6 +8,12 @@ interface Props {
   site?: SiteConfig;
 }
 const { site = SITE } = Astro.props as Props;
+
+const builtAtLabel = new Intl.DateTimeFormat('en-US', {
+  dateStyle: 'medium',
+  timeStyle: 'short',
+  timeZone: 'UTC',
+}).format(BUILD_INFO.builtAt) + ' UTC';
 ---
 
 <footer class="border-t border-teal-100 bg-cream-200/70">
@@ -100,6 +107,17 @@ const { site = SITE } = Astro.props as Props;
         <span aria-hidden="true">·</span>
         <span>&copy; {new Date().getFullYear()} {site.name}</span>
       </div>
+      <p class="mt-2 text-center text-[0.7rem] text-ink-light/75">
+        Site build{' '}
+        {BUILD_INFO.commitUrl ? (
+          <a href={BUILD_INFO.commitUrl} class="hover:text-teal-700" target="_blank" rel="noopener noreferrer">
+            #{BUILD_INFO.shortSha}
+          </a>
+        ) : (
+          <span>#{BUILD_INFO.shortSha}</span>
+        )}
+        {' · '}{builtAtLabel}
+      </p>
     </div>
   </div>
 </footer>
