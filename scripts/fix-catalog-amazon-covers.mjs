@@ -33,6 +33,32 @@ function isGeneratedAmazonCover(url) {
   return typeof url === 'string' && /https:\/\/(?:images\.amazon\.com|images-na\.ssl-images-amazon\.com|m\.media-amazon\.com)\/images\/P\//i.test(url);
 }
 
+// Known edition-level corrections where the original catalog record pointed to
+// an unstable/blocked image or an older marketplace ASIN. Keep these explicit so
+// future catalog repair runs do not reintroduce the broken asset.
+const editionOverrides = {
+  'why-charlie-brown-why': {
+    isbn: '9780345455314',
+    amazonProductUrl: 'https://www.amazon.com/dp/0345455312',
+    coverImage: 'https://covers.openlibrary.org/b/isbn/9780345455314-L.jpg?default=false',
+    notesAppend: 'Cover/edition repaired 2026-09-05 using the 2002 Ballantine Books hardcover (ISBN 9780345455314 / ISBN-10 0345455312); replaces blocked Goodreads hotlink.',
+  },
+};
+
+for (const book of books) {
+  const override = editionOverrides[book.slug];
+  if (!override) continue;
+  if (override.isbn) book.isbn = override.isbn;
+  if (override.amazonProductUrl) book.amazonProductUrl = override.amazonProductUrl;
+  if (override.coverImage) book.coverImage = override.coverImage;
+  if (override.notesAppend) {
+    const current = String(book.notes ?? '').trim();
+    if (!current.includes(override.notesAppend)) {
+      book.notes = current ? `${current} ${override.notesAppend}` : override.notesAppend;
+    }
+  }
+}
+
 let publicCountBefore = 0;
 let canonicalized = 0;
 let generatedCoversRemoved = 0;
