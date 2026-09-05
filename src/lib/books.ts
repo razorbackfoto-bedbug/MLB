@@ -71,10 +71,9 @@ export function localizeBook(book: Book, lang: 'en' | 'es'): LocalizedBook {
     ...book,
     title: book.titleEs || book.title,
     mlbSummary: book.mlbSummaryEs ?? book.mlbSummary,
-    // Never reuse an English cover for Spanish. If a Spanish cover has not been
-    // explicitly verified, leave this null so BookCover resolves artwork from the
-    // exact Spanish Amazon ASIN instead of displaying a stale or mismatched image.
-    coverImage: book.coverImageEs || null,
+    // Spanish artwork is always resolved from the exact Spanish Amazon product ID.
+    // Do not trust English covers, stale Spanish URLs, or hand-mapped CDN images.
+    coverImage: null,
     amazonProductUrl: spanishAmazonUrl(book),
     isbn: isTranslatedEnglishRecord ? book.isbnEs || null : book.isbn,
   };
