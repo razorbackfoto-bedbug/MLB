@@ -9,12 +9,27 @@ interface Props {
   title: string;
   description?: string;
   image?: string;
+  imageAlt?: string;
   noindex?: boolean;
   site?: SiteConfig;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+  ogType?: 'website' | 'article' | 'book';
+  alternateEnglishPath?: string | null;
+  alternateSpanishPath?: string | null;
 }
 
-const { title, description, image, noindex = false, site = SITE, jsonLd } = Astro.props;
+const {
+  title,
+  description,
+  image,
+  imageAlt,
+  noindex = false,
+  site = SITE,
+  jsonLd,
+  ogType = 'website',
+  alternateEnglishPath,
+  alternateSpanishPath,
+} = Astro.props;
 const resolvedDescription = description ?? site.description;
 const pageTitle = title === site.name ? title : `${title} | ${site.name}`;
 const canonicalURL = new URL(Astro.url.pathname, site.url);
@@ -33,6 +48,16 @@ const simpleAlternatePaths = new Set([
 const englishPath = pathname.startsWith('/es/') ? pathname.replace(/^\/es/, '') || '/' : pathname;
 const spanishPath = pathname.startsWith('/es/') ? pathname : pathname === '/' ? '/es/' : `/es${pathname}`;
 const hasSimpleAlternate = simpleAlternatePaths.has(englishPath);
+const resolvedEnglishAlternate = alternateEnglishPath !== undefined
+  ? alternateEnglishPath
+  : hasSimpleAlternate
+    ? englishPath
+    : null;
+const resolvedSpanishAlternate = alternateSpanishPath !== undefined
+  ? alternateSpanishPath
+  : hasSimpleAlternate
+    ? spanishPath
+    : null;
 
 const organizationSchema = {
   '@context': 'https://schema.org',
@@ -67,24 +92,29 @@ const schemas = [organizationSchema, websiteSchema, ...extraSchemas];
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={canonicalURL} />
-    {hasSimpleAlternate && <link rel="alternate" hreflang="en" href={new URL(englishPath, site.url)} />}
-    {hasSimpleAlternate && <link rel="alternate" hreflang="es" href={new URL(spanishPath, site.url)} />}
-    {hasSimpleAlternate && <link rel="alternate" hreflang="x-default" href={new URL(englishPath, site.url)} />}
+    {resolvedEnglishAlternate && <link rel="alternate" hreflang="en-US" href={new URL(resolvedEnglishAlternate, site.url)} />}
+    {resolvedSpanishAlternate && <link rel="alternate" hreflang="es-US" href={new URL(resolvedSpanishAlternate, site.url)} />}
+    {resolvedEnglishAlternate && <link rel="alternate" hreflang="x-default" href={new URL(resolvedEnglishAlternate, site.url)} />}
     <title>{pageTitle}</title>
     <meta name="description" content={resolvedDescription} />
-    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <meta
+      name="robots"
+      content={noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'}
+    />
 
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={resolvedDescription} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:locale" content={site.lang === 'es' ? 'es_US' : 'en_US'} />
     {ogImage && <meta property="og:image" content={ogImage} />}
+    {ogImage && imageAlt && <meta property="og:image:alt" content={imageAlt} />}
     <meta property="og:site_name" content={site.name} />
     <meta name="twitter:card" content={ogImage ? 'summary_large_image' : 'summary'} />
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={resolvedDescription} />
     {ogImage && <meta name="twitter:image" content={ogImage} />}
+    {ogImage && imageAlt && <meta name="twitter:image:alt" content={imageAlt} />}
 
     {schemas.map((schema) => <script type="application/ld+json" set:html={JSON.stringify(schema)} />)}
     <meta name="generator" content={Astro.generator} />
