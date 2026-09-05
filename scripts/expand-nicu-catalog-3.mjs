@@ -10,7 +10,7 @@ function addBook(book) {
 addBook({
   slug: 'the-very-tiny-baby',
   title: 'The Very Tiny Baby',
-  coverImage: 'https://covers.openlibrary.org/b/isbn/9781580894456-L.jpg',
+  coverImage: 'https://dynamic.indigoimages.ca/v1/books/books/1580894453/1.jpg',
   featured: false,
   author: 'Sylvie Kantorovitz',
   illustrator: 'Sylvie Kantorovitz',
