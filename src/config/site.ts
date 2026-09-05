@@ -28,7 +28,7 @@ export const SITE: SiteConfig = {
   tagline: 'Helping little readers understand big medical experiences.',
   url: 'https://mightylittlebookshelf.com',
   description:
-    "A searchable library of children's books to help families navigate the NICU, hospital stays, medical conditions, and more.",
+    "A curated library of children's books about medical diagnoses, hospital stays, surgery, the NICU, cancer, heart conditions, feeding tubes, grief, and more.",
   email: 'hello@mightylittlebookshelf.com',
   lang: 'en',
   homeHref: '/',
@@ -44,12 +44,11 @@ export const SITE: SiteConfig = {
     { label: 'Home', href: '/' },
     { label: 'Book Library', href: '/library/' },
     { label: 'Topics', href: '/topics/' },
-    { label: 'Shop', href: '/shop/' },
     { label: 'About', href: '/about/' },
     { label: 'Contact', href: '/contact/' },
   ],
   footerTagline:
-    "We're here to help families and caregivers find the perfect books for life's toughest moments — and the brave little hearts who live them.",
+    "We're here to help families and caregivers find the perfect books for life's toughest moments and the brave little hearts who live them.",
   quickLinksHeading: 'Quick Links',
   stayLoopHeading: 'Stay in the Loop',
   stayLoopText: 'Get new book picks, helpful tips, and resources delivered to your inbox.',
@@ -60,7 +59,6 @@ export const SITE: SiteConfig = {
     quickLinks: [
       { label: 'Book Library', href: '/library/' },
       { label: 'Topics', href: '/topics/' },
-      { label: 'Shop', href: '/shop/' },
       { label: 'About', href: '/about/' },
       { label: 'Contact', href: '/contact/' },
     ],
@@ -76,7 +74,7 @@ export const SITE_ES: SiteConfig = {
   tagline: 'Ayudando a los pequeños lectores a entender grandes experiencias médicas.',
   url: 'https://mightylittlebookshelf.com',
   description:
-    'Una biblioteca de libros infantiles para ayudar a las familias a navegar la UCIN, estancias hospitalarias, condiciones médicas y más.',
+    'Una biblioteca seleccionada de libros infantiles sobre diagnósticos médicos, hospitalización, cirugía, UCIN, cáncer, cardiología, sondas de alimentación, duelo y más.',
   email: 'hello@mightylittlebookshelf.com',
   lang: 'es',
   homeHref: '/es/',
@@ -96,7 +94,7 @@ export const SITE_ES: SiteConfig = {
     { label: 'Contacto', href: '/es/contact/' },
   ],
   footerTagline:
-    'Estamos aquí para ayudar a familias y cuidadores a encontrar los libros perfectos para los momentos más difíciles de la vida — y para los corazones valientes que los viven.',
+    'Estamos aquí para ayudar a familias y cuidadores a encontrar los libros perfectos para los momentos más difíciles de la vida y para los corazones valientes que los viven.',
   quickLinksHeading: 'Enlaces Rápidos',
   stayLoopHeading: 'Mantente al Día',
   stayLoopText: 'Recibe nuevas recomendaciones de libros, consejos útiles y recursos en tu correo.',
