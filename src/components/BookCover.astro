@@ -1,9 +1,6 @@
 ---
-// Generated placeholder cover used until a real cover image is supplied via
-// the book's `coverImage` field. Deterministic per-title color + initials so
-// the shelf still looks varied and intentional.
 import type { Book } from '../lib/books';
-import { coverPaletteFor } from '../lib/cover';
+import { coverPaletteFor, coverCandidatesFor } from '../lib/cover';
 import type { Lang } from '../i18n/ui';
 
 interface Props {
@@ -16,28 +13,24 @@ const { book, class: className = '', lang = 'en' } = Astro.props;
 const palette = coverPaletteFor(book.slug);
 const altText = lang === 'es' ? `Portada de ${book.title}` : `Cover of ${book.title}`;
 const placeholderLabel = lang === 'es' ? `Portada provisional de ${book.title}` : `Cover placeholder for ${book.title}`;
-
-// Open Library returns a 200 with a near-blank "no cover" image by default instead of a
-// 404, so request the real-404 mode and fall back to the color placeholder on error.
-const coverSrc =
-  book.coverImage && book.coverImage.includes('covers.openlibrary.org')
-    ? `${book.coverImage}${book.coverImage.includes('?') ? '&' : '?'}default=false`
-    : book.coverImage;
+const coverCandidates = coverCandidatesFor(book);
 ---
 
-{book.coverImage && (
+{coverCandidates.length > 0 && (
   <img
-    src={coverSrc}
+    src={coverCandidates[0]}
+    data-cover-candidates={JSON.stringify(coverCandidates)}
+    data-cover-index="0"
     alt={altText}
     class:list={['aspect-[3/4] w-full rounded-2xl object-cover shadow-card', className]}
     loading="lazy"
-    onerror="this.style.display='none'; this.nextElementSibling?.classList.remove('hidden');"
+    onerror="const urls=JSON.parse(this.dataset.coverCandidates||'[]'); const next=Number(this.dataset.coverIndex||'0')+1; if(next<urls.length){this.dataset.coverIndex=String(next);this.src=urls[next];}else{this.style.display='none';this.nextElementSibling?.classList.remove('hidden');}"
   />
 )}
 <div
   class:list={[
     'relative flex aspect-[3/4] w-full flex-col justify-between overflow-hidden rounded-2xl p-4 shadow-card',
-    book.coverImage ? 'hidden' : '',
+    coverCandidates.length ? 'hidden' : '',
     className,
   ]}
   style={{ backgroundColor: palette.bg, color: palette.fg }}
