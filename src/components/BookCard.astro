@@ -10,8 +10,9 @@ interface Props {
   book: Book;
   class?: string;
   lang?: Lang;
+  compact?: boolean;
 }
-const { book, class: className = '', lang = 'en' } = Astro.props;
+const { book, class: className = '', lang = 'en', compact = false } = Astro.props;
 const ui = t(lang);
 const booksHref = lang === 'es' ? '/es/books' : '/books';
 const isComplete = Boolean(book.author && book.mlbSummary && book.audience && book.medicalTopics.length > 0);
@@ -21,11 +22,11 @@ const topBadges = book.medicalTopics.slice(0, 2);
 
 {
   isComplete && (
-    <article class:list={['card flex h-full flex-col overflow-hidden p-3', className]}>
+    <article class:list={['card flex h-full flex-col overflow-hidden', compact ? 'p-2.5' : 'p-3', className]}>
       <a href={`${booksHref}/${book.slug}/`} class="block">
         <BookCover book={book} lang={lang} fit="contain" />
       </a>
-      <div class="flex flex-1 flex-col gap-2 pt-3">
+      <div class:list={['flex flex-1 flex-col', compact ? 'gap-1.5 pt-2.5' : 'gap-2 pt-3']}>
         <a href={`${booksHref}/${book.slug}/`} class="font-display text-lg font-semibold leading-snug text-teal-700 hover:text-coral-500">
           {book.title}
         </a>
@@ -35,7 +36,10 @@ const topBadges = book.medicalTopics.slice(0, 2);
         </div>
         <a
           href={`${booksHref}/${book.slug}/`}
-          class="mt-auto inline-flex items-center justify-center rounded-full bg-teal-700 px-4 py-2 text-sm font-bold text-cream-50 hover:bg-teal-600"
+          class:list={[
+            'mt-auto inline-flex items-center justify-center rounded-full bg-teal-700 px-4 text-sm font-bold text-cream-50 hover:bg-teal-600',
+            compact ? 'py-1.5' : 'py-2',
+          ]}
         >
           {ui.viewBook}
         </a>
