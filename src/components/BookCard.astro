@@ -2,7 +2,7 @@
 import type { Book } from '../lib/books';
 import { formatAgeRange } from '../lib/books';
 import { translateLabel } from '../i18n/labels';
-import { t, type Lang } from '../i18n/ui';
+import { type Lang } from '../i18n/ui';
 import BookCover from './BookCover.astro';
 import Badge from './Badge.astro';
 
@@ -12,7 +12,6 @@ interface Props {
   lang?: Lang;
 }
 const { book, class: className = '', lang = 'en' } = Astro.props;
-const ui = t(lang);
 const booksHref = lang === 'es' ? '/es/books' : '/books';
 const isComplete = Boolean(book.author && book.mlbSummary && book.audience && book.medicalTopics.length > 0);
 const hasAge = book.ageMin != null || book.ageMax != null;
@@ -21,24 +20,30 @@ const topBadges = book.medicalTopics.slice(0, 2);
 
 {
   isComplete && (
-    <article class:list={['card flex h-full flex-col overflow-hidden p-3', className]}>
-      <a href={`${booksHref}/${book.slug}/`} class="block">
-        <BookCover book={book} lang={lang} fit="contain" />
-      </a>
-      <div class="flex flex-1 flex-col gap-2 pt-3">
-        <a href={`${booksHref}/${book.slug}/`} class="font-display text-lg font-semibold leading-snug text-teal-700 hover:text-coral-500">
-          {book.title}
-        </a>
+    <article
+      class:list={[
+        'card group relative flex h-full flex-col overflow-hidden p-3 transition hover:-translate-y-0.5 hover:shadow-lg',
+        className,
+      ]}
+    >
+      <BookCover book={book} lang={lang} fit="contain" ratio="square" />
+      <div class="flex flex-1 flex-col gap-1.5 pt-3">
+        {/* One link per card rather than three to the same page: the pseudo-element
+            stretches it over the whole card, so the cover and the padding are
+            clickable without repeating the destination for screen readers. */}
+        <h3 class="font-display text-base font-semibold leading-snug text-teal-700 group-hover:text-coral-500">
+          <a href={`${booksHref}/${book.slug}/`} class="line-clamp-2 after:absolute after:inset-0">
+            {book.title}
+          </a>
+        </h3>
         {hasAge && <p class="text-sm text-ink-light">{formatAgeRange(book, lang)}</p>}
-        <div class="flex flex-wrap gap-1.5">
-          {topBadges.map((topic) => <Badge label={translateLabel(topic, lang)} />)}
-        </div>
-        <a
-          href={`${booksHref}/${book.slug}/`}
-          class="mt-auto inline-flex items-center justify-center rounded-full bg-teal-700 px-4 py-2 text-sm font-bold text-cream-50 hover:bg-teal-600"
-        >
-          {ui.viewBook}
-        </a>
+        {topBadges.length > 0 && (
+          /* Above the stretched title link, which would otherwise swallow clicks
+             meant for these topic links. */
+          <div class="relative z-10 mt-auto flex flex-wrap gap-1.5 pt-1">
+            {topBadges.map((topic) => <Badge label={translateLabel(topic, lang)} />)}
+          </div>
+        )}
       </div>
     </article>
   )

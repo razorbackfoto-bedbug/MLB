@@ -8,48 +8,74 @@ interface Props {
   class?: string;
   lang?: Lang;
   fit?: 'cover' | 'contain';
+  /** Frame shape. Grids use 'square' so covers of different shapes all render at the
+      same height — a 3/4 frame leaves a square cover floating in dead space, and the
+      row then reads as a set of mismatched sizes. */
+  ratio?: '3/4' | 'square';
   /** Set on an above-the-fold cover (the book detail hero). Lazy-loading the LCP
       element defers its request until layout confirms it is in view, which delays
       the largest paint by a round trip. */
   priority?: boolean;
 }
-const { book, class: className = '', lang = 'en', fit = 'cover', priority = false } = Astro.props;
+const {
+  book,
+  class: className = '',
+  lang = 'en',
+  fit = 'cover',
+  ratio = '3/4',
+  priority = false,
+} = Astro.props;
 
 const palette = coverPaletteFor(book.slug);
 const altText = lang === 'es' ? `Portada de ${book.title}` : `Cover of ${book.title}`;
 const placeholderLabel = lang === 'es' ? `Portada provisional de ${book.title}` : `Cover placeholder for ${book.title}`;
 const coverCandidates = coverCandidatesFor(book);
-const imageFitClasses = fit === 'contain'
-  ? 'object-contain bg-cream-50 p-2'
-  : 'object-cover';
+
+const frameRatio = ratio === 'square' ? 'aspect-square' : 'aspect-[3/4]';
+// In contain mode the image is sized by height and left to find its own width, so
+// covers of different proportions line up on a shared baseline instead of each
+// shrinking to fit the box. Cover mode fills the frame and crops as usual.
+const imageClasses = fit === 'contain'
+  ? 'absolute left-1/2 top-1/2 h-[calc(100%-0.75rem)] w-auto max-w-[calc(100%-0.75rem)] -translate-x-1/2 -translate-y-1/2 object-contain'
+  : 'absolute inset-0 h-full w-full object-cover';
 ---
 
-{coverCandidates.length > 0 && (
-  <img
-    src={coverCandidates[0]}
-    data-cover-candidates={JSON.stringify(coverCandidates)}
-    data-cover-index="0"
-    alt={altText}
-    class:list={['aspect-[3/4] w-full rounded-2xl shadow-card', imageFitClasses, className]}
-    loading={priority ? 'eager' : 'lazy'}
-    fetchpriority={priority ? 'high' : undefined}
-    onerror="window.__mlbCoverFallback(this)"
-    onload="if(this.naturalWidth<=2||this.naturalHeight<=2)window.__mlbCoverFallback(this)"
-  />
-)}
 <div
   class:list={[
-    'relative flex aspect-[3/4] w-full flex-col justify-between overflow-hidden rounded-2xl p-4 shadow-card',
-    coverCandidates.length ? 'hidden' : '',
+    'relative w-full overflow-hidden rounded-2xl shadow-card',
+    frameRatio,
+    fit === 'contain' ? 'bg-cream-50' : '',
     className,
   ]}
-  style={{ backgroundColor: palette.bg, color: palette.fg }}
-  role="img"
-  aria-label={placeholderLabel}
 >
-  <div class="absolute inset-y-0 right-0 w-2 bg-black/10" aria-hidden="true"></div>
-  <svg class="h-5 w-5 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-    <path d="M12 21s-7.5-4.6-10-9.3C0.5 8 2.3 4 6.2 4c2.1 0 3.7 1.2 4.5 2.6C11.5 5.2 13.1 4 15.2 4c3.9 0 5.7 4 4.2 7.7C19.5 16.4 12 21 12 21Z" />
-  </svg>
-  <p class="font-display text-lg font-semibold leading-snug">{book.title}</p>
+  {coverCandidates.length > 0 && (
+    <img
+      src={coverCandidates[0]}
+      data-cover-candidates={JSON.stringify(coverCandidates)}
+      data-cover-index="0"
+      alt={altText}
+      class={imageClasses}
+      loading={priority ? 'eager' : 'lazy'}
+      fetchpriority={priority ? 'high' : undefined}
+      onerror="window.__mlbCoverFallback(this)"
+      onload="if(this.naturalWidth<=2||this.naturalHeight<=2)window.__mlbCoverFallback(this)"
+    />
+  )}
+  {/* Must stay the image's immediate next sibling: the cover fallback script reveals
+      it via img.nextElementSibling when every candidate URL fails. */}
+  <div
+    class:list={[
+      'absolute inset-0 flex flex-col justify-between overflow-hidden p-4',
+      coverCandidates.length ? 'hidden' : '',
+    ]}
+    style={{ backgroundColor: palette.bg, color: palette.fg }}
+    role="img"
+    aria-label={placeholderLabel}
+  >
+    <div class="absolute inset-y-0 right-0 w-2 bg-black/10" aria-hidden="true"></div>
+    <svg class="h-5 w-5 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+      <path d="M12 21s-7.5-4.6-10-9.3C0.5 8 2.3 4 6.2 4c2.1 0 3.7 1.2 4.5 2.6C11.5 5.2 13.1 4 15.2 4c3.9 0 5.7 4 4.2 7.7C19.5 16.4 12 21 12 21Z" />
+    </svg>
+    <p class="font-display text-lg font-semibold leading-snug">{book.title}</p>
+  </div>
 </div>
