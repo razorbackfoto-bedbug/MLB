@@ -80,14 +80,17 @@ function LibraryBookCard({ book, lang }: { book: LibraryBook; lang: Lang }) {
   }, [coverIndex]);
 
   return (
-    <article class="card flex h-full flex-col overflow-hidden p-2.5">
-      <a href={`${booksHref}/${book.slug}/`} class="block">
+    <article class="card group relative flex h-full flex-col overflow-hidden p-2.5 transition hover:-translate-y-0.5 hover:shadow-lg">
+      {/* Square frame with the artwork sized by height, so covers of different
+          proportions line up on a shared baseline instead of each floating at its
+          own size inside a taller box. */}
+      <div class="relative aspect-square w-full overflow-hidden rounded-2xl bg-cream-50 shadow-card">
         {!coverFailed ? (
           <img
             ref={imgRef}
             src={coverCandidates[coverIndex]}
             alt={altText}
-            class="aspect-[3/4] w-full rounded-2xl bg-cream-50 p-2 object-contain shadow-card"
+            class="absolute left-1/2 top-1/2 h-[calc(100%-0.75rem)] w-auto max-w-[calc(100%-0.75rem)] -translate-x-1/2 -translate-y-1/2 object-contain"
             loading="lazy"
             onError={() => setCoverIndex((index) => index + 1)}
             onLoad={(event) => {
@@ -102,7 +105,7 @@ function LibraryBookCard({ book, lang }: { book: LibraryBook; lang: Lang }) {
           />
         ) : (
           <div
-            class="relative flex aspect-[3/4] w-full flex-col justify-between overflow-hidden rounded-2xl p-4 shadow-card"
+            class="absolute inset-0 flex flex-col justify-between overflow-hidden p-4"
             style={{ backgroundColor: palette.bg, color: palette.fg }}
             role="img"
             aria-label={placeholderLabel}
@@ -114,20 +117,23 @@ function LibraryBookCard({ book, lang }: { book: LibraryBook; lang: Lang }) {
             <p class="font-display text-lg font-semibold leading-snug">{book.title}</p>
           </div>
         )}
-      </a>
+      </div>
       <div class="flex flex-1 flex-col gap-1.5 pt-2.5">
-        <a href={`${booksHref}/${book.slug}/`} class="font-display text-lg font-semibold leading-snug text-teal-700 hover:text-coral-500">
+        {/* One link per card rather than three to the same page: the pseudo-element
+            stretches it over the whole card, so the cover and padding stay clickable
+            without repeating the destination for screen readers. */}
+        <a
+          href={`${booksHref}/${book.slug}/`}
+          class="line-clamp-2 font-display text-base font-semibold leading-snug text-teal-700 after:absolute after:inset-0 group-hover:text-coral-500"
+        >
           {book.title}
         </a>
         <p class="text-sm text-ink-light">{formatAgeRange(book, lang)}</p>
-        <div class="flex flex-wrap gap-1.5">
+        <div class="mt-auto flex flex-wrap gap-1.5 pt-1">
           {book.medicalTopics.slice(0, 2).map((topic) => (
             <span class={`pill ${badgeClassesFor(topic)}`}>{translateLabel(topic, lang)}</span>
           ))}
         </div>
-        <a href={`${booksHref}/${book.slug}/`} class="mt-auto inline-flex items-center justify-center rounded-full bg-teal-700 px-4 py-1.5 text-sm font-bold text-cream-50 hover:bg-teal-600">
-          {ui.viewBook}
-        </a>
       </div>
     </article>
   );

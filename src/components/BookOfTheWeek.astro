@@ -56,13 +56,9 @@ const eligible: Book[] = source
                     {book.medicalTopics.slice(0, 3).map((topic) => <Badge label={translateLabel(topic, lang)} />)}
                   </div>
                   {book.mlbSummary && <p class="text-ink-light">{book.mlbSummary}</p>}
+                  {/* The cover and the title already link to the book page, so the only
+                      button here is the one that goes somewhere else. */}
                   <div class="mt-2 flex flex-wrap gap-3">
-                    <a
-                      href={`${booksHref}/${book.slug}/`}
-                      class="inline-flex items-center justify-center rounded-full bg-teal-700 px-5 py-2.5 text-sm font-bold text-cream-50 hover:bg-teal-600"
-                    >
-                      {ui.viewBook}
-                    </a>
                     <a
                       href={amazon.url}
                       rel={amazon.isAffiliate ? 'nofollow sponsored noopener' : 'noopener'}
