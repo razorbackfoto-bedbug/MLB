@@ -43,7 +43,7 @@ const eligible: Book[] = source
             <div class="botw-item" data-index={index} hidden={index !== 0}>
               <div class="card grid gap-6 p-6 sm:grid-cols-[200px,1fr] sm:p-8">
                 <a href={`${booksHref}/${book.slug}/`} class="mx-auto block w-40 sm:w-full">
-                  <BookCover book={book} lang={lang} />
+                  <BookCover book={book} lang={lang} fit="contain" />
                 </a>
                 <div class="flex flex-col gap-3">
                   <h2 class="font-display text-2xl font-semibold text-teal-700 sm:text-3xl">
