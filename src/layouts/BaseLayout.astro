@@ -103,6 +103,15 @@ const schemas = [organizationSchema, websiteSchema, ...extraSchemas];
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    {/* Requested from the head, not via @import in the stylesheet: an @import is only
+        discovered after the CSS itself has downloaded and parsed, which puts the font
+        files four requests deep in a serial chain before any text renders. */}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Nunito+Sans:wght@400;600;700;800&display=swap"
+    />
     <link rel="canonical" href={canonicalURL} />
     {resolvedEnglishAlternate && <link rel="alternate" hreflang="en-US" href={new URL(resolvedEnglishAlternate, site.url)} />}
     {resolvedSpanishAlternate && <link rel="alternate" hreflang="es-US" href={new URL(resolvedSpanishAlternate, site.url)} />}
