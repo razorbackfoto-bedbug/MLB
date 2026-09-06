@@ -23,7 +23,7 @@
     "mlbSummary": "A child-focused story created to help families begin conversations about a parent's dialysis treatment. It validates that children may feel scared, strong, confused, or curious and encourages them to ask questions about what dialysis means for their family.",
     "verificationStatus": "Verified",
     "sourceUrl": "https://www.thriftbooks.com/w/daddys-on-dialysis/36987756/",
-    "notes": "ASIN and ISBN verified through bibliographic listings and the author's Amazon announcement. No religious theme identified.",
+    "notes": "ASIN and ISBN require renewed Amazon and cover verification before this record can return to the public catalog.",
     "sourceCollections": ["MLB kidney expansion", "Dialysis family resources"]
   },
   {
@@ -50,7 +50,7 @@
     "mlbSummary": "Sydney learns that her mother needs a kidney transplant and sets out on a hopeful search for a living donor. The story gives families a child-friendly way to talk about kidney failure, living donation, transplant waiting, and how children can process a loved one's medical journey.",
     "verificationStatus": "Verified",
     "sourceUrl": "https://transplantstrong.com/sydneys-kidney-adventure-book/",
-    "notes": "ASIN verified through independent review coverage and author resources. No religious theme identified.",
+    "notes": "Requires renewed Amazon and cover verification before this record can return to the public catalog.",
     "sourceCollections": ["MLB kidney expansion", "TransplantFirst", "TransplantStrong"]
   },
   {
@@ -77,35 +77,8 @@
     "mlbSummary": "Based on a real child's experience with kidney failure and transplantation, this educational picture book introduces organ donation, courage, and resilience through the perspective of a young patient navigating a kidney transplant journey.",
     "verificationStatus": "Verified",
     "sourceUrl": "https://www.goodreads.com/book/show/37648897-kinsey-s-kidney-adventure",
-    "notes": "ISBN-10 and ISBN-13 verified through booksellers; Goodreads provides an Amazon purchase path and the ISBN-10 is used as the direct Amazon product identifier. No religious theme identified.",
+    "notes": "Requires renewed Amazon and cover verification before this record can return to the public catalog.",
     "sourceCollections": ["MLB kidney expansion", "Kidney transplant family resources"]
-  },
-  {
-    "slug": "taking-care-of-us-kidney-disease-prevention",
-    "title": "Taking Care of Us: A Children's Book Kidney Disease Prevention",
-    "coverImage": null,
-    "featured": false,
-    "author": "Ethel M. Simpson",
-    "illustrator": null,
-    "audience": "Children & Families",
-    "audienceTags": ["Children", "Families"],
-    "format": "Educational Picture Book",
-    "bookType": "Guides & Resources",
-    "medicalTopics": ["Kidney", "Kidney Disease", "Dialysis", "Kidney Health"],
-    "siblingFocus": false,
-    "faithBased": false,
-    "ageMin": 6,
-    "ageMax": 12,
-    "isbn": "9798335226189",
-    "publicationYear": 2024,
-    "amazonProductUrl": "https://www.amazon.com/dp/8335226180",
-    "affiliateUrl": null,
-    "publisherUrl": null,
-    "mlbSummary": "Two cousins talk about their grandmother being on dialysis and ask what people can do to protect their kidneys. The book uses a family conversation to introduce kidney disease prevention, kidney health, and why dialysis may become necessary.",
-    "verificationStatus": "Verified",
-    "sourceUrl": "https://business.walmart.com/ip/Taking-Care-of-Us-A-Children-apos-s-Book-Kidney-Disease-Prevention-Paperback-9798335226189/9807558079",
-    "notes": "Published through Amazon KDP. ISBN-10 and ISBN-13 verified. No religious theme identified in available descriptions.",
-    "sourceCollections": ["MLB kidney expansion"]
   },
   {
     "slug": "peanuts-for-penny",
@@ -131,7 +104,7 @@
     "mlbSummary": "Three eight-year-old friends face the news that Penny needs a kidney transplant. Her friends try to find a meaningful way to help, giving young readers a story about transplant, friendship, community support, and feeling less powerless when someone they care about is sick.",
     "verificationStatus": "Verified",
     "sourceUrl": "https://www.goodreads.com/en/book/show/59002516-peanuts-for-penny",
-    "notes": "ISBN verified through publisher and bookseller records; publisher confirms Amazon availability. No religious theme identified.",
+    "notes": "Requires renewed Amazon and cover verification before this record can return to the public catalog.",
     "sourceCollections": ["MLB kidney expansion"]
   }
 ]
