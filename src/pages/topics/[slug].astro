@@ -20,11 +20,12 @@ const books = getBooksForTopic(topic.slug);
 const spanishBooks = getSpanishBooks();
 const hasSpanishAlternate = spanishBooks.some((book) => bookMatchesTopic(book, topic));
 const isNicu = topic.slug === 'nicu-prematurity';
+const isHospital = topic.slug === 'hospital-stays';
 
 const seoTitles: Record<string, string> = {
   'nicu-prematurity': 'NICU Books for Kids, Siblings & Families',
   siblings: "Children's Books for Siblings During Medical Care",
-  'hospital-stays': "Children's Books About Hospital Stays & Surgery",
+  'hospital-stays': 'Hospital Books for Kids: Surgery, Procedures & Hospital Stays',
   cardiac: "Children's Books About Heart Conditions & Cardiac Care",
   respiratory: "Children's Books About Breathing, Oxygen & Respiratory Care",
   'feeding-tubes': "Children's Books About Feeding Tubes & G-Tubes",
@@ -38,7 +39,9 @@ const seoTitles: Record<string, string> = {
 const seoTitle = seoTitles[topic.slug] ?? `Children's Books About ${topic.label}`;
 const seoDescription = isNicu
   ? `Browse ${books.length} curated NICU books for kids, siblings, and families, including children's books about premature babies, preemies, NICU stays, and coming home.`
-  : `${topic.description} Browse ${books.length} curated ${books.length === 1 ? 'book' : 'books'} for children and families.`;
+  : isHospital
+    ? `Browse ${books.length} hospital books for kids, including children's books about surgery, medical procedures, hospital stays, tests, and preparing a child for the hospital.`
+    : `${topic.description} Browse ${books.length} curated ${books.length === 1 ? 'book' : 'books'} for children and families.`;
 const pagePath = `/topics/${topic.slug}/`;
 const pageUrl = new URL(pagePath, 'https://mightylittlebookshelf.com').toString();
 
@@ -91,11 +94,32 @@ const nicuFaq = [
   },
 ];
 
-const faqSchema = isNicu
+const hospitalFaq = [
+  {
+    question: 'What are good hospital books for kids?',
+    answer: 'Good hospital books for kids explain what children may see, hear, and experience during a hospital visit in clear, reassuring language. The best choice depends on the child’s age and whether they are preparing for surgery, a test, a procedure, or a longer hospital stay.',
+  },
+  {
+    question: 'Are there children’s books about surgery?',
+    answer: 'Yes. Children’s books about surgery can introduce ideas such as meeting the care team, anesthesia, operating rooms, recovery, bandages, and going home. Familiarity can make an unfamiliar experience easier to talk about with a child.',
+  },
+  {
+    question: 'Can books help prepare a child for a hospital stay?',
+    answer: 'Books can help children build a mental picture of what a hospital visit may be like and give families a starting point for questions and conversations. They are especially useful when paired with information from the child’s own care team about what to expect.',
+  },
+  {
+    question: 'How do I choose a hospital or surgery book for my child?',
+    answer: 'Choose a book that matches the child’s age, reading level, and upcoming experience. A child having a routine procedure may need a different story than a child facing major surgery or a long admission, so look for books that reflect the situation as closely as possible.',
+  },
+];
+
+const activeFaq = isNicu ? nicuFaq : isHospital ? hospitalFaq : null;
+
+const faqSchema = activeFaq
   ? {
       '@context': 'https://schema.org',
       '@type': 'FAQPage',
-      mainEntity: nicuFaq.map((item) => ({
+      mainEntity: activeFaq.map((item) => ({
         '@type': 'Question',
         name: item.question,
         acceptedAnswer: {
@@ -135,6 +159,10 @@ const jsonLd = faqSchema ? [collectionSchema, breadcrumbSchema, faqSchema] : [co
           <p class="mt-2 max-w-3xl text-ink-light">
             Find children&apos;s books about NICU stays, premature birth, preemies, medical equipment, coming home from the NICU, and becoming a big brother or sister to a baby in neonatal intensive care.
           </p>
+        ) : isHospital ? (
+          <p class="mt-2 max-w-3xl text-ink-light">
+            Find hospital books for kids about surgery, medical procedures, tests, anesthesia, recovery, hospital stays, and preparing children for what they may see and experience during medical care.
+          </p>
         ) : (
           <p class="mt-2 max-w-2xl text-ink-light">{topic.description}</p>
         )}
@@ -165,6 +193,30 @@ const jsonLd = faqSchema ? [collectionSchema, breadcrumbSchema, faqSchema] : [co
     </section>
   )}
 
+  {isHospital && (
+    <section class="mx-auto max-w-5xl px-4 pb-12 sm:px-6 lg:px-8">
+      <div class="card p-6 sm:p-8">
+        <h2 class="font-display text-2xl font-semibold">Children&apos;s books for hospital stays, surgery, and procedures</h2>
+        <div class="mt-4 space-y-4 text-ink-light">
+          <p>
+            Hospitals can feel unfamiliar to children, especially when they are preparing for surgery, imaging, lab work, anesthesia, or an overnight admission. The books in this collection can help introduce hospital rooms, medical equipment, doctors and nurses, procedures, recovery, and going home in a way children can revisit at their own pace.
+          </p>
+          <p>
+            For children dealing with fear or uncertainty, browse our{' '}
+            <a href="/topics/feelings-coping/" class="font-semibold text-teal-700 underline decoration-teal-300 underline-offset-2 hover:text-teal-800">
+              books about medical anxiety and coping
+            </a>.
+            If a brother or sister is the one receiving care, our{' '}
+            <a href="/topics/siblings/" class="font-semibold text-teal-700 underline decoration-teal-300 underline-offset-2 hover:text-teal-800">
+              books for siblings during medical care
+            </a>{' '}
+            may also help.
+          </p>
+        </div>
+      </div>
+    </section>
+  )}
+
   <section class="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
     {
       books.length === 0 ? (
@@ -181,7 +233,7 @@ const jsonLd = faqSchema ? [collectionSchema, breadcrumbSchema, faqSchema] : [co
       ) : (
         <>
           <h2 class="mb-2 font-display text-2xl font-semibold">
-            {isNicu ? 'Browse NICU and preemie books' : `Books for ${topic.label}`}
+            {isNicu ? 'Browse NICU and preemie books' : isHospital ? 'Browse hospital and surgery books for kids' : `Books for ${topic.label}`}
           </h2>
           <p class="mb-6 text-sm font-semibold text-ink-light">
             {books.length} {books.length === 1 ? 'book' : 'books'} for {topic.label}
@@ -196,12 +248,14 @@ const jsonLd = faqSchema ? [collectionSchema, breadcrumbSchema, faqSchema] : [co
     }
   </section>
 
-  {isNicu && (
+  {activeFaq && (
     <section class="mx-auto max-w-5xl px-4 pb-20 sm:px-6 lg:px-8">
       <div class="border-t border-sand-200 pt-10">
-        <h2 class="font-display text-2xl font-semibold">NICU books: common questions</h2>
+        <h2 class="font-display text-2xl font-semibold">
+          {isNicu ? 'NICU books: common questions' : 'Hospital and surgery books: common questions'}
+        </h2>
         <div class="mt-6 space-y-7">
-          {nicuFaq.map((item) => (
+          {activeFaq.map((item) => (
             <div>
               <h3 class="font-display text-lg font-semibold text-ink">{item.question}</h3>
               <p class="mt-2 text-ink-light">{item.answer}</p>
