@@ -1,11 +1,33 @@
 ---
 import { badgeClassesFor } from '../lib/badges';
+import { getAllTopics } from '../lib/books';
 
 interface Props {
   label: string;
   class?: string;
 }
 const { label, class: className = '' } = Astro.props;
+
+const matchedTopic = getAllTopics().find(
+  (topic) => topic.matchTopics.includes(label) || topic.label === label,
+);
+const href = matchedTopic ? `/topics/${matchedTopic.slug}/` : null;
 ---
 
-<span class:list={['pill', badgeClassesFor(label), className]}>{label}</span>
+{
+  href ? (
+    <a
+      href={href}
+      class:list={[
+        'pill transition hover:-translate-y-0.5 hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2',
+        badgeClassesFor(label),
+        className,
+      ]}
+      aria-label={`Browse books about ${matchedTopic?.label ?? label}`}
+    >
+      {label}
+    </a>
+  ) : (
+    <span class:list={['pill', badgeClassesFor(label), className]}>{label}</span>
+  )
+}
