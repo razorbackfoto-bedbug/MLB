@@ -1,0 +1,93 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const pageUrl = 'https://mightylittlebookshelf.com/for-hospitals/';
+const webpageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': `${pageUrl}#webpage`,
+  name: 'For Hospitals, Child Life Teams & Healthcare Professionals',
+  url: pageUrl,
+  description: "A free children's medical book-finding resource for hospitals, child life specialists, nurses, social workers, librarians, and family educators.",
+  audience: [
+    { '@type': 'Audience', audienceType: 'Healthcare professionals' },
+    { '@type': 'Audience', audienceType: 'Child life specialists' },
+    { '@type': 'Audience', audienceType: 'Hospital librarians' },
+  ],
+};
+---
+
+<BaseLayout
+  title="For Hospitals & Healthcare Professionals"
+  description="A free children's medical book-finding resource for hospitals, child life specialists, nurses, social workers, librarians, and family educators."
+  jsonLd={webpageSchema}
+>
+  <section class="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
+    <p class="text-sm font-bold uppercase tracking-wide text-teal-700">For healthcare teams</p>
+    <h1 class="mt-2 max-w-4xl font-display text-4xl font-semibold sm:text-5xl">Help families find the right children&apos;s book for a medical experience</h1>
+    <p class="mt-5 max-w-3xl text-lg leading-relaxed text-ink-light">
+      Mighty Little Bookshelf is a free, searchable resource designed to help families and healthcare professionals find children&apos;s books about the NICU, hospital stays, surgery, heart conditions, cancer, feeding tubes, respiratory support, grief, sibling experiences, and other medical topics.
+    </p>
+
+    <div class="mt-8 flex flex-wrap gap-3">
+      <a href="/library/" class="btn-primary">Browse the book library</a>
+      <a href="/topics/" class="btn-secondary">Browse by medical topic</a>
+    </div>
+  </section>
+
+  <section class="border-y border-teal-100 bg-white/60 py-12">
+    <div class="mx-auto grid max-w-5xl gap-6 px-4 sm:grid-cols-3 sm:px-6 lg:px-8">
+      <div class="card p-6">
+        <h2 class="font-display text-xl font-semibold">Free to share</h2>
+        <p class="mt-2 text-ink-light">Hospitals, clinics, libraries, schools, support groups, and nonprofit organizations are welcome to link families to Mighty Little Bookshelf.</p>
+      </div>
+      <div class="card p-6">
+        <h2 class="font-display text-xl font-semibold">Organized around real needs</h2>
+        <p class="mt-2 text-ink-light">Families can browse by medical topic, audience, age, sibling focus, and other practical details instead of searching scattered book lists.</p>
+      </div>
+      <div class="card p-6">
+        <h2 class="font-display text-xl font-semibold">Clinically informed</h2>
+        <p class="mt-2 text-ink-light">The project is curated by a registered nurse with NICU experience and is intended as an educational book-finding resource, not medical advice.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-5xl px-4 py-14 sm:px-6 lg:px-8">
+    <h2 class="font-display text-3xl font-semibold">Ways your team can use Mighty Little Bookshelf</h2>
+    <div class="mt-7 grid gap-6 sm:grid-cols-2">
+      <div class="card p-6">
+        <h3 class="font-display text-xl font-semibold">At the bedside</h3>
+        <p class="mt-2 text-ink-light">Use topic collections to help parents find books that explain an upcoming surgery, a NICU stay, medical equipment, a new diagnosis, or a sibling&apos;s hospitalization.</p>
+      </div>
+      <div class="card p-6">
+        <h3 class="font-display text-xl font-semibold">Discharge and family education</h3>
+        <p class="mt-2 text-ink-light">Include a link in family resource lists, discharge materials, patient portals, child life handouts, or hospital library guides.</p>
+      </div>
+      <div class="card p-6">
+        <h3 class="font-display text-xl font-semibold">Child life and sibling support</h3>
+        <p class="mt-2 text-ink-light">Find stories that give children language for unfamiliar equipment, separation, strong emotions, and changes in family routines.</p>
+      </div>
+      <div class="card p-6">
+        <h3 class="font-display text-xl font-semibold">Hospital and community libraries</h3>
+        <p class="mt-2 text-ink-light">Use the catalog as a discovery tool when building or refreshing pediatric health, NICU, grief, surgery, and diagnosis-specific collections.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-5xl px-4 pb-16 sm:px-6 lg:px-8">
+    <div class="card p-7 sm:p-9">
+      <h2 class="font-display text-2xl font-semibold">Suggested wording for a hospital resource page</h2>
+      <p class="mt-3 text-ink-light">You are welcome to describe the site in your own words. A simple option is:</p>
+      <blockquote class="mt-4 border-l-4 border-teal-300 pl-5 leading-relaxed text-ink">
+        Mighty Little Bookshelf is a searchable collection of children&apos;s books about medical experiences, including NICU stays, hospitalization, surgery, chronic conditions, medical equipment, grief, and sibling support.
+      </blockquote>
+      <p class="mt-5 text-sm text-ink-light">Mighty Little Bookshelf does not provide medical advice or replace guidance from a child&apos;s healthcare team. Book information is provided to help families discover potentially useful reading resources.</p>
+    </div>
+
+    <div class="mt-10 text-center">
+      <h2 class="font-display text-2xl font-semibold">Have a book list or resource we should know about?</h2>
+      <p class="mx-auto mt-3 max-w-2xl text-ink-light">We welcome suggestions from child life teams, nurses, social workers, hospital librarians, authors, families, and patient-support organizations.</p>
+      <a href="/contact/" class="btn-primary mt-6">Contact Mighty Little Bookshelf</a>
+    </div>
+  </section>
+</BaseLayout>
