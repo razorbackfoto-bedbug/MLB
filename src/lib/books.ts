@@ -180,8 +180,15 @@ export const topics: Topic[] = topicsData as Topic[];
 export function isPublicReady(book: Book): boolean {
   const status = book.verificationStatus.toLowerCase();
   const verified = status.includes('ready') || status.includes('verified');
+  const hasDirectAmazonProduct = Boolean(amazonProductId(book.amazonProductUrl));
+  const hasUsableCover = Boolean(book.coverImage?.trim());
+  const explicitlySecular = book.faithBased === false;
+
   return Boolean(
     verified &&
+      explicitlySecular &&
+      hasDirectAmazonProduct &&
+      hasUsableCover &&
       book.title?.trim() &&
       book.author?.trim() &&
       book.audience?.trim() &&
