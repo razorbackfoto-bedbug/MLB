@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import type { Book, AgeBucket, Topic } from '../lib/bookTypes';
-import { getAgeBucketForBook, formatAgeRange } from '../lib/bookTypes';
+import { getAgeBucketForBook, formatCardMeta } from '../lib/bookTypes';
 import { coverPaletteFor, coverCandidatesFor } from '../lib/cover';
 import { badgeClassesFor } from '../lib/badges';
 import { translateLabel } from '../i18n/labels';
@@ -124,11 +124,11 @@ function LibraryBookCard({ book, lang }: { book: LibraryBook; lang: Lang }) {
             without repeating the destination for screen readers. */}
         <a
           href={`${booksHref}/${book.slug}/`}
-          class="line-clamp-2 font-display text-base font-semibold leading-snug text-teal-700 after:absolute after:inset-0 group-hover:text-coral-500"
+          class="line-clamp-2 min-h-[2.75rem] font-display text-base font-semibold leading-snug text-teal-700 after:absolute after:inset-0 group-hover:text-coral-500"
         >
           {book.title}
         </a>
-        <p class="min-h-[1.25rem] text-sm text-ink-light">{formatAgeRange(book, lang)}</p>
+        <p class="min-h-[1.25rem] text-sm text-ink-light">{formatCardMeta(book, lang)}</p>
         <div class="flex max-h-[1.625rem] flex-wrap gap-1 overflow-hidden pt-0.5">
           {book.medicalTopics.slice(0, 2).map((topic) => (
             <span class={`pill-sm ${badgeClassesFor(topic)}`}>{translateLabel(topic, lang)}</span>

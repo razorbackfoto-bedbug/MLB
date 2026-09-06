@@ -1,6 +1,6 @@
 ---
 import type { Book } from '../lib/books';
-import { formatAgeRange } from '../lib/books';
+import { formatCardMeta } from '../lib/books';
 import { translateLabel } from '../i18n/labels';
 import { type Lang } from '../i18n/ui';
 import BookCover from './BookCover.astro';
@@ -14,7 +14,6 @@ interface Props {
 const { book, class: className = '', lang = 'en' } = Astro.props;
 const booksHref = lang === 'es' ? '/es/books' : '/books';
 const isComplete = Boolean(book.author && book.mlbSummary && book.audience && book.medicalTopics.length > 0);
-const hasAge = book.ageMin != null || book.ageMax != null;
 const topBadges = book.medicalTopics.slice(0, 2);
 ---
 
@@ -32,11 +31,11 @@ const topBadges = book.medicalTopics.slice(0, 2);
             stretches it over the whole card, so the cover and the padding are
             clickable without repeating the destination for screen readers. */}
         <h3 class="font-display text-base font-semibold leading-snug text-teal-700 group-hover:text-coral-500">
-          <a href={`${booksHref}/${book.slug}/`} class="line-clamp-2 after:absolute after:inset-0">
+          <a href={`${booksHref}/${book.slug}/`} class="line-clamp-2 min-h-[2.75rem] after:absolute after:inset-0">
             {book.title}
           </a>
         </h3>
-        <p class="min-h-[1.25rem] text-sm text-ink-light">{hasAge ? formatAgeRange(book, lang) : ''}</p>
+        <p class="min-h-[1.25rem] text-sm text-ink-light">{formatCardMeta(book, lang)}</p>
         {topBadges.length > 0 && (
           /* Above the stretched title link, which would otherwise swallow clicks
              meant for these topic links. */

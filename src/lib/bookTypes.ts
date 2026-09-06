@@ -101,3 +101,21 @@ export function formatAgeRange(book: Book, lang: 'en' | 'es' = 'en'): string {
   const known = book.ageMin ?? book.ageMax;
   return `Ages ${known}+`;
 }
+
+/**
+ * The single line of meta a book card shows under its title.
+ *
+ * Falls back to the audience rather than a blank for adult titles: every
+ * "Parents & Adults" book in the catalog has no age range, because a child age
+ * range says nothing useful about a parent memoir or a NICU handbook. Children's
+ * books with no age on file still return empty — inventing one would be worse than
+ * showing nothing, since families choose by age.
+ */
+export function formatCardMeta(book: Book, lang: 'en' | 'es' = 'en'): string {
+  const age = formatAgeRange(book, lang);
+  if (age) return age;
+  if (book.audience === 'Parents & Adults' || book.audienceTags?.includes('Parents')) {
+    return lang === 'es' ? 'Para padres y adultos' : 'For parents & adults';
+  }
+  return '';
+}

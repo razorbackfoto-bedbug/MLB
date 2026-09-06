@@ -349,4 +349,4 @@ export function getUniqueBookTypes(): string[] {
 }
 
 export type { Book, Topic, AgeBucket } from './bookTypes';
-export { AGE_BUCKETS, localizeAgeBucket, getAgeBucketForBook, formatAgeRange } from './bookTypes';
+export { AGE_BUCKETS, localizeAgeBucket, getAgeBucketForBook, formatAgeRange, formatCardMeta } from './bookTypes';
