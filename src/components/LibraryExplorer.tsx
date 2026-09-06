@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'preact/hooks';
+import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import type { Book, AgeBucket, Topic } from '../lib/books';
 import { getAgeBucketForBook, formatAgeRange } from '../lib/books';
 import { coverPaletteFor, coverCandidatesFor } from '../lib/cover';
@@ -66,17 +66,39 @@ function LibraryBookCard({ book, lang }: { book: LibraryBook; lang: Lang }) {
   const coverCandidates = coverCandidatesFor(book);
   const [coverIndex, setCoverIndex] = useState(0);
   const coverFailed = coverIndex >= coverCandidates.length;
+  const imgRef = useRef<HTMLImageElement | null>(null);
+
+  // The server-rendered <img> begins loading before this island hydrates, so a failure
+  // that happens in that window never reaches onError. Re-check the settled state on
+  // mount and after each candidate swap so those images still fall through.
+  useEffect(() => {
+    const img = imgRef.current;
+    if (!img || !img.complete) return;
+    if (img.naturalWidth <= 2 || img.naturalHeight <= 2) {
+      setCoverIndex((index) => index + 1);
+    }
+  }, [coverIndex]);
 
   return (
     <article class="card flex h-full flex-col overflow-hidden p-3">
       <a href={`${booksHref}/${book.slug}/`} class="block">
         {!coverFailed ? (
           <img
+            ref={imgRef}
             src={coverCandidates[coverIndex]}
             alt={altText}
             class="aspect-[3/4] w-full rounded-2xl object-cover shadow-card"
             loading="lazy"
             onError={() => setCoverIndex((index) => index + 1)}
+            onLoad={(event) => {
+              // Amazon and Open Library answer "no cover on file" with a blank 1x1 image
+              // and HTTP 200 rather than a 404, so onError never fires for a missing
+              // cover — only the decoded dimensions reveal it.
+              const img = event.currentTarget as HTMLImageElement;
+              if (img.naturalWidth <= 2 || img.naturalHeight <= 2) {
+                setCoverIndex((index) => index + 1);
+              }
+            }}
           />
         ) : (
           <div

@@ -141,5 +141,24 @@ const schemas = [organizationSchema, websiteSchema, ...extraSchemas];
     </main>
     <Footer site={site} />
     {site.lang === 'en' && <LangPrompt />}
+    <script is:inline>
+      // Amazon and Open Library both answer "no cover on file" with a blank 1x1 image and
+      // HTTP 200 rather than a 404, so a load event is not proof of a real cover — the
+      // dimensions are. Cover <img> tags call this from both onerror and onload.
+      window.__mlbCoverFallback = function (img) {
+        if (img.dataset.coverResolved) return;
+        var urls = [];
+        try { urls = JSON.parse(img.dataset.coverCandidates || '[]'); } catch (e) { urls = []; }
+        var next = Number(img.dataset.coverIndex || '0') + 1;
+        if (next < urls.length) {
+          img.dataset.coverIndex = String(next);
+          img.src = urls[next];
+          return;
+        }
+        img.dataset.coverResolved = 'failed';
+        img.style.display = 'none';
+        if (img.nextElementSibling) img.nextElementSibling.classList.remove('hidden');
+      };
+    </script>
   </body>
 </html>

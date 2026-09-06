@@ -24,7 +24,8 @@ const coverCandidates = coverCandidatesFor(book);
     alt={altText}
     class:list={['aspect-[3/4] w-full rounded-2xl object-cover shadow-card', className]}
     loading="lazy"
-    onerror="const urls=JSON.parse(this.dataset.coverCandidates||'[]'); const next=Number(this.dataset.coverIndex||'0')+1; if(next<urls.length){this.dataset.coverIndex=String(next);this.src=urls[next];}else{this.style.display='none';this.nextElementSibling?.classList.remove('hidden');}"
+    onerror="window.__mlbCoverFallback(this)"
+    onload="if(this.naturalWidth<=2||this.naturalHeight<=2)window.__mlbCoverFallback(this)"
   />
 )}
 <div
