@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TopicIcon from '../components/TopicIcon.astro';
+import { getAllTopics } from '../lib/books';
+
+// Books are only published once their metadata is complete, so titles can leave the
+// public catalog after search engines have already indexed them. A dead book URL is
+// one of the likeliest ways to land here — point those visitors at the shelves
+// rather than at a bare error.
+const topics = getAllTopics().slice(0, 6);
+---
+
+<BaseLayout
+  title="Page Not Found"
+  description="That page could not be found. Browse the Mighty Little Bookshelf library by topic instead."
+  noindex={true}
+>
+  <section class="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6 lg:px-8">
+    <div class="card p-8 sm:p-10">
+      <p class="section-label">404</p>
+      <h1 class="mt-2 font-display text-3xl font-semibold sm:text-4xl">We couldn't find that page</h1>
+      <p class="mx-auto mt-4 max-w-lg text-ink-light">
+        The link may be out of date, or the page may have moved. The library is still here — let's
+        find the right book for your family.
+      </p>
+      <div class="mt-7 flex flex-wrap justify-center gap-3">
+        <a href="/library/" class="btn-primary">Browse the Library</a>
+        <a href="/" class="btn-secondary">Back Home</a>
+      </div>
+    </div>
+
+    <h2 class="mt-12 font-display text-xl font-semibold text-teal-700">Or start with a topic</h2>
+    <ul class="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-3">
+      {
+        topics.map((topic) => (
+          <li>
+            <a
+              href={`/topics/${topic.slug}/`}
+              class="flex h-full flex-col items-center gap-2 rounded-2xl border border-teal-100 bg-cream-50 p-4 text-sm font-bold text-teal-700 hover:border-teal-300 hover:bg-teal-50"
+            >
+              <TopicIcon name={topic.icon} class="h-6 w-6" />
+              {topic.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</BaseLayout>
