@@ -128,10 +128,10 @@ function LibraryBookCard({ book, lang }: { book: LibraryBook; lang: Lang }) {
         >
           {book.title}
         </a>
-        <p class="text-sm text-ink-light">{formatAgeRange(book, lang)}</p>
-        <div class="mt-auto flex flex-wrap gap-1.5 pt-1">
+        <p class="min-h-[1.25rem] text-sm text-ink-light">{formatAgeRange(book, lang)}</p>
+        <div class="flex max-h-[1.625rem] flex-wrap gap-1 overflow-hidden pt-0.5">
           {book.medicalTopics.slice(0, 2).map((topic) => (
-            <span class={`pill ${badgeClassesFor(topic)}`}>{translateLabel(topic, lang)}</span>
+            <span class={`pill-sm ${badgeClassesFor(topic)}`}>{translateLabel(topic, lang)}</span>
           ))}
         </div>
       </div>
