@@ -315,7 +315,7 @@ const jsonLd = faqSchema ? [collectionSchema, breadcrumbSchema, faqSchema] : [co
   alternateSpanishPath={hasSpanishAlternate ? `/es/topics/${topic.slug}/` : null}
   jsonLd={jsonLd}
 >
-  <section class="mx-auto max-w-5xl px-4 pb-3 pt-6 sm:px-6 lg:px-8">
+  <section class="mx-auto max-w-5xl px-4 pb-4 pt-8 sm:px-6 lg:px-8">
     <nav class="text-sm text-ink-light" aria-label="Breadcrumb">
       <a href="/" class="hover:text-teal-700">Home</a> /
       <a href="/topics/" class="hover:text-teal-700">Topics</a> /
@@ -323,9 +323,9 @@ const jsonLd = faqSchema ? [collectionSchema, breadcrumbSchema, faqSchema] : [co
     </nav>
   </section>
 
-  <section class="mx-auto max-w-5xl px-4 pb-7 sm:px-6 lg:px-8">
-    <div class="flex flex-col items-start gap-3 sm:flex-row sm:items-center">
-      <span class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl bg-teal-100 text-teal-700">
+  <section class="mx-auto max-w-5xl px-4 pb-10 sm:px-6 lg:px-8">
+    <div class="flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+      <span class="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-2xl bg-teal-100 text-teal-700">
         <TopicIcon name={topic.icon} class="h-7 w-7" />
       </span>
       <div>
@@ -336,10 +336,10 @@ const jsonLd = faqSchema ? [collectionSchema, breadcrumbSchema, faqSchema] : [co
   </section>
 
   {intro && (
-    <section class="mx-auto max-w-5xl px-4 pb-8 sm:px-6 lg:px-8">
-      <div class="card p-5 sm:p-6">
+    <section class="mx-auto max-w-5xl px-4 pb-12 sm:px-6 lg:px-8">
+      <div class="card p-6 sm:p-8">
         <h2 class="font-display text-2xl font-semibold">{intro.heading}</h2>
-        <div class="mt-3 space-y-3 text-ink-light">
+        <div class="mt-4 space-y-4 text-ink-light">
           {intro.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
           {relatedLinks.length > 0 && (
             <p>
@@ -359,7 +359,7 @@ const jsonLd = faqSchema ? [collectionSchema, breadcrumbSchema, faqSchema] : [co
     </section>
   )}
 
-  <section class="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
+  <section class="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
     {
       books.length === 0 ? (
         <div class="card p-10 text-center">
@@ -375,12 +375,12 @@ const jsonLd = faqSchema ? [collectionSchema, breadcrumbSchema, faqSchema] : [co
       ) : (
         <>
           <h2 class="mb-2 font-display text-2xl font-semibold">{browseHeadings[topic.slug] ?? `Books for ${topic.label}`}</h2>
-          <p class="mb-4 text-sm font-semibold text-ink-light">
+          <p class="mb-6 text-sm font-semibold text-ink-light">
             {books.length} {books.length === 1 ? 'book' : 'books'} for {topic.label}
           </p>
-          <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5">
+          <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {books.map((book) => (
-              <BookCard book={book} compact />
+              <BookCard book={book} />
             ))}
           </div>
         </>
@@ -389,14 +389,14 @@ const jsonLd = faqSchema ? [collectionSchema, breadcrumbSchema, faqSchema] : [co
   </section>
 
   {activeFaq && (
-    <section class="mx-auto max-w-5xl px-4 pb-14 sm:px-6 lg:px-8">
-      <div class="border-t border-sand-200 pt-8">
+    <section class="mx-auto max-w-5xl px-4 pb-20 sm:px-6 lg:px-8">
+      <div class="border-t border-sand-200 pt-10">
         <h2 class="font-display text-2xl font-semibold">{faqHeadings[topic.slug] ?? `${topic.label}: common questions`}</h2>
-        <div class="mt-5 space-y-5">
+        <div class="mt-6 space-y-7">
           {activeFaq.map((item) => (
             <div>
               <h3 class="font-display text-lg font-semibold text-ink">{item.question}</h3>
-              <p class="mt-1.5 text-ink-light">{item.answer}</p>
+              <p class="mt-2 text-ink-light">{item.answer}</p>
             </div>
           ))}
         </div>
