@@ -63,13 +63,49 @@
     "matchTopics": ["Oncology"]
   },
   {
+    "slug": "transplant",
+    "label": "Organ Transplant",
+    "labelEs": "Trasplante de Órganos",
+    "icon": "transplant",
+    "description": "Books about waiting for, receiving, and living with an organ transplant.",
+    "descriptionEs": "Libros sobre la espera, la recepción y la vida después de un trasplante de órgano.",
+    "matchTopics": ["Transplant", "Organ Transplant", "Organ Donation", "Kidney Transplant", "Heart Transplant", "Liver Transplant", "Lung Transplant"]
+  },
+  {
+    "slug": "kidney-dialysis",
+    "label": "Kidney & Dialysis",
+    "labelEs": "Riñón y Diálisis",
+    "icon": "kidney",
+    "description": "Books that explain kidney disease, dialysis, kidney function, and kidney transplant for children.",
+    "descriptionEs": "Libros que explican la enfermedad renal, la diálisis, la función renal y el trasplante de riñón para niños.",
+    "matchTopics": ["Kidney", "Kidney Disease", "Dialysis", "Nephrology", "Kidney Transplant", "Renal"]
+  },
+  {
+    "slug": "brain-neurology",
+    "label": "Brain & Neurology",
+    "labelEs": "Cerebro y Neurología",
+    "icon": "brain",
+    "description": "Books about seizures, epilepsy, brain tumors, brain injury, neurosurgery, stroke, and neurological care.",
+    "descriptionEs": "Libros sobre convulsiones, epilepsia, tumores cerebrales, lesiones cerebrales, neurocirugía, derrames cerebrales y atención neurológica.",
+    "matchTopics": ["Neurology", "Epilepsy", "Seizures", "Brain Tumor", "Traumatic Brain Injury", "TBI", "Brain Injury", "Stroke", "Neurosurgery"]
+  },
+  {
+    "slug": "sickle-cell-hematology",
+    "label": "Sickle Cell & Hematology",
+    "labelEs": "Anemia Falciforme y Hematología",
+    "icon": "blood",
+    "description": "Books about sickle cell disease, blood disorders, clinic visits, pain crises, and hematology care.",
+    "descriptionEs": "Libros sobre la enfermedad de células falciformes, trastornos de la sangre, visitas clínicas, crisis de dolor y atención hematológica.",
+    "matchTopics": ["Sickle Cell", "Sickle Cell Disease", "Hematology", "Blood Disorders"]
+  },
+  {
     "slug": "genetics-rare-disease",
     "label": "Genetics & Rare Disease",
     "labelEs": "Genética y Enfermedades Raras",
     "icon": "dna",
     "description": "Celebrating unique kids and explaining rare diagnoses.",
     "descriptionEs": "Celebrando a niños únicos y explicando diagnósticos poco frecuentes.",
-    "matchTopics": ["Genetics", "Rare Disease"]
+    "matchTopics": ["Genetics", "Rare Disease", "Genetic Condition", "Rare Genetic Disease"]
   },
   {
     "slug": "grief-loss",
