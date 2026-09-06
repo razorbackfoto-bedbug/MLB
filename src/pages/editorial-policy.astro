@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const pageUrl = 'https://mightylittlebookshelf.com/editorial-policy/';
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': `${pageUrl}#webpage`,
+  name: 'Editorial Standards & Book Selection Policy',
+  url: pageUrl,
+  description: 'How Mighty Little Bookshelf selects, describes, verifies, updates, and corrects books in its children’s medical book library.',
+};
+---
+
+<BaseLayout
+  title="Editorial Standards & Book Selection"
+  description="How Mighty Little Bookshelf selects, describes, verifies, updates, and corrects books in its children's medical book library."
+  jsonLd={schema}
+>
+  <section class="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
+    <p class="section-label">Our standards</p>
+    <h1 class="mt-2 font-display text-4xl font-semibold">Editorial standards and book selection</h1>
+    <p class="mt-5 max-w-3xl text-lg leading-relaxed text-ink-light">
+      Mighty Little Bookshelf exists to help families and healthcare professionals discover children&apos;s books related to medical experiences. This page explains how titles are selected, described, and maintained.
+    </p>
+
+    <div class="mt-10 space-y-7">
+      <section class="card p-6 sm:p-8">
+        <h2 class="font-display text-2xl font-semibold text-teal-700">What inclusion means</h2>
+        <p class="mt-3 leading-relaxed text-ink">A book may be included when its subject matter is relevant to a medical experience, diagnosis, procedure, hospital stay, disability, grief experience, sibling experience, or family education need represented in our library.</p>
+        <p class="mt-3 leading-relaxed text-ink">Inclusion is not a medical endorsement, clinical recommendation, or guarantee that a title is appropriate for every child or family.</p>
+      </section>
+
+      <section class="card p-6 sm:p-8">
+        <h2 class="font-display text-2xl font-semibold text-teal-700">What we verify</h2>
+        <p class="mt-3 leading-relaxed text-ink">Before a title is presented as a complete public listing, we work to verify core bibliographic and practical details such as title, author, subject matter, audience, age information when available, ISBN, publication information, and purchasing or publisher links.</p>
+        <p class="mt-3 leading-relaxed text-ink">Book descriptions on Mighty Little Bookshelf are written to help readers understand why a title may be relevant. They are not substitutes for reading the book, reviewing it with a child life specialist or educator, or following guidance from a child&apos;s healthcare team.</p>
+      </section>
+
+      <section class="card p-6 sm:p-8">
+        <h2 class="font-display text-2xl font-semibold text-teal-700">Medical accuracy and clinical use</h2>
+        <p class="mt-3 leading-relaxed text-ink">Medical care changes, and children&apos;s books vary in how much clinical detail they include. Mighty Little Bookshelf is a discovery and education resource, not a source of medical advice. Families should use their own care team for diagnosis-specific, procedure-specific, and treatment-specific guidance.</p>
+        <p class="mt-3 leading-relaxed text-ink">Healthcare professionals using the site should review individual titles for fit with a particular patient, developmental stage, family situation, and institutional practice.</p>
+      </section>
+
+      <section class="card p-6 sm:p-8">
+        <h2 class="font-display text-2xl font-semibold text-teal-700">Commercial independence</h2>
+        <p class="mt-3 leading-relaxed text-ink">A book does not need to participate in an affiliate program to be considered for the library. Affiliate availability does not determine whether a title is included, how it is categorized, or whether it is featured as relevant to a medical topic.</p>
+        <p class="mt-3 leading-relaxed text-ink">When a purchasing link is an affiliate link, that relationship is disclosed. See our <a href="/affiliate-disclosure/" class="font-semibold text-teal-700 underline">affiliate disclosure</a>.</p>
+      </section>
+
+      <section class="card p-6 sm:p-8">
+        <h2 class="font-display text-2xl font-semibold text-teal-700">Corrections and updates</h2>
+        <p class="mt-3 leading-relaxed text-ink">We want the catalog to be accurate. Publishers, authors, librarians, healthcare professionals, and families are encouraged to report incorrect bibliographic information, broken links, edition changes, categorization issues, or other errors.</p>
+        <p class="mt-3 leading-relaxed text-ink">To suggest a correction or a book for review, <a href="/contact/" class="font-semibold text-teal-700 underline">contact us</a>.</p>
+      </section>
+    </div>
+
+    <div class="mt-10 rounded-2xl bg-teal-50 p-6 text-sm leading-relaxed text-ink-light">
+      Mighty Little Bookshelf is independently operated. References to hospitals, medical topics, products, publishers, authors, or organizations do not imply endorsement unless explicitly stated.
+    </div>
+  </section>
+</BaseLayout>
