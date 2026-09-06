@@ -1,10 +1,9 @@
 import booksData from '../data/books.json';
 import booksEsData from '../data/booksEs.json';
+import tier1BooksData from '../data/tier1Books.json';
 import topicsData from '../data/topics.json';
 import type { Book, Topic, AgeBucket } from './bookTypes';
 import { getAgeBucketForBook } from './bookTypes';
-
-
 
 export type LocalizedBook = Book;
 
@@ -45,9 +44,6 @@ export function localizeTopic(topic: Topic, lang: 'en' | 'es'): Topic {
     description: topic.descriptionEs || topic.description,
   };
 }
-
-
-
 
 function normalizeTitle(title: string): string {
   return title
@@ -172,7 +168,7 @@ function dedupeBooks(input: Book[], titleForBook: (book: Book) => string = (book
   return output;
 }
 
-export const books: Book[] = dedupeBooks(booksData as Book[]);
+export const books: Book[] = dedupeBooks([...(booksData as Book[]), ...(tier1BooksData as Book[])]);
 export const booksEsOriginal: Book[] = dedupeBooks(booksEsData as Book[]);
 export const topics: Topic[] = topicsData as Topic[];
 
@@ -280,8 +276,6 @@ export function getBooksForTopic(topicSlug: string): Book[] {
   if (!topic) return [];
   return getAllBooks().filter((book) => bookMatchesTopic(book, topic));
 }
-
-
 
 export interface LibraryFilters {
   ageBuckets?: string[];
