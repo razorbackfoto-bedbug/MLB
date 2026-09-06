@@ -87,13 +87,13 @@ function LibraryBookCard({ book, lang }: { book: LibraryBook; lang: Lang }) {
             ref={imgRef}
             src={coverCandidates[coverIndex]}
             alt={altText}
-            class="aspect-[3/4] w-full rounded-2xl object-cover shadow-card"
+            class="aspect-[3/4] w-full rounded-2xl bg-cream-50 p-2 object-contain shadow-card"
             loading="lazy"
             onError={() => setCoverIndex((index) => index + 1)}
             onLoad={(event) => {
               // Amazon and Open Library answer "no cover on file" with a blank 1x1 image
               // and HTTP 200 rather than a 404, so onError never fires for a missing
-              // cover — only the decoded dimensions reveal it.
+              // cover, only the decoded dimensions reveal it.
               const img = event.currentTarget as HTMLImageElement;
               if (img.naturalWidth <= 2 || img.naturalHeight <= 2) {
                 setCoverIndex((index) => index + 1);
