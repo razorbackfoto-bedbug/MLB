@@ -7,17 +7,21 @@ interface Props {
   book: Book;
   class?: string;
   lang?: Lang;
+  fit?: 'cover' | 'contain';
   /** Set on an above-the-fold cover (the book detail hero). Lazy-loading the LCP
       element defers its request until layout confirms it is in view, which delays
       the largest paint by a round trip. */
   priority?: boolean;
 }
-const { book, class: className = '', lang = 'en', priority = false } = Astro.props;
+const { book, class: className = '', lang = 'en', fit = 'cover', priority = false } = Astro.props;
 
 const palette = coverPaletteFor(book.slug);
 const altText = lang === 'es' ? `Portada de ${book.title}` : `Cover of ${book.title}`;
 const placeholderLabel = lang === 'es' ? `Portada provisional de ${book.title}` : `Cover placeholder for ${book.title}`;
 const coverCandidates = coverCandidatesFor(book);
+const imageFitClasses = fit === 'contain'
+  ? 'object-contain bg-cream-50 p-2'
+  : 'object-cover';
 ---
 
 {coverCandidates.length > 0 && (
@@ -26,7 +30,7 @@ const coverCandidates = coverCandidatesFor(book);
     data-cover-candidates={JSON.stringify(coverCandidates)}
     data-cover-index="0"
     alt={altText}
-    class:list={['aspect-[3/4] w-full rounded-2xl object-cover shadow-card', className]}
+    class:list={['aspect-[3/4] w-full rounded-2xl shadow-card', imageFitClasses, className]}
     loading={priority ? 'eager' : 'lazy'}
     fetchpriority={priority ? 'high' : undefined}
     onerror="window.__mlbCoverFallback(this)"
