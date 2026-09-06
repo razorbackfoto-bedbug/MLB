@@ -44,6 +44,7 @@ export const SITE: SiteConfig = {
     { label: 'Home', href: '/' },
     { label: 'Book Library', href: '/library/' },
     { label: 'Topics', href: '/topics/' },
+    { label: 'For Hospitals', href: '/for-hospitals/' },
     { label: 'About', href: '/about/' },
     { label: 'Contact', href: '/contact/' },
   ],
@@ -59,6 +60,7 @@ export const SITE: SiteConfig = {
     quickLinks: [
       { label: 'Book Library', href: '/library/' },
       { label: 'Topics', href: '/topics/' },
+      { label: 'For Hospitals & Healthcare Teams', href: '/for-hospitals/' },
       { label: 'About', href: '/about/' },
       { label: 'Contact', href: '/contact/' },
     ],
