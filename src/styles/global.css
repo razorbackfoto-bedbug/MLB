@@ -45,6 +45,6 @@
   }
 
   .section-label {
-    @apply font-body text-sm font-bold uppercase tracking-wide text-coral-400;
+    @apply font-body text-sm font-bold uppercase tracking-wide text-coral-600;
   }
 }

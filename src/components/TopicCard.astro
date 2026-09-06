@@ -32,7 +32,7 @@ const resolvedCount = count ?? getBooksForTopic(topic.slug).length;
       {resolvedCount} {resolvedCount === 1 ? ui.book : ui.books}
     </span>
   </div>
-  <h3 class="font-display text-lg font-semibold text-teal-700">{topic.label}</h3>
+  <h2 class="font-display text-lg font-semibold text-teal-700">{topic.label}</h2>
   <p class="text-sm text-ink-light">{topic.description}</p>
   <span class="mt-auto inline-flex items-center gap-1 text-sm font-bold text-coral-500 group-hover:gap-2">
     {ui.explore}

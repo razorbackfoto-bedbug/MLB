@@ -1,9 +1,12 @@
+// Each pairing clears WCAG AA (4.5:1) for the title text drawn on the placeholder.
+// Cream on the mid-tone coral and sage only reached 2.85, so those two are a touch
+// lighter and take the dark ink foreground instead.
 export const COVER_PALETTE = [
-  { bg: '#215750', fg: '#FBF3E7' }, // teal
-  { bg: '#E56F42', fg: '#FBF3E7' }, // coral
-  { bg: '#F5C451', fg: '#22303A' }, // sunny
-  { bg: '#7A9C4F', fg: '#FBF3E7' }, // sage
-  { bg: '#1B4640', fg: '#FBF3E7' }, // deep teal
+  { bg: '#215750', fg: '#FBF3E7' }, // teal      7.50:1
+  { bg: '#E7784D', fg: '#22303A' }, // coral     4.63:1
+  { bg: '#F5C451', fg: '#22303A' }, // sunny     8.31:1
+  { bg: '#82A259', fg: '#22303A' }, // sage      4.68:1
+  { bg: '#1B4640', fg: '#FBF3E7' }, // deep teal 9.55:1
 ];
 
 export function hashString(value: string): number {

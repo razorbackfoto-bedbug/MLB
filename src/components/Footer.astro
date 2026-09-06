@@ -108,7 +108,7 @@ const builtAtLabel = new Intl.DateTimeFormat(isSpanish ? 'es-ES' : 'en-US', {
         <span aria-hidden="true">·</span>
         <span>&copy; {new Date().getFullYear()} {site.name}</span>
       </div>
-      <p class="mt-2 text-center text-[0.7rem] text-ink-light/75">
+      <p class="mt-2 text-center text-[0.7rem] text-ink-light">
         {isSpanish ? 'Versión del sitio' : 'Site build'}{' '}
         {BUILD_INFO.commitUrl ? (
           <a href={BUILD_INFO.commitUrl} class="hover:text-teal-700" target="_blank" rel="noopener noreferrer">

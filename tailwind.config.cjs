@@ -29,16 +29,16 @@ module.exports = {
           300: '#AFC78C',
           400: '#93B268',
           500: '#7A9C4F',
-          600: '#61803D',
+          600: '#567136',
         },
         coral: {
           50: '#FDF1EC',
           100: '#FADFD2',
           200: '#F3B79E',
           300: '#EC8F6B',
-          400: '#E56F42', // accent (headline highlight, hearts, CTA outline)
-          500: '#D6592D',
-          600: '#B44822',
+          400: '#D1653C', // accent (headline highlight, hearts, CTA outline)
+          500: '#C55229',
+          600: '#AD4521',
         },
         sunny: {
           50: '#FEF9EC',
@@ -46,7 +46,7 @@ module.exports = {
           200: '#F9DD8D',
           300: '#F5C451', // warm yellow accent (stars, highlights)
           400: '#EBAA23',
-          500: '#C98A15',
+          500: '#91640F',
         },
         ink: {
           DEFAULT: '#22303A',
