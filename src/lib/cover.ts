@@ -24,6 +24,7 @@ export function coverPaletteFor(slug: string) {
 
 type CoverBook = {
   coverImage?: string | null;
+  coverVerified?: boolean | null;
   isbn?: string | null;
   amazonProductUrl?: string | null;
 };
@@ -66,14 +67,27 @@ export function coverCandidatesFor(book: CoverBook): string[] {
     if (url && !candidates.includes(url)) candidates.push(url);
   };
 
-  // A real Amazon CDN /images/I/ URL is an exact product image, so keep it first.
+  // An explicitly audited cover is the strongest evidence we have. Put it first
+  // even when it is hosted by the publisher rather than Amazon so list/grid pages
+  // do not waste time cycling through speculative Amazon image endpoints.
+  if (book.coverVerified === true && book.coverImage) {
+    add(
+      book.coverImage.includes('covers.openlibrary.org')
+        ? `${book.coverImage}${book.coverImage.includes('?') ? '&' : '?'}default=false`
+        : book.coverImage,
+    );
+  }
+
+  // A real Amazon CDN /images/I/ URL is an exact product image, so keep it ahead of
+  // generated Amazon image patterns when it has not already been added above.
   if (isDirectAmazonImage(book.coverImage)) add(book.coverImage);
 
   // When an Amazon product is known, try Amazon artwork before generic proxies.
   const productId = amazonProductId(book.amazonProductUrl);
   if (productId) addAmazonCoverCandidates(add, productId);
 
-  // Preserve a verified non-Amazon source cover as the next fallback.
+  // Preserve a non-Amazon source cover as a fallback. If it was explicitly verified,
+  // it is already first in the list and add() will simply avoid duplicating it.
   if (book.coverImage && !isDirectAmazonImage(book.coverImage)) {
     add(
       book.coverImage.includes('covers.openlibrary.org')
