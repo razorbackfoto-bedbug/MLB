@@ -32,6 +32,14 @@ export interface Book {
   sourceUrl: string | null;
   notes: string | null;
   sourceCollections?: string[];
+  /** Explicit audit result for the exact Amazon product page. False always hides the record. */
+  amazonVerified?: boolean;
+  /** Explicit audit result for usable cover art. False always hides the record. */
+  coverVerified?: boolean;
+  /** ISO date of the most recent manual/external verification pass. */
+  lastVerifiedAt?: string | null;
+  /** Short provenance note describing how Amazon/cover verification was performed. */
+  verificationNotes?: string | null;
   hasSpanishEdition?: boolean;
   titleEs?: string | null;
   mlbSummaryEs?: string | null;
