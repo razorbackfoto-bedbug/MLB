@@ -1,6 +1,7 @@
 import booksData from '../data/books.json';
 import booksEsData from '../data/booksEs.json';
 import tier1BooksData from '../data/tier1Books.json';
+import tier1SickleBooksData from '../data/tier1SickleBooks.json';
 import topicsData from '../data/topics.json';
 import type { Book, Topic, AgeBucket } from './bookTypes';
 import { getAgeBucketForBook } from './bookTypes';
@@ -168,7 +169,11 @@ function dedupeBooks(input: Book[], titleForBook: (book: Book) => string = (book
   return output;
 }
 
-export const books: Book[] = dedupeBooks([...(booksData as Book[]), ...(tier1BooksData as Book[])]);
+export const books: Book[] = dedupeBooks([
+  ...(booksData as Book[]),
+  ...(tier1BooksData as Book[]),
+  ...(tier1SickleBooksData as Book[]),
+]);
 export const booksEsOriginal: Book[] = dedupeBooks(booksEsData as Book[]);
 export const topics: Topic[] = topicsData as Topic[];
 
