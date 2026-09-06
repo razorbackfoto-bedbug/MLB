@@ -23,7 +23,7 @@ const topBadges = book.medicalTopics.slice(0, 2);
   isComplete && (
     <article class:list={['card flex h-full flex-col overflow-hidden p-3', className]}>
       <a href={`${booksHref}/${book.slug}/`} class="block">
-        <BookCover book={book} lang={lang} />
+        <BookCover book={book} lang={lang} fit="contain" />
       </a>
       <div class="flex flex-1 flex-col gap-2 pt-3">
         <a href={`${booksHref}/${book.slug}/`} class="font-display text-lg font-semibold leading-snug text-teal-700 hover:text-coral-500">
