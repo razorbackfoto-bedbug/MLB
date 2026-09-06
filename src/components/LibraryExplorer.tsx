@@ -80,7 +80,7 @@ function LibraryBookCard({ book, lang }: { book: LibraryBook; lang: Lang }) {
   }, [coverIndex]);
 
   return (
-    <article class="card flex h-full flex-col overflow-hidden p-3">
+    <article class="card flex h-full flex-col overflow-hidden p-2.5">
       <a href={`${booksHref}/${book.slug}/`} class="block">
         {!coverFailed ? (
           <img
@@ -115,7 +115,7 @@ function LibraryBookCard({ book, lang }: { book: LibraryBook; lang: Lang }) {
           </div>
         )}
       </a>
-      <div class="flex flex-1 flex-col gap-2 pt-3">
+      <div class="flex flex-1 flex-col gap-1.5 pt-2.5">
         <a href={`${booksHref}/${book.slug}/`} class="font-display text-lg font-semibold leading-snug text-teal-700 hover:text-coral-500">
           {book.title}
         </a>
@@ -125,7 +125,7 @@ function LibraryBookCard({ book, lang }: { book: LibraryBook; lang: Lang }) {
             <span class={`pill ${badgeClassesFor(topic)}`}>{translateLabel(topic, lang)}</span>
           ))}
         </div>
-        <a href={`${booksHref}/${book.slug}/`} class="mt-auto inline-flex items-center justify-center rounded-full bg-teal-700 px-4 py-2 text-sm font-bold text-cream-50 hover:bg-teal-600">
+        <a href={`${booksHref}/${book.slug}/`} class="mt-auto inline-flex items-center justify-center rounded-full bg-teal-700 px-4 py-1.5 text-sm font-bold text-cream-50 hover:bg-teal-600">
           {ui.viewBook}
         </a>
       </div>
@@ -233,8 +233,8 @@ export default function LibraryExplorer({ books, topics, ageBuckets, audienceOpt
   const showBooksLabel = lang === 'es' ? `Mostrar ${results.length} libros` : `Show ${results.length} books`;
 
   return (
-    <div class="grid grid-cols-1 gap-8 lg:grid-cols-[260px,1fr]">
-      <aside class="card hidden h-fit space-y-4 p-5 lg:sticky lg:top-24 lg:block">
+    <div class="grid grid-cols-1 gap-6 lg:grid-cols-[260px,1fr]">
+      <aside class="card hidden h-fit space-y-3 p-4 lg:sticky lg:top-24 lg:block">
         {filters}
         <button type="button" onClick={clearAll} class="w-full rounded-full border border-teal-200 px-4 py-2 text-sm font-semibold text-ink-light hover:bg-teal-50">
           {ui.clearAllFilters}
@@ -252,7 +252,7 @@ export default function LibraryExplorer({ books, topics, ageBuckets, audienceOpt
             id="library-search"
             type="search"
             placeholder={ui.searchPlaceholder}
-            class="w-full rounded-full border border-teal-200 bg-white py-3 pl-11 pr-4 text-ink placeholder:text-ink-light/70 focus:border-teal-500"
+            class="w-full rounded-full border border-teal-200 bg-white py-2.5 pl-11 pr-4 text-ink placeholder:text-ink-light/70 focus:border-teal-500"
             value={query}
             onInput={(e) => setQuery((e.target as HTMLInputElement).value)}
           />
@@ -301,7 +301,7 @@ export default function LibraryExplorer({ books, topics, ageBuckets, audienceOpt
           )}
         </div>
 
-        <div class="mt-4 flex flex-wrap items-center justify-between gap-3">
+        <div class="mt-3 flex flex-wrap items-center justify-between gap-3">
           <div class="flex flex-wrap items-center gap-2">
             <span class="text-sm font-semibold text-ink-light">{ui.showingBooks(results.length)}</span>
             {activeChips.map((chip) => (
@@ -329,7 +329,7 @@ export default function LibraryExplorer({ books, topics, ageBuckets, audienceOpt
             <p class="mt-2 text-sm text-ink-light">{ui.noResultsBody}</p>
           </div>
         ) : (
-          <div class="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
+          <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
             {results.map((book) => <LibraryBookCard key={book.slug} book={book} lang={lang} />)}
           </div>
         )}
