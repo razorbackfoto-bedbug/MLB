@@ -59,7 +59,7 @@
     "ageMax": 9,
     "isbn": "9781937985134",
     "publicationYear": 2012,
-    "amazonProductUrl": "https://www.amazon.com/dp/193798513X",
+    "amazonProductUrl": "https://www.amazon.com/dp/193798513X?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
     "mlbSummary": "A gentle visualization story that teaches children to use color and imagination to relax, reduce stress and anxiety, and settle for sleep.",
@@ -102,7 +102,7 @@
       "Courage & Resilience"
     ],
     "isbn": "9781728917481",
-    "amazonProductUrl": "https://www.amazon.com/Heart-Warriors-Beauty-Marks/dp/1728917484/ref=sr_1_1?dib=eyJ2IjoiMSJ9.gL-0dO4HeHo7hPYoeujK0Hg64WiLlbuNMRIuQ5_gTn6nsbOaUl42yqfgwcyfMhz4W4t--4L5KgOIuW9Vc2kOrmcovLEb1FgU-bhy9moHp8AKlw8F9sChMZIUuCf-W3Awi0GjLTWN2g9Ke5RJABZNsEltWH29egy1m62DVAuWjFMJCGJUUUFClxNhxuF-u24_F2qI_7ipJzZ_DB5IRBjijnOruAn_G0vkDu_9-1tkdsE.S7Wb2TBShWLoJh6I5w3-_IkV8SzefZQCUcc7gXb4kuU&dib_tag=se&keywords=Heart%2BWarriors%2BBeauty%2BMarks&qid=1786549504&sr=8-1",
+    "amazonProductUrl": "https://www.amazon.com/dp/1728917484?tag=mightylittle-20",
     "mlbSummary": "Told in simple rhyme, this book follows baby Lillian and explains the marks left behind by heart surgery as \"beauty marks\" — a gentle way to talk with young children about surgical scars.",
     "notes": "Verified via Amazon title search, 2026-08-12 (matched top result, 4.8★/57 ratings).",
     "sourceCollections": []
@@ -137,7 +137,7 @@
       "Medical Education"
     ],
     "isbn": "978-1951253189",
-    "amazonProductUrl": "https://www.amazon.com/A-Kids-Book-About-Cancer/dp/1951253183?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/1951253183?tag=mightylittle-20",
     "mlbSummary": "Written by an oncologist in the direct, text-forward \"A Kids Book About\" style, this book names what cancer actually is and isn't, giving families a shared vocabulary to talk about it honestly.",
     "notes": "Written with Sarah Porter. Verified via Amazon product lookup, 2026-08-12.",
     "sourceCollections": []
@@ -204,7 +204,7 @@
     "ageMax": 11,
     "isbn": null,
     "publicationYear": null,
-    "amazonProductUrl": "https://www.amazon.com/NICU-Christmas-Adventure-Adam-Wood-ebook/dp/B0BP5YVRM8/ref=sr_1_1?dib=eyJ2IjoiMSJ9.aPtFA8E4Hu2if_sbB6Goxg.KvREStcskJeMwJpvhkUtj6LRTJ6I95ZnysOvwEGXRdw&dib_tag=se&keywords=A%2BNICU%2BChristmas%2BAdventure&qid=1786497053&sr=8-1",
+    "amazonProductUrl": "https://www.amazon.com/dp/B0BP5YVRM8?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
     "mlbSummary": null,
@@ -238,11 +238,11 @@
     "ageMax": 8,
     "isbn": null,
     "publicationYear": null,
-    "amazonProductUrl": "http://www.amazon.com/Terrible-Thing-Happened-Margaret-Holmes/dp/1557987017",
+    "amazonProductUrl": "https://www.amazon.com/dp/1557987017?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
-    "mlbSummary": null,
-    "verificationStatus": "Needs metadata verification",
+    "mlbSummary": "Sherman Smith saw something terrible and can't stop carrying it. The book never names what happened — it stays with the feelings that follow, and with the relief of finally telling a trusted adult.",
+    "verificationStatus": "Ready for website",
     "sourceUrl": "https://www.chop.edu/health-resource/recommended-childrens-books",
     "notes": "Seeded from CHOP Recommended Children's Books resource list; do not copy source description verbatim.",
     "sourceCollections": [
@@ -254,8 +254,8 @@
     "title": "A Trach Baby Story (I Made It)",
     "coverImage": "https://m.media-amazon.com/images/I/616bbxn-Y6S.jpg",
     "featured": false,
-    "author": null,
-    "illustrator": null,
+    "author": "Shecara Squires Reives",
+    "illustrator": "Ethan Colchamiro",
     "audience": "Children & Families",
     "audienceTags": [
       "Children",
@@ -275,16 +275,17 @@
     "ageMin": null,
     "ageMax": null,
     "isbn": null,
-    "publicationYear": null,
-    "amazonProductUrl": "https://www.amazon.com/Trach-Baby-Story-Made/dp/1736844962/ref=sr_1_1?dib=eyJ2IjoiMSJ9.BaWmOnFgU0D-EigMDYtSAYUb6U-_y-_0rK4gTHR9-Ts3PQwphiNpGilaKxzQC5KvxHTKwQov8p_98ouvonsprVdzTwQ8cujpFDIhdCtMyzU9OOH2m6hUx0CymMDZX1T0ciB52OTqgLdIJsfFc8PjGhfzTTtE3clkuTvppwl5TaJ-B7nhPHgcL_plCl4FSwhGRlLUQTtFRJRunCNB1trq0oLKV1HqEHD6pM0oEcXnLfY.pDquoQQA37n4jN2I4W9mG9i7Zm4x37xYEG-xVv5Yn9U&dib_tag=se&keywords=A%2BTrach%2BBaby%2BStory%2B%28I%2BMade%2BIt%29&qid=1786497057&sr=8-1",
+    "publicationYear": 2021,
+    "amazonProductUrl": "https://www.amazon.com/dp/1736844962?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
-    "mlbSummary": null,
-    "verificationStatus": "Needs metadata verification",
+    "mlbSummary": "Inspired by the author’s own premature baby, this picture book follows a NICU child through the tracheostomy journey and gives families a child-friendly way to talk about a trach, surgery, and the equipment that helps a baby breathe.",
+    "verificationStatus": "Verified",
     "sourceUrl": "https://www.preemieadventures.com/nicu-books",
     "notes": "Seeded from Preemie Adventures catalog; do not copy source description verbatim.",
     "sourceCollections": [
-      "Preemie Adventures catalog research"
+      "Preemie Adventures catalog research",
+      "MLB respiratory expansion"
     ]
   },
   {
@@ -353,7 +354,7 @@
       "Medical Education"
     ],
     "isbn": "978-1735049847",
-    "amazonProductUrl": "https://www.amazon.com/ABCs-Sickle-Cell-Disease-Elle/dp/1735049840?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/1735049840?tag=mightylittle-20",
     "mlbSummary": "An A-to-Z introduction to sickle cell disease, the most common inherited blood disorder, told through diverse and beautifully illustrated pages for young readers and the family members learning alongside them.",
     "notes": "Author is an AllStripes Ambassador who has also written a sickle cell coloring book and an activity book for older kids. Verified via Amazon product lookup, 2026-08-12.",
     "sourceCollections": []
@@ -458,7 +459,7 @@
       "Sibling Loss"
     ],
     "isbn": "978-0884483137",
-    "amazonProductUrl": "https://www.amazon.com/Always-My-Brother-Jean-Reagan/dp/0884483134?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/0884483134?tag=mightylittle-20",
     "mlbSummary": "A sensitive, realistic look at a sister's grief after losing her brother — including the guilt of laughing or having fun again — and how she learns she can keep loving him by keeping his memory close.",
     "notes": "Verified via Amazon product lookup, 2026-08-12.",
     "sourceCollections": []
@@ -489,7 +490,7 @@
     "ageMax": 11,
     "isbn": "9780978778170",
     "publicationYear": 2008,
-    "amazonProductUrl": "https://www.amazon.com/dp/0978778170",
+    "amazonProductUrl": "https://www.amazon.com/dp/0978778170?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
     "mlbSummary": "A relaxation story that introduces progressive muscle relaxation and deep breathing to help children recognize and manage anger and stress.",
@@ -565,7 +566,7 @@
       "Sibling Education"
     ],
     "isbn": "978-1480895478",
-    "amazonProductUrl": "https://www.amazon.com/Bev-Lil-Camille-Josephine-Carr/dp/1480895474?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/1480895474?tag=mightylittle-20",
     "mlbSummary": "Follows two sisters, one of whom has a life-limiting illness, showing how their play changes but never stops being joyful — a story about making the most of time together rather than dwelling on what's been lost.",
     "notes": "Verified via Amazon product lookup, 2026-08-12.",
     "sourceCollections": []
@@ -575,7 +576,7 @@
     "title": "Big Sis Visits the NICU",
     "coverImage": "https://m.media-amazon.com/images/I/81ErvzRaskL.jpg",
     "featured": true,
-    "author": null,
+    "author": "Terri Major-Kincade, MD",
     "illustrator": null,
     "audience": "Children & Families",
     "audienceTags": [
@@ -594,12 +595,12 @@
     "ageMin": 3,
     "ageMax": 8,
     "isbn": null,
-    "publicationYear": null,
-    "amazonProductUrl": "https://www.amazon.com/Big-Visits-NICU-Terri-Major-Kincade-ebook/dp/B09PZGJKF8/ref=sr_1_1?dib=eyJ2IjoiMSJ9.Mz-rs4y1ZS0A_HsOqboXwoj-nnJFn-5lOozKmv8jw20.4q7mU6L77K_uJXBo66rTV4N3Ghb-svSnoZWPWdV3gPk&dib_tag=se&keywords=Big%2BSis%2BVisits%2Bthe%2BNICU&qid=1786497106&sr=8-1",
+    "publicationYear": 2021,
+    "amazonProductUrl": "https://www.amazon.com/dp/B09PZGJKF8?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
-    "mlbSummary": null,
-    "verificationStatus": "Needs metadata verification",
+    "mlbSummary": "Six-year-old Nicole visits her baby brother after he is born early and admitted to the NICU, helping young siblings understand the unfamiliar environment while staying connected to the new baby.",
+    "verificationStatus": "Verified",
     "sourceUrl": "https://www.preemieadventures.com/nicu-books",
     "notes": "Seeded from Preemie Adventures catalog; do not copy source description verbatim.",
     "sourceCollections": [
@@ -699,7 +700,7 @@
     "ageMax": null,
     "isbn": null,
     "publicationYear": null,
-    "amazonProductUrl": "https://www.amazon.com/Breathe-Eat-Poop-Grow-Micro-Preemie-ebook/dp/B0CW19XPC6/ref=sr_1_1?dib=eyJ2IjoiMSJ9.zHVi88PJ9_YcRgol0pUvNw.Yo1QGcEaqze1f777deBuaKNM_112rOlAmtK7Vav4Tj8&dib_tag=se&keywords=Breathe%2C%2BEat%2C%2BPoop%2B%26%2BGrow%3A%2BOur%2BMicro-Preemie%2BJourney&qid=1786497224&sr=8-1",
+    "amazonProductUrl": "https://www.amazon.com/dp/B0CW19XPC6?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
     "mlbSummary": null,
@@ -736,7 +737,7 @@
     "ageMax": 12,
     "isbn": "9781937985035",
     "publicationYear": 2019,
-    "amazonProductUrl": "https://www.amazon.com/dp/1937985032",
+    "amazonProductUrl": "https://www.amazon.com/dp/1937985032?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
     "mlbSummary": "A colorful guided-imagery story that uses a bubble ride and rainbow visualization to help children lower stress and anxiety.",
@@ -771,7 +772,7 @@
     "ageMax": 2,
     "isbn": null,
     "publicationYear": null,
-    "amazonProductUrl": "https://www.amazon.com/Time-You-Came-Home-premature/dp/B0B67XKNR4/ref=sr_1_1?dib=eyJ2IjoiMSJ9.AQTpjAI6-OBb-5N2s-4Pwg.Xk12HXnkYk-XOlYpYuNTqEloXPMFX-HgHPQJycc_NRw&dib_tag=se&keywords=By%2Bthe%2BTime%2BYou%2BCame%2BHome%3A%2BA%2BKeepsake%2BStory%2Bfor%2BYour%2BPremature%2BBaby&qid=1786497247&sr=8-1",
+    "amazonProductUrl": "https://www.amazon.com/dp/B0B67XKNR4?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
     "mlbSummary": null,
@@ -814,7 +815,7 @@
       "Anxiety & Coping"
     ],
     "isbn": "978-1795842426",
-    "amazonProductUrl": "https://www.amazon.com/Cancer-Party-Explain-Radiation-Non-Scary/dp/1795842423?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/1795842423?tag=mightylittle-20",
     "mlbSummary": "Written after the author's own cancer diagnosis, this book explains how healthy cells divide and what happens when one gets \"confused\" and becomes cancerous — a science-first, non-scary way to explain the disease to a child of any relationship to the patient.",
     "notes": "Applies broadly to a parent's, grandparent's, or the child's own cancer diagnosis, across multiple cancer types. 4.7★ from 304 ratings. Verified via Amazon product lookup, 2026-08-12.",
     "sourceCollections": []
@@ -850,7 +851,7 @@
       "Medical Education"
     ],
     "isbn": "978-1683239901",
-    "amazonProductUrl": "https://www.amazon.com/Cancer-Explaining-Kids-Childrens-Disease/dp/1683239903?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/1683239903?tag=mightylittle-20",
     "mlbSummary": "Introduces what cancer is and how it's treated in straightforward, age-appropriate language, giving kids a basic framework for understanding a diagnosis — their own or someone else's.",
     "notes": "Verified via Amazon title search, 2026-08-12.",
     "sourceCollections": []
@@ -889,7 +890,7 @@
       "Living With CHD"
     ],
     "isbn": "978-0996536202",
-    "amazonProductUrl": "https://www.amazon.com/Charlie-Courageous-Joslynn-Jarrett-Skelton/dp/0996536205?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/0996536205?tag=mightylittle-20",
     "mlbSummary": "Based on a real child born with Hypoplastic Left Heart Syndrome, this story follows a girl born cyanotic (\"blue\") who needs heart surgery, framing her experience around courage and strength.",
     "notes": "Written by the author about her own daughter. Part of a growing series (Book 2 Love for Lawson; Book 4 Mateo the Beast) — only Book 1 was requested for this catalog. Verified via Amazon product lookup, 2026-08-12.",
     "sourceCollections": []
@@ -926,7 +927,7 @@
       "Hospitalization"
     ],
     "isbn": "978-1434397201",
-    "amazonProductUrl": "https://www.amazon.com/Chemo-Rescue-Childrens-About-Leukemia/dp/1434397203?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/1434397203?tag=mightylittle-20",
     "mlbSummary": "Written by a mother with her daughter, who was diagnosed with leukemia at five, this story reframes chemotherapy as the medicine actively fighting to save her, not just something that made her feel worse.",
     "notes": "Created collaboratively by the author and her daughter, who has since recovered. Verified via Amazon title search, 2026-08-12.",
     "sourceCollections": []
@@ -960,7 +961,7 @@
       "Memory Keeping"
     ],
     "isbn": "978-0545289429",
-    "amazonProductUrl": "https://www.amazon.com/Chester-Raccoon-Acorn-Full-Memories/dp/0545283981?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/0545283981?tag=mightylittle-20",
     "mlbSummary": "When Chester Raccoon's friend dies unexpectedly, his mother suggests gathering memories with the other animals instead of only focusing on the loss — a model for turning a memorial into something that comforts rather than only saddens.",
     "notes": "Part of the \"Kissing Hand\" series world by the same author. Verified via Amazon product lookup, 2026-08-12.",
     "sourceCollections": []
@@ -989,7 +990,7 @@
     "ageMax": 6,
     "isbn": "9780439140966",
     "publicationYear": 2000,
-    "amazonProductUrl": "https://www.amazon.com/dp/043914096X",
+    "amazonProductUrl": "https://www.amazon.com/dp/043914096X?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
     "mlbSummary": "Clifford's playful hospital visit gives younger children a friendly introduction to patients, staff, and the hospital environment.",
@@ -1024,11 +1025,11 @@
     "ageMax": 8,
     "isbn": null,
     "publicationYear": null,
-    "amazonProductUrl": "http://www.amazon.com/Cooper-Gets-Scan-Karen-Olson/dp/0939838877/",
+    "amazonProductUrl": "https://www.amazon.com/dp/0939838877?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
-    "mlbSummary": null,
-    "verificationStatus": "Needs metadata verification",
+    "mlbSummary": "After Cooper hits his head, his doctor orders a CT scan. The story covers what the machine looks like, what it sounds like, and what a child will be asked to do — aimed squarely at taking the mystery out of imaging.",
+    "verificationStatus": "Ready for website",
     "sourceUrl": "https://www.chop.edu/health-resource/recommended-childrens-books",
     "notes": "Seeded from CHOP Recommended Children's Books resource list; do not copy source description verbatim.",
     "sourceCollections": [
@@ -1059,11 +1060,11 @@
     "ageMax": 8,
     "isbn": null,
     "publicationYear": null,
-    "amazonProductUrl": "https://www.amazon.com/Curious-George-Goes-Hospital-Rey/dp/0395070627",
+    "amazonProductUrl": "https://www.amazon.com/dp/0395070627?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
-    "mlbSummary": null,
-    "verificationStatus": "Needs metadata verification",
+    "mlbSummary": "George swallows a puzzle piece and ends up admitted for surgery. Along the way he meets the X-ray machine, the ward, and a few new friends — with enough of his usual mischief to take the edge off a frightening place.",
+    "verificationStatus": "Ready for website",
     "sourceUrl": "https://www.chop.edu/health-resource/recommended-childrens-books",
     "notes": "Seeded from CHOP Recommended Children's Books resource list; do not copy source description verbatim.",
     "sourceCollections": [
@@ -1094,7 +1095,7 @@
     "ageMax": null,
     "isbn": null,
     "publicationYear": null,
-    "amazonProductUrl": "https://www.amazon.com/Dear-Baby-Preemie-Miracle-Nicu-ebook/dp/B09ZB36KSJ/ref=sr_1_1?dib=eyJ2IjoiMSJ9.dRU2ie7zV1HjEiQvVuZQJiqHpMyh2NJhTnn62S8KD9x_fxoE9xT8DzVRDTO-QjmlgDZab9jo0U9kzn7PRMCA4gj4Jt92SfnnROhic843bM_gBf98x7DSaluj1_OTQRlfwIPY35y1S9m8o8187Q2SRO9cmuZQNuiftdRC0eF2NeizLYulq8hYbfeflg54MuxeVzow2eEmEAsmTvPnjESidTIhlePOJzG5RAZT75pkipQ.ErogKrXyvDhCJvWFGqUiI1fqKgrYr7ZELgCmD-gxLVg&dib_tag=se&keywords=Dear%2BBaby%2BPreemie%3A%2BA%2BMiracle%2Bin%2Bthe%2BNICU&qid=1786497151&sr=8-1",
+    "amazonProductUrl": "https://www.amazon.com/dp/B09ZB36KSJ?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
     "mlbSummary": null,
@@ -1110,7 +1111,7 @@
     "title": "Do I Have to Go to the Hospital? A First Look at Going to Hospital",
     "coverImage": "https://pictures.abebooks.com/isbn/9780764132155-us.jpg",
     "featured": false,
-    "author": null,
+    "author": "Pat Thomas",
     "illustrator": null,
     "audience": "Children & Families",
     "audienceTags": [
@@ -1128,11 +1129,11 @@
     "ageMax": 8,
     "isbn": null,
     "publicationYear": null,
-    "amazonProductUrl": "http://www.amazon.com/Do-Have-Go-Hospital-First/dp/0340894512",
+    "amazonProductUrl": "https://www.amazon.com/dp/0340894512?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
-    "mlbSummary": null,
-    "verificationStatus": "Needs metadata verification",
+    "mlbSummary": "A first-look book that names the feelings a hospital stay stirs up, then walks through the places and people a child will actually meet there — the visitors, the new friends, and the staff whose whole job is getting them well again.",
+    "verificationStatus": "Ready for website",
     "sourceUrl": "https://www.chop.edu/health-resource/recommended-childrens-books",
     "notes": "Seeded from CHOP Recommended Children's Books resource list; do not copy source description verbatim.",
     "sourceCollections": [
@@ -1169,7 +1170,7 @@
       "Inclusion"
     ],
     "isbn": "978-0764121180",
-    "amazonProductUrl": "https://www.amazon.com/Dont-Call-Me-Special-Disability/dp/0764121189?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/0764121189?tag=mightylittle-20",
     "mlbSummary": "Questions the assumptions kids and adults make about people who look or act differently, with discussion prompts throughout for classrooms or families talking through a new diagnosis together.",
     "notes": "Part of the \"A First Look at...\" series. Verified via Amazon product lookup, 2026-08-12.",
     "sourceCollections": []
@@ -1242,7 +1243,7 @@
       "Courage & Resilience"
     ],
     "isbn": "9781729075029",
-    "amazonProductUrl": "https://www.amazon.com/Eamonn-Mighty-Zipper-Warrior-defeating/dp/1729075029?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/1729075029?tag=mightylittle-20",
     "mlbSummary": "Part of a \"Zipper Club\" framing for kids who've had open-heart surgery, this story follows a young heart warrior navigating CHD and building resilience along the way.",
     "notes": "Verified via Amazon product lookup, 2026-08-12.",
     "sourceCollections": []
@@ -1277,10 +1278,47 @@
       "Medical Education"
     ],
     "isbn": "978-0062820310",
-    "amazonProductUrl": "https://www.amazon.com/Early-Intimate-History-Premature-Teaches/dp/0062820311?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/0062820311?tag=mightylittle-20",
     "mlbSummary": "Blending her own experience of an early birth with rigorous reporting, this book traces the history of neonatology and the questions premature birth raises about medicine, ethics, and what it means to be human.",
     "notes": "Verified via Amazon product lookup, 2026-08-12.",
     "sourceCollections": []
+  },
+  {
+    "featured": false,
+    "audience": "Children & Families",
+    "audienceTags": [
+      "Children",
+      "Families"
+    ],
+    "format": "Storybook",
+    "bookType": "Storybooks",
+    "siblingFocus": true,
+    "faithBased": false,
+    "affiliateUrl": null,
+    "retailerName": null,
+    "verificationStatus": "Verified",
+    "sourceCollections": [
+      "MLB NICU expansion"
+    ],
+    "slug": "evan-early",
+    "title": "Evan Early",
+    "coverImage": "https://covers.openlibrary.org/b/isbn/9781890627713-L.jpg",
+    "author": "Rebecca Hogue Wojahn",
+    "illustrator": null,
+    "ageMin": 4,
+    "ageMax": 8,
+    "isbn": "9781890627713",
+    "publicationYear": 2006,
+    "medicalTopics": [
+      "NICU",
+      "Prematurity",
+      "Sibling Education"
+    ],
+    "amazonProductUrl": "https://www.amazon.com/dp/1890627712?tag=mightylittle-20",
+    "publisherUrl": null,
+    "mlbSummary": "A children’s book about premature birth that helps young readers understand a baby arriving early and the experiences surrounding prematurity and neonatal care.",
+    "sourceUrl": "https://nidcap.org/families/resources-for-families/books-websites-and-more/",
+    "notes": "Recommended by NIDCAP and neonatal sibling resource lists; ISBN and publisher metadata independently verified."
   },
   {
     "slug": "eves-ekg-and-echocardiogram",
@@ -1387,7 +1425,7 @@
     "ageMax": null,
     "isbn": null,
     "publicationYear": null,
-    "amazonProductUrl": "https://www.amazon.com/Faces-NICU-Shatoya-Lewis/dp/B09JY6CWB7/ref=sr_1_10?dib=eyJ2IjoiMSJ9.PBoeqOJjFnPZwKGbAM2RclUdFg9Jd9sPITrQdepSpPEZfuSc6fSfr4f2i2sXQ11GNqTTNQ3ovf4uGzS4O847PDBB_SLw7NU4vcl_eRdAawbdQByqdXaw5ItDGJ8BCbk06n2oBQ8NAX_jnv3p0Pu4q0N78_ynSMA0q63EvPxB7T8jESHAdxFI4zLNkGlBG7RvTjmvr_a8we3uIL4US6u3LSUS8Bdoxoi3DKpYmnEpy0M._ZGKeOKQJqpfiBiwPf2ZyqgGHGkOkJZLusTiRfeJoNA&dib_tag=se&keywords=Faces%2Bof%2Bthe%2BNICU&qid=1786497156&sr=8-10",
+    "amazonProductUrl": "https://www.amazon.com/dp/B09JY6CWB7?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
     "mlbSummary": null,
@@ -1422,11 +1460,11 @@
     "ageMax": 8,
     "isbn": null,
     "publicationYear": null,
-    "amazonProductUrl": "http://www.amazon.com/Franklin-Goes-Hospital-Paulette-Bourgeois/dp/1554537258/",
+    "amazonProductUrl": "https://www.amazon.com/dp/1554537258?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
-    "mlbSummary": null,
-    "verificationStatus": "Needs metadata verification",
+    "mlbSummary": "Franklin cracks his shell and needs an operation to mend it. His first hospital trip walks young readers through the X-ray, the anesthesia, and the ward itself — a familiar character making an unfamiliar place feel survivable.",
+    "verificationStatus": "Ready for website",
     "sourceUrl": "https://www.chop.edu/health-resource/recommended-childrens-books",
     "notes": "Seeded from CHOP Recommended Children's Books resource list; do not copy source description verbatim.",
     "sourceCollections": [
@@ -1462,7 +1500,7 @@
       "Prematurity"
     ],
     "isbn": "978-0615844435",
-    "amazonProductUrl": "https://www.amazon.com/Hope-Joy-Determination-Preemies-Struggle-ebook/dp/B00GFYOIU8?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/B00GFYOIU8?tag=mightylittle-20",
     "mlbSummary": "A first-person account of a pregnancy that ended seventeen weeks early, and the fight that followed to bring her daughter, Joy, home from the NICU.",
     "notes": "Amazon listing found is a Kindle edition; a physical copy availability should be reconfirmed before promoting. Verified via Amazon product lookup, 2026-08-12.",
     "sourceCollections": []
@@ -1491,7 +1529,7 @@
     "ageMax": 12,
     "isbn": null,
     "publicationYear": null,
-    "amazonProductUrl": "https://www.amazon.com/Small-Beginnings-Stephanie-Laskoskie/dp/1733719415",
+    "amazonProductUrl": "https://www.amazon.com/dp/1733719415?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
     "mlbSummary": null,
@@ -1531,7 +1569,7 @@
       "Death & Dying"
     ],
     "isbn": "978-0945354536",
-    "amazonProductUrl": "https://www.amazon.com/Gentle-Willow-Story-Children-About/dp/0945354533?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/0945354533?tag=mightylittle-20",
     "mlbSummary": "Written for children who may not survive their own illness, or for the children who love them, this story addresses disbelief, anger, and sadness alongside love and compassion as a tree named Gentle Willow becomes ill.",
     "notes": "Published by Magination Press (American Psychological Association). Verified via Amazon product lookup, 2026-08-12.",
     "sourceCollections": []
@@ -1569,7 +1607,7 @@
       "Anxiety & Coping"
     ],
     "isbn": "9798893181159",
-    "amazonProductUrl": "https://www.amazon.com/Getting-Ready-Heart-Cath-Catheterization/dp/B0FG2Y7GQV?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/B0FG2Y7GQV?tag=mightylittle-20",
     "mlbSummary": "Companion title to Getting Ready for My Heart Surgery, focused specifically on cardiac catheterization — covering fasting, vitals checks, the cath lab itself, and recovery, personalized as the child reads.",
     "notes": "Same author/series as Getting Ready for My Heart Surgery — worth linking as a companion pair. Verified via Amazon product lookup, 2026-08-12.",
     "sourceCollections": []
@@ -1610,7 +1648,7 @@
       "Anxiety & Coping"
     ],
     "isbn": "9798893180756",
-    "amazonProductUrl": "https://www.amazon.com/Getting-Ready-Heart-Surgery-Preparation/dp/B0F2MXPPCW?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/B0F2MXPPCW?tag=mightylittle-20",
     "mlbSummary": "An interactive, fill-in-the-blank story that walks a child through pre-op testing, anesthesia, and recovery for open-heart surgery, written by a clinical anesthesiologist.",
     "notes": "Author is a board-certified clinical anesthesiologist. A companion coloring/activity book also exists under the same title (ASIN B0F4KNX6HL) if a supplemental resource is wanted later. Verified via Amazon product lookup, 2026-08-12.",
     "hasSpanishEdition": true,
@@ -1649,7 +1687,7 @@
       "Prematurity"
     ],
     "isbn": "978-1620409930",
-    "amazonProductUrl": "https://www.amazon.com/Girl-Glass-Dispatches-Edge-Life-ebook/dp/B00UX2UR3U?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/B00UX2UR3U?tag=mightylittle-20",
     "mlbSummary": "A months-long NICU vigil at her micro-preemie daughter's side becomes the starting point for this memoir about parenthood, medical fragility, and a national controversy over the cost of her daughter's care.",
     "notes": "Amazon listing found is a Kindle edition; a physical copy availability should be reconfirmed before promoting. Verified via Amazon product lookup, 2026-08-12.",
     "sourceCollections": []
@@ -1678,7 +1716,7 @@
     "ageMax": null,
     "isbn": null,
     "publicationYear": null,
-    "amazonProductUrl": "https://www.amazon.com/Preemies-Inspirational-Stories-Worlds-Famous/dp/0991496183/ref=sr_1_1?dib=eyJ2IjoiMSJ9.vhJ5Q5QqCjEWo-nLdqoYS5XaoypX7rUVoOHjAhF_Kk1ttMQNUzgCPhSIowuVO_2v2RIaUABrvuXq1GFE0nry5_lAGSmIZVrNqLdrWa64dwkDFUaHUkVtghYkKAEhBJRe8fonnkrfdvACcCNLa6HKpRk0vi6F57eMBzmf7jnI6eKZhmLmFguls6axQHmqVytlRy0wo9XKkKaugWJc52PSBBJOOqdmMGM9VSQqF-nuV0Q.RUO7e7BLgGr4_F_1PTaYVQagSQSVqFQD9ttskhkA-lo&dib_tag=se&keywords=Go%2BPreemies%21%2BInspirational%2BStories%2Bof%2Bthe%2BWorld%27s%2BMost%2BFamous%2BPreemies&qid=1786497165&sr=8-1",
+    "amazonProductUrl": "https://www.amazon.com/dp/0991496183?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
     "mlbSummary": null,
@@ -1714,7 +1752,7 @@
     "ageMax": 8,
     "isbn": "9780794524319",
     "publicationYear": 2009,
-    "amazonProductUrl": "https://www.amazon.com/dp/0794524311",
+    "amazonProductUrl": "https://www.amazon.com/dp/0794524311?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
     "mlbSummary": "An interactive sticker-book introduction to the unfamiliar sights, people, and routines children may encounter during a hospital visit.",
@@ -1750,7 +1788,7 @@
     "ageMax": 8,
     "isbn": "9780142401330",
     "publicationYear": 2004,
-    "amazonProductUrl": "https://www.amazon.com/dp/0142401331",
+    "amazonProductUrl": "https://www.amazon.com/dp/0142401331?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
     "mlbSummary": "A reassuring child-centered look at preparing for a tonsillectomy, going to the hospital, having surgery, and recovering afterward.",
@@ -1766,7 +1804,7 @@
     "title": "Goodnight NICU",
     "coverImage": "https://m.media-amazon.com/images/I/618+MF3+BYL.jpg",
     "featured": true,
-    "author": null,
+    "author": "Allison Kleinschmidt",
     "illustrator": null,
     "audience": "Children & Families",
     "audienceTags": [
@@ -1785,12 +1823,12 @@
     "ageMin": null,
     "ageMax": null,
     "isbn": null,
-    "publicationYear": null,
-    "amazonProductUrl": "https://www.amazon.com/Goodnight-NICU-Allison-Kleinschmidt/dp/B0C126KGV1/ref=sr_1_1?dib=eyJ2IjoiMSJ9.-Ej0M3m42zpUhJp0ZaTR-9-Trynm4WvGP7qvymwV3a0iHkXyNSrFxnwakZ2GSeDHPcx5Ss1oknOU4l42PnTAp2BwPpV1_yRmoCnCOlc4cOIS_9OH9D5yJkvGPo8Ar-vrFQ1VjKgfuA3H-MVI7SDmlPTFMINtyNDO53cLMzagfmRhU4cNZOyw4BJuQ22OFKabGc54410wIBBbzfl-_B00-FyoxN8zmN6wlou9LY3IVPk.c3zQGROU3cy0pt_n1EssnjBiBJqvxK9quQrpOB3pwAg&dib_tag=se&keywords=Goodnight%2BNICU&qid=1786497206&sr=8-1",
+    "publicationYear": 2023,
+    "amazonProductUrl": "https://www.amazon.com/dp/B0C126KGV1?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
-    "mlbSummary": null,
-    "verificationStatus": "Needs metadata verification",
+    "mlbSummary": "A gentle read-aloud for parents saying goodnight to a premature or medically fragile baby who remains in the NICU, written by a mother whose son spent 55 days there after being born at 29 weeks.",
+    "verificationStatus": "Verified",
     "sourceUrl": "https://www.preemieadventures.com/nicu-books",
     "notes": "Seeded from Preemie Adventures catalog; do not copy source description verbatim.",
     "sourceCollections": [
@@ -1821,7 +1859,7 @@
     "ageMax": 12,
     "isbn": "9781879651272",
     "publicationYear": 2001,
-    "amazonProductUrl": "https://www.amazon.com/dp/1879651270",
+    "amazonProductUrl": "https://www.amazon.com/dp/1879651270?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
     "mlbSummary": "One hundred practical, action-oriented ideas children can use to understand grief, remember the person who died, and express difficult feelings.",
@@ -1855,7 +1893,7 @@
     "ageMax": 5,
     "isbn": null,
     "publicationYear": null,
-    "amazonProductUrl": "https://www.amazon.com/Hello-Little-Love-Letter-Parent-ebook/dp/B09HXMY769/ref=sr_1_1?dib=eyJ2IjoiMSJ9.MCocptewAcvyKf12aNZpeA.08ivrSZ90S65P-pOYsjXW1Yjwe19pEh--I4BcMkUjUU&dib_tag=se&keywords=Hello%2C%2BLittle%2BLove%21%3A%2BA%2BLetter%2Bfrom%2Ba%2BParent%2Bto%2BTheir%2BBaby%2Bin%2Bthe%2BNICU&qid=1786497124&sr=8-1",
+    "amazonProductUrl": "https://www.amazon.com/dp/B09HXMY769?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
     "mlbSummary": null,
@@ -1891,7 +1929,7 @@
     "ageMax": 8,
     "isbn": "9780761121350",
     "publicationYear": 2000,
-    "amazonProductUrl": "https://www.amazon.com/dp/0761121358",
+    "amazonProductUrl": "https://www.amazon.com/dp/0761121358?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
     "mlbSummary": "An allegorical story about a sick hedgehog facing frightening treatment and finding courage while working toward recovery.",
@@ -1935,7 +1973,7 @@
       "Anxiety & Coping"
     ],
     "isbn": "B0CGL865C6",
-    "amazonProductUrl": "https://www.amazon.com/Henry-Heart-Cath-Stephanie-Johnson/dp/B0CGL865C6?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/B0CGL865C6?tag=mightylittle-20",
     "mlbSummary": "A companion to Henry Has Heart Surgery, this story prepares a child for cardiac catheterization specifically, introducing the cardiology team and using imagination-based coping to make the cath lab feel less unfamiliar.",
     "notes": "Companion title to Henry Has Heart Surgery, same author. Verified via Amazon product lookup, 2026-08-12.",
     "sourceCollections": []
@@ -1975,7 +2013,7 @@
       "Anxiety & Coping"
     ],
     "isbn": "9798644839056",
-    "amazonProductUrl": "https://www.amazon.com/Henry-Heart-Surgery-Stephanie-Johnson/dp/B08924GG28/ref=sr_1_1?dib=eyJ2IjoiMSJ9.HbW6WhodhCpORppLwFIYGCWxQmWILMgywub1Lu906wo.oPByrgKJzefruTFWwZ_FhEentH6ezsmsSiaEafPRNaA&dib_tag=se&keywords=Henry%2BHas%2BHeart%2BSurgery%2BStephanie%2BJohnson&qid=1786549447&sr=8-1",
+    "amazonProductUrl": "https://www.amazon.com/dp/B08924GG28?tag=mightylittle-20",
     "mlbSummary": "Walks Henry through the lead-up to open-heart surgery and the hospital stay that follows, introducing the cardiology team and everyday medical equipment in reassuring, child-friendly language.",
     "notes": "Verified via Amazon title search, 2026-08-12 (matched top result, 4.9★/72 ratings).",
     "sourceCollections": []
@@ -2073,11 +2111,11 @@
     "ageMax": 8,
     "isbn": null,
     "publicationYear": null,
-    "amazonProductUrl": "https://www.amazon.com/Howie-Helps-Himself-Joan-Fassler/dp/0807534226",
+    "amazonProductUrl": "https://www.amazon.com/dp/0807534226?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
-    "mlbSummary": null,
-    "verificationStatus": "Needs metadata verification",
+    "mlbSummary": "Howie uses a wheelchair and badly wants to move himself on his own. With his family and classmates behind him, he works toward that independence — a story about the difference between being helped and being able.",
+    "verificationStatus": "Ready for website",
     "sourceUrl": "https://www.chop.edu/health-resource/recommended-childrens-books",
     "notes": "Seeded from CHOP Recommended Children's Books resource list; do not copy source description verbatim.",
     "sourceCollections": [
@@ -2150,7 +2188,7 @@
       "Inclusion"
     ],
     "isbn": "979-8628789391",
-    "amazonProductUrl": "https://www.amazon.com/I-Am-Lucy-Chuck-Neighbors/dp/B0863RQPBG?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/B0863RQPBG?tag=mightylittle-20",
     "mlbSummary": "Told in charming rhyme, this book follows a little girl named Lucy who has Kabuki syndrome — a values-driven story about feeling different that extends beyond her specific diagnosis to any child who feels the same.",
     "notes": "Book 1 of a 2-book series. Verified via Amazon product lookup, 2026-08-12.",
     "sourceCollections": []
@@ -2186,7 +2224,7 @@
       "Courage & Resilience"
     ],
     "isbn": "979-8993195902",
-    "amazonProductUrl": "https://www.amazon.com/Am-Rare-Melissa-White-Boyer/dp/B0H2NGTT5V?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/B0H2NGTT5V?tag=mightylittle-20",
     "mlbSummary": "Told in the voice of a boy with an ultra-rare genetic condition, this lyrical picture book gently introduces genes as the blueprint that makes each of us who we are, reframing \"rare\" as its own kind of strength.",
     "notes": "Inspired by the author's family's own rare-genetic-diagnosis journey; she co-founded the Rare Genes Movement nonprofit. Newly published (Aug 2026). Verified via Amazon product lookup, 2026-08-12.",
     "sourceCollections": []
@@ -2215,7 +2253,7 @@
     "ageMax": 8,
     "isbn": "9780764117640",
     "publicationYear": 2001,
-    "amazonProductUrl": "https://www.amazon.com/dp/0764117645",
+    "amazonProductUrl": "https://www.amazon.com/dp/0764117645?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
     "mlbSummary": "A straightforward, gentle introduction to death, grief, funerals, and the feelings children may experience after someone dies.",
@@ -2250,7 +2288,7 @@
     "ageMax": 5,
     "isbn": null,
     "publicationYear": null,
-    "amazonProductUrl": "https://www.amazon.com/Needed-NICU-Just-Like-You-ebook/dp/B08GM8426J/ref=sr_1_1?dib=eyJ2IjoiMSJ9.4x6qKupWKCEVWMBigmZisw.Or5tmIz7BZ59kVr9Rp0OVCFnztTDBWyi9Qy5J3sEcWA&dib_tag=se&keywords=I%2BNeeded%2Bthe%2BNICU%2BJust%2BLike%2BYou&qid=1786497175&sr=8-1",
+    "amazonProductUrl": "https://www.amazon.com/dp/B08GM8426J?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
     "mlbSummary": null,
@@ -2285,7 +2323,7 @@
     "ageMax": 7,
     "isbn": null,
     "publicationYear": null,
-    "amazonProductUrl": "https://www.amazon.com/Was-Preemie-Just-Like-You-ebook/dp/B076W19HPL/ref=sr_1_1?dib=eyJ2IjoiMSJ9.NA7JQfdmSCL5YA4ZGkGNZvvxzyGyieQ4qQ7z-AK_8flePgfga2WkEzUXVt04KjXWH0rwmYOsN-ltQjeatzdRbTegbZJv6-ii-GGgkIqKy570flZSfkMc36OQoPX5oD1dCzzuHSXJFWibFGs6tM95odLyZ2LVz-IZMzJMJgT8oYkT_XfE_sQoIu4YZ_1eut74_ShJXRqd3Uo3n_13Bw-8LTRAKX1p8TG_O5S1D-0LOTVsUxOBe4p2QrMqz_ZF4lbFByWLykvQDtfMw_Su3ESMU3CZpApOwalZXXY3txZSyeI.oTATSlZ9j4PdgD2aCA-cY1AVmfm715SjJChHPk9YIa4&dib_tag=se&keywords=I%2BWas%2Ba%2BPreemie%2BJust%2BLike%2BYou&qid=1786497181&sr=8-1",
+    "amazonProductUrl": "https://www.amazon.com/dp/B076W19HPL?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
     "mlbSummary": null,
@@ -2325,7 +2363,7 @@
       "Death & Dying"
     ],
     "isbn": "978-1481426404",
-    "amazonProductUrl": "https://www.amazon.com/Ida-Always-Caron-Levis/dp/1481426400?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/1481426400?tag=mightylittle-20",
     "mlbSummary": "Inspired by a real friendship between two zoo bears, this story follows Gus as his best friend Ida gets sick and dies, gently showing that grief and joy can sit side by side, and that loved ones stay with us through memory.",
     "notes": "Verified via Amazon product lookup, 2026-08-12.",
     "sourceCollections": []
@@ -2335,7 +2373,7 @@
     "title": "Imagine a Rainbow: A Child's Guide for Soothing Pain",
     "coverImage": "https://assets2.titleleaf.com/lerner/product/cover/xl_9781591473848_fc.jpg",
     "featured": false,
-    "author": null,
+    "author": "Brenda S. Miles, PhD",
     "illustrator": null,
     "audience": "Children & Families",
     "audienceTags": [
@@ -2353,11 +2391,11 @@
     "ageMax": 8,
     "isbn": null,
     "publicationYear": null,
-    "amazonProductUrl": "http://www.amazon.com/Imagine-Rainbow-Childs-Guide-Soothing/dp/1591473853/",
+    "amazonProductUrl": "https://www.amazon.com/dp/1591473853?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
-    "mlbSummary": null,
-    "verificationStatus": "Needs metadata verification",
+    "mlbSummary": "A guided-imagery book that teaches children to use color, imagination, and slow breathing to soften pain and settle their bodies. Includes notes for the adult reading along on how to use the techniques.",
+    "verificationStatus": "Ready for website",
     "sourceUrl": "https://www.chop.edu/health-resource/recommended-childrens-books",
     "notes": "Seeded from CHOP Recommended Children's Books resource list; do not copy source description verbatim.",
     "sourceCollections": [
@@ -2388,7 +2426,7 @@
     "ageMax": 17,
     "isbn": null,
     "publicationYear": null,
-    "amazonProductUrl": "https://www.amazon.com/Its-NICU-World-Ashley-ONeil-ebook/dp/B0H7PXR5SS/ref=sr_1_1?dib=eyJ2IjoiMSJ9.AbhHEGrLRbs-5a-XEGUEb48VYAxNBT7DOzDRjXJo2nYCDDqsUG-tGJdLCRURDsHAT9If6UQBV3FVLxglw6_9Uf3i57LYu_o5eEVJzCDsOKkYGhQEcKwTVVoMaVMBKEIvhHunnhgEjU87tyvTDHWBYxTeWE1klFUZ4LnF7KDgGzSiYGwgcWccMvjjOZTCRlzDjBTrVEGIo9ZtMmkVUukcLmfo22f56LjoKjA_W_7-l66KM4Mc0oOW1C0EY4MZuTS8GLTl9P1KKvpOzZAW3Qwfx5xau0aRHr0v2STMJUnAwHU.Hr2wfTqG1qMPyPfFm_bCyL8uyXcOtMPFH5j2pQt3tY8&dib_tag=se&keywords=It%27s%2Ba%2BNICU%2BWorld&qid=1786497237&sr=8-1",
+    "amazonProductUrl": "https://www.amazon.com/dp/B0H7PXR5SS?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
     "mlbSummary": null,
@@ -2429,7 +2467,7 @@
       "Medical Education"
     ],
     "isbn": "978-0971154223",
-    "amazonProductUrl": "https://www.amazon.com/Its-My-Heart-Childrens-Foundation/dp/0971154228?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/0971154228?tag=mightylittle-20",
     "mlbSummary": "Developed collaboratively by doctors, nurses, and parents, this reference explains congenital heart defect types, testing, and treatments in plain language with diagrams, for the family members supporting a CHD diagnosis rather than the child patient directly.",
     "notes": "Found during Cardiac section research but deferred there since it is parent/family-education material rather than a children's picture book — belongs here instead. Verified via Amazon product lookup, 2026-08-12.",
     "sourceCollections": []
@@ -2501,7 +2539,7 @@
       "Medical Education"
     ],
     "isbn": "978-1439245842",
-    "amazonProductUrl": "https://www.amazon.com/Joe-Learns-About-Fabry-Disease/dp/1439245843?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/1439245843?tag=mightylittle-20",
     "mlbSummary": "Follows ten-year-old Joe as he learns about his own Fabry disease diagnosis and starts treatment, developed specifically to explain this inherited condition and its enzyme therapy to kids.",
     "notes": "Verified via Amazon product lookup, 2026-08-12.",
     "sourceCollections": []
@@ -2535,7 +2573,7 @@
       "Prematurity"
     ],
     "isbn": "978-0316324434",
-    "amazonProductUrl": "https://www.amazon.com/Juniper-Girl-Who-Born-Soon/dp/0316324434?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/0316324434?tag=mightylittle-20",
     "mlbSummary": "Born at 23 weeks weighing just over a pound, Juniper's parents chronicle the extremes of medicine at the edge of viability — and the impossible questions families face when a baby is born this early.",
     "notes": "4.6★ from 864 ratings. Verified via Amazon product lookup, 2026-08-12.",
     "sourceCollections": []
@@ -2563,11 +2601,11 @@
     "ageMax": 8,
     "isbn": null,
     "publicationYear": null,
-    "amazonProductUrl": "https://www.amazon.com/Just-Because-Rebecca-Elliott/dp/0745962351/",
+    "amazonProductUrl": "https://www.amazon.com/dp/0745962351?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
-    "mlbSummary": null,
-    "verificationStatus": "Needs metadata verification",
+    "mlbSummary": "Toby's little sister Clemmie can't walk or talk, and he doesn't need a reason why — she's just Clemmie. A warm sibling story about loving a brother or sister whose body works differently, without treating that difference as a problem to solve.",
+    "verificationStatus": "Ready for website",
     "sourceUrl": "https://www.chop.edu/health-resource/recommended-childrens-books",
     "notes": "Seeded from CHOP Recommended Children's Books resource list; do not copy source description verbatim.",
     "sourceCollections": [
@@ -2633,7 +2671,7 @@
     "ageMax": 10,
     "isbn": "9780807541166",
     "publicationYear": 1992,
-    "amazonProductUrl": "https://www.amazon.com/dp/0807541168",
+    "amazonProductUrl": "https://www.amazon.com/dp/0807541168?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
     "mlbSummary": "Kathy uses her love of hats to cope with chemotherapy-related hair loss while being treated for cancer.",
@@ -2675,7 +2713,7 @@
       "Courage & Resilience"
     ],
     "isbn": "978-1897550250",
-    "amazonProductUrl": "https://www.amazon.com/Lemon-Duck-Laura-Backman/dp/1897550251?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/1897550251?tag=mightylittle-20",
     "mlbSummary": "A classroom rallies around Lemon, a duckling who can't walk or feed himself, finding creative ways to include him rather than leave him behind — a gentle model for how kids can support a classmate with a disability.",
     "notes": "Verified via Amazon product lookup, 2026-08-12.",
     "sourceCollections": []
@@ -2710,7 +2748,7 @@
       "Anxiety & Coping"
     ],
     "isbn": "978-1604430110",
-    "amazonProductUrl": "https://www.amazon.com/Let-Colors-Out-Courtney-Filigenzi/dp/1604430117?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/1604430117?tag=mightylittle-20",
     "mlbSummary": "Written for young children whose parent is undergoing cancer treatment, this story uses color to help a child name and accept their own mix of feelings — sad, happy, scared, angry — without guilt.",
     "notes": "For the child of a parent with cancer, not a child patient — companion to My Cancer Days by the same team. Verified via Amazon product lookup, 2026-08-12.",
     "sourceCollections": []
@@ -2731,7 +2769,7 @@
     "affiliateUrl": null,
     "publisherUrl": "https://milestorow.com/products/lets-go-play",
     "retailerName": "Miles To Row",
-    "verificationStatus": "Ready for website",
+    "verificationStatus": "Hidden - no confirmed Amazon link",
     "sourceUrl": null,
     "slug": "lets-go-play",
     "title": "Let's Go Play: A Children's Book About Adaptive Equipment and Inclusion",
@@ -2755,7 +2793,7 @@
     "title": "Lifetimes: A Beautiful Way to Explain Death to Children",
     "coverImage": "https://www.josephsinspirational.ca/cdn/shop/files/Lifetimes_The_Beautiful_Way_to_Explain_Death_to_Children.png?v=1745770391",
     "featured": false,
-    "author": null,
+    "author": "Bryan Mellonie and Robert Ingpen",
     "illustrator": null,
     "audience": "Children & Families",
     "audienceTags": [
@@ -2773,11 +2811,11 @@
     "ageMax": 10,
     "isbn": null,
     "publicationYear": null,
-    "amazonProductUrl": "http://www.amazon.com/Lifetimes-Beautiful-Explain-Death-Children/dp/0553344021/",
+    "amazonProductUrl": "https://www.amazon.com/dp/0553344021?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
-    "mlbSummary": null,
-    "verificationStatus": "Needs metadata verification",
+    "mlbSummary": "Explains death as the ending that belongs to every living thing — plants, animals, and people — with a beginning and a lifetime in between. Direct, calm, and free of religious framing.",
+    "verificationStatus": "Ready for website",
     "sourceUrl": "https://www.chop.edu/health-resource/recommended-childrens-books",
     "notes": "Seeded from CHOP Recommended Children's Books resource list; do not copy source description verbatim.",
     "sourceCollections": [
@@ -2808,11 +2846,11 @@
     "ageMax": 8,
     "isbn": null,
     "publicationYear": null,
-    "amazonProductUrl": "http://www.amazon.com/Little-Critter-Hospital-Mayer-Mercer/dp/B00BXU4L4M",
+    "amazonProductUrl": "https://www.amazon.com/dp/B00BXU4L4M?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
-    "mlbSummary": null,
-    "verificationStatus": "Needs metadata verification",
+    "mlbSummary": "Little Critter breaks his leg during a soccer game and takes his first trip to the hospital. The ambulance, the X-ray, the cast, and learning to use crutches all get walked through at a child's pace.",
+    "verificationStatus": "Ready for website",
     "sourceUrl": "https://www.chop.edu/health-resource/recommended-childrens-books",
     "notes": "Seeded from CHOP Recommended Children's Books resource list; do not copy source description verbatim.",
     "sourceCollections": [
@@ -2854,7 +2892,7 @@
       "Courage & Resilience"
     ],
     "isbn": "9781915193247",
-    "amazonProductUrl": "https://www.amazon.com/Little-Panda-Her-Super-Heart/dp/1915193249?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/1915193249?tag=mightylittle-20",
     "mlbSummary": "Follows Little Panda through heart surgery, using clay-style illustrations to introduce real medical tools — a blood pressure cuff, ECG, pulse oximeter — so kids facing their own CHD surgery recognize what they'll see and feel a little less afraid of it.",
     "notes": "Multiple editions of this title exist (surgery, transplant, and general-conditions versions) — this entry links the \"heart surgery story\" edition specifically, matching its CHD/open-heart-surgery focus. Verified via Amazon product lookup, 2026-08-12.",
     "sourceCollections": []
@@ -2966,7 +3004,7 @@
       "Anxiety & Coping"
     ],
     "isbn": "979-8573974682",
-    "amazonProductUrl": "https://www.amazon.com/Marias-Heart-Book-Natalie-Bergman/dp/B08P45BGW4?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/B08P45BGW4?tag=mightylittle-20",
     "mlbSummary": "Based on a real child's experience, this story walks a young patient through preparing for and recovering from heart surgery, written by a family that couldn't find similar material when their own daughter needed it.",
     "notes": "Also listed via the Children's Heart Network parent book recommendations page. Verified via Amazon product lookup, 2026-08-12.",
     "sourceCollections": []
@@ -2997,7 +3035,7 @@
     "ageMax": 8,
     "isbn": "9781419647758",
     "publicationYear": 2006,
-    "amazonProductUrl": "https://www.amazon.com/dp/141964775X",
+    "amazonProductUrl": "https://www.amazon.com/dp/141964775X?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
     "mlbSummary": "A child-centered story about coping when a pregnant parent is prescribed bed rest, including frustration, boredom, family changes, and finding ways to stay connected.",
@@ -3032,7 +3070,7 @@
     "ageMax": 12,
     "isbn": null,
     "publicationYear": null,
-    "amazonProductUrl": "https://www.amazon.com/Monster-NICU-Accidentally-went-wrong/dp/B0CY9WZBMH/ref=sr_1_1?dib=eyJ2IjoiMSJ9.mCx8yG2EUxLQs7rnqxJydAzmtvRI95GWWJvHqC068Z6fCrx9f8qJ1jSj2GmG6bypLR0-VBSykUqRsRCe2-d8niBIbu7HFbT-KuE2-sj7prvnPiaMc_90-eG58OxBVFyijMoCg3HpndCoxUsDn1W9xiQ5yDBrYt-g2-yP8g7LVvRh2R6HmwZZfnEsVtOOrKxoODLS_LOwWCvoSfjTnlaWRWvAUoJUmrjaYw3mqw3ztJ8DhCQZRgAXvdBzY6NjItNIqcvGpr6kCapZ38tP8Y7Om3qZB-gofQDWGm7WrUtajUY.m4LTUwl-jK8WLL7BbFUS7Kds5r-ZpfxKI8sAH-VYjJA&dib_tag=se&keywords=Monster%2BNICU&qid=1786497021&sr=8-1",
+    "amazonProductUrl": "https://www.amazon.com/dp/B0CY9WZBMH?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
     "mlbSummary": null,
@@ -3068,7 +3106,7 @@
     "ageMax": 12,
     "isbn": null,
     "publicationYear": null,
-    "amazonProductUrl": "https://www.amazon.com/My-Baby-Superhero-Stephanie-Laskoskie-ebook/dp/B08KPKWYP6/ref=sr_1_1?dib=eyJ2IjoiMSJ9.lx_8YuAsL30Clwuq858vhCMAh8YWxlX76KU9UBehpJAQgAxWLqu0D7E2ksx3Gof6EgwDiJmV-6ZGHK5PnqMlltZZwjt7yKxYJvv85X3IHm_267MpWYdOTCxoZI_9svOxpiy5Y6xLuJEiVWc2VmZmhwxmZczuVqZCt_mBAout648R5IPl2-MToDBiXN2lqbyvPR1j64c_GF9KZFf3KtdWUZchXbpY9Ud-T8s64Woy37LvaPWvaw3G28Eok2YpEY2aygu8iHxqZuwO4HRMcK2IZPXMB6DBm1SgmTEgyf9oO6s.NqD8ER6hQqnxhj6ESsDZPbxekYSUe-loaG8gsTKPByU&dib_tag=se&keywords=My%2BBaby%2BIs%2BA%2BSuperhero&qid=1786497069&sr=8-1",
+    "amazonProductUrl": "https://www.amazon.com/dp/B08KPKWYP6?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
     "mlbSummary": null,
@@ -3077,6 +3115,48 @@
     "notes": "Seeded from Preemie Adventures catalog; do not copy source description verbatim.",
     "sourceCollections": [
       "Preemie Adventures catalog research"
+    ]
+  },
+  {
+    "slug": "my-baby-sister-is-a-preemie",
+    "title": "My Baby Sister Is a Preemie",
+    "coverImage": "https://covers.openlibrary.org/b/isbn/9780310870333-L.jpg",
+    "featured": false,
+    "author": "Diana M. Amadeo",
+    "illustrator": null,
+    "audience": "Children & Families",
+    "audienceTags": [
+      "Children",
+      "Families",
+      "Siblings"
+    ],
+    "format": "Storybook",
+    "bookType": "Storybooks",
+    "medicalTopics": [
+      "NICU",
+      "Prematurity",
+      "Sibling Education",
+      "Hospital Stay",
+      "Faith"
+    ],
+    "siblingFocus": true,
+    "faithBased": true,
+    "ageMin": 4,
+    "ageMax": 8,
+    "isbn": "9780310870333",
+    "publicationYear": 2009,
+    "amazonProductUrl": "https://www.amazon.com/dp/031087033X?tag=mightylittle-20",
+    "affiliateUrl": null,
+    "publisherUrl": null,
+    "retailerName": null,
+    "mlbSummary": "Sarah is frightened and confused when her baby sister arrives early and is cared for in the NICU. A nurse explains the unfamiliar tubes and wires, while the family’s Christian faith is used to reassure Sarah during the hospitalization.",
+    "verificationStatus": "Verified",
+    "sourceUrl": "https://openlibrary.org/books/OL33421421M/My_Baby_Sister_Is_a_Preemie",
+    "notes": "Bibliographic record confirms author, Zonderkidz edition, ISBN, 32 pages, and NICU subject matter. Faith-based content is explicitly tagged.",
+    "sourceCollections": [
+      "MLB NICU expansion",
+      "Illinois Early Intervention Clearinghouse",
+      "Neonatal sibling-support resources"
     ]
   },
   {
@@ -3110,7 +3190,7 @@
       "Inclusion"
     ],
     "isbn": "0997771313",
-    "amazonProductUrl": "https://www.amazon.com/My-belly-has-two-buttons/dp/0997771313?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/0997771313?tag=mightylittle-20",
     "mlbSummary": "Follows two-year-old Nico as he explains his MIC-KEY feeding tube \"button\" and how it gives him the food he needs — a simple, first-person introduction to G-tube feeding for tube-fed kids and the people around them.",
     "notes": "Verified via Amazon product lookup, 2026-08-12.",
     "sourceCollections": []
@@ -3146,10 +3226,48 @@
       "Anxiety & Coping"
     ],
     "isbn": "979-8825539881",
-    "amazonProductUrl": "https://www.amazon.com/Brother-has-Two-Belly-Buttons/dp/B0BBPY5LMT?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/B0BBPY5LMT?tag=mightylittle-20",
     "mlbSummary": "Told from a younger sibling's point of view, this story shows a brother helping with his older brother's tube feedings and admiring him like a superhero — while also touching on the older brother's anxiety around eating by mouth.",
     "notes": "Sibling-perspective companion in spirit to My Belly Has Two Buttons. Verified via Amazon product lookup, 2026-08-12.",
     "sourceCollections": []
+  },
+  {
+    "featured": false,
+    "audience": "Children & Families",
+    "audienceTags": [
+      "Children",
+      "Families"
+    ],
+    "format": "Storybook",
+    "bookType": "Storybooks",
+    "siblingFocus": true,
+    "faithBased": false,
+    "affiliateUrl": null,
+    "retailerName": null,
+    "verificationStatus": "Verified",
+    "sourceCollections": [
+      "MLB NICU expansion"
+    ],
+    "slug": "my-brother-is-a-preemie",
+    "title": "My Brother Is a Preemie: A Children’s Guide to the NICU Experience",
+    "coverImage": "https://covers.openlibrary.org/b/isbn/9781451513080-L.jpg",
+    "author": "Abraham R. Chuzzlewit",
+    "illustrator": null,
+    "ageMin": 3,
+    "ageMax": 9,
+    "isbn": "9781451513080",
+    "publicationYear": 2010,
+    "medicalTopics": [
+      "NICU",
+      "Prematurity",
+      "Sibling Education",
+      "Hospital Visits"
+    ],
+    "amazonProductUrl": "https://www.amazon.com/dp/1451513089?tag=mightylittle-20",
+    "publisherUrl": "https://www.blurb.com/b/1200985-my-brother-is-a-preemie",
+    "mlbSummary": "A short, child-friendly introduction to the NICU designed for siblings and young relatives, helping families talk about why a premature baby is in the hospital and what children may encounter during a visit.",
+    "sourceUrl": "https://www.blurb.com/b/1200985-my-brother-is-a-preemie",
+    "notes": "Current Blurb listing and hospital recommendations confirm NICU sibling focus; 2010 edition ISBN verified bibliographically."
   },
   {
     "slug": "my-brother-needs-an-operation",
@@ -3182,7 +3300,7 @@
     "ageMax": null,
     "isbn": "978-0965250825",
     "publicationYear": 1998,
-    "amazonProductUrl": "https://www.amazon.com/Brother-Needs-Operation-Marie-Jaworski/dp/0965250822?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/0965250822?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
     "mlbSummary": "Written for the heart-healthy siblings of a child having open-heart surgery, this interactive story — with a hospital diary and activities — helps an older brother or sister understand and process what's happening.",
@@ -3224,7 +3342,7 @@
       "Anxiety & Coping"
     ],
     "isbn": "978-1604430912",
-    "amazonProductUrl": "https://www.amazon.com/My-Cancer-Days-Courtney-Filigenzi/dp/1604430915/ref=sr_1_1?dib=eyJ2IjoiMSJ9.e45gUr71tHNgNJtYMWYnsA.szUZTT0u1bdW4JeeXrJb382pEZvWgbLWnI-Xu07B2zE&dib_tag=se&keywords=My%2BCancer%2BDays%2BCourtney%2BFiligenzi&qid=1786551596&sr=8-1",
+    "amazonProductUrl": "https://www.amazon.com/dp/1604430915?tag=mightylittle-20",
     "mlbSummary": "A young cancer patient uses color to express the full range of emotions she moves through — happy, sad, scared, angry — reassuring readers that all of those ups and downs are a normal part of treatment.",
     "notes": "Companion title to Let My Colors Out (same author/illustrator team), written from the patient's own perspective rather than a parent's. Verified via Amazon title search, 2026-08-12.",
     "sourceCollections": []
@@ -3254,7 +3372,7 @@
     "ageMax": 7,
     "isbn": null,
     "publicationYear": null,
-    "amazonProductUrl": "https://www.amazon.com/My-Early-Surprise-Bedtime-Preemies-ebook/dp/B08QF64JGT/ref=sr_1_1?dib=eyJ2IjoiMSJ9.0red2wthsVu9VgwcvxB_s3g2TFQ-q2Ta3Vms7pLctqJ-CogyT-3hWp_5-Sk4I4YTIlz_CzX9diiwJiHddheqj7DfmvljV7abHO_aevFTYTKjA1iAkXn2CfFhZgU-8ew-cVKoc8mXBVOqP38TNDlQwDHwhH9NcZLw65_pEK4g-FbLVJRmLNpaQcGBKaAts9YVEe_AipA0xgZGXCJNMI9l8345dgwXjQZ7TTm0ug47040.SNE9Rzo7hp-NLEkB55760bTL9L6rFjKpwG_zx53p4s0&dib_tag=se&keywords=My%2BEarly%2BSurprise%3A%2BA%2BBedtime%2BStory%2BFor%2BPreemies&qid=1786497187&sr=8-1",
+    "amazonProductUrl": "https://www.amazon.com/dp/B08QF64JGT?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
     "mlbSummary": null,
@@ -3335,7 +3453,7 @@
       "Living With a Feeding Tube"
     ],
     "isbn": "1492220132",
-    "amazonProductUrl": "https://www.amazon.com/My-Tubey-Goes-School-Books/dp/1492220132?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/1492220132?tag=mightylittle-20",
     "mlbSummary": "Follows a tube-fed girl heading off to school for the first time, aimed at easing first-day anxiety and showing a child with a feeding tube handling a new environment with confidence.",
     "notes": "Part of the My Tubey series. Verified via Amazon product lookup, 2026-08-12.",
     "sourceCollections": []
@@ -3370,7 +3488,7 @@
       "Living With a Feeding Tube"
     ],
     "isbn": "1460964659",
-    "amazonProductUrl": "https://www.amazon.com/My-Tubey-Day-Life-Tube/dp/1460964659?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/1460964659?tag=mightylittle-20",
     "mlbSummary": "The companion edition to My Tubey, following a young boy through a typical day with his G-tube — the same gentle, rhyming introduction to feeding-tube life, written for boys who want to see themselves in the story.",
     "notes": "Boy edition of My Tubey: A Day in the Life of a Tube Fed Girl. Verified via Amazon product lookup, 2026-08-12.",
     "sourceCollections": []
@@ -3405,7 +3523,7 @@
       "Living With a Feeding Tube"
     ],
     "isbn": "1460923081",
-    "amazonProductUrl": "https://www.amazon.com/My-Tubey-Life-Tube-Girl/dp/1460923081?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/1460923081?tag=mightylittle-20",
     "mlbSummary": "A short, rhyming look at an ordinary day for a young girl with a G-tube, introducing feeding-tube terms like stoma and bolus alongside accurate illustrations of the pump and tubing she uses.",
     "notes": "First book in the My Tubey series; a boy edition and school-themed sequel also exist and are included alongside this one. Verified via Amazon product lookup, 2026-08-12.",
     "sourceCollections": []
@@ -3415,8 +3533,8 @@
     "title": "N is for NICU: An Alphabet Book about the Neonatal Intensive Care Unit",
     "coverImage": "https://m.media-amazon.com/images/I/51scyXOcrpL.jpg",
     "featured": false,
-    "author": null,
-    "illustrator": null,
+    "author": "Alyssa Veech",
+    "illustrator": "Penny Weber",
     "audience": "Children & Families",
     "audienceTags": [
       "Children",
@@ -3431,15 +3549,15 @@
     ],
     "siblingFocus": false,
     "faithBased": false,
-    "ageMin": null,
-    "ageMax": null,
+    "ageMin": 2,
+    "ageMax": 8,
     "isbn": null,
-    "publicationYear": null,
-    "amazonProductUrl": "https://www.amazon.com/NICU-Alphabet-about-Neonatal-Intensive/dp/1791347592/ref=sr_1_1?dib=eyJ2IjoiMSJ9.T67hpl4Ceo2_pRzUTeZA3w.esDGJfToGMCPWtyvVFXi9tJ2VBsldF2kkibBCvWd1Kk&dib_tag=se&keywords=N%2Bis%2Bfor%2BNICU%3A%2BAn%2BAlphabet%2BBook%2Babout%2Bthe%2BNeonatal%2BIntensive%2BCare%2BUnit&qid=1786497202&sr=8-1",
+    "publicationYear": 2023,
+    "amazonProductUrl": "https://www.amazon.com/dp/1791347592?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
-    "mlbSummary": null,
-    "verificationStatus": "Needs metadata verification",
+    "mlbSummary": "An alphabet-style introduction to the neonatal intensive care unit, pairing NICU words and experiences with watercolor illustrations so families can talk through the people, equipment, and routines a child may encounter.",
+    "verificationStatus": "Verified",
     "sourceUrl": "https://www.preemieadventures.com/nicu-books",
     "notes": "Seeded from Preemie Adventures catalog; do not copy source description verbatim.",
     "sourceCollections": [
@@ -3462,7 +3580,7 @@
     "affiliateUrl": null,
     "publisherUrl": "https://kidswithheart.org/product/nathans-special-heart/",
     "retailerName": "Kids With Heart",
-    "verificationStatus": "Ready for website",
+    "verificationStatus": "Hidden - no confirmed Amazon link",
     "sourceUrl": null,
     "slug": "nathans-special-heart",
     "title": "Nathan's Special Heart",
@@ -3507,7 +3625,7 @@
     "ageMax": null,
     "isbn": null,
     "publicationYear": null,
-    "amazonProductUrl": "https://www.amazon.com/NICU-Dad-Strong-Rachel-Bowman/dp/1667875442",
+    "amazonProductUrl": "https://www.amazon.com/dp/1667875442?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
     "mlbSummary": null,
@@ -3550,10 +3668,48 @@
       "Anxiety & Coping"
     ],
     "isbn": "978-1986981347",
-    "amazonProductUrl": "https://www.amazon.com/Nigels-Tube-Mediwonderland-Wendy-Hall/dp/1986981347?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/1986981347?tag=mightylittle-20",
     "mlbSummary": "Walks Nigel through getting his NG tube placed, from the lead-up to the procedure itself, modeling bravery for kids about to have the same tube inserted.",
     "notes": "Part of the Mediwonderland series. Verified via Amazon product lookup, 2026-08-12.",
     "sourceCollections": []
+  },
+  {
+    "featured": false,
+    "audience": "Children & Families",
+    "audienceTags": [
+      "Children",
+      "Families"
+    ],
+    "format": "Storybook",
+    "bookType": "Storybooks",
+    "siblingFocus": true,
+    "faithBased": false,
+    "affiliateUrl": null,
+    "retailerName": null,
+    "verificationStatus": "Verified",
+    "sourceCollections": [
+      "MLB NICU expansion"
+    ],
+    "slug": "no-bigger-than-my-teddy-bear",
+    "title": "No Bigger Than My Teddy Bear",
+    "coverImage": "https://covers.openlibrary.org/b/isbn/9780972846004-L.jpg",
+    "author": "Valerie Pankow",
+    "illustrator": "Gwen Connelly",
+    "ageMin": 3,
+    "ageMax": 7,
+    "isbn": "9780972846004",
+    "publicationYear": 2004,
+    "medicalTopics": [
+      "NICU",
+      "Prematurity",
+      "Sibling Education",
+      "Medical Equipment"
+    ],
+    "amazonProductUrl": "https://www.amazon.com/dp/097284600X?tag=mightylittle-20",
+    "publisherUrl": null,
+    "mlbSummary": "A young boy describes meeting his premature baby brother and the NICU equipment around him, helping siblings prepare for machines, lights, wires, and tubes while focusing on their connection to the new baby.",
+    "sourceUrl": "https://www.platypusmedia.com/resources-for-nicu-families",
+    "notes": "Recommended by multiple NICU and pediatric resources; ISBN and illustrator verified bibliographically."
   },
   {
     "featured": false,
@@ -3585,7 +3741,7 @@
       "Sibling Loss"
     ],
     "isbn": "978-1561230419",
-    "amazonProductUrl": "https://www.amazon.com/No-New-Baby-Siblings-Brother/dp/1561230413?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/1561230413?tag=mightylittle-20",
     "mlbSummary": "Told by a young child whose unborn sibling has died, this book gives a name to the confusing grief and disappointment kids feel when a baby they were expecting to meet doesn't come home.",
     "notes": "Verified via Amazon product lookup, 2026-08-12.",
     "sourceCollections": []
@@ -3614,7 +3770,7 @@
     "ageMax": null,
     "isbn": null,
     "publicationYear": null,
-    "amazonProductUrl": "https://www.amazon.com/Step-Behind-Keith-Douglas-Rossein/dp/B0HBRG1SRP/ref=sr_1_1?dib=eyJ2IjoiMSJ9.hbQFX-7JLzI6xrsho9rNBnMIERObGL4EkZSn_AnKxOnWMij7dDjL-N_sRksEnYnfIrRMFRWunDydAQAArVBHn8wbiDsyrs_zi8rjtskxYoSDIklCMP_pRvu66RQLiIIhBwHsXc7g9XqJSej1-eMN1NiNau6-zSxSSrviPNQWe_BhCKX7mrc38n3l6UyqYWo_ldk63NoZRTqUhnAp1jljtuVYlQNZQcaaR3E4m-lqU5A.n3abJe-Tg0xi5T8MO6wtLgrodZ2vd87UhcMtxnP5wBM&dib_tag=se&keywords=One%2BStep%2BBehind&qid=1786497259&sr=8-1",
+    "amazonProductUrl": "https://www.amazon.com/dp/B0HBRG1SRP?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
     "mlbSummary": null,
@@ -3649,7 +3805,7 @@
     "ageMax": null,
     "isbn": null,
     "publicationYear": null,
-    "amazonProductUrl": "https://www.amazon.com/Oops-Im-Early-Irika-Katiyar/dp/0692171649/ref=sr_1_1?dib=eyJ2IjoiMSJ9.Vjs74VWWvSoKufGjdj-NHdFYc1m7KDVYzhI4XJ34xQ5CjzQPRah-ws260zF79Edr8eHOHTwsj6HvuUlyKW7JLL3zDRXJoXvbvxgCbegzWVavyAEbOnA3nKbzWXQnLz1dm0TzNdkAgJpW1dC_ZFRzfPM5tZozN3Vrz-KIFgq64apR7Ubb2B6Fu3RHEuR6X4pl.gAXeunvSUM4EjNAQPSr6WtI0Y9VRMLyPQ2kJVJCR7c0&dib_tag=se&keywords=Oops%21%2BI%27m%2BEarly&qid=1786497089&sr=8-1",
+    "amazonProductUrl": "https://www.amazon.com/dp/0692171649?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
     "mlbSummary": null,
@@ -3685,7 +3841,7 @@
     "ageMax": 9,
     "isbn": null,
     "publicationYear": null,
-    "amazonProductUrl": "https://www.amazon.com/Baby-NICU-Lindsey-Coker-Luckey/dp/1733289909/ref=sr_1_1?dib=eyJ2IjoiMSJ9.PQdLxQKQzHe79bbD6Algy4CqW_Vl1A21Qkcqi4FwaYrbJhIf4g7bIugQg6QV50MtvEreETi3fOluVfLF-pWmOq1sDKmSUiLNxFi-vBm6ryCDzm0Z5roDx2fOrhkBkjXFCb8j3H0To_sv-vpNRvpdmTHA7dUhfW6YjU0TsUseNgl8193joax5ZzGU5NihyDpLiVR_fmnnqGlit9DYcpJ3PvnR_Zu5s812m7cd5ON3oEgtpiJkNgx-GmI49teRGszFVdBkXmdPV2HDXHBLFbyE_R2C_bJ7tRZPI-s5l9HhMrg.X0kgqpHeQCYGZE9_Xx-mr0pZSEGCpqjio8OK5YLTg3Q&dib_tag=se&keywords=Our%2BNew%2BBaby%2Bis%2Bin%2BThe%2BNICU&qid=1786497083&sr=8-1",
+    "amazonProductUrl": "https://www.amazon.com/dp/1733289909?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
     "mlbSummary": null,
@@ -3719,7 +3875,7 @@
     "ageMax": null,
     "isbn": null,
     "publicationYear": null,
-    "amazonProductUrl": "https://www.amazon.com/Our-NICU-Journey-Keepsake-Miracles/dp/B09LGNPBPV/ref=sr_1_1?dib=eyJ2IjoiMSJ9.nf2Fmvtwuiuy0yUliR6GMw.ZziKe3cKYe8a_8285wlraUrsHZFSxUofKzcUrW9oI5E&dib_tag=se&keywords=Our%2BNICU%2BJourney%3A%2BThe%2BTiny%2BKeepsake%2Bfor%2BMiracles&qid=1786497277&sr=8-1",
+    "amazonProductUrl": "https://www.amazon.com/dp/B09LGNPBPV?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
     "mlbSummary": null,
@@ -3754,7 +3910,7 @@
     "ageMax": 9,
     "isbn": null,
     "publicationYear": null,
-    "amazonProductUrl": "https://www.amazon.com/Our-Preemie-Adventure-Adam-Wood-ebook/dp/B0971QHS65/ref=sr_1_1?dib=eyJ2IjoiMSJ9.vqCcSGR4sCgZ3fh8VHfhLEjrsCFbaNPGR-dRr6pTH4NUpBQlPREMypwpyI6b2wBOU6OKzJYd8KtTNECDD6O07PfC6257oQrNRP_0q7lP8-Yl4-p2NDUYbL3xW0pPKTAjuR1hxkfno8e8rnrg_Fv_mZu2MQV-uDjERskCdvn2Cr1Acef3hjSPOC293TfDKu3Gz69Atg1-dDdq4G1Gk0GIdrmxyw9RxgTX9Cbl-7DHfXI.Jht28glUbXao4QBUXoWdASHCpFVev0hKQlxY1xIbcLk&dib_tag=se&keywords=Our%2BPreemie%2BAdventure&qid=1786497007&sr=8-1",
+    "amazonProductUrl": "https://www.amazon.com/dp/B0971QHS65?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
     "mlbSummary": null,
@@ -3770,8 +3926,8 @@
     "title": "Our Respiratory Adventure: A NICU Story",
     "coverImage": "https://m.media-amazon.com/images/I/81Ahe06PNYL.jpg",
     "featured": true,
-    "author": null,
-    "illustrator": null,
+    "author": "Dr. Prem Fort and Adam Wood",
+    "illustrator": "Seniya Golubeva",
     "audience": "Children & Families",
     "audienceTags": [
       "Children",
@@ -3790,17 +3946,18 @@
     "faithBased": false,
     "ageMin": 0,
     "ageMax": 6,
-    "isbn": null,
-    "publicationYear": null,
-    "amazonProductUrl": "https://www.amazon.com/Our-Respiratory-Adventure-NICU-Story/dp/1039150624/ref=sr_1_1?dib=eyJ2IjoiMSJ9.3QwF8zTX2u3CtVD4VSqyzg.whJ34fPtruCaZGw8YYVFaskIUCNI3KqXRQ-Vexs0BtQ&dib_tag=se&keywords=Our%2BRespiratory%2BAdventure%3A%2BA%2BNICU%2BStory&qid=1786497016&sr=8-1",
+    "isbn": "9781039150614",
+    "publicationYear": 2022,
+    "amazonProductUrl": "https://www.amazon.com/dp/1039150616?tag=mightylittle-20",
     "affiliateUrl": null,
-    "publisherUrl": null,
-    "mlbSummary": null,
-    "verificationStatus": "Needs metadata verification",
+    "publisherUrl": "https://books.friesenpress.com/store/title/119734000248536207/Dr.-Prem-Fort-and-Adam-Wood-Our-Respiratory-Adventure",
+    "mlbSummary": "Written by a neonatologist and a micro-preemie dad, this illustrated NICU story introduces common breathing support and respiratory equipment through the experiences of premature babies and their families.",
+    "verificationStatus": "Verified",
     "sourceUrl": "https://www.preemieadventures.com/nicu-books",
     "notes": "Seeded from Preemie Adventures catalog; do not copy source description verbatim.",
     "sourceCollections": [
-      "Preemie Adventures catalog research"
+      "Preemie Adventures catalog research",
+      "MLB respiratory expansion"
     ]
   },
   {
@@ -3808,7 +3965,7 @@
     "title": "P is for Preemie",
     "coverImage": "https://m.media-amazon.com/images/I/81Yi91y-XNL.jpg",
     "featured": false,
-    "author": null,
+    "author": "Terri Major-Kincade, MD",
     "illustrator": null,
     "audience": "Children & Families",
     "audienceTags": [
@@ -3828,11 +3985,11 @@
     "ageMax": 6,
     "isbn": null,
     "publicationYear": null,
-    "amazonProductUrl": "https://www.amazon.com/P-Preemie-Dr-Terri-Major-Kincade/dp/B0BLJD3P9R",
+    "amazonProductUrl": "https://www.amazon.com/dp/B0BLJD3P9R?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
-    "mlbSummary": null,
-    "verificationStatus": "Needs metadata verification",
+    "mlbSummary": "A child-friendly preemie story from neonatologist Terri Major-Kincade that helps families introduce premature birth and the NICU in reassuring language for young readers.",
+    "verificationStatus": "Verified",
     "sourceUrl": "https://www.preemieadventures.com/nicu-books",
     "notes": "Seeded from Preemie Adventures catalog; do not copy source description verbatim.",
     "sourceCollections": [
@@ -3855,7 +4012,7 @@
     "affiliateUrl": null,
     "publisherUrl": "https://patchtheheartlion.com/buy-book-now-international-customers/",
     "retailerName": "Patch the Heart Lion Foundation",
-    "verificationStatus": "Ready for website",
+    "verificationStatus": "Hidden - no confirmed Amazon link",
     "sourceUrl": null,
     "slug": "patch-the-brave-heart-lion",
     "title": "Patch: The Brave Heart Lion",
@@ -3900,7 +4057,7 @@
     "ageMax": null,
     "isbn": null,
     "publicationYear": null,
-    "amazonProductUrl": "https://www.amazon.com/Peanut-storybook-mighty-preemie-babies/dp/0578169207/ref=sr_1_1?dib=eyJ2IjoiMSJ9.EcaSiXNRA52A9ZDwjB8oAfPkBWkWmgdl3aryAa7sYFzpKB5bXRrdiwQrbf2doNRcIFZi4_nqJI1muVmH1d96xnfklHJlEQImpjh_9Nn_Kc4.2cxvZ260VAPTMEFipeKYrZOmaPRXXiYlr6I4sC9IJqI&dib_tag=se&keywords=Peanut%3A%2BA%2BStorybook%2Bfor%2BMighty%2BPreemie%2BBabies&qid=1786497133&sr=8-1",
+    "amazonProductUrl": "https://www.amazon.com/dp/0578169207?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
     "mlbSummary": null,
@@ -3972,7 +4129,7 @@
     "ageMax": null,
     "isbn": "978-1999044305",
     "publicationYear": 2019,
-    "amazonProductUrl": "https://www.amazon.com/Preemie-Care-Guide-Navigating-Premature/dp/1999044304?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/1999044304?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
     "mlbSummary": "Written by two neonatal nurse specialists, this guide draws on decades of NICU experience to walk families through their premature baby's first year, in and out of the hospital.",
@@ -4007,7 +4164,7 @@
     "ageMax": null,
     "isbn": "978-1578264247",
     "publicationYear": 2012,
-    "amazonProductUrl": "https://www.amazon.com/Preemie-Lessons-Love-Life-Motherhood-ebook/dp/B007B2FMLM/ref=sr_1_1?dib=eyJ2IjoiMSJ9.MCfDxa5woQVWSd1YGVtsaVpSAgLrkoju7u-PUrrs-1Gq_V6OhjNlUIRGIKDHg3yU8acGJIA8lIm3yJ5Jw9B5-l4fhZFGlXv2YsLc5rruArvy4FG5OhyUmyRdBiKRwjJaswo4GKEXVUNXksls4bSlI2NDNK7Z-Qc2kjfZGr8E0QIV8x2Aun1nmvGQ96THCRnOM-fWT9CbGio9xJGh6hO-sgvyk6qrrXAMeJMCItdqSk0.0vavFrIzAmvJRJIKMn6KgjKGCx7EFJH7M5NP7C-IHBU&dib_tag=se&keywords=Preemie%3A%2BLessons%2Bin%2BLove%2C%2BLife%2Band%2BMotherhood&qid=1786497282&sr=8-1",
+    "amazonProductUrl": "https://www.amazon.com/dp/B007B2FMLM?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
     "mlbSummary": "A mother's honest memoir of her daughter's premature birth, and the strength she found in the middle of one of life's hardest challenges.",
@@ -4048,7 +4205,7 @@
       "Medical Education"
     ],
     "isbn": "978-1416572329",
-    "amazonProductUrl": "https://www.amazon.com/Preemies-Second-Essential-Parents-Premature/dp/1416572325?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/1416572325?tag=mightylittle-20",
     "mlbSummary": "A comprehensive, question-and-answer style reference covering every stage from high-risk pregnancy through the NICU to the preschool years, written by two \"been there\" parents alongside a neonatologist.",
     "notes": "4.7★ from 447 ratings. Verified via Amazon product lookup, 2026-08-12.",
     "sourceCollections": []
@@ -4076,7 +4233,7 @@
     "ageMax": null,
     "isbn": null,
     "publicationYear": null,
-    "amazonProductUrl": "https://www.amazon.com/Prematurity-Parenthood-Poetry-within-NICU-ebook/dp/B0BW9LP6FX/ref=sr_1_1?dib=eyJ2IjoiMSJ9.j5ZwApeqy2GJzqt2Qp-tTwGsSr5qCmE0bQSEOisy6w0.uHaTzOwiD76r7yYYoPwW7FpZx8wQ3r_VLiS77zaUqls&dib_tag=se&keywords=Prematurity%2Band%2BParenthood%3A%2BPoetry%2Bfrom%2Bwithin%2Bthe%2BNICU&qid=1786497198&sr=8-1",
+    "amazonProductUrl": "https://www.amazon.com/dp/B0BW9LP6FX?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
     "mlbSummary": null,
@@ -4085,6 +4242,46 @@
     "notes": "Seeded from Preemie Adventures catalog; do not copy source description verbatim.",
     "sourceCollections": [
       "Preemie Adventures catalog research"
+    ]
+  },
+  {
+    "slug": "prince-preemie",
+    "title": "Prince Preemie: A Tale of a Tiny Puppy Who Arrives Early",
+    "coverImage": "https://covers.openlibrary.org/b/isbn/9781615993062-L.jpg",
+    "featured": false,
+    "author": "Jewel Kats",
+    "illustrator": "Claudia Marie Lenart",
+    "audience": "Children & Families",
+    "audienceTags": [
+      "Children",
+      "Families",
+      "Siblings"
+    ],
+    "format": "Storybook",
+    "bookType": "Storybooks",
+    "medicalTopics": [
+      "NICU",
+      "Prematurity",
+      "Coping & Feelings",
+      "Courage & Resilience"
+    ],
+    "siblingFocus": false,
+    "faithBased": false,
+    "ageMin": 4,
+    "ageMax": 8,
+    "isbn": "9781615993062",
+    "publicationYear": 2016,
+    "amazonProductUrl": "https://www.amazon.com/dp/1615993061?tag=mightylittle-20",
+    "affiliateUrl": null,
+    "publisherUrl": "https://www.jewelkats.com/",
+    "retailerName": null,
+    "mlbSummary": "A fairy-tale story about a tiny puppy prince who arrives before anyone expected. The metaphor gives young children a gentle way to begin talking about premature birth, the worry that can surround an early arrival, and the strength of babies who start life small.",
+    "verificationStatus": "Verified",
+    "sourceUrl": "https://www.jewelkats.com/wp-content/uploads/2014/06/JewelKats_2017_cat.pdf",
+    "notes": "Author catalog confirms author, illustrator, paperback ISBN, 2016 publication, 32 pages, and ages 4-7. Recommended by Hand to Hold.",
+    "sourceCollections": [
+      "MLB NICU expansion",
+      "Hand to Hold recommended books"
     ]
   },
   {
@@ -4155,7 +4352,7 @@
       "Inclusion"
     ],
     "isbn": "1492212288",
-    "amazonProductUrl": "https://www.amazon.com/Real-Kids-Tubes-Tubey-Photograph/dp/1492212288?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/1492212288?tag=mightylittle-20",
     "mlbSummary": "A photo book of real children with feeding tubes — playing, dancing, and doing everyday kid things — for tube-fed readers who want to see themselves reflected, not just illustrated.",
     "notes": "Compiled by Rhiannon Merritt-Rubadue (My Tubey series); over 100 photographs of real tube-fed kids from infancy through the teen years. Verified via Amazon product lookup, 2026-08-12.",
     "sourceCollections": []
@@ -4184,7 +4381,7 @@
     "ageMax": 8,
     "isbn": "9780870293214",
     "publicationYear": 1998,
-    "amazonProductUrl": "https://www.amazon.com/dp/0870293214",
+    "amazonProductUrl": "https://www.amazon.com/dp/0870293214?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
     "mlbSummary": "A child-friendly grief guide that normalizes sadness and other feelings after a loss while offering reassurance and coping ideas.",
@@ -4219,7 +4416,7 @@
     "ageMax": null,
     "isbn": null,
     "publicationYear": null,
-    "amazonProductUrl": "https://www.amazon.com/Sammie-Salmon-Debra-Kline/dp/B08849FFG4",
+    "amazonProductUrl": "https://www.amazon.com/dp/B08849FFG4?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
     "mlbSummary": null,
@@ -4270,7 +4467,7 @@
     "title": "Sea Otter Cove",
     "coverImage": "https://prodimage.images-bn.com/pimages/9780978778187_p0_v3_s600x595.jpg",
     "featured": false,
-    "author": null,
+    "author": "Lori Lite",
     "illustrator": null,
     "audience": "Children & Families",
     "audienceTags": [
@@ -4288,11 +4485,11 @@
     "ageMax": 9,
     "isbn": null,
     "publicationYear": null,
-    "amazonProductUrl": "https://www.amazon.com/Sea-Otter-Cove-Introducing-relaxation/dp/1937985083/",
+    "amazonProductUrl": "https://www.amazon.com/dp/1937985083?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
-    "mlbSummary": null,
-    "verificationStatus": "Needs metadata verification",
+    "mlbSummary": "A slow, sea-paced story that teaches diaphragmatic breathing — the kind that actually lowers a racing heart. Useful before procedures, at bedtime, or any time a child needs to come back down.",
+    "verificationStatus": "Ready for website",
     "sourceUrl": "https://www.chop.edu/health-resource/recommended-childrens-books",
     "notes": "Seeded from CHOP Recommended Children's Books resource list; do not copy source description verbatim.",
     "sourceCollections": [
@@ -4323,7 +4520,7 @@
     "ageMax": null,
     "isbn": null,
     "publicationYear": null,
-    "amazonProductUrl": "https://www.amazon.com/Small-But-Mighty-Alyssa-Veech/dp/1791393519/ref=sr_1_2?dib=eyJ2IjoiMSJ9.pmRYEuZ9_fHzspoKznTngNjBzEdpiDyqIim9M1wgcKLJjAI_m8ADDzYZQTnsWG6KLGw8jw90AzWyydFuhjK60YkePa0b7Ly4he9FyYp8KBflWRIZTqTar85Gkl4MFAkUMZzC4GDU5mI85gmHeqFpoxPToxF9CgWnRrUwTbuY2URqD5DArpkd1MXe-D0LNo_wel2uHh5Cbwtik8lnHfqU2LWKkjaxGU4dXxL2J4Bhki-YLAbIw_E1UHE7vnxg60wWza2Q0qn-KpgGgRQql2dKPwmiC0hrJXFolVpZG1w4jq0.UNBDTe8P6-DsVIV47Kg8avihyIgFb6FjZ5h7SMubY9A&dib_tag=se&keywords=Small%2BBut%2BMighty&qid=1786497044&sr=8-2",
+    "amazonProductUrl": "https://www.amazon.com/dp/1791393519?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
     "mlbSummary": null,
@@ -4332,6 +4529,46 @@
     "notes": "Seeded from Preemie Adventures catalog; do not copy source description verbatim.",
     "sourceCollections": [
       "Preemie Adventures catalog research"
+    ]
+  },
+  {
+    "slug": "small-but-strong-nicu-families",
+    "title": "Small But Strong: A Story for NICU Families",
+    "coverImage": "https://m.media-amazon.com/images/I/41BoSnZmGcL.jpg",
+    "featured": false,
+    "author": "Deidre Grieves",
+    "illustrator": "Kseniia Kudriavtseva",
+    "audience": "Children & Families",
+    "audienceTags": [
+      "Children",
+      "Families",
+      "Parents"
+    ],
+    "format": "Storybook",
+    "bookType": "Storybooks",
+    "medicalTopics": [
+      "NICU",
+      "Prematurity",
+      "NICU Milestones",
+      "Courage & Resilience"
+    ],
+    "siblingFocus": false,
+    "faithBased": false,
+    "ageMin": 2,
+    "ageMax": 8,
+    "isbn": "9798988120810",
+    "publicationYear": 2023,
+    "amazonProductUrl": "https://www.amazon.com/dp/B0C1J5GT44?tag=mightylittle-20",
+    "affiliateUrl": null,
+    "publisherUrl": null,
+    "retailerName": null,
+    "mlbSummary": "A hopeful illustrated story following diverse NICU families through the highs and lows of prematurity, celebrating perseverance, connection, and the small milestones that can mean so much during a neonatal intensive care stay.",
+    "verificationStatus": "Verified",
+    "sourceUrl": "https://books.google.com/books/about/Small_But_Strong.html?id=_NjNzwEACAAJ",
+    "notes": "Google Books confirms author, illustrator, publisher, ISBN, 2023 publication, and 34-page format. Also listed by the Illinois Early Intervention Clearinghouse as a children’s NICU resource.",
+    "sourceCollections": [
+      "MLB NICU expansion",
+      "Illinois Early Intervention Clearinghouse"
     ]
   },
   {
@@ -4364,7 +4601,7 @@
       "Rainbow Baby"
     ],
     "isbn": "978-0972424158",
-    "amazonProductUrl": "https://www.amazon.com/Someone-Came-Before-You-Schwiebert/dp/0972424156?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/0972424156?tag=mightylittle-20",
     "mlbSummary": "Written specifically for a \"rainbow baby\" — a child born after a loss — this book gently explains their parents' earlier grief and how it helped shape the family's wish for them.",
     "notes": "A companion piece to the family's experience rather than the sibling-loss books above — written for the child who came after. Verified via Amazon product lookup, 2026-08-12.",
     "sourceCollections": []
@@ -4399,7 +4636,7 @@
       "Infant Loss"
     ],
     "isbn": "978-0980198713",
-    "amazonProductUrl": "https://www.amazon.com/Something-Happened-Children-Experienced-Pregnancy/dp/0980198712?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/0980198712?tag=mightylittle-20",
     "mlbSummary": "Written to be read together, this book helps a young child understand a pregnancy loss — naming the sadness, the confusing feelings, and the fears — while reassuring them that the family's love for them continues.",
     "notes": "Includes boxed notes for parents on most pages. Verified via Amazon product lookup, 2026-08-12.",
     "sourceCollections": []
@@ -4469,7 +4706,7 @@
     "ageMax": null,
     "isbn": null,
     "publicationYear": null,
-    "amazonProductUrl": "https://www.amazon.com/Soon-Jessica-Watson/dp/0990982505",
+    "amazonProductUrl": "https://www.amazon.com/dp/0990982505?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
     "mlbSummary": null,
@@ -4550,7 +4787,7 @@
       "Courage & Resilience"
     ],
     "isbn": "9798452838784",
-    "amazonProductUrl": "https://www.amazon.com/Super-Scar-Melanie-Tucker/dp/B09CG5RBXM/ref=sr_1_1?dib=eyJ2IjoiMSJ9.zaDuQjdbMEYa9ztas599yg.hEo91wXMOSf9z-KU3JxsQOVZEiIgsYTCBEhbzHtaYBg&dib_tag=se&keywords=Super%2BScar%2BMelanie%2BTucker&qid=1786549451&sr=8-1",
+    "amazonProductUrl": "https://www.amazon.com/dp/B09CG5RBXM?tag=mightylittle-20",
     "mlbSummary": "Centers on a boy's confidence-building journey after open-heart surgery, focusing on how he comes to see his surgical scar as part of his strength rather than something to hide.",
     "notes": "Verified via Amazon title search, 2026-08-12 (matched top result, 4.6★/117 ratings). ~22 pages.",
     "sourceCollections": []
@@ -4580,7 +4817,7 @@
     "ageMax": 8,
     "isbn": null,
     "publicationYear": null,
-    "amazonProductUrl": "https://www.amazon.com/Supreemie-Kylos-Journey-through-NICU-ebook/dp/B08HHQFJ8F/ref=sr_1_1?dib=eyJ2IjoiMSJ9.UpyD2P2kYTQVdwever7fVA.x27Iig4vKxlqbTvPHaZHr4WFI8ozEsAJwCrNLiDfraE&dib_tag=se&keywords=Supreemie%3A%2BKylo%27s%2BJourney%2Bthrough%2Bthe%2BNICU&qid=1786497168&sr=8-1",
+    "amazonProductUrl": "https://www.amazon.com/dp/B08HHQFJ8F?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
     "mlbSummary": null,
@@ -4589,6 +4826,45 @@
     "notes": "Seeded from Preemie Adventures catalog; do not copy source description verbatim.",
     "sourceCollections": [
       "Preemie Adventures catalog research"
+    ]
+  },
+  {
+    "slug": "taking-asthma-to-school",
+    "title": "Taking Asthma to School",
+    "coverImage": "https://covers.openlibrary.org/b/isbn/9781891383014-L.jpg",
+    "featured": false,
+    "author": "Kim Gosselin",
+    "illustrator": "Moss Freedman",
+    "audience": "Children & Families",
+    "audienceTags": [
+      "Children",
+      "Families"
+    ],
+    "format": "Storybook",
+    "bookType": "Educational",
+    "medicalTopics": [
+      "Respiratory",
+      "Asthma",
+      "Inhaler",
+      "Chronic Illness",
+      "School & Friends"
+    ],
+    "siblingFocus": false,
+    "faithBased": false,
+    "ageMin": 5,
+    "ageMax": 10,
+    "isbn": "9781891383014",
+    "publicationYear": 1998,
+    "amazonProductUrl": "https://www.amazon.com/dp/1891383019?tag=mightylittle-20",
+    "affiliateUrl": null,
+    "publisherUrl": null,
+    "retailerName": null,
+    "mlbSummary": "A school-age child explains what asthma feels like, what can trigger an attack, and how medicine and an asthma plan help keep symptoms under control, while classmates learn why a friend may need different routines.",
+    "verificationStatus": "Verified",
+    "sourceUrl": "https://openlibrary.org/books/OL711423M/Taking_asthma_to_school",
+    "notes": "Second edition metadata verified through Open Library and Google Books.",
+    "sourceCollections": [
+      "MLB respiratory expansion"
     ]
   },
   {
@@ -4622,10 +4898,49 @@
       "Inclusion"
     ],
     "isbn": "978-1891383113",
-    "amazonProductUrl": "https://www.amazon.com/Taking-Cancer-School-Special-Kids/dp/1891383116?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/1891383116?tag=mightylittle-20",
     "mlbSummary": "Part of the \"Special Kids in School\" series, this book helps a classroom understand what a classmate with cancer is going through — hospital stays, treatment, hair loss — and how to stay a real friend through it.",
     "notes": "Written with Cynthia S. Henry. Verified via Amazon title search, 2026-08-12.",
     "sourceCollections": []
+  },
+  {
+    "slug": "taking-cystic-fibrosis-to-school",
+    "title": "Taking Cystic Fibrosis to School",
+    "coverImage": "https://covers.openlibrary.org/b/isbn/9781891383090-L.jpg",
+    "featured": false,
+    "author": "Cynthia S. Henry",
+    "illustrator": "Tom Dineen",
+    "audience": "Children & Families",
+    "audienceTags": [
+      "Children",
+      "Families"
+    ],
+    "format": "Storybook",
+    "bookType": "Educational",
+    "medicalTopics": [
+      "Respiratory",
+      "Cystic Fibrosis",
+      "Genetics",
+      "Chronic Illness",
+      "School & Friends"
+    ],
+    "siblingFocus": false,
+    "faithBased": false,
+    "ageMin": 4,
+    "ageMax": 8,
+    "isbn": "9781891383090",
+    "publicationYear": 2000,
+    "amazonProductUrl": null,
+    "affiliateUrl": null,
+    "publisherUrl": "https://www.at-risk.com/products/taking-cystic-fibrosis-to-school-book",
+    "retailerName": "The Bureau for At-Risk Youth",
+    "mlbSummary": "Jessie explains everyday life with cystic fibrosis to classmates, helping children understand why someone with CF may need treatments, medicines, and different routines while still participating in ordinary school life.",
+    "verificationStatus": "Hidden - no confirmed Amazon link",
+    "sourceUrl": "https://www.at-risk.com/products/taking-cystic-fibrosis-to-school-book",
+    "notes": "Recommended by Dartmouth Health Children’s; current retailer listing confirms author, illustrator, grade range, and 32-page format.",
+    "sourceCollections": [
+      "MLB respiratory expansion"
+    ]
   },
   {
     "featured": false,
@@ -4659,10 +4974,88 @@
       "Courage & Resilience"
     ],
     "isbn": "9781092337625",
-    "amazonProductUrl": "https://www.amazon.com/abilities-Congenital-heart-defect/dp/1092337628?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/1092337628?tag=mightylittle-20",
     "mlbSummary": "Follows a young girl living day-to-day with a congenital heart defect, framing her diagnosis as one part of who she is rather than a limitation — written to help both CHD patients and their classmates understand and include her.",
     "notes": "Part of a 20+ title \"Abilities in Me\" series covering different conditions and disabilities. Verified via Amazon product lookup, 2026-08-12.",
     "sourceCollections": []
+  },
+  {
+    "slug": "the-abilities-in-me-cystic-fibrosis",
+    "title": "The Abilities in Me: Cystic Fibrosis",
+    "coverImage": "https://covers.openlibrary.org/b/isbn/9781739546052-L.jpg",
+    "featured": false,
+    "author": "Gemma Keir",
+    "illustrator": "Yevheniia Lisovaya",
+    "audience": "Children & Families",
+    "audienceTags": [
+      "Children",
+      "Families"
+    ],
+    "format": "Storybook",
+    "bookType": "Storybooks",
+    "medicalTopics": [
+      "Respiratory",
+      "Cystic Fibrosis",
+      "Genetics",
+      "Chronic Illness",
+      "Inclusion"
+    ],
+    "siblingFocus": false,
+    "faithBased": false,
+    "ageMin": 3,
+    "ageMax": 8,
+    "isbn": "9781739546052",
+    "publicationYear": 2023,
+    "amazonProductUrl": null,
+    "affiliateUrl": null,
+    "publisherUrl": "https://theabilitiesinme.com/the-book-titles",
+    "retailerName": null,
+    "mlbSummary": "A rhyming picture book following a young girl with cystic fibrosis through everyday life and treatments, showing how family support, routines, and medical care fit alongside the rest of childhood.",
+    "verificationStatus": "Hidden - no confirmed Amazon link",
+    "sourceUrl": "https://books.google.com/books/about/The_Abilities_in_Me.html?id=tajY0AEACAAJ",
+    "notes": "Bibliographic details verified through Google Books and the official Abilities in Me title list.",
+    "sourceCollections": [
+      "MLB respiratory expansion"
+    ]
+  },
+  {
+    "slug": "the-abilities-in-me-tracheostomy",
+    "title": "The Abilities in Me: Tracheostomy",
+    "coverImage": "https://covers.openlibrary.org/b/isbn/9798674992721-L.jpg",
+    "featured": false,
+    "author": "Gemma Keir",
+    "illustrator": "Adam Walker-Parker",
+    "audience": "Children & Families",
+    "audienceTags": [
+      "Children",
+      "Families"
+    ],
+    "format": "Storybook",
+    "bookType": "Storybooks",
+    "medicalTopics": [
+      "Respiratory",
+      "Tracheostomy",
+      "Medical Equipment",
+      "Inclusion",
+      "Living With a Trach"
+    ],
+    "siblingFocus": false,
+    "faithBased": false,
+    "ageMin": 3,
+    "ageMax": 8,
+    "isbn": "9798674992721",
+    "publicationYear": 2020,
+    "amazonProductUrl": "https://www.amazon.com/s?k=9798674992721",
+    "affiliateUrl": null,
+    "publisherUrl": "https://theabilitiesinme.com/the-book-titles",
+    "retailerName": null,
+    "mlbSummary": "A bright day-in-the-life story about a young boy with a tracheostomy, created to help children understand the device, build acceptance, and see a trach as one part of an active child’s everyday life.",
+    "verificationStatus": "Hidden - no confirmed Amazon link",
+    "sourceUrl": "https://books.google.com/books/about/The_Abilities_in_Me.html?id=orsdzgEACAAJ",
+    "notes": "Bibliographic details verified through Google Books and the official Abilities in Me title list.",
+    "sourceCollections": [
+      "MLB respiratory expansion"
+    ]
   },
   {
     "featured": false,
@@ -4696,7 +5089,7 @@
       "Inclusion"
     ],
     "isbn": "979-8674990642",
-    "amazonProductUrl": "https://www.amazon.com/abilities-me-Tube-Feeding/dp/B08FP5NV98?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/B08FP5NV98?tag=mightylittle-20",
     "mlbSummary": "Follows a young girl sharing her story of being tube-fed, walking through the different nasal and gastric tubes she's used, with room for readers to write and draw about their own abilities.",
     "notes": "Same \"Abilities in Me\" series as The Abilities in Me: Congenital Heart Defect, already in the Cardiac section. Verified via Amazon product lookup, 2026-08-12.",
     "sourceCollections": []
@@ -4732,7 +5125,7 @@
       "Courage & Resilience"
     ],
     "isbn": "978-1592987467",
-    "amazonProductUrl": "https://www.amazon.com/Adventures-Team-Super-Tubie/dp/159298746X?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/159298746X?tag=mightylittle-20",
     "mlbSummary": "A superhero adventure starring three \"Super Tubies\" — with a G-tube, an NG-tube, and TPN — who use their feeding-tube powers to save the day, giving kids with different tube types a hero to see themselves in.",
     "notes": "Represents multiple feeding methods (G-tube, NG-tube, and TPN) in one story. Amazon listing showed as currently unavailable/out of stock at verification time, 2026-08-12 (not delisted) — reconfirm stock before promoting heavily; also distributed as a free resource via feedingmatters.org.",
     "sourceCollections": []
@@ -4809,7 +5202,7 @@
       "Recovery"
     ],
     "isbn": "9781444913095",
-    "amazonProductUrl": "https://www.amazon.com/Big-Hearted-Book-Nicholas-Allan/dp/1444913093?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/1444913093?tag=mightylittle-20",
     "mlbSummary": "Follows two close friends separated when one falls ill and needs treatment for her heart, exploring how their connection holds even through hospitalization and time apart.",
     "notes": "Written in partnership with the International Children's Heart Foundation. No death or religious content. Verified via Amazon product lookup, 2026-08-12.",
     "sourceCollections": []
@@ -4881,7 +5274,7 @@
       "Anxiety & Coping"
     ],
     "isbn": "978-1468198751",
-    "amazonProductUrl": "https://www.amazon.com/Day-Got-My-NG-Tube/dp/1468198750?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/1468198750?tag=mightylittle-20",
     "mlbSummary": "A plainspoken, step-by-step look at getting an NG tube, written by a child patient herself so young readers can hear what to expect from someone who's been through it.",
     "notes": "Publisher-stated reading age 7-9 (grade 2-3). Amazon's author bio states Mya Lin Terry wrote this at age 9 as a pediatric cancer patient; a 2013 obituary confirms she later passed away. The book itself is a plain NG-tube explainer, not framed around bereavement, but noting the background in case sensitive handling is wanted. Verified via Amazon product lookup, 2026-08-12.",
     "sourceCollections": []
@@ -4910,7 +5303,7 @@
     "ageMax": 9,
     "isbn": "9780805010640",
     "publicationYear": 1982,
-    "amazonProductUrl": "https://www.amazon.com/dp/0805010645",
+    "amazonProductUrl": "https://www.amazon.com/dp/0805010645?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
     "mlbSummary": "Freddie the leaf experiences the changing seasons in an allegorical story that gives families a gentle way to talk about life, change, and death.",
@@ -4953,7 +5346,7 @@
       "Surgery Preparation"
     ],
     "isbn": "978-0955578755",
-    "amazonProductUrl": "https://www.amazon.com/famous-hat-Special-Stories/dp/0955578752?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/0955578752?tag=mightylittle-20",
     "mlbSummary": "Part of the \"Special Stories\" series, this book walks a child through what to expect from chemotherapy treatment and hair loss before it happens, using a favorite hat as a comforting, familiar thread through the story.",
     "notes": "Verified via Amazon product lookup, 2026-08-12.",
     "sourceCollections": []
@@ -4987,7 +5380,7 @@
       "Anxiety & Coping"
     ],
     "isbn": "978-0316404976",
-    "amazonProductUrl": "https://www.amazon.com/Goodbye-Book-Todd-Parr/dp/0316404977?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/0316404977?tag=mightylittle-20",
     "mlbSummary": "Told through the eyes of a pet fish who has lost his companion, this simple, brightly illustrated book gives very young children permission not to have all the answers about loss — and reassures them someone will always be there.",
     "notes": "A gentler, younger-skewing entry point into the topic than the rest of this section. Verified via Amazon product lookup, 2026-08-12.",
     "sourceCollections": []
@@ -5019,7 +5412,7 @@
     "ageMax": 9,
     "isbn": "9781937985004",
     "publicationYear": 2021,
-    "amazonProductUrl": "https://www.amazon.com/dp/1937985008",
+    "amazonProductUrl": "https://www.amazon.com/dp/1937985008?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
     "mlbSummary": "A calming story that introduces relaxation and breathing techniques to help young children settle their bodies, reduce stress, and prepare for sleep.",
@@ -5059,7 +5452,7 @@
       "Anxiety & Coping"
     ],
     "isbn": "978-0316486231",
-    "amazonProductUrl": "https://www.amazon.com/Invisible-String-Patrice-Karst/dp/031648623X?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/031648623X?tag=mightylittle-20",
     "mlbSummary": "Introduces the idea of an \"invisible string\" of love that connects people no matter the distance between them — including the distance of death — a widely used comfort for separation and loss of any kind.",
     "notes": "One of the most widely recommended children's books for grief and separation anxiety; a full series has followed. Verified via Amazon product lookup, 2026-08-12.",
     "hasSpanishEdition": true,
@@ -5162,7 +5555,7 @@
     "ageMax": null,
     "isbn": null,
     "publicationYear": null,
-    "amazonProductUrl": "https://www.amazon.com/Littlest-Peanut-Milestone-Babybook-Preemies/dp/1612540236/ref=sr_1_1?dib=eyJ2IjoiMSJ9.7VAuTbVNfEhdSRDHxGNVIYNP_7N1tqFg4pIbP55ZvxPht7_92E3JAwb4VNgxP026wFmoTHfEseUjGTtO_hSpYXR21fBswMUhHTGk0l7Lv2A.3POuUv40gcLDCdw7X5ywsY_BhoNYGQBtmDXX3j93exA&dib_tag=se&keywords=The%2BLittlest%2BPeanut&qid=1786497076&sr=8-1",
+    "amazonProductUrl": "https://www.amazon.com/dp/1612540236?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
     "mlbSummary": null,
@@ -5197,7 +5590,7 @@
     "ageMax": null,
     "isbn": null,
     "publicationYear": null,
-    "amazonProductUrl": "https://www.amazon.com/Littlest-Penguin-NICU-Story-ebook/dp/B0FP9QW127/ref=sr_1_1?dib=eyJ2IjoiMSJ9.js91uNXB0ZtkoqjrAcYIJiv5E4AJ0n6VOY6EMekkqmXtt8eZZnLhHsqlTJuIB1qLGPqArOe-4iNM6VUYEnXl_w.3uxNIlhhSBvSgzbIO_K3tjYLvb7dlwfVZFVZvbEQo1g&dib_tag=se&keywords=The%2BLittlest%2BPenguin%3A%2BA%2BNICU%2BStory&qid=1786497253&sr=8-1",
+    "amazonProductUrl": "https://www.amazon.com/dp/B0FP9QW127?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
     "mlbSummary": null,
@@ -5232,7 +5625,7 @@
     "ageMax": 2,
     "isbn": null,
     "publicationYear": null,
-    "amazonProductUrl": "https://www.amazon.com/Moment-You-Were-Born-Premature-ebook/dp/B09D8Z74F6/ref=sr_1_1?dib=eyJ2IjoiMSJ9.0vg3hOUAWwcRLsEynzcZPtBQ2jdzhnUgjTTweejJRCA.UM1FIWeX_6FnO4fZkgG20Nbu5CX8GYsuTy4WE-OeQGs&dib_tag=se&keywords=The%2BMoment%2BYou%2BWere%2BBorn%3A%2BA%2BStory%2Bfor%2BYou%2Band%2BYour%2BPremature%2BBaby&qid=1786497112&sr=8-1",
+    "amazonProductUrl": "https://www.amazon.com/dp/B09D8Z74F6?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
     "mlbSummary": null,
@@ -5267,7 +5660,7 @@
     "ageMax": 8,
     "isbn": "9780931674327",
     "publicationYear": 1997,
-    "amazonProductUrl": "https://www.amazon.com/dp/0931674328",
+    "amazonProductUrl": "https://www.amazon.com/dp/0931674328?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
     "mlbSummary": "Gentle verse and illustrations offer a comforting, non-denominational way to discuss death, peace, love, and what may come next.",
@@ -5301,7 +5694,7 @@
     "ageMax": null,
     "isbn": null,
     "publicationYear": null,
-    "amazonProductUrl": "https://www.amazon.com/Preemie-Parents-Survival-Guide-NICU/dp/173484700X/ref=sr_1_1?dib=eyJ2IjoiMSJ9.fA3z49sK-quqWP7tSaoUGImHcp6SYTEuN-5B1ZO-7OCseAxZd2PHMhq3-OOQRiyXOZs625aNi8iexWul1fE2UkhXCtsqfpmTantOXkbs09moH-WKsaw8Pp2ERssw_47O9eiqTl6do4SjvR64RGnl4Z_ueW-HmyTqNrgDiIDWAeiPIqfYDNiHKK7indE1qVbxJ0xIY1UiimA98c1mMAWaqnearJTPe5nXYnQdWohapMw.boyYkzgXkT1Bc45QrEVW4Yy3QyfjFLZYfxa1c2hWEF8&dib_tag=se&keywords=The%2BPreemie%2BParent%27s%2BSurvival%2BGuide%2Bto%2Bthe%2BNICU&qid=1786497099&sr=8-1",
+    "amazonProductUrl": "https://www.amazon.com/dp/173484700X?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
     "mlbSummary": null,
@@ -5342,7 +5735,7 @@
       "Medical Education"
     ],
     "isbn": "978-0738213934",
-    "amazonProductUrl": "https://www.amazon.com/Preemie-Primer-Complete-Premature-Babies/dp/0738213934?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/0738213934?tag=mightylittle-20",
     "mlbSummary": "Written by an OB/GYN who has both delivered hundreds of premature babies and parented preemie triplets herself, this guide covers delivery, hospitalization, development, and finding special-needs programs.",
     "notes": "Verified via Amazon product lookup, 2026-08-12.",
     "sourceCollections": []
@@ -5378,10 +5771,50 @@
       "Inclusion"
     ],
     "isbn": "978-0060875893",
-    "amazonProductUrl": "https://www.amazon.com/Thing-About-Georgie-Lisa-Graff/dp/0060875895?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/0060875895?tag=mightylittle-20",
     "mlbSummary": "A fourth-grader with achondroplasia navigates a new sibling on the way, an unlikely school-project ally, and the everyday realities of being a kid whose body works differently from his classmates'.",
     "notes": "A middle-grade novel rather than a picture book — longer format than most of the catalog, for older readers. Verified via Amazon product lookup, 2026-08-12.",
     "sourceCollections": []
+  },
+  {
+    "slug": "the-very-tiny-baby",
+    "title": "The Very Tiny Baby",
+    "coverImage": "https://dynamic.indigoimages.ca/v1/books/books/1580894453/1.jpg",
+    "featured": false,
+    "author": "Sylvie Kantorovitz",
+    "illustrator": "Sylvie Kantorovitz",
+    "audience": "Children & Families",
+    "audienceTags": [
+      "Children",
+      "Families",
+      "Siblings"
+    ],
+    "format": "Storybook",
+    "bookType": "Storybooks",
+    "medicalTopics": [
+      "NICU",
+      "Prematurity",
+      "Sibling Education",
+      "Coping & Feelings"
+    ],
+    "siblingFocus": true,
+    "faithBased": false,
+    "ageMin": 3,
+    "ageMax": 7,
+    "isbn": "9781580894456",
+    "publicationYear": 2014,
+    "amazonProductUrl": "https://www.amazon.com/dp/1580894453?tag=mightylittle-20",
+    "affiliateUrl": null,
+    "publisherUrl": "https://www.charlesbridge.com/products/the-very-tiny-baby",
+    "retailerName": null,
+    "mlbSummary": "Jacob struggles with fear, anger, confusion, and feeling left behind when his new sibling is born much too early and remains in the NICU. The story gives families an unusually honest way to talk with older siblings about prematurity, parental absence, and complicated feelings.",
+    "verificationStatus": "Verified",
+    "sourceUrl": "https://www.penguinrandomhouse.com/books/236743/the-very-tiny-baby-by-sylvie-kantorovitz-authorillustrator/",
+    "notes": "Publisher metadata confirms author/illustrator, ISBN, 2014 publication, 32 pages, and ages 3-7. Also recommended by neonatal sibling-support resources.",
+    "sourceCollections": [
+      "MLB NICU expansion",
+      "Neonatal sibling-support resources"
+    ]
   },
   {
     "featured": false,
@@ -5414,7 +5847,7 @@
       "Anxiety & Coping"
     ],
     "isbn": "978-0615421544",
-    "amazonProductUrl": "https://www.amazon.com/Year-My-Dad-Went-Bald/dp/0615421547?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/0615421547?tag=mightylittle-20",
     "mlbSummary": "Told from the perspective of a 9-year-old whose father has cancer, this story — written and illustrated by a lymphoma survivor — helps kids understand what their parent's diagnosis and treatment actually mean for the family.",
     "notes": "A portion of proceeds benefits The Leukemia & Lymphoma Society and Hockey Fights Cancer. Verified via Amazon product lookup, 2026-08-12.",
     "sourceCollections": []
@@ -5452,7 +5885,7 @@
       "Courage & Resilience"
     ],
     "isbn": "978-1479212569",
-    "amazonProductUrl": "https://www.amazon.com/Theres-Much-More-Wear-Than/dp/1479212563?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/1479212563?tag=mightylittle-20",
     "mlbSummary": "Written by a brain tumor survivor, this playful book imagines all the whimsical things a child could \"wear\" instead of hair after treatment, turning hair loss into something to laugh about rather than hide.",
     "notes": "Verified via Amazon title search, 2026-08-12.",
     "sourceCollections": []
@@ -5487,7 +5920,7 @@
       "Courage & Resilience"
     ],
     "isbn": "978-0578964348",
-    "amazonProductUrl": "https://www.amazon.com/They-Call-Me-Brave-childrens/dp/0578964341?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/0578964341?tag=mightylittle-20",
     "mlbSummary": "Follows the true story of seven-year-old Ava's cancer journey, told to show that being brave doesn't mean not being scared — it means moving forward anyway.",
     "notes": "Verified via Amazon product lookup, 2026-08-12.",
     "sourceCollections": []
@@ -5515,7 +5948,7 @@
     "ageMax": null,
     "isbn": null,
     "publicationYear": null,
-    "amazonProductUrl": "https://www.amazon.com/Tiny-Humans-Big-Lessons-Intention/dp/1774580977/ref=sr_1_1?dib=eyJ2IjoiMSJ9.sghucbXz1XCVlzdFcm8vag.8Pptk6RV6I0vyqGITTfRdsT6Cc1smU7NUgpfvAm4aOo&dib_tag=se&keywords=Tiny%2BHumans%2C%2BBig%2BLessons%3A%2BHow%2Bthe%2BNICU%2BTaught%2BMe%2Bto%2BLive%2BWith%2BEnergy%2C%2BIntention%2C%2Band%2BPurpose&qid=1786497160&sr=8-1",
+    "amazonProductUrl": "https://www.amazon.com/dp/1774580977?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
     "mlbSummary": null,
@@ -5632,7 +6065,7 @@
       "Inclusion"
     ],
     "isbn": "9781795026208",
-    "amazonProductUrl": "https://www.amazon.com/Tubie-Kids-Like-Annette-Fournier/dp/1795026200?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/1795026200?tag=mightylittle-20",
     "mlbSummary": "Narrated by a young girl with a G-tube, this rhyming story explains why some kids have feeding tubes, how they feel, and how tube-fed kids still move, play, and grow just like everyone else.",
     "notes": "Verified via Amazon product lookup, 2026-08-12.",
     "sourceCollections": []
@@ -5660,7 +6093,7 @@
     "ageMax": null,
     "isbn": null,
     "publicationYear": null,
-    "amazonProductUrl": "https://www.amazon.com/Twenty-Four-Plus-Six-Amy-Brett-ebook/dp/B0CLHZQRZ9",
+    "amazonProductUrl": "https://www.amazon.com/dp/B0CLHZQRZ9?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
     "mlbSummary": null,
@@ -5701,7 +6134,7 @@
       "Medical Education"
     ],
     "isbn": "978-1610026659",
-    "amazonProductUrl": "https://www.amazon.com/Understanding-NICU-Preemies-Hospitalized-Newborns/dp/1610026659?th=1&psc=1&language=en_US&currency=USD",
+    "amazonProductUrl": "https://www.amazon.com/dp/1610026659?tag=mightylittle-20",
     "mlbSummary": "Published by the American Academy of Pediatrics, this guide walks parents through what actually happens in the NICU — the equipment, the team, common procedures — so they can follow their baby's care and ask informed questions.",
     "notes": "Second edition, 2023. Verified via Amazon product lookup, 2026-08-12.",
     "sourceCollections": []
@@ -5741,6 +6174,120 @@
     "sourceCollections": [
       "Loeys-Dietz Syndrome Foundation resources"
     ]
+  },
+  {
+    "featured": false,
+    "audience": "Children & Families",
+    "audienceTags": [
+      "Children",
+      "Families"
+    ],
+    "format": "Storybook",
+    "bookType": "Storybooks",
+    "siblingFocus": true,
+    "faithBased": false,
+    "affiliateUrl": null,
+    "retailerName": null,
+    "verificationStatus": "Verified",
+    "sourceCollections": [
+      "MLB NICU expansion"
+    ],
+    "slug": "waiting-for-baby-a-sibling-visits-the-nicu",
+    "title": "Waiting for Baby: A Sibling Visits the NICU",
+    "coverImage": "https://covers.openlibrary.org/b/isbn/9781452545493-L.jpg",
+    "author": "Jennifer Bracci",
+    "illustrator": "Angie Jones",
+    "ageMin": 4,
+    "ageMax": 8,
+    "isbn": "9781452545493",
+    "publicationYear": 2012,
+    "medicalTopics": [
+      "NICU",
+      "Prematurity",
+      "Sibling Education",
+      "Medical Equipment"
+    ],
+    "amazonProductUrl": "https://www.amazon.com/dp/1452545499?tag=mightylittle-20",
+    "publisherUrl": "https://www.balboapress.com/en/bookstore/bookdetails/352342-Waiting-for-Baby",
+    "mlbSummary": "A rhyming picture book follows a sibling into the NICU, introducing the unfamiliar sights, sounds, machines, and emotions of visiting a new baby who needs intensive care.",
+    "sourceUrl": "https://www.balboapress.com/en/bookstore/bookdetails/352342-Waiting-for-Baby",
+    "notes": "Publisher and pediatric hospital resources confirm title, creators, NICU focus and age range."
+  },
+  {
+    "featured": false,
+    "audience": "Children & Families",
+    "audienceTags": [
+      "Children",
+      "Families"
+    ],
+    "format": "Storybook",
+    "bookType": "Storybooks",
+    "siblingFocus": true,
+    "faithBased": false,
+    "affiliateUrl": null,
+    "retailerName": null,
+    "verificationStatus": "Verified",
+    "sourceCollections": [
+      "MLB NICU expansion"
+    ],
+    "slug": "waiting-for-max",
+    "title": "Waiting for Max: A NICU Story",
+    "coverImage": "https://covers.openlibrary.org/b/isbn/9781685552800-L.jpg",
+    "author": "Emily Rosen",
+    "illustrator": "Esther Diana",
+    "ageMin": 4,
+    "ageMax": 8,
+    "isbn": "9781685552800",
+    "publicationYear": 2025,
+    "medicalTopics": [
+      "NICU",
+      "Prematurity",
+      "Sibling Education",
+      "Coping & Feelings"
+    ],
+    "amazonProductUrl": "https://www.amazon.com/dp/1685552803?tag=mightylittle-20",
+    "publisherUrl": "https://www.simonandschuster.com/books/Waiting-for-Max/Emily-Rosen/9781685552800",
+    "mlbSummary": "Louise waits for her premature baby brother Max to come home from the NICU and uses her imagination to cope with the uncertainty, giving young siblings a hopeful and emotionally honest way to process a NICU stay.",
+    "sourceUrl": "https://www.simonandschuster.com/books/Waiting-for-Max/Emily-Rosen/9781685552800",
+    "notes": "Publisher confirms ages 4-8, 32 pages, ISBN, author and illustrator."
+  },
+  {
+    "featured": false,
+    "audience": "Children & Families",
+    "audienceTags": [
+      "Children",
+      "Families"
+    ],
+    "format": "Storybook",
+    "bookType": "Storybooks",
+    "siblingFocus": true,
+    "faithBased": false,
+    "affiliateUrl": null,
+    "retailerName": null,
+    "verificationStatus": "Verified",
+    "sourceCollections": [
+      "MLB NICU expansion"
+    ],
+    "slug": "watching-bradley-grow",
+    "title": "Watching Bradley Grow: A Story About Premature Birth",
+    "coverImage": "https://covers.openlibrary.org/b/isbn/9781563522826-L.jpg",
+    "author": "Elizabeth Murphy-Melas",
+    "illustrator": null,
+    "ageMin": 4,
+    "ageMax": 8,
+    "isbn": "9781563522826",
+    "publicationYear": 1995,
+    "medicalTopics": [
+      "NICU",
+      "Prematurity",
+      "Sibling Education",
+      "Coping & Feelings"
+    ],
+    "amazonProductUrl": "https://www.amazon.com/dp/1563522829?tag=mightylittle-20",
+    "publisherUrl": null,
+    "mlbSummary": "A big sister learns to cope with her premature baby brother’s hospitalization and the wait to meet him, offering children a relatable sibling perspective on premature birth and NICU separation.",
+    "sourceUrl": "https://choc.org/child-life/book-resource-list/",
+    "notes": "Recommended by CHOC and neonatal sibling resources; ISBN, author and publication metadata verified bibliographically."
   },
   {
     "slug": "were-all-wonders",
@@ -5837,7 +6384,7 @@
     "ageMax": null,
     "isbn": null,
     "publicationYear": null,
-    "amazonProductUrl": "https://www.amazon.com/Week-26-Memoir-Faith-Perseverance/dp/B0DBPJ2D8N/ref=sr_1_1?dib=eyJ2IjoiMSJ9.GTTDXvI9tb2q0UXq2Jz8uM1uOhfHSfPyyn0z6C3qS9nlG8t5sao4cZGlGth2pVODLE8MTkz89AYZnoZZ7xKnFm5CnipHy-Vw4DC4t9WX-Vkuj7-FLaaDNzzL56FMgsIOLpQAkDT322aCzR9UgMlquhKeIw-VceeNauzH70_ymOP83K3hQzgfsCnO8Bu4glyi0BnnxLXnlHy9kdsOENBx1izNRkihwHFVHtPzCKd6OgjtESaKww80f264gJImscrJF7MchDgPeNq3cwCg8xqxSl9zwjzLine8sJp_PXSXYnw.8QCwpUPN3e0639QNZQANqhlZaUWk45PD_sRxKseRVTk&dib_tag=se&keywords=Week%2B26&qid=1786497231&sr=8-1",
+    "amazonProductUrl": "https://www.amazon.com/dp/B0DBPJ2D8N?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
     "mlbSummary": null,
@@ -5853,7 +6400,7 @@
     "title": "Welcome to the NICU (I Made It)",
     "coverImage": "https://m.media-amazon.com/images/I/61v4GWAcHlL.jpg",
     "featured": false,
-    "author": null,
+    "author": "Shecara Squires Reives",
     "illustrator": null,
     "audience": "Children & Families",
     "audienceTags": [
@@ -5872,11 +6419,11 @@
     "ageMax": null,
     "isbn": null,
     "publicationYear": null,
-    "amazonProductUrl": "https://www.amazon.com/Welcome-NICU-Shecara-Squires-Reives/dp/1736844970/ref=sr_1_1?dib=eyJ2IjoiMSJ9.GPbt4WQsn48grEdXERD_u0E93h4v63x9_ax5RGCljRuHy4-sWGPoINRGCjsVE2ZenKgQGse5sDhdoUGoEkNE-QrgXwLrGPdfzI3S2s2PaB_HR7viHDHrCN3629YQKT_dIGcaowQmHzqXF9voCUkBMrSiVR-RhsbD8gsuyzUX7ccS9yt446iVGTCLPF2Ebb1WasVWna6q9Uf-yjK3Lv0m6hn143ZIK78H9cKK2jwZ1pI.hPuK2zlBbkrv70xqmQVeltei6xJPahdytBDIDfLTcvA&dib_tag=se&keywords=Welcome%2Bto%2Bthe%2BNICU%2B%28I%2BMade%2BIt%29&qid=1786497063&sr=8-1",
+    "amazonProductUrl": "https://www.amazon.com/dp/1736844970?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
-    "mlbSummary": null,
-    "verificationStatus": "Needs metadata verification",
+    "mlbSummary": "A welcoming picture book for families entering the NICU, introducing the experience of having a baby born early while emphasizing the baby’s progress, strength, and milestones.",
+    "verificationStatus": "Verified",
     "sourceUrl": "https://www.preemieadventures.com/nicu-books",
     "notes": "Seeded from Preemie Adventures catalog; do not copy source description verbatim.",
     "hasSpanishEdition": true,
@@ -5913,7 +6460,7 @@
     "ageMax": null,
     "isbn": null,
     "publicationYear": null,
-    "amazonProductUrl": "https://www.amazon.com/Welcome-NICZoo-Childrens-Picture-Board/dp/B0DGDPGT61/ref=sr_1_1?dib=eyJ2IjoiMSJ9.FFRKyR6uA67F-QIEOqpJTQ.zbDMS2Ty5wUb9MeJGIzEb-psSGR4LuKiBX7I4KhxUWo&dib_tag=se&keywords=Welcome%2Bto%2Bthe%2BNICZoo&qid=1786497287&sr=8-1",
+    "amazonProductUrl": "https://www.amazon.com/dp/B0DGDPGT61?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
     "mlbSummary": null,
@@ -5929,7 +6476,7 @@
     "title": "What About Me?: When Brothers and Sisters Get Sick",
     "coverImage": "https://www.apa.org/pubs/magination/images/4414495-400.jpg",
     "featured": false,
-    "author": null,
+    "author": "Allan Peterkin, MD",
     "illustrator": null,
     "audience": "Children & Families",
     "audienceTags": [
@@ -5947,11 +6494,11 @@
     "ageMax": 10,
     "isbn": null,
     "publicationYear": null,
-    "amazonProductUrl": "http://www.amazon.com/What-About-Me-Brothers-Sisters/dp/0945354495/",
+    "amazonProductUrl": "https://www.amazon.com/dp/0945354495?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
-    "mlbSummary": null,
-    "verificationStatus": "Needs metadata verification",
+    "mlbSummary": "Laura's brother is sick, and the attention in the house has shifted. This book gives siblings permission to name the resentment, worry, and guilt that come with that, and includes guidance for parents on helping them through it.",
+    "verificationStatus": "Ready for website",
     "sourceUrl": "https://www.chop.edu/health-resource/recommended-childrens-books",
     "notes": "Seeded from CHOP Recommended Children's Books resource list; do not copy source description verbatim.",
     "sourceCollections": [
@@ -5982,7 +6529,7 @@
     "ageMax": 12,
     "isbn": "9781575420554",
     "publicationYear": 1999,
-    "amazonProductUrl": "https://www.amazon.com/dp/1575420554",
+    "amazonProductUrl": "https://www.amazon.com/dp/1575420554?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
     "mlbSummary": "A straightforward guide that answers children's questions about death and funerals while addressing sadness, fear, anger, guilt, remembrance, and coping.",
@@ -6017,7 +6564,7 @@
     "ageMax": 8,
     "isbn": "9780316119559",
     "publicationYear": 1998,
-    "amazonProductUrl": "https://www.amazon.com/dp/0316119555",
+    "amazonProductUrl": "https://www.amazon.com/dp/0316119555?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
     "mlbSummary": "A direct illustrated guide that answers common children's questions about death, grief, funerals, remembrance, and different beliefs about what comes after death.",
@@ -6033,7 +6580,7 @@
     "title": "When Molly Was in the Hospital: A Book for Brothers and Sisters of Hospitalized Children",
     "coverImage": "https://pictures.abebooks.com/isbn/9781877810442-us.jpg",
     "featured": false,
-    "author": null,
+    "author": "Debbie Duncan",
     "illustrator": null,
     "audience": "Children & Families",
     "audienceTags": [
@@ -6052,11 +6599,11 @@
     "ageMax": 10,
     "isbn": null,
     "publicationYear": null,
-    "amazonProductUrl": "http://www.amazon.com/When-Molly-Was-Hospital-Hospitalized/dp/1877810444",
+    "amazonProductUrl": "https://www.amazon.com/dp/1877810444?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
-    "mlbSummary": null,
-    "verificationStatus": "Needs metadata verification",
+    "mlbSummary": "Anna's sister Molly is in the hospital, and Anna is left with anger, fear, guilt, and worry nobody is asking her about. Written for the sibling at home, with practical ideas for staying connected during a long admission.",
+    "verificationStatus": "Ready for website",
     "sourceUrl": "https://www.chop.edu/health-resource/recommended-childrens-books",
     "notes": "Seeded from CHOP Recommended Children's Books resource list; do not copy source description verbatim.",
     "sourceCollections": [
@@ -6103,7 +6650,7 @@
   {
     "slug": "why-charlie-brown-why",
     "title": "Why, Charlie Brown, Why?",
-    "coverImage": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1442864668i/291971.jpg",
+    "coverImage": "https://covers.openlibrary.org/b/isbn/9780345455314-L.jpg?default=false",
     "featured": false,
     "author": "Charles M. Schulz",
     "illustrator": "Charles M. Schulz",
@@ -6124,15 +6671,15 @@
     "faithBased": false,
     "ageMin": 4,
     "ageMax": 8,
-    "isbn": "9780886876012",
+    "isbn": "9780345455314",
     "publicationYear": 1990,
-    "amazonProductUrl": "https://www.amazon.com/dp/B000S2K6JU",
+    "amazonProductUrl": "https://www.amazon.com/dp/0345455312?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
     "mlbSummary": "The Peanuts gang responds when a young friend is diagnosed with leukemia, helping children explore serious illness, friendship, fear, and support.",
     "verificationStatus": "Verified",
     "sourceUrl": "https://openlibrary.org/works/OL25841W/Why_Charlie_Brown_Why?edition=ia%3Awhycharliebrownw0000schu",
-    "notes": "Open Library records Amazon ASIN B000S2K6JU for this edition.",
+    "notes": "Open Library records Amazon ASIN B000S2K6JU for this edition. Cover/edition repaired 2026-09-05 using the 2002 Ballantine Books hardcover (ISBN 9780345455314 / ISBN-10 0345455312); replaces blocked Goodreads hotlink.",
     "sourceCollections": [
       "MLB curated additions"
     ]
@@ -6196,7 +6743,7 @@
     "ageMax": 12,
     "isbn": null,
     "publicationYear": null,
-    "amazonProductUrl": "https://www.amazon.com/You-Know-What-Laylas-Journey-ebook/dp/B0CW1B38NR/ref=sr_1_1?dib=eyJ2IjoiMSJ9.SO_wxHYkMDs_oxOMF6B7iQ.4lpHVZOlqXAA93t6H_fg9FABXvEY9jd5TX5QMQ9Gwfc&dib_tag=se&keywords=You%2BKnow%2BWhat%3F%3A%2BLayla%27s%2BNICU%2BJourney&qid=1786497212&sr=8-1",
+    "amazonProductUrl": "https://www.amazon.com/dp/B0CW1B38NR?tag=mightylittle-20",
     "affiliateUrl": null,
     "publisherUrl": null,
     "mlbSummary": null,
