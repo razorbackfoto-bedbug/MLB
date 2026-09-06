@@ -31,6 +31,7 @@ export const GET: APIRoute = () => {
     ['/topics/', 0.9],
     ['/for-hospitals/', 0.8],
     ['/about/', 0.6],
+    ['/editorial-policy/', 0.5],
     ['/contact/', 0.4],
     ['/privacy-policy/', 0.2],
     ['/affiliate-disclosure/', 0.2],
