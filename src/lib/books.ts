@@ -7,6 +7,7 @@ import kidneyBooks2Data from '../data/kidneyBooks2.json';
 import topicsData from '../data/topics.json';
 import type { Book, Topic, AgeBucket } from './bookTypes';
 import { getAgeBucketForBook } from './bookTypes';
+import { coverCandidatesFor } from './cover';
 
 export type LocalizedBook = Book;
 
@@ -118,6 +119,10 @@ function mergeDuplicateBooks(existing: Book, incoming: Book): Book {
     sourceUrl: prefer(primary.sourceUrl, secondary.sourceUrl),
     notes: prefer(primary.notes, secondary.notes),
     sourceCollections: Array.from(new Set([...(existing.sourceCollections ?? []), ...(incoming.sourceCollections ?? [])])),
+    amazonVerified: primary.amazonVerified ?? secondary.amazonVerified,
+    coverVerified: primary.coverVerified ?? secondary.coverVerified,
+    lastVerifiedAt: prefer(primary.lastVerifiedAt, secondary.lastVerifiedAt),
+    verificationNotes: prefer(primary.verificationNotes, secondary.verificationNotes),
     hasSpanishEdition: existing.hasSpanishEdition || incoming.hasSpanishEdition,
     titleEs: prefer(primary.titleEs, secondary.titleEs),
     mlbSummaryEs: prefer(primary.mlbSummaryEs, secondary.mlbSummaryEs),
@@ -181,14 +186,18 @@ export function isPublicReady(book: Book): boolean {
   const status = book.verificationStatus.toLowerCase();
   const verified = status.includes('ready') || status.includes('verified');
   const hasDirectAmazonProduct = Boolean(amazonProductId(book.amazonProductUrl));
-  const hasUsableCover = Boolean(book.coverImage?.trim());
+  const hasUsableCover = coverCandidatesFor(book).length > 0;
   const explicitlySecular = book.faithBased === false;
+  const amazonPassedAudit = book.amazonVerified !== false;
+  const coverPassedAudit = book.coverVerified !== false;
 
   return Boolean(
     verified &&
       explicitlySecular &&
       hasDirectAmazonProduct &&
+      amazonPassedAudit &&
       hasUsableCover &&
+      coverPassedAudit &&
       book.title?.trim() &&
       book.author?.trim() &&
       book.audience?.trim() &&
