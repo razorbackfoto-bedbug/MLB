@@ -65,6 +65,7 @@ export const SITE: SiteConfig = {
       { label: 'Contact', href: '/contact/' },
     ],
     legal: [
+      { label: 'Editorial Standards', href: '/editorial-policy/' },
       { label: 'Affiliate Disclosure', href: '/affiliate-disclosure/' },
       { label: 'Privacy Policy', href: '/privacy-policy/' },
     ],
