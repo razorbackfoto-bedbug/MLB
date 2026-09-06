@@ -23,19 +23,18 @@ const bookCount = books.length;
 ---
 
 <BaseLayout
-  title="Book Library"
-  description="Search and filter our full library of children's books for NICU, hospital, and medical-experience families."
+  title="Children's Medical Book Library"
+  description={`Search ${bookCount} curated children's books about NICU stays, hospitals, surgery, heart conditions, respiratory care, feeding tubes, cancer, grief, siblings, and other medical experiences.`}
 >
   <section class="mx-auto max-w-7xl px-4 pb-6 pt-10 sm:px-6 lg:px-8">
     <div class="grid items-center gap-8 lg:grid-cols-[1.2fr,0.8fr]">
       <div>
         <h1 class="font-display text-3xl font-semibold sm:text-4xl">
-          Find the right book for your <span class="text-coral-400">family</span>
-          <span aria-hidden="true" class="text-coral-400">♥</span>
+          Children&apos;s books about medical experiences
+          <span aria-hidden="true" class="text-coral-400"> ♥</span>
         </h1>
-        <p class="mt-3 max-w-xl text-ink-light">
-          Explore our thoughtfully gathered children's books to help families navigate NICU stays, hospital
-          experiences, medical conditions, and more.
+        <p class="mt-3 max-w-2xl text-ink-light">
+          Search and filter children&apos;s books about NICU stays, premature birth, hospitals, surgery, heart conditions, respiratory support, feeding tubes, cancer, grief, sibling experiences, and other medical journeys.
         </p>
       </div>
       <div class="hidden lg:block">
@@ -50,7 +49,7 @@ const bookCount = books.length;
         {bookCount} thoughtfully curated books for children and families navigating medical experiences.
       </p>
       <p class="mt-3 max-w-4xl text-sm leading-6 text-ink-light sm:text-base">
-        Every child's journey is different, and no single book will be right for every family or every moment. We encourage caregivers to explore these resources at their own pace and choose the stories that feel right for their child today.
+        Every child&apos;s journey is different, and no single book will be right for every family or every moment. Use the filters below to narrow the library by medical topic, age, audience, and book type, then review each guide for details that can help you choose a useful fit.
       </p>
     </div>
   </section>
@@ -69,9 +68,9 @@ const bookCount = books.length;
   </section>
 
   <section class="mx-auto max-w-4xl px-4 pb-16 text-center sm:px-6 lg:px-8">
-    <p class="font-display text-xl font-semibold text-teal-700">You are not alone, and neither is your child.</p>
+    <p class="font-display text-xl font-semibold text-teal-700">A book-finding resource for families and healthcare teams</p>
     <p class="mx-auto mt-3 max-w-3xl text-sm leading-6 text-ink-light sm:text-base">
-      We hope these books offer comfort, spark meaningful conversations, and remind families that strength, courage, and joy can exist alongside medical challenges.
+      Parents, caregivers, child life specialists, nurses, social workers, and librarians can use Mighty Little Bookshelf to discover reading resources for difficult or unfamiliar medical experiences. Healthcare professionals can learn more on our <a href="/for-hospitals/" class="font-semibold text-teal-700 underline">hospital and clinician resource page</a>.
     </p>
   </section>
 </BaseLayout>
