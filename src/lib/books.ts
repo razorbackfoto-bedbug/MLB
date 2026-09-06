@@ -2,6 +2,7 @@ import booksData from '../data/books.json';
 import booksEsData from '../data/booksEs.json';
 import tier1BooksData from '../data/tier1Books.json';
 import tier1SickleBooksData from '../data/tier1SickleBooks.json';
+import kidneyBooksData from '../data/kidneyBooks.json';
 import topicsData from '../data/topics.json';
 import type { Book, Topic, AgeBucket } from './bookTypes';
 import { getAgeBucketForBook } from './bookTypes';
@@ -17,8 +18,6 @@ function amazonProductId(url?: string | null): string | null {
 }
 
 function spanishAmazonUrl(book: Book): string | null {
-  // Translated English records must use their explicit Spanish product. Spanish-original
-  // records in booksEs.json keep their Amazon URL in the normal field.
   return book.titleEs ? book.amazonProductUrlEs ?? null : book.amazonProductUrl ?? null;
 }
 
@@ -29,8 +28,6 @@ export function localizeBook(book: Book, lang: 'en' | 'es'): LocalizedBook {
     ...book,
     title: book.titleEs || book.title,
     mlbSummary: book.mlbSummaryEs ?? book.mlbSummary,
-    // Spanish artwork is always resolved from the exact Spanish Amazon product ID.
-    // Do not trust English covers, stale Spanish URLs, or hand-mapped CDN images.
     coverImage: null,
     amazonProductUrl: spanishAmazonUrl(book),
     isbn: isTranslatedEnglishRecord ? book.isbnEs || null : book.isbn,
@@ -173,6 +170,7 @@ export const books: Book[] = dedupeBooks([
   ...(booksData as Book[]),
   ...(tier1BooksData as Book[]),
   ...(tier1SickleBooksData as Book[]),
+  ...(kidneyBooksData as Book[]),
 ]);
 export const booksEsOriginal: Book[] = dedupeBooks(booksEsData as Book[]);
 export const topics: Topic[] = topicsData as Topic[];
@@ -332,6 +330,5 @@ export function getUniqueBookTypes(): string[] {
   return Array.from(set).sort();
 }
 
-// Re-exported so server-side callers can keep importing everything from ./books.
 export type { Book, Topic, AgeBucket } from './bookTypes';
 export { AGE_BUCKETS, localizeAgeBucket, getAgeBucketForBook, formatAgeRange } from './bookTypes';
