@@ -19,29 +19,244 @@ const { topic } = Astro.props as Props;
 const books = getBooksForTopic(topic.slug);
 const spanishBooks = getSpanishBooks();
 const hasSpanishAlternate = spanishBooks.some((book) => bookMatchesTopic(book, topic));
-const isNicu = topic.slug === 'nicu-prematurity';
-const isHospital = topic.slug === 'hospital-stays';
 
 const seoTitles: Record<string, string> = {
   'nicu-prematurity': 'NICU Books for Kids, Siblings & Families',
-  siblings: "Children's Books for Siblings During Medical Care",
+  siblings: 'Books for Siblings of Hospitalized Children',
   'hospital-stays': 'Hospital Books for Kids: Surgery, Procedures & Hospital Stays',
-  cardiac: "Children's Books About Heart Conditions & Cardiac Care",
-  respiratory: "Children's Books About Breathing, Oxygen & Respiratory Care",
-  'feeding-tubes': "Children's Books About Feeding Tubes & G-Tubes",
-  oncology: "Children's Books About Cancer & Oncology",
-  'genetics-rare-disease': "Children's Books About Genetics & Rare Disease",
-  'grief-loss': "Children's Books About Grief & Loss",
-  'feelings-coping': "Children's Books About Medical Anxiety & Coping",
-  'parent-resources': 'Books & Resources for Parents of Medically Complex Children',
+  cardiac: 'Heart & Cardiac Books for Kids: CHD, Surgery & Heart Conditions',
+  respiratory: 'Respiratory Books for Kids: Oxygen, Ventilators & Tracheostomies',
+  'feeding-tubes': 'Feeding Tube Books for Kids: G-Tubes, NG Tubes & Mealtimes',
+  oncology: 'Cancer Books for Kids: Oncology, Treatment & Hospital Care',
+  'genetics-rare-disease': 'Rare Disease & Genetics Books for Kids',
+  'grief-loss': 'Grief Books for Kids: Loss, Death & Remembering',
+  'feelings-coping': 'Medical Anxiety & Coping Books for Kids',
+  'parent-resources': 'Books for Parents of Medically Complex Children',
+};
+
+const seoDescriptions: Record<string, string> = {
+  'nicu-prematurity': `Browse ${books.length} curated NICU books for kids, siblings, and families, including children's books about premature babies, preemies, NICU stays, and coming home.`,
+  siblings: `Browse ${books.length} books for siblings of hospitalized children, including stories about the NICU, surgery, chronic illness, and helping brothers and sisters understand medical care.`,
+  'hospital-stays': `Browse ${books.length} hospital books for kids, including children's books about surgery, medical procedures, hospital stays, tests, and preparing a child for the hospital.`,
+  cardiac: `Browse ${books.length} children's books about congenital heart defects, heart surgery, cardiac care, hospital stays, and living with a heart condition.`,
+  respiratory: `Browse ${books.length} respiratory books for kids about oxygen, CPAP, ventilators, tracheostomies, breathing treatments, and respiratory conditions.`,
+  'feeding-tubes': `Browse ${books.length} children's books about G-tubes, NG tubes, tube feeding, mealtimes, and helping kids understand feeding support.`,
+  oncology: `Browse ${books.length} cancer books for kids about oncology, chemotherapy, treatment, hospital care, hair loss, and helping children understand a cancer diagnosis.`,
+  'genetics-rare-disease': `Browse ${books.length} children's books about rare diseases, genetics, genetic conditions, diagnoses, and celebrating medically unique kids.`,
+  'grief-loss': `Browse ${books.length} grief books for kids about death, loss, remembrance, sadness, and helping children process the loss of someone they love.`,
+  'feelings-coping': `Browse ${books.length} books for kids about medical anxiety, hospital fears, big feelings, coping skills, and finding calm during medical care.`,
+  'parent-resources': `Browse ${books.length} books and resources for parents and caregivers of medically complex children, including support, education, coping, and family guidance.`,
+};
+
+const topicIntros: Record<string, { heading: string; paragraphs: string[] }> = {
+  'nicu-prematurity': {
+    heading: "Children's books for understanding the NICU",
+    paragraphs: [
+      'A NICU stay can be hard to explain to a child. The books in this collection can help families introduce ideas such as premature birth, incubators, monitors, breathing support, feeding support, hospital routines, and the wait to bring a baby home using language and pictures children can understand.',
+      'These stories can also help older brothers and sisters understand why a new baby may need extra care and why family routines can change during a NICU stay.',
+    ],
+  },
+  siblings: {
+    heading: 'Books for siblings during medical care',
+    paragraphs: [
+      'When one child is sick, hospitalized, or receiving intensive medical care, brothers and sisters can have questions, worries, jealousy, guilt, or simply feel left out. Books can give siblings language for those feelings and help them understand why so much family attention may be focused on medical care.',
+      'This collection includes stories for siblings of babies in the NICU, children having surgery, and kids living with serious or chronic medical conditions.',
+    ],
+  },
+  'hospital-stays': {
+    heading: "Children's books for hospital stays, surgery, and procedures",
+    paragraphs: [
+      'Hospitals can feel unfamiliar to children, especially when they are preparing for surgery, imaging, lab work, anesthesia, or an overnight admission. The books in this collection can help introduce hospital rooms, medical equipment, doctors and nurses, procedures, recovery, and going home in a way children can revisit at their own pace.',
+      'These books can be especially helpful before a planned procedure, but they can also support children after an unexpected hospitalization by helping them make sense of what happened.',
+    ],
+  },
+  cardiac: {
+    heading: "Children's books about heart conditions and heart surgery",
+    paragraphs: [
+      'Heart diagnoses can involve unfamiliar words, procedures, scars, medications, and hospital stays. The books in this collection help children and siblings understand congenital heart defects, cardiac surgery, heart procedures, recovery, and what it can mean to live with a heart condition.',
+      'Families looking for CHD books for kids can use these stories as a starting point for age-appropriate conversations before or after cardiac care.',
+    ],
+  },
+  respiratory: {
+    heading: "Children's books about breathing support and respiratory care",
+    paragraphs: [
+      'Oxygen, CPAP, ventilators, tracheostomies, and breathing treatments can be difficult for children to understand. These books explain respiratory care and breathing support with stories and illustrations that make unfamiliar equipment and routines easier to talk about.',
+      'The collection can help children receiving respiratory support as well as siblings who are trying to understand what they see during hospital care or at home.',
+    ],
+  },
+  'feeding-tubes': {
+    heading: "Children's books about G-tubes, NG tubes, and tube feeding",
+    paragraphs: [
+      'Feeding tubes can change what mealtime looks like for a child and family. These books help explain G-tubes, NG tubes, tube feeding, medical nutrition, and the idea that children can be nourished in different ways.',
+      'They can support children who use feeding tubes themselves and help classmates, siblings, and friends understand why someone may eat differently.',
+    ],
+  },
+  oncology: {
+    heading: "Children's books about cancer and cancer treatment",
+    paragraphs: [
+      'A cancer diagnosis can introduce children to hospitals, chemotherapy, medications, hair loss, procedures, and long treatment schedules. These books can help explain cancer and oncology care in language that is easier for children and siblings to understand.',
+      'Stories can also give families a way to talk about fear, uncertainty, bravery, changes in appearance, and the many people involved in cancer care.',
+    ],
+  },
+  'genetics-rare-disease': {
+    heading: "Children's books about rare diseases and genetic conditions",
+    paragraphs: [
+      'Rare disease and genetic diagnoses can be complicated to explain, especially when a condition has a long name or few people have heard of it. These books help children understand differences, diagnoses, testing, and what makes each child unique.',
+      'They can also help siblings and classmates build understanding around disabilities, medical needs, and conditions that may not be visible.',
+    ],
+  },
+  'grief-loss': {
+    heading: "Children's books about grief, death, and loss",
+    paragraphs: [
+      'Children often understand grief differently at different ages. Books can provide gentle language for death, sadness, remembering, funerals, and missing someone who has died.',
+      'This collection includes stories that can help families talk about loss after illness, hospitalization, pregnancy or infant loss, and other difficult experiences while making space for love and memory.',
+    ],
+  },
+  'feelings-coping': {
+    heading: "Children's books about medical anxiety and coping",
+    paragraphs: [
+      'Needles, procedures, hospital sounds, waiting, and uncertainty can create big feelings for kids. These books help children name fear, worry, anger, and sadness while introducing coping tools such as breathing, preparation, comfort items, and asking questions.',
+      'They can be useful before medical visits as well as after stressful experiences when a child is still processing what happened.',
+    ],
+  },
+  'parent-resources': {
+    heading: 'Books and resources for parents of medically complex children',
+    paragraphs: [
+      'Parents and caregivers often need support alongside their children. This collection gathers books and resources about medical complexity, caregiving, hospital life, coping, advocacy, and family adjustment.',
+      'These resources are intended to help adults learn, feel less isolated, and find practical language for supporting children and siblings through medical experiences.',
+    ],
+  },
+};
+
+const faqByTopic: Record<string, { question: string; answer: string }[]> = {
+  'nicu-prematurity': [
+    { question: 'What are NICU books for kids?', answer: 'NICU books for kids use child-friendly stories and illustrations to explain premature birth, neonatal intensive care, medical equipment, hospital routines, and the experience of having a baby in the NICU.' },
+    { question: 'Are there NICU books for siblings?', answer: 'Yes. Many NICU books are written specifically for big brothers and sisters and can help explain why a new baby may need to stay in the hospital and what siblings may see or hear in the NICU.' },
+    { question: 'Are there children’s books about premature babies and preemies?', answer: 'Yes. Children’s books about premature babies often focus on being born early, growing stronger in the NICU, medical support a preemie may need, and the transition from the hospital to home.' },
+  ],
+  siblings: [
+    { question: 'Are there books for siblings of hospitalized children?', answer: 'Yes. Many children’s books are written to help brothers and sisters understand hospitalization, surgery, NICU stays, serious illness, and changes in family routines when another child needs medical care.' },
+    { question: 'How can books help siblings during a hospital stay?', answer: 'Books can give siblings age-appropriate explanations, help them name difficult feelings, and reassure them that their questions and emotions matter even when much of the family’s attention is focused on the child receiving care.' },
+  ],
+  'hospital-stays': [
+    { question: 'What are good hospital books for kids?', answer: 'Good hospital books for kids explain what children may see, hear, and experience during a hospital visit in clear, reassuring language. The best choice depends on the child’s age and whether they are preparing for surgery, a test, a procedure, or a longer hospital stay.' },
+    { question: 'Are there children’s books about surgery?', answer: 'Yes. Children’s books about surgery can introduce ideas such as meeting the care team, anesthesia, operating rooms, recovery, bandages, and going home.' },
+    { question: 'Can books help prepare a child for a hospital stay?', answer: 'Books can help children build a mental picture of what a hospital visit may be like and give families a starting point for questions and conversations.' },
+  ],
+  cardiac: [
+    { question: 'Are there children’s books about congenital heart defects?', answer: 'Yes. Children’s books about congenital heart defects can help explain heart differences, cardiology visits, procedures, surgery, scars, and recovery in age-appropriate ways.' },
+    { question: 'Are there books for kids about heart surgery?', answer: 'Yes. Some books focus specifically on preparing for or recovering from heart surgery and can help children understand the hospital experience, medical teams, and changes they may notice afterward.' },
+  ],
+  respiratory: [
+    { question: 'Are there books for kids about oxygen or ventilators?', answer: 'Yes. Respiratory books for kids can explain oxygen, CPAP, ventilators, breathing treatments, and other forms of respiratory support using child-friendly language and illustrations.' },
+    { question: 'Are there children’s books about tracheostomies?', answer: 'Yes. Some children’s books specifically feature tracheostomies and can help kids understand what a trach is, why someone may need one, and how children with tracheostomies live, play, and communicate.' },
+  ],
+  'feeding-tubes': [
+    { question: 'Are there children’s books about G-tubes?', answer: 'Yes. G-tube books for kids can explain how a gastrostomy tube works, why some children need tube feeding, and how eating and nutrition can look different from person to person.' },
+    { question: 'Are there books about NG tubes for children?', answer: 'Yes. Some books include nasogastric tubes and other temporary feeding support, which can help children and siblings understand what the tube is for and what to expect.' },
+  ],
+  oncology: [
+    { question: 'Are there children’s books about cancer?', answer: 'Yes. Children’s books about cancer can explain diagnoses, chemotherapy, hospital visits, hair loss, medications, and treatment in language suited to different ages.' },
+    { question: 'Can cancer books help siblings understand treatment?', answer: 'Yes. Sibling-focused cancer books can explain why a brother or sister may spend more time at the hospital, look different, feel tired, or need special precautions during treatment.' },
+  ],
+  'genetics-rare-disease': [
+    { question: 'Are there children’s books about rare diseases?', answer: 'Yes. Rare disease books for kids can help explain diagnoses, medical differences, testing, and living with a condition that other people may not know much about.' },
+    { question: 'Are there books that explain genetics to children?', answer: 'Yes. Some children’s books introduce genes, DNA, inherited traits, and genetic conditions with simple explanations and illustrations.' },
+  ],
+  'grief-loss': [
+    { question: 'What are good grief books for kids?', answer: 'Good grief books for kids use clear, gentle language about death and loss while allowing children to feel sadness, ask questions, remember the person who died, and understand that grief can change over time.' },
+    { question: 'Can books help children understand death?', answer: 'Books can provide concrete language and familiar stories that make it easier for families to talk about death, funerals, missing someone, and remembering loved ones.' },
+  ],
+  'feelings-coping': [
+    { question: 'Are there books for kids with medical anxiety?', answer: 'Yes. Books about medical anxiety can help children prepare for needles, procedures, hospital visits, tests, and other stressful experiences while introducing coping strategies.' },
+    { question: 'How can books help kids cope with medical procedures?', answer: 'Stories can help children know what to expect, name their feelings, practice coping skills, and feel more comfortable asking questions before and after medical care.' },
+  ],
+  'parent-resources': [
+    { question: 'What books can help parents of medically complex children?', answer: 'Parent resources can cover caregiving, hospital life, advocacy, coping, family communication, medical trauma, and navigating the emotional demands of caring for a medically complex child.' },
+    { question: 'Are there books for parents after a NICU or hospital stay?', answer: 'Yes. Some books focus specifically on the parent experience during and after intensive medical care, including adjustment, stress, grief, bonding, and bringing a child home.' },
+  ],
+};
+
+const relatedLinksByTopic: Record<string, { href: string; label: string }[]> = {
+  'nicu-prematurity': [
+    { href: '/topics/siblings/', label: 'books for siblings during medical care' },
+    { href: '/topics/hospital-stays/', label: 'hospital and surgery books for kids' },
+  ],
+  siblings: [
+    { href: '/topics/nicu-prematurity/', label: 'NICU books for kids and siblings' },
+    { href: '/topics/hospital-stays/', label: 'hospital and surgery books for kids' },
+  ],
+  'hospital-stays': [
+    { href: '/topics/feelings-coping/', label: 'books about medical anxiety and coping' },
+    { href: '/topics/siblings/', label: 'books for siblings during medical care' },
+  ],
+  cardiac: [
+    { href: '/topics/hospital-stays/', label: 'hospital and surgery books for kids' },
+    { href: '/topics/feelings-coping/', label: 'books about medical anxiety and coping' },
+  ],
+  respiratory: [
+    { href: '/topics/nicu-prematurity/', label: 'NICU books for kids and families' },
+    { href: '/topics/hospital-stays/', label: 'hospital books for kids' },
+  ],
+  'feeding-tubes': [
+    { href: '/topics/hospital-stays/', label: 'hospital and procedure books for kids' },
+    { href: '/topics/siblings/', label: 'books for siblings during medical care' },
+  ],
+  oncology: [
+    { href: '/topics/feelings-coping/', label: 'books about medical anxiety and coping' },
+    { href: '/topics/siblings/', label: 'books for siblings of children receiving medical care' },
+  ],
+  'genetics-rare-disease': [
+    { href: '/topics/feelings-coping/', label: 'books about coping with medical experiences' },
+    { href: '/library/', label: 'full children’s medical book library' },
+  ],
+  'grief-loss': [
+    { href: '/topics/feelings-coping/', label: 'books about feelings and coping' },
+    { href: '/topics/siblings/', label: 'books for siblings during difficult medical experiences' },
+  ],
+  'feelings-coping': [
+    { href: '/topics/hospital-stays/', label: 'hospital and surgery books for kids' },
+    { href: '/topics/nicu-prematurity/', label: 'NICU books for kids and families' },
+  ],
+  'parent-resources': [
+    { href: '/topics/nicu-prematurity/', label: 'NICU books for families' },
+    { href: '/library/', label: 'full children’s medical book library' },
+  ],
+};
+
+const browseHeadings: Record<string, string> = {
+  'nicu-prematurity': 'Browse NICU and preemie books',
+  siblings: 'Browse books for siblings of hospitalized children',
+  'hospital-stays': 'Browse hospital and surgery books for kids',
+  cardiac: 'Browse heart and cardiac books for kids',
+  respiratory: 'Browse respiratory and breathing-support books for kids',
+  'feeding-tubes': 'Browse feeding tube books for kids',
+  oncology: 'Browse cancer and oncology books for kids',
+  'genetics-rare-disease': 'Browse rare disease and genetics books for kids',
+  'grief-loss': 'Browse grief and loss books for kids',
+  'feelings-coping': 'Browse medical anxiety and coping books for kids',
+  'parent-resources': 'Browse books and resources for parents',
+};
+
+const faqHeadings: Record<string, string> = {
+  'nicu-prematurity': 'NICU books: common questions',
+  siblings: 'Sibling support books: common questions',
+  'hospital-stays': 'Hospital and surgery books: common questions',
+  cardiac: 'Heart and CHD books: common questions',
+  respiratory: 'Respiratory books: common questions',
+  'feeding-tubes': 'Feeding tube books: common questions',
+  oncology: 'Cancer books for kids: common questions',
+  'genetics-rare-disease': 'Rare disease and genetics books: common questions',
+  'grief-loss': 'Grief books for kids: common questions',
+  'feelings-coping': 'Medical anxiety books: common questions',
+  'parent-resources': 'Parent resource books: common questions',
 };
 
 const seoTitle = seoTitles[topic.slug] ?? `Children's Books About ${topic.label}`;
-const seoDescription = isNicu
-  ? `Browse ${books.length} curated NICU books for kids, siblings, and families, including children's books about premature babies, preemies, NICU stays, and coming home.`
-  : isHospital
-    ? `Browse ${books.length} hospital books for kids, including children's books about surgery, medical procedures, hospital stays, tests, and preparing a child for the hospital.`
-    : `${topic.description} Browse ${books.length} curated ${books.length === 1 ? 'book' : 'books'} for children and families.`;
+const seoDescription = seoDescriptions[topic.slug] ?? `${topic.description} Browse ${books.length} curated ${books.length === 1 ? 'book' : 'books'} for children and families.`;
+const intro = topicIntros[topic.slug];
+const activeFaq = faqByTopic[topic.slug] ?? null;
+const relatedLinks = relatedLinksByTopic[topic.slug] ?? [];
 const pagePath = `/topics/${topic.slug}/`;
 const pageUrl = new URL(pagePath, 'https://mightylittlebookshelf.com').toString();
 
@@ -74,46 +289,6 @@ const breadcrumbSchema = {
     { '@type': 'ListItem', position: 3, name: topic.label, item: pageUrl },
   ],
 };
-
-const nicuFaq = [
-  {
-    question: 'What are NICU books for kids?',
-    answer: 'NICU books for kids use child-friendly stories and illustrations to explain premature birth, neonatal intensive care, medical equipment, hospital routines, and the experience of having a baby in the NICU.',
-  },
-  {
-    question: 'Are there NICU books for siblings?',
-    answer: 'Yes. Many NICU books are written specifically for big brothers and sisters. They can help siblings understand why a new baby may need to stay in the hospital, what they may see or hear in the NICU, and how they can stay connected to their new sibling.',
-  },
-  {
-    question: 'Are there children’s books about premature babies and preemies?',
-    answer: 'Yes. Children’s books about premature babies often focus on being born early, growing stronger in the NICU, medical support a preemie may need, and the transition from the hospital to home.',
-  },
-  {
-    question: 'How do I choose a NICU book for a child?',
-    answer: 'Start with the child’s age, relationship to the baby, and what you want the book to explain. Younger children often benefit from simple picture books, while older siblings may appreciate stories with more detail about the NICU experience and medical care.',
-  },
-];
-
-const hospitalFaq = [
-  {
-    question: 'What are good hospital books for kids?',
-    answer: 'Good hospital books for kids explain what children may see, hear, and experience during a hospital visit in clear, reassuring language. The best choice depends on the child’s age and whether they are preparing for surgery, a test, a procedure, or a longer hospital stay.',
-  },
-  {
-    question: 'Are there children’s books about surgery?',
-    answer: 'Yes. Children’s books about surgery can introduce ideas such as meeting the care team, anesthesia, operating rooms, recovery, bandages, and going home. Familiarity can make an unfamiliar experience easier to talk about with a child.',
-  },
-  {
-    question: 'Can books help prepare a child for a hospital stay?',
-    answer: 'Books can help children build a mental picture of what a hospital visit may be like and give families a starting point for questions and conversations. They are especially useful when paired with information from the child’s own care team about what to expect.',
-  },
-  {
-    question: 'How do I choose a hospital or surgery book for my child?',
-    answer: 'Choose a book that matches the child’s age, reading level, and upcoming experience. A child having a routine procedure may need a different story than a child facing major surgery or a long admission, so look for books that reflect the situation as closely as possible.',
-  },
-];
-
-const activeFaq = isNicu ? nicuFaq : isHospital ? hospitalFaq : null;
 
 const faqSchema = activeFaq
   ? {
@@ -155,63 +330,30 @@ const jsonLd = faqSchema ? [collectionSchema, breadcrumbSchema, faqSchema] : [co
       </span>
       <div>
         <h1 class="font-display text-3xl font-semibold sm:text-4xl">{seoTitle}</h1>
-        {isNicu ? (
-          <p class="mt-2 max-w-3xl text-ink-light">
-            Find children&apos;s books about NICU stays, premature birth, preemies, medical equipment, coming home from the NICU, and becoming a big brother or sister to a baby in neonatal intensive care.
-          </p>
-        ) : isHospital ? (
-          <p class="mt-2 max-w-3xl text-ink-light">
-            Find hospital books for kids about surgery, medical procedures, tests, anesthesia, recovery, hospital stays, and preparing children for what they may see and experience during medical care.
-          </p>
-        ) : (
-          <p class="mt-2 max-w-2xl text-ink-light">{topic.description}</p>
-        )}
+        <p class="mt-2 max-w-3xl text-ink-light">{seoDescription}</p>
       </div>
     </div>
   </section>
 
-  {isNicu && (
+  {intro && (
     <section class="mx-auto max-w-5xl px-4 pb-12 sm:px-6 lg:px-8">
       <div class="card p-6 sm:p-8">
-        <h2 class="font-display text-2xl font-semibold">Children&apos;s books for understanding the NICU</h2>
+        <h2 class="font-display text-2xl font-semibold">{intro.heading}</h2>
         <div class="mt-4 space-y-4 text-ink-light">
-          <p>
-            A NICU stay can be hard to explain to a child. The books in this collection can help families introduce ideas such as premature birth, incubators, monitors, breathing support, feeding support, hospital routines, and the wait to bring a baby home using language and pictures children can understand.
-          </p>
-          <p>
-            If you are helping an older brother or sister understand what is happening, also browse our{' '}
-            <a href="/topics/siblings/" class="font-semibold text-teal-700 underline decoration-teal-300 underline-offset-2 hover:text-teal-800">
-              books for siblings during medical care
-            </a>.
-            For books about procedures, surgery, and hospital visits, see{' '}
-            <a href="/topics/hospital-stays/" class="font-semibold text-teal-700 underline decoration-teal-300 underline-offset-2 hover:text-teal-800">
-              hospital and surgery books for kids
-            </a>.
-          </p>
-        </div>
-      </div>
-    </section>
-  )}
-
-  {isHospital && (
-    <section class="mx-auto max-w-5xl px-4 pb-12 sm:px-6 lg:px-8">
-      <div class="card p-6 sm:p-8">
-        <h2 class="font-display text-2xl font-semibold">Children&apos;s books for hospital stays, surgery, and procedures</h2>
-        <div class="mt-4 space-y-4 text-ink-light">
-          <p>
-            Hospitals can feel unfamiliar to children, especially when they are preparing for surgery, imaging, lab work, anesthesia, or an overnight admission. The books in this collection can help introduce hospital rooms, medical equipment, doctors and nurses, procedures, recovery, and going home in a way children can revisit at their own pace.
-          </p>
-          <p>
-            For children dealing with fear or uncertainty, browse our{' '}
-            <a href="/topics/feelings-coping/" class="font-semibold text-teal-700 underline decoration-teal-300 underline-offset-2 hover:text-teal-800">
-              books about medical anxiety and coping
-            </a>.
-            If a brother or sister is the one receiving care, our{' '}
-            <a href="/topics/siblings/" class="font-semibold text-teal-700 underline decoration-teal-300 underline-offset-2 hover:text-teal-800">
-              books for siblings during medical care
-            </a>{' '}
-            may also help.
-          </p>
+          {intro.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+          {relatedLinks.length > 0 && (
+            <p>
+              You may also want to browse{' '}
+              {relatedLinks.map((link, index) => (
+                <>
+                  {index > 0 && (index === relatedLinks.length - 1 ? ' and ' : ', ')}
+                  <a href={link.href} class="font-semibold text-teal-700 underline decoration-teal-300 underline-offset-2 hover:text-teal-800">
+                    {link.label}
+                  </a>
+                </>
+              ))}.
+            </p>
+          )}
         </div>
       </div>
     </section>
@@ -232,9 +374,7 @@ const jsonLd = faqSchema ? [collectionSchema, breadcrumbSchema, faqSchema] : [co
         </div>
       ) : (
         <>
-          <h2 class="mb-2 font-display text-2xl font-semibold">
-            {isNicu ? 'Browse NICU and preemie books' : isHospital ? 'Browse hospital and surgery books for kids' : `Books for ${topic.label}`}
-          </h2>
+          <h2 class="mb-2 font-display text-2xl font-semibold">{browseHeadings[topic.slug] ?? `Books for ${topic.label}`}</h2>
           <p class="mb-6 text-sm font-semibold text-ink-light">
             {books.length} {books.length === 1 ? 'book' : 'books'} for {topic.label}
           </p>
@@ -251,9 +391,7 @@ const jsonLd = faqSchema ? [collectionSchema, breadcrumbSchema, faqSchema] : [co
   {activeFaq && (
     <section class="mx-auto max-w-5xl px-4 pb-20 sm:px-6 lg:px-8">
       <div class="border-t border-sand-200 pt-10">
-        <h2 class="font-display text-2xl font-semibold">
-          {isNicu ? 'NICU books: common questions' : 'Hospital and surgery books: common questions'}
-        </h2>
+        <h2 class="font-display text-2xl font-semibold">{faqHeadings[topic.slug] ?? `${topic.label}: common questions`}</h2>
         <div class="mt-6 space-y-7">
           {activeFaq.map((item) => (
             <div>
