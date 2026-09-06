@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
-import type { Book, AgeBucket, Topic } from '../lib/books';
-import { getAgeBucketForBook, formatAgeRange } from '../lib/books';
+import type { Book, AgeBucket, Topic } from '../lib/bookTypes';
+import { getAgeBucketForBook, formatAgeRange } from '../lib/bookTypes';
 import { coverPaletteFor, coverCandidatesFor } from '../lib/cover';
 import { badgeClassesFor } from '../lib/badges';
 import { translateLabel } from '../i18n/labels';
