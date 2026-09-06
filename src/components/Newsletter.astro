@@ -9,40 +9,102 @@ const copy = lang === 'es'
       label: 'Tu dirección de correo electrónico',
       placeholder: 'Tu correo electrónico',
       button: 'Suscribirse',
+      sending: 'Enviando…',
       success: '¡Gracias por suscribirte! Pronto estaremos en contacto.',
+      invalid: 'Introduce una dirección de correo válida.',
+      error: 'No pudimos completar la suscripción. Inténtalo de nuevo o escríbenos a hello@mightylittlebookshelf.com.',
     }
   : {
       label: 'Your email address',
       placeholder: 'Your email address',
       button: 'Subscribe',
+      sending: 'Sending…',
       success: "Thanks for subscribing! We'll be in touch soon.",
+      invalid: 'Please enter a valid email address.',
+      error: "We couldn't complete your signup. Please try again, or email hello@mightylittlebookshelf.com.",
     };
+
+// Posts to the same form service the contact page already uses, so signups reach a
+// real inbox. Swap ENDPOINT for a mailing-list provider's when one is chosen.
+const ENDPOINT = 'https://formsubmit.co/ajax/hello@mightylittlebookshelf.com';
 ---
 
-<form id="newsletter-form" class="flex flex-col gap-2 sm:flex-row" novalidate>
-  <label for="newsletter-email" class="sr-only">{copy.label}</label>
+<form
+  class="newsletter-form flex flex-col gap-2 sm:flex-row"
+  data-endpoint={ENDPOINT}
+  data-copy={JSON.stringify(copy)}
+  novalidate
+>
+  <label class="sr-only" for={`newsletter-email-${lang}`}>{copy.label}</label>
   <input
-    id="newsletter-email"
+    id={`newsletter-email-${lang}`}
     name="email"
     type="email"
     required
+    autocomplete="email"
     placeholder={copy.placeholder}
     class="w-full rounded-full border border-teal-200 bg-white px-4 py-2 text-sm text-ink placeholder:text-ink-light/60 focus:border-teal-500"
   />
-  <button type="submit" class="rounded-full bg-teal-700 px-5 py-2 text-sm font-bold text-cream-50 hover:bg-teal-600">
+  {/* Bot trap: a real person leaves this empty. */}
+  <input type="text" name="_honey" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
+  <button
+    type="submit"
+    class="rounded-full bg-teal-700 px-5 py-2 text-sm font-bold text-cream-50 hover:bg-teal-600 disabled:opacity-70"
+  >
     {copy.button}
   </button>
 </form>
-<p id="newsletter-message" class="mt-2 text-sm text-teal-700" role="status" hidden>
-  {copy.success}
-</p>
+<p class="newsletter-message mt-2 text-sm text-teal-700" role="status" hidden></p>
 
 <script>
-  const form = document.getElementById('newsletter-form') as HTMLFormElement | null;
-  const message = document.getElementById('newsletter-message');
-  form?.addEventListener('submit', (event) => {
-    event.preventDefault();
-    form.reset();
-    message?.removeAttribute('hidden');
+  document.querySelectorAll<HTMLFormElement>('.newsletter-form').forEach((form) => {
+    const message = form.parentElement?.querySelector<HTMLElement>('.newsletter-message');
+    const button = form.querySelector('button[type="submit"]') as HTMLButtonElement | null;
+    const input = form.querySelector('input[name="email"]') as HTMLInputElement | null;
+    const copy = JSON.parse(form.dataset.copy || '{}');
+    const buttonLabel = button?.textContent ?? '';
+
+    const say = (text: string, ok: boolean) => {
+      if (!message) return;
+      message.textContent = text;
+      message.classList.toggle('text-teal-700', ok);
+      message.classList.toggle('text-coral-600', !ok);
+      message.hidden = false;
+    };
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      if (!input || !button) return;
+
+      // The form is novalidate so the message lands in our own status line.
+      if (!input.checkValidity() || !input.value.trim()) {
+        say(copy.invalid, false);
+        input.focus();
+        return;
+      }
+
+      button.disabled = true;
+      button.textContent = copy.sending;
+      try {
+        const response = await fetch(form.dataset.endpoint as string, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify({
+            email: input.value.trim(),
+            _subject: 'New Mighty Little Bookshelf newsletter signup',
+            _honey: (form.querySelector('input[name="_honey"]') as HTMLInputElement | null)?.value ?? '',
+          }),
+        });
+        if (!response.ok) throw new Error(String(response.status));
+        form.reset();
+        say(copy.success, true);
+      } catch {
+        // Never claim a signup we could not actually deliver.
+        say(copy.error, false);
+      } finally {
+        button.disabled = false;
+        button.textContent = buttonLabel;
+      }
+    });
   });
 </script>
