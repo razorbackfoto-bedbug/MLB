@@ -19,9 +19,10 @@ const { topic } = Astro.props as Props;
 const books = getBooksForTopic(topic.slug);
 const spanishBooks = getSpanishBooks();
 const hasSpanishAlternate = spanishBooks.some((book) => bookMatchesTopic(book, topic));
+const isNicu = topic.slug === 'nicu-prematurity';
 
 const seoTitles: Record<string, string> = {
-  'nicu-prematurity': "Children's Books About the NICU & Prematurity",
+  'nicu-prematurity': 'NICU Books for Kids, Siblings & Families',
   siblings: "Children's Books for Siblings During Medical Care",
   'hospital-stays': "Children's Books About Hospital Stays & Surgery",
   cardiac: "Children's Books About Heart Conditions & Cardiac Care",
@@ -35,7 +36,9 @@ const seoTitles: Record<string, string> = {
 };
 
 const seoTitle = seoTitles[topic.slug] ?? `Children's Books About ${topic.label}`;
-const seoDescription = `${topic.description} Browse ${books.length} curated ${books.length === 1 ? 'book' : 'books'} for children and families.`;
+const seoDescription = isNicu
+  ? `Browse ${books.length} curated NICU books for kids, siblings, and families, including children's books about premature babies, preemies, NICU stays, and coming home.`
+  : `${topic.description} Browse ${books.length} curated ${books.length === 1 ? 'book' : 'books'} for children and families.`;
 const pagePath = `/topics/${topic.slug}/`;
 const pageUrl = new URL(pagePath, 'https://mightylittlebookshelf.com').toString();
 
@@ -68,6 +71,42 @@ const breadcrumbSchema = {
     { '@type': 'ListItem', position: 3, name: topic.label, item: pageUrl },
   ],
 };
+
+const nicuFaq = [
+  {
+    question: 'What are NICU books for kids?',
+    answer: 'NICU books for kids use child-friendly stories and illustrations to explain premature birth, neonatal intensive care, medical equipment, hospital routines, and the experience of having a baby in the NICU.',
+  },
+  {
+    question: 'Are there NICU books for siblings?',
+    answer: 'Yes. Many NICU books are written specifically for big brothers and sisters. They can help siblings understand why a new baby may need to stay in the hospital, what they may see or hear in the NICU, and how they can stay connected to their new sibling.',
+  },
+  {
+    question: 'Are there children’s books about premature babies and preemies?',
+    answer: 'Yes. Children’s books about premature babies often focus on being born early, growing stronger in the NICU, medical support a preemie may need, and the transition from the hospital to home.',
+  },
+  {
+    question: 'How do I choose a NICU book for a child?',
+    answer: 'Start with the child’s age, relationship to the baby, and what you want the book to explain. Younger children often benefit from simple picture books, while older siblings may appreciate stories with more detail about the NICU experience and medical care.',
+  },
+];
+
+const faqSchema = isNicu
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: nicuFaq.map((item) => ({
+        '@type': 'Question',
+        name: item.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: item.answer,
+        },
+      })),
+    }
+  : null;
+
+const jsonLd = faqSchema ? [collectionSchema, breadcrumbSchema, faqSchema] : [collectionSchema, breadcrumbSchema];
 ---
 
 <BaseLayout
@@ -75,7 +114,7 @@ const breadcrumbSchema = {
   description={seoDescription}
   alternateEnglishPath={pagePath}
   alternateSpanishPath={hasSpanishAlternate ? `/es/topics/${topic.slug}/` : null}
-  jsonLd={[collectionSchema, breadcrumbSchema]}
+  jsonLd={jsonLd}
 >
   <section class="mx-auto max-w-5xl px-4 pb-4 pt-8 sm:px-6 lg:px-8">
     <nav class="text-sm text-ink-light" aria-label="Breadcrumb">
@@ -92,10 +131,39 @@ const breadcrumbSchema = {
       </span>
       <div>
         <h1 class="font-display text-3xl font-semibold sm:text-4xl">{seoTitle}</h1>
-        <p class="mt-2 max-w-2xl text-ink-light">{topic.description}</p>
+        {isNicu ? (
+          <p class="mt-2 max-w-3xl text-ink-light">
+            Find children&apos;s books about NICU stays, premature birth, preemies, medical equipment, coming home from the NICU, and becoming a big brother or sister to a baby in neonatal intensive care.
+          </p>
+        ) : (
+          <p class="mt-2 max-w-2xl text-ink-light">{topic.description}</p>
+        )}
       </div>
     </div>
   </section>
+
+  {isNicu && (
+    <section class="mx-auto max-w-5xl px-4 pb-12 sm:px-6 lg:px-8">
+      <div class="card p-6 sm:p-8">
+        <h2 class="font-display text-2xl font-semibold">Children&apos;s books for understanding the NICU</h2>
+        <div class="mt-4 space-y-4 text-ink-light">
+          <p>
+            A NICU stay can be hard to explain to a child. The books in this collection can help families introduce ideas such as premature birth, incubators, monitors, breathing support, feeding support, hospital routines, and the wait to bring a baby home using language and pictures children can understand.
+          </p>
+          <p>
+            If you are helping an older brother or sister understand what is happening, also browse our{' '}
+            <a href="/topics/siblings/" class="font-semibold text-teal-700 underline decoration-teal-300 underline-offset-2 hover:text-teal-800">
+              books for siblings during medical care
+            </a>.
+            For books about procedures, surgery, and hospital visits, see{' '}
+            <a href="/topics/hospital-stays/" class="font-semibold text-teal-700 underline decoration-teal-300 underline-offset-2 hover:text-teal-800">
+              hospital and surgery books for kids
+            </a>.
+          </p>
+        </div>
+      </div>
+    </section>
+  )}
 
   <section class="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
     {
@@ -112,6 +180,9 @@ const breadcrumbSchema = {
         </div>
       ) : (
         <>
+          <h2 class="mb-2 font-display text-2xl font-semibold">
+            {isNicu ? 'Browse NICU and preemie books' : `Books for ${topic.label}`}
+          </h2>
           <p class="mb-6 text-sm font-semibold text-ink-light">
             {books.length} {books.length === 1 ? 'book' : 'books'} for {topic.label}
           </p>
@@ -124,4 +195,20 @@ const breadcrumbSchema = {
       )
     }
   </section>
+
+  {isNicu && (
+    <section class="mx-auto max-w-5xl px-4 pb-20 sm:px-6 lg:px-8">
+      <div class="border-t border-sand-200 pt-10">
+        <h2 class="font-display text-2xl font-semibold">NICU books: common questions</h2>
+        <div class="mt-6 space-y-7">
+          {nicuFaq.map((item) => (
+            <div>
+              <h3 class="font-display text-lg font-semibold text-ink">{item.question}</h3>
+              <p class="mt-2 text-ink-light">{item.answer}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
 </BaseLayout>
