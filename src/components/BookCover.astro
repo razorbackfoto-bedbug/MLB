@@ -7,8 +7,12 @@ interface Props {
   book: Book;
   class?: string;
   lang?: Lang;
+  /** Set on an above-the-fold cover (the book detail hero). Lazy-loading the LCP
+      element defers its request until layout confirms it is in view, which delays
+      the largest paint by a round trip. */
+  priority?: boolean;
 }
-const { book, class: className = '', lang = 'en' } = Astro.props;
+const { book, class: className = '', lang = 'en', priority = false } = Astro.props;
 
 const palette = coverPaletteFor(book.slug);
 const altText = lang === 'es' ? `Portada de ${book.title}` : `Cover of ${book.title}`;
@@ -23,7 +27,8 @@ const coverCandidates = coverCandidatesFor(book);
     data-cover-index="0"
     alt={altText}
     class:list={['aspect-[3/4] w-full rounded-2xl object-cover shadow-card', className]}
-    loading="lazy"
+    loading={priority ? 'eager' : 'lazy'}
+    fetchpriority={priority ? 'high' : undefined}
     onerror="window.__mlbCoverFallback(this)"
     onload="if(this.naturalWidth<=2||this.naturalHeight<=2)window.__mlbCoverFallback(this)"
   />
