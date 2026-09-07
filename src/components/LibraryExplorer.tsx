@@ -38,23 +38,33 @@ function FilterGroup({
   selected: Set<string>;
   onToggle: (value: string) => void;
 }) {
+  const selectedCount = options.filter((option) => selected.has(option.value)).length;
   return (
-    <fieldset class="border-t border-teal-100 pt-4 first:border-t-0 first:pt-0">
-      <legend class="font-body text-sm font-bold uppercase tracking-wide text-teal-700">{title}</legend>
-      <div class="mt-3 flex flex-col gap-2">
-        {options.map((opt) => (
-          <label class="flex cursor-pointer items-center gap-2 text-sm text-ink">
-            <input
-              type="checkbox"
-              class="h-4 w-4 rounded border-teal-300 text-teal-700 focus:ring-teal-500"
-              checked={selected.has(opt.value)}
-              onChange={() => onToggle(opt.value)}
-            />
-            {opt.label}
-          </label>
-        ))}
-      </div>
-    </fieldset>
+    <details class="group border-t border-teal-100 pt-3 first:border-t-0 first:pt-0" open={selectedCount > 0 || title === 'Age Range' || title === 'Rango de Edad'}>
+      <summary class="flex cursor-pointer list-none items-center justify-between gap-3 rounded-lg py-1 font-body text-sm font-bold uppercase tracking-wide text-teal-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-500">
+        <span class="flex items-center gap-2">
+          {title}
+          {selectedCount > 0 && <span class="inline-flex min-w-5 items-center justify-center rounded-full bg-coral-100 px-1.5 py-0.5 text-xs text-coral-700">{selectedCount}</span>}
+        </span>
+        <span class="text-base transition-transform group-open:rotate-180" aria-hidden="true">⌄</span>
+      </summary>
+      <fieldset>
+        <legend class="sr-only">{title}</legend>
+        <div class="mt-2 flex flex-col gap-2 pb-1">
+          {options.map((opt) => (
+            <label class="flex cursor-pointer items-center gap-2 text-sm text-ink">
+              <input
+                type="checkbox"
+                class="h-4 w-4 rounded border-teal-300 text-teal-700 focus:ring-teal-500"
+                checked={selected.has(opt.value)}
+                onChange={() => onToggle(opt.value)}
+              />
+              {opt.label}
+            </label>
+          ))}
+        </div>
+      </fieldset>
+    </details>
   );
 }
 
@@ -219,11 +229,23 @@ export default function LibraryExplorer({ books, topics, ageBuckets, audienceOpt
   const [sort, setSort] = useState<SortKey>('title-asc');
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+  const [savedSlugs, setSavedSlugs] = useState<Set<string>>(new Set());
+  const [showSavedOnly, setShowSavedOnly] = useState(false);
   const resultsTopRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    try {
+      const saved = JSON.parse(localStorage.getItem('mlb-saved-books') ?? '[]');
+      if (Array.isArray(saved)) setSavedSlugs(new Set(saved.filter((slug): slug is string => typeof slug === 'string')));
+    } catch {
+      setSavedSlugs(new Set());
+    }
+  }, []);
 
   const results = useMemo(() => {
     const q = query.trim().toLowerCase();
     let filtered = books.filter((book) => {
+      if (showSavedOnly && !savedSlugs.has(book.slug)) return false;
       if (selectedAge.size) {
         const bucket = getAgeBucketForBook(book);
         if (!bucket || !selectedAge.has(bucket.slug)) return false;
@@ -248,11 +270,11 @@ export default function LibraryExplorer({ books, topics, ageBuckets, audienceOpt
       sort === 'title-asc' ? a.title.localeCompare(b.title) : b.title.localeCompare(a.title),
     );
     return filtered;
-  }, [books, query, selectedAge, selectedTopics, selectedAudience, selectedTypes, sort]);
+  }, [books, query, selectedAge, selectedTopics, selectedAudience, selectedTypes, sort, showSavedOnly, savedSlugs]);
 
   useEffect(() => {
     setCurrentPage(1);
-  }, [query, selectedAge, selectedTopics, selectedAudience, selectedTypes, sort]);
+  }, [query, selectedAge, selectedTopics, selectedAudience, selectedTypes, sort, showSavedOnly]);
 
   const totalPages = Math.max(1, Math.ceil(results.length / BOOKS_PER_PAGE));
   const pageStart = (currentPage - 1) * BOOKS_PER_PAGE;
@@ -408,13 +430,25 @@ export default function LibraryExplorer({ books, topics, ageBuckets, audienceOpt
             )}
           </div>
 
-          <label class="flex items-center gap-2 text-sm text-ink-light">
-            {ui.sortBy}
-            <select class="rounded-full border border-teal-200 bg-white px-3 py-1.5 text-ink" value={sort} onChange={(e) => setSort((e.target as HTMLSelectElement).value as SortKey)}>
-              <option value="title-asc">{ui.sortTitleAsc}</option>
-              <option value="title-desc">{ui.sortTitleDesc}</option>
-            </select>
-          </label>
+          <div class="flex flex-wrap items-center gap-2">
+            <button
+              type="button"
+              onClick={() => setShowSavedOnly(!showSavedOnly)}
+              aria-pressed={showSavedOnly}
+              class={`inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-sm font-semibold transition ${showSavedOnly ? 'border-coral-300 bg-coral-100 text-coral-700' : 'border-teal-200 bg-white text-teal-700 hover:bg-teal-50'}`}
+            >
+              <span aria-hidden="true">♥</span>
+              {showSavedOnly ? ui.allBooks : ui.savedBooks}
+              {!showSavedOnly && savedSlugs.size > 0 && <span class="inline-flex min-w-5 items-center justify-center rounded-full bg-coral-500 px-1.5 text-xs text-white">{savedSlugs.size}</span>}
+            </button>
+            <label class="flex items-center gap-2 text-sm text-ink-light">
+              {ui.sortBy}
+              <select class="rounded-full border border-teal-200 bg-white px-3 py-1.5 text-ink" value={sort} onChange={(e) => setSort((e.target as HTMLSelectElement).value as SortKey)}>
+                <option value="title-asc">{ui.sortTitleAsc}</option>
+                <option value="title-desc">{ui.sortTitleDesc}</option>
+              </select>
+            </label>
+          </div>
         </div>
 
         {results.length > 0 && (
@@ -425,8 +459,8 @@ export default function LibraryExplorer({ books, topics, ageBuckets, audienceOpt
 
         {results.length === 0 ? (
           <div class="card mt-8 p-10 text-center">
-            <p class="font-display text-lg text-teal-700">{ui.noResultsTitle}</p>
-            <p class="mt-2 text-sm text-ink-light">{ui.noResultsBody}</p>
+            <p class="font-display text-lg text-teal-700">{showSavedOnly && savedSlugs.size === 0 ? ui.noSavedTitle : ui.noResultsTitle}</p>
+            <p class="mt-2 text-sm text-ink-light">{showSavedOnly && savedSlugs.size === 0 ? ui.noSavedBody : ui.noResultsBody}</p>
           </div>
         ) : (
           <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
