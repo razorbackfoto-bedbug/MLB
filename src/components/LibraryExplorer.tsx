@@ -18,6 +18,7 @@ interface Props {
 }
 
 type SortKey = 'title-asc' | 'title-desc';
+const BOOKS_PER_PAGE = 24;
 
 function toggle(set: Set<string>, value: string): Set<string> {
   const next = new Set(set);
@@ -59,7 +60,6 @@ function FilterGroup({
 
 function LibraryBookCard({ book, lang }: { book: LibraryBook; lang: Lang }) {
   const palette = coverPaletteFor(book.slug);
-  const ui = t(lang);
   const booksHref = lang === 'es' ? '/es/books' : '/books';
   const altText = lang === 'es' ? `Portada de ${book.title}` : `Cover of ${book.title}`;
   const placeholderLabel = lang === 'es' ? `Portada provisional de ${book.title}` : `Cover placeholder for ${book.title}`;
@@ -139,6 +139,76 @@ function LibraryBookCard({ book, lang }: { book: LibraryBook; lang: Lang }) {
   );
 }
 
+function Pagination({
+  currentPage,
+  totalPages,
+  onPageChange,
+  lang,
+}: {
+  currentPage: number;
+  totalPages: number;
+  onPageChange: (page: number) => void;
+  lang: Lang;
+}) {
+  const ui = t(lang);
+  if (totalPages <= 1) return null;
+
+  const pages = Array.from(new Set([
+    1,
+    totalPages,
+    currentPage - 1,
+    currentPage,
+    currentPage + 1,
+  ].filter((page) => page >= 1 && page <= totalPages))).sort((a, b) => a - b);
+
+  return (
+    <nav class="flex items-center justify-center gap-2" aria-label={ui.pageOf(currentPage, totalPages)}>
+      <button
+        type="button"
+        disabled={currentPage === 1}
+        onClick={() => onPageChange(currentPage - 1)}
+        class="rounded-full border border-teal-200 bg-white px-4 py-2 text-sm font-semibold text-teal-700 hover:bg-teal-50 disabled:cursor-not-allowed disabled:opacity-40"
+      >
+        {ui.previousPage}
+      </button>
+
+      <div class="hidden items-center gap-2 sm:flex">
+        {pages.map((page, index) => (
+          <>
+            {index > 0 && page - pages[index - 1] > 1 && <span class="px-1 text-ink-light" aria-hidden="true">…</span>}
+            <button
+              type="button"
+              onClick={() => onPageChange(page)}
+              aria-label={ui.goToPage(page)}
+              aria-current={page === currentPage ? 'page' : undefined}
+              class={`h-10 min-w-10 rounded-full px-3 text-sm font-semibold ${
+                page === currentPage
+                  ? 'bg-teal-700 text-cream-50'
+                  : 'border border-teal-200 bg-white text-teal-700 hover:bg-teal-50'
+              }`}
+            >
+              {page}
+            </button>
+          </>
+        ))}
+      </div>
+
+      <span class="min-w-24 text-center text-sm font-semibold text-ink-light sm:hidden">
+        {ui.pageOf(currentPage, totalPages)}
+      </span>
+
+      <button
+        type="button"
+        disabled={currentPage === totalPages}
+        onClick={() => onPageChange(currentPage + 1)}
+        class="rounded-full border border-teal-200 bg-white px-4 py-2 text-sm font-semibold text-teal-700 hover:bg-teal-50 disabled:cursor-not-allowed disabled:opacity-40"
+      >
+        {ui.nextPage}
+      </button>
+    </nav>
+  );
+}
+
 export default function LibraryExplorer({ books, topics, ageBuckets, audienceOptions, bookTypeOptions, lang = 'en' }: Props) {
   const ui = t(lang);
   const [query, setQuery] = useState('');
@@ -148,6 +218,8 @@ export default function LibraryExplorer({ books, topics, ageBuckets, audienceOpt
   const [selectedTypes, setSelectedTypes] = useState<Set<string>>(new Set());
   const [sort, setSort] = useState<SortKey>('title-asc');
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const resultsTopRef = useRef<HTMLDivElement | null>(null);
 
   const results = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -177,6 +249,20 @@ export default function LibraryExplorer({ books, topics, ageBuckets, audienceOpt
     );
     return filtered;
   }, [books, query, selectedAge, selectedTopics, selectedAudience, selectedTypes, sort]);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [query, selectedAge, selectedTopics, selectedAudience, selectedTypes, sort]);
+
+  const totalPages = Math.max(1, Math.ceil(results.length / BOOKS_PER_PAGE));
+  const pageStart = (currentPage - 1) * BOOKS_PER_PAGE;
+  const pageEnd = Math.min(pageStart + BOOKS_PER_PAGE, results.length);
+  const paginatedResults = results.slice(pageStart, pageEnd);
+
+  const changePage = (page: number) => {
+    setCurrentPage(Math.min(Math.max(page, 1), totalPages));
+    resultsTopRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
 
   const activeFilterCount = selectedAge.size + selectedTopics.size + selectedAudience.size + selectedTypes.size;
 
@@ -247,7 +333,7 @@ export default function LibraryExplorer({ books, topics, ageBuckets, audienceOpt
         </button>
       </aside>
 
-      <div>
+      <div ref={resultsTopRef} class="scroll-mt-24">
         <label for="library-search" class="sr-only">{ui.searchSrLabel}</label>
         <div class="relative">
           <svg class="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-ink-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
@@ -309,7 +395,9 @@ export default function LibraryExplorer({ books, topics, ageBuckets, audienceOpt
 
         <div class="mt-3 flex flex-wrap items-center justify-between gap-3">
           <div class="flex flex-wrap items-center gap-2">
-            <span class="text-sm font-semibold text-ink-light">{ui.showingBooks(results.length)}</span>
+            <span class="text-sm font-semibold text-ink-light">
+              {results.length > 0 ? ui.showingBookRange(pageStart + 1, pageEnd, results.length) : ui.showingBooks(0)}
+            </span>
             {activeChips.map((chip) => (
               <button type="button" onClick={chip.onRemove} class="pill bg-teal-100 text-teal-800 hover:bg-teal-200">
                 {chip.label}<span class="ml-1" aria-hidden="true">×</span>
@@ -329,6 +417,12 @@ export default function LibraryExplorer({ books, topics, ageBuckets, audienceOpt
           </label>
         </div>
 
+        {results.length > 0 && (
+          <div class="mt-4 border-t border-teal-100 pt-4">
+            <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={changePage} lang={lang} />
+          </div>
+        )}
+
         {results.length === 0 ? (
           <div class="card mt-8 p-10 text-center">
             <p class="font-display text-lg text-teal-700">{ui.noResultsTitle}</p>
@@ -336,7 +430,13 @@ export default function LibraryExplorer({ books, topics, ageBuckets, audienceOpt
           </div>
         ) : (
           <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
-            {results.map((book) => <LibraryBookCard key={book.slug} book={book} lang={lang} />)}
+            {paginatedResults.map((book) => <LibraryBookCard key={book.slug} book={book} lang={lang} />)}
+          </div>
+        )}
+
+        {results.length > 0 && (
+          <div class="mt-8 border-t border-teal-100 pt-6">
+            <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={changePage} lang={lang} />
           </div>
         )}
       </div>
