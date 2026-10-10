@@ -116,6 +116,15 @@ const schemas = [organizationSchema, websiteSchema, ...extraSchemas];
       })(window, document, 'script', 'dataLayer', 'GTM-W76MZKC6');
     </script>
     <!-- End Google Tag Manager -->
+    <!-- Google tag (gtag.js) -->
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-0TR8RZ3PGB"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-0TR8RZ3PGB');
+    </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     {/* Requested from the head, not via @import in the stylesheet: an @import is only
         discovered after the CSS itself has downloaded and parsed, which puts the font
